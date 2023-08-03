@@ -44,12 +44,11 @@
 <script setup>
 import { computed, ref } from 'vue';
 
-import ArrowIcon from '@/assets/icons/chevron-down.svg';
-import SidebarItem from '@/components/Layout/Units/sidebar/SidebarItem.vue';
-import Ripple from '@/components/Ripple.vue';
+import Ripple from '@/components/basic/Ripple.vue';
+import SidebarItem from '@/components/layout/Units/sidebar/SidebarItem.vue';
 import { useRipple } from '@/hooks/useRipple';
+import { ThemeColors } from '@/model/colors/Theme';
 import { useThemeStore } from '@/stores/theme';
-import theme from '@/styles/colors';
 
 const themeStore = useThemeStore();
 const props = defineProps({
@@ -115,8 +114,8 @@ const openList = (event) => {
 };
 
 const choiceLink = (title) => { emits('choiceLink', title); };
-const background = computed(() => (themeStore.theme ? theme.DARK_BG_SIDEBAR : theme.LIGHT_BG_SIDEBAR));
-const textColor = computed(() => (themeStore.theme ? theme.DARK_TEXT : theme.LIGHT_TEXT));
+const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_SIDEBAR : ThemeColors.LIGHT_BG_SIDEBAR));
+const textColor = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
 </script>
 
 <style module lang="scss">

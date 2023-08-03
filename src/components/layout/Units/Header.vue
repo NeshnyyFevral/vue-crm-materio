@@ -26,14 +26,7 @@
     </div>
     <div :class="$style.right">
       <div>checkbox</div>
-      <button :class="$style.languageButton">
-        <img
-          :src="languageIcon"
-          :alt="language"
-          :class="$style.languageIcon"
-        >
-        {{ language }}
-      </button>
+
       <button :class="[$style.button, $style.notify]">
         notifyIcon
       </button>
@@ -80,7 +73,7 @@ import { useThemeStore } from '@/stores/theme';
 
 interface PropsType {
   active: boolean;
-  language: string;
+  language?: string;
   width: string;
 }
 

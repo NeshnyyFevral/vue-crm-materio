@@ -22,11 +22,11 @@
 <script setup>
 import { computed } from 'vue';
 
-import Ripple from '@/components/Ripple.vue';
+import Ripple from '@/components/basic/Ripple.vue';
 import { useRipple } from '@/hooks/useRipple';
+import { Colors } from '@/model/colors/Colors';
+import { ThemeColors } from '@/model/colors/Theme';
 import { useThemeStore } from '@/stores/theme';
-import GlobalColors from '@/styles/colors';
-import theme from '@/styles/colors';
 
 const themeStore = useThemeStore();
 
@@ -68,7 +68,7 @@ const onClick = (event) => {
   add(top, left, rippleColor);
 };
 
-const color = computed(() => (themeStore.theme ? theme.DARK_TEXT : theme.LIGHT_TEXT));
+const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
 </script>
 
 <style module lang="scss">
@@ -145,7 +145,7 @@ const color = computed(() => (themeStore.theme ? theme.DARK_TEXT : theme.LIGHT_T
   }
 
   .active {
-    --bg-color: v-bind(GlobalColors.PRIMARY);
+    --bg-color: v-bind(Colors.PRIMARY);
 
     background: linear-gradient(98deg,#cea0ff, var(--bg-color) 94%);
 

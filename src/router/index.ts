@@ -2,7 +2,7 @@ import { createRouter as _createRouter, createWebHistory } from 'vue-router';
 
 export const Routes = {
   /* PROTECTED PAGES */
-
+  CRM: 'crm',
   /* PUBLIC PAGES */
   LOGIN: 'login',
   REGISTRATION: 'registration',
@@ -22,6 +22,11 @@ export default function createRouter() {
       name: 'default',
       component: () => import('@/components/layout/Layout.vue'),
       children: [
+        {
+          path: Routes.CRM,
+          name: Routes.CRM,
+          component: () => import('@/views/protected/CRMPage.vue'),
+        },
       ],
     }, {
       path: '/:pathMatch(.*)*',

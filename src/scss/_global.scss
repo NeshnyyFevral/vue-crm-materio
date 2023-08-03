@@ -76,10 +76,6 @@ $color-text: (
   cursor: pointer;
 }
 
-.table-hover {
-  @include table-row-hover;
-}
-
 // TODO remove after update ui-kit
 .sb-popup__inner {
   overflow: auto;

@@ -67,10 +67,10 @@ import { computed, ref } from 'vue';
 
 import CrossIcon from '@/assets/icons/cross.svg';
 import LogoIcon from '@/assets/icons/Sidebar/logo.svg';
-import SidebarGroup from '@/components/Layout/Units/sidebar/SidebarGroup.vue';
-import SidebarTree from '@/model/sidebarTree';
+import SidebarGroup from '@/components/layout/Units/sidebar/SidebarGroup.vue';
+import { ThemeColors } from '@/model/colors/Theme';
+import SidebarTree from '@/model/Sidebar';
 import { useThemeStore } from '@/stores/theme';
-import theme from '@/styles/colors';
 
 const themeStore = useThemeStore();
 
@@ -96,8 +96,8 @@ const toggleList = (title) => { activeList.value = title; };
 
 const closedItemsGroup = computed(() => !props.open && !props.active);
 
-const background = computed(() => (themeStore.theme ? theme.DARK_BG_SIDEBAR : theme.LIGHT_BG_SIDEBAR));
-const colorTitle = computed(() => (themeStore.theme ? theme.DARK_TITLE : theme.LIGHT_TITLE));
+const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_SIDEBAR : ThemeColors.LIGHT_BG_SIDEBAR));
+const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : ThemeColors.LIGHT_TITLE));
 </script>
 
 <style module lang="scss">
@@ -107,8 +107,8 @@ const colorTitle = computed(() => (themeStore.theme ? theme.DARK_TITLE : theme.L
 
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 9999;
+    left: 0;
     width: 55px;
     height: 100vh;
     padding: 0;

@@ -78,13 +78,13 @@ const scroll = () => {
   active.value = !!window.scrollY;
 };
 
-onBeforeMount(() => {
-  if (!appStorage.get('authUser')) { // user
-    useRouter().push(Routes.LOGIN);
-  } else {
-    // useRouter().push(Routes.CRM);
-  }
-});
+// onBeforeMount(() => {
+//   if (!appStorage.get('authUser')) { // user
+//     useRouter().push(Routes.LOGIN);
+//   } else {
+//     // useRouter().push(Routes.CRM);
+//   }
+// });
 
 onMounted(() => { window.addEventListener('scroll', scroll); });
 onUnmounted(() => { window.removeEventListener('scroll', scroll); });
