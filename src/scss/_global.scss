@@ -1,0 +1,86 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--color-text);
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number]::-webkit-input-placeholder {
+  color: var(--color-text);
+  font-size: 16px;
+}
+input[type=number]::-moz-placeholder {
+  color: var(--color-text);
+  font-size: 16px;
+}
+
+.field-label {
+  margin-bottom: 2px;
+  font-weight: 500;
+  font-size: 14px;
+
+  &--personal {
+    color: var(--dark-color-600);
+    margin-bottom: 0;
+  }
+
+  &--checkbox {
+    margin-top: 5px;
+  }
+}
+
+.shadow {
+  box-shadow: var(--m-shadow);
+}
+
+$color-text: (
+        "warning": var(--warning-color-700),
+        "success": var(--success-color-700),
+        "primary": var(--primary-color-700),
+        "default": var(--dark-color-500),
+);
+
+@each $key, $color in $color-text {
+  .color-text-#{$key} {
+    color: $color;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.table-hover {
+  @include table-row-hover;
+}
+
+// TODO remove after update ui-kit
+.sb-popup__inner {
+  overflow: auto;
+}

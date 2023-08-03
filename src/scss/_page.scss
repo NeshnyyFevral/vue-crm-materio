@@ -1,0 +1,145 @@
+.page {
+  &__links {
+    display: flex;
+    margin-bottom: 24px;
+  }
+
+  &__link {
+    padding: 8px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.2s, color 0.2s;
+    color: var(--dark-color-600);
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--primary-color-200);
+    }
+
+    &--active {
+      background-color: var(--primary-color-600);
+      color: var(--light-color-200);
+
+      &:hover {
+        background-color: var(--primary-color-400);
+      }
+    }
+
+    & + & {
+      margin-left: 20px;
+    }
+  }
+
+  &__card {
+    padding: 20px 30px 30px;
+    color: var(--color-text);
+    background-color: var(--color-card);
+    border-radius: 20px;
+
+    &--wallet {
+      padding: 20px 0 30px;
+    }
+  }
+}
+
+.page__content {
+  overflow: auto;
+}
+
+.page-content--col2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-start;
+}
+
+.page-title {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  margin-bottom: 60px;
+  margin-top: 0;
+
+
+  &--complex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--dark-color-300);
+    bottom: -30px;
+    left: 0;
+  }
+}
+
+.page-subtitle {
+  margin-bottom: 60px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--dark-color-300);
+    bottom: -30px;
+    left: 0;
+  }
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.page-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-desc {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.page-back {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--primary-color-700);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-weight: 600;
+  margin: 24px 0;
+
+  &-icon path{
+    fill: var(--primary-color-700);
+  }
+
+  span {
+    margin-top: 2px;
+    margin-left: 4px;
+  }
+
+  &:hover {
+    color: var(--primary-color-500);
+  }
+}
+
+.page-logout {
+  font-size: 11px;
+  font-family: 'Roboto';
+
+  path {
+    fill: var(--primary-color-700) !important;
+  }
+}

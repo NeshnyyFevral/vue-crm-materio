@@ -1,0 +1,42 @@
+.loading-block {
+  --loading-bg-color: hsla(224, 60%, 35%, 0.25);
+  --loading-stop-color-1: hsla(0, 0%, 100%, 0.5);
+  --loading-stop-color-2: hsla(0, 0%, 100%, 0);
+
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    opacity: 0;
+    border-radius: inherit;
+    background-color: var(--loading-bg-color);
+    background-image: linear-gradient(to right, var(--loading-stop-color-1), var(--loading-stop-color-2));
+    background-size: 200% 100%;
+    transition: 0.2s;
+    pointer-events: none;
+  }
+
+  &--active {
+    &::after {
+      opacity: 0.2;
+      animation: animation-bg-position-x 2s linear infinite;
+      transition-delay: 0s;
+      pointer-events: all;
+    }
+  }
+}
+
+@keyframes animation-bg-position-x {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -400%;
+  }
+}
