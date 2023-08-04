@@ -48,9 +48,7 @@ import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import Ripple from '@/components/basic/Ripple.vue';
 import SidebarItem from '@/components/layout/Units/sidebar/SidebarItem.vue';
 import { useRipple } from '@/hooks/useRipple';
-import { ThemeColors } from '@/model/colors/Theme';
 import type { SidebarList } from '@/model/Sidebar';
-import { useThemeStore } from '@/stores/theme';
 
 interface PropsType {
   title: string;
@@ -68,8 +66,6 @@ interface EmitsType {
   (e: 'choiceLink', value: string): void;
 }
 
-const themeStore = useThemeStore();
-
 const props = defineProps<PropsType>();
 const emits = defineEmits<EmitsType>();
 
@@ -77,8 +73,6 @@ const listItems = ref(null);
 const listHeight = ref(`${props.count * 49}px`);
 
 const active = computed(() => (props.activeList === props.title));
-const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_SIDEBAR : ThemeColors.LIGHT_BG_SIDEBAR));
-const textColor = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
 
 const {
   add,
@@ -106,9 +100,6 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
 
 <style module lang="scss">
   .root {
-    --text-color: v-bind(textColor);
-    --group-bg: v-bind(background);
-
     position: relative;
     z-index: 100;
     width: 100%;
@@ -124,9 +115,9 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
     margin-bottom: 5px;
     overflow: hidden;
     font-size: 16px;
-    color: var(--text-color);
+    color: var(--color-text);
     cursor: pointer;
-    background-color: var(--group-bg);
+    background-color: var(--color-bg);
     border: none;
     border-top-right-radius: 32px;
     border-bottom-right-radius: 32px;
@@ -153,7 +144,7 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
   .arrowIcon, .prependIcon {
     width: 24px;
     height: 24px;
-    fill: var(--text-color);
+    fill: var(--color-text);
   }
 
   .buttonOpen {
@@ -179,7 +170,7 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
   .title {
     position: relative;
     font-weight: 400;
-    color: var(--text-color);
+    color: var(--color-text);
   }
 
   .prependIcon {

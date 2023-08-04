@@ -1,0 +1,25 @@
+@mixin dark {
+  --color-bg: #28243DFF;
+  --color-card: #312D4BFF;
+  --color-header: #312D4BFF;
+  --color-sidebar: #28243DFF;
+  --color-title: #E7E3FCFF;
+  --color-text: #E7E3FCDD;
+}
+
+@mixin light {
+  --color-bg: #F5F5F5;
+  --color-card: #FFFFFF;
+  --color-header: #FFFFFF;
+  --color-sidebar: #F5F5F5;
+  --color-title: #5E5669FF;
+  --color-text: #5E5669FF;
+}
+
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    @include light;
+  } @else {
+    @include dark;
+  }
+}

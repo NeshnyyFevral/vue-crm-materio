@@ -24,8 +24,6 @@ import { computed } from 'vue';
 import Ripple from '@/components/basic/Ripple.vue';
 import { useRipple } from '@/hooks/useRipple';
 import { Colors } from '@/model/colors/Colors';
-import { ThemeColors } from '@/model/colors/Theme';
-import { useThemeStore } from '@/stores/theme';
 
 interface PropsType {
   title: string;
@@ -37,8 +35,6 @@ interface PropsType {
 interface EmitsType {
   (e: 'choiceLink'): void;
 }
-
-const themeStore = useThemeStore();
 
 const emits = defineEmits<EmitsType>();
 const props = defineProps<PropsType>();
@@ -61,13 +57,10 @@ const onClick = (event: any) => {
   add(top, left, rippleColor);
 };
 
-const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
 </script>
 
 <style module lang="scss">
   .root {
-    --text-color: v-bind(color);
-
     position: relative;
     z-index: 99;
     display: flex;
@@ -109,7 +102,7 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
     margin-left: 0;
     font-size: 16px;
     font-weight: 400;
-    color: var(--text-color);
+    color: var(--color-text);
     transition: color 0.3s cubic-bezier(.25,.8,.5,1);
   }
 

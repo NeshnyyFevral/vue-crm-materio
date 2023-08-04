@@ -67,11 +67,7 @@ import { computed, ref } from 'vue';
 import CrossIcon from '@/assets/icons/cross.svg';
 import LogoIcon from '@/assets/icons/Sidebar/logo.svg';
 import SidebarGroup from '@/components/layout/Units/sidebar/SidebarGroup.vue';
-import { ThemeColors } from '@/model/colors/Theme';
 import SidebarTree from '@/model/Sidebar';
-import { useThemeStore } from '@/stores/theme';
-
-const themeStore = useThemeStore();
 
 interface PropsType {
   open: boolean;
@@ -97,15 +93,10 @@ const toggleList = (title: string) => {
 
 const closedItemsGroup = computed(() => !props.open && !props.active);
 
-const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_SIDEBAR : ThemeColors.LIGHT_BG_SIDEBAR));
-const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : ThemeColors.LIGHT_TITLE));
 </script>
 
 <style module lang="scss">
   .root {
-    --sidebar-bg: v-bind(background);
-    --title-color: v-bind(colorTitle);
-
     position: fixed;
     top: 0;
     z-index: 9999;
@@ -114,7 +105,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
     height: 100vh;
     padding: 0;
     overflow: hidden;
-    background-color: var(--sidebar-bg);
+    background-color: var(--color-bg);
     transition: width 0.3s cubic-bezier(.25,.8,.5,1),
       transform 0.3s cubic-bezier(.25,.8,.5,1),
       background-color 0.3s cubic-bezier(.25,.8,.5,1);
@@ -148,7 +139,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
   .titleLogo {
     display: block;
     font-size: 20px;
-    color: var(--title-color);
+    color: var(--color-title);
     text-transform: uppercase;
   }
 
@@ -168,7 +159,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
     height: 16px;
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid var(--title-color);
+    border: 2px solid var(--color-title);
     border-radius: 50%;
     transition: right 0.3s cubic-bezier(.25,.8,.5,1),
       background-color 0.3s cubic-bezier(.25,.8,.5,1);
@@ -181,7 +172,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
       width: 5px;
       height: 5px;
       content: '';
-      background-color: var(--title-color);
+      background-color: var(--color-title);
       border-radius: 50%;
       opacity: 0;
       transition: opacity 0.2s cubic-bezier(.25,.8,.5,1),
@@ -234,8 +225,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
     height: 100%;
     padding-right: 10px;
     font-size: 16px;
-    color: var(--title-color);
-
+    color: var(--color-title);
   }
 
   .titleWrapper {
@@ -253,7 +243,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
     font-weight: 400;
     text-transform: uppercase;
     white-space: nowrap;
-    background-color: var(--sidebar-bg);
+    background-color: var(--color-sidebar);
     transition: background-color 0.3s cubic-bezier(.25,.8,.5,1);
   }
 
@@ -302,7 +292,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
       width: 28px;
       height: 28px;
       border: none;
-      fill: var(--title-color);
+      fill: var(--color-title);
 
       &::after {
         display: none;
@@ -310,7 +300,7 @@ const colorTitle = computed(() => (themeStore.theme ? ThemeColors.DARK_TITLE : T
     }
 
     .menu {
-      fill: var(--title-color);
+      fill: var(--color-title);
     }
   }
 </style>

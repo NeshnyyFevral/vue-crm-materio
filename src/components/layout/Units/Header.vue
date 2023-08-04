@@ -25,8 +25,6 @@
       </button>
     </div>
     <div :class="$style.right">
-      <div>checkbox</div>
-
       <button :class="[$style.button, $style.notify]">
         <NotifyIcon />
       </button>
@@ -61,7 +59,6 @@ import { useRouter } from 'vue-router';
 import NotifyIcon from '@/assets/icons/Header/notification.svg';
 import SearchIcon from '@/assets/icons/Header/search.svg';
 import MenuIcon from '@/assets/icons/Sidebar/menu.svg';
-import { ThemeColors } from '@/model/colors/Theme';
 import appStorage from '@/model/tools/StorageTools';
 import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';
@@ -102,14 +99,10 @@ const exit = () => {
   router.push(Routes.LOGIN);
 };
 
-const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_HEADER : ThemeColors.LIGHT_BG_HEADER));
-const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
 </script>
 
 <style module lang="scss">
   .root {
-    --text-color: v-bind(color);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -142,11 +135,11 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
 
   .button {
     position: relative;
-    color: var(--text-color);
+    color: var(--color-text);
     cursor: pointer;
     background: transparent;
     border: none;
-    fill: var(--text-color);
+    fill: var(--color-text);
 
     &::after {
       position: absolute;
@@ -155,7 +148,7 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
       width: 30px;
       height: 30px;
       content: '';
-      background-color: var(--text-color);
+      background-color: var(--color-text);
       border-radius: 50%;
       opacity: 0;
       transition: opacity 0.2s linear;
@@ -170,7 +163,7 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
   .languageButton {
     position: relative;
     margin-left: 40px;
-    color: var(--text-color);
+    color: var(--color-text);
     cursor: pointer;
     background: transparent;
     border: none;
@@ -195,14 +188,13 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
 
   .active {
     --header-width: v-bind(props.width);
-    --header-bg: v-bind(background);
 
     position: fixed;
     top: 0;
     z-index: 8888;
     width: var(--header-width);
     padding: 10px 20px;
-    background-color: var(--header-bg);
+    background-color: var(--color-header);
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 8px -4px rgb(94 86 105 / 42%);
   }
@@ -211,7 +203,7 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
     display: none;
     width: 23px;
     height: 23px;
-    fill: var(--text-color);
+    fill: var(--color-text);
 
     @media screen and (max-width: 1270px) {
       & {

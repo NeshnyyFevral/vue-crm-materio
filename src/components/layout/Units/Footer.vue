@@ -10,15 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import { Colors } from '@/model/colors/Colors';
-
-const textColor = Colors.DEFAULT;
 </script>
 
 <style module lang="scss">
   .root {
-    --text-color: v-bind(textColor);
-
     display: flex;
     align-items: center;
     justify-content: space-between;

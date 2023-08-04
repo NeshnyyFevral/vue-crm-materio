@@ -1,5 +1,10 @@
 <template>
-  <div :class="$style.root">
+  <div
+    :class="[
+      $style.root,
+      themeStore.theme && $style.darkRoot
+    ]"
+  >
     <div>
       <Sidebar
         :active="activeSidebar"
@@ -48,7 +53,6 @@
 
 <script setup lang="ts">
 import {
-  computed,
   onMounted,
   onUnmounted,
   ref,
@@ -57,18 +61,15 @@ import {
 import Footer from '@/components/layout/Units/Footer.vue';
 import Header from '@/components/layout/Units/Header.vue';
 import Sidebar from '@/components/layout/Units/sidebar/Sidebar.vue';
-import { ThemeColors } from '@/model/colors/Theme';
 import { useThemeStore } from '@/stores/theme';
 
 const themeStore = useThemeStore();
+
 const active = ref<boolean>(false);
 const openSidebar = ref<boolean>(false);
 const activeSidebar = ref<boolean>(false);
 const wrapper = ref<HTMLDivElement | null>(null);
 const headerWidth = ref<number>(0);
-
-const colorText = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
-const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG : ThemeColors.LIGHT_BG));
 
 const scroll = () => {
   headerWidth.value = wrapper.value?.clientWidth || 0;
@@ -80,19 +81,22 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
 </script>
 
 <style module lang="scss">
-  body {
-    --color-bg: v-bind(background);
-    background-color: #f5f5f5;
-  }
-
+@import "@/scss/mixins/mixins";
   .root {
-    --color-text: v-bind(colorText);
-
     display: flex;
     max-width: 1400px;
     padding: 0 15px;
     margin: 0 auto;
     color: var(--color-text);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    @include theme-colors(true);
+
+    .darkRoot {
+      @include theme-colors(false);
+    }
   }
 
   .content {
