@@ -21,12 +21,11 @@ export default function createRouter() {
       path: '/',
       name: 'default',
       component: () => import('@/components/layout/Layout.vue'),
-      children: [
-        {
-          path: Routes.CRM,
-          name: Routes.CRM,
-          component: () => import('@/views/protected/CRMPage.vue'),
-        },
+      children: [{
+        path: `/${Routes.CRM}`,
+        name: Routes.CRM,
+        component: () => import('@/views/protected/CRMPage.vue'),
+      },
       ],
     }, {
       path: '/:pathMatch(.*)*',

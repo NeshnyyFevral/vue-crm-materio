@@ -11,9 +11,9 @@
           $style.button,
           $style.mobileSidebar
         ]"
-        @click="$emit('switchSidebar')"
+        @click="emits('switchSidebar')"
       >
-        menuIcon
+        <MenuIcon />
       </button>
       <button
         :class="[
@@ -21,14 +21,14 @@
           $style.search
         ]"
       >
-        SearchIcom
+        <SearchIcon />
       </button>
     </div>
     <div :class="$style.right">
       <div>checkbox</div>
 
       <button :class="[$style.button, $style.notify]">
-        notifyIcon
+        <NotifyIcon />
       </button>
       <!--      <button
         :class="$style.button"
@@ -58,16 +58,11 @@ import {
 } from 'vue';
 import { useRouter } from 'vue-router';
 
+import NotifyIcon from '@/assets/icons/Header/notification.svg';
+import SearchIcon from '@/assets/icons/Header/search.svg';
+import MenuIcon from '@/assets/icons/Sidebar/menu.svg';
 import { ThemeColors } from '@/model/colors/Theme';
 import appStorage from '@/model/tools/StorageTools';
-// import Avatar from '@/components/Avatar.vue';
-// import Checkbox from '@/components/basic/Checkbox.vue';
-// import { AvatarCorner, AvatarSize } from '@/model/avatar';
-// import { CheckboxVariant } from '@/model/checkbox';
-// import { LanguageVariant } from '@/model/header';
-/* import NotifyIcon from '@/assets/icons/Header/notification.svg';
-import SearchIcon from '@/assets/icons/Header/search.svg';
-import MenuIcon from '@/assets/icons/Sidebar/menu.svg'; */
 import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';
 
@@ -77,10 +72,15 @@ interface PropsType {
   width: string;
 }
 
+interface EmitsType {
+  (e: 'switchSidebar'): void;
+}
+
 const router = useRouter();
 const themeStore = useThemeStore();
 
 const props = defineProps<PropsType>();
+const emits = defineEmits<EmitsType>();
 
 const themeValue = ref<boolean>(false);
 const displayedThemeValue = computed<'Dark' | 'Light'>(() => (themeValue.value ? 'Dark' : 'Light'));
@@ -188,8 +188,9 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
   .search,
   .theme,
   .notify {
-    width: 25px;
-    height: 25px;
+    svg {
+      width: 25px;
+    }
   }
 
   .active {
@@ -206,12 +207,16 @@ const color = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeCo
     box-shadow: 0 4px 8px -4px rgb(94 86 105 / 42%);
   }
 
-  @media screen and (max-width: 1270px) {
-    .mobileSidebar {
-      width: 23px;
-      height: 23px;
-      fill: var(--text-color);
+  .mobileSidebar {
+    display: none;
+    width: 23px;
+    height: 23px;
+    fill: var(--text-color);
+
+    @media screen and (max-width: 1270px) {
+      & {
+        display: block;
+      }
     }
   }
-
 </style>

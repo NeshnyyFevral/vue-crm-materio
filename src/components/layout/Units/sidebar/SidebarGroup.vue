@@ -41,63 +41,51 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import Ripple from '@/components/basic/Ripple.vue';
 import SidebarItem from '@/components/layout/Units/sidebar/SidebarItem.vue';
 import { useRipple } from '@/hooks/useRipple';
 import { ThemeColors } from '@/model/colors/Theme';
+import type { SidebarList } from '@/model/Sidebar';
 import { useThemeStore } from '@/stores/theme';
 
+interface PropsType {
+  title: string;
+  defaultIcon?: boolean;
+  closedItemsGroup: boolean;
+  count: number;
+  activeList: string;
+  list: SidebarList[];
+  activeLink: string;
+  icon: any;
+}
+
+interface EmitsType {
+  (e: 'toggle', value: string): void;
+  (e: 'choiceLink', value: string): void;
+}
+
 const themeStore = useThemeStore();
-const props = defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  defaultIcon: {
-    type: Boolean,
-    default: false,
-  },
-  closedItemsGroup: {
-    type: Boolean,
-    default: false,
-  },
-  count: {
-    type: Number,
-    default: 0,
-  },
-  activeList: {
-    type: String,
-    default: '',
-  },
-  list: {
-    type: Array,
-    default: () => [],
-  },
-  activeLink: {
-    type: String,
-    default: '',
-  },
-  icon: {
-    type: Object,
-    required: true,
-  },
-});
-const emits = defineEmits(['openList', 'closeList', 'choiceLink']);
+
+const props = defineProps<PropsType>();
+const emits = defineEmits<EmitsType>();
 
 const listItems = ref(null);
 const listHeight = ref(`${props.count * 49}px`);
 
 const active = computed(() => (props.activeList === props.title));
+const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_SIDEBAR : ThemeColors.LIGHT_BG_SIDEBAR));
+const textColor = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
 
 const {
   add,
   items,
 } = useRipple();
 
-const openList = (event) => {
+const openList = (event: any) => {
   const button = event.target;
 
   const left = event.pageX - button.clientLeft - 15;
@@ -107,15 +95,13 @@ const openList = (event) => {
   add(top, left, rippleColor);
 
   if (active.value) {
-    emits('closeList', '');
+    emits('toggle', '');
   } else {
-    emits('openList', props.title);
+    emits('toggle', props.title);
   }
 };
 
-const choiceLink = (title) => { emits('choiceLink', title); };
-const background = computed(() => (themeStore.theme ? ThemeColors.DARK_BG_SIDEBAR : ThemeColors.LIGHT_BG_SIDEBAR));
-const textColor = computed(() => (themeStore.theme ? ThemeColors.DARK_TEXT : ThemeColors.LIGHT_TEXT));
+const choiceLink = (title: string) => { emits('choiceLink', title); };
 </script>
 
 <style module lang="scss">

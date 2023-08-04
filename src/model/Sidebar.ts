@@ -6,6 +6,22 @@ import PagesIcon from '@/assets/icons/Sidebar/pages.svg';
 import UserIcon from '@/assets/icons/Sidebar/user.svg';
 import { Routes } from '@/router';
 
+export interface SidebarList {
+  title: string;
+  route: any;
+}
+
+export interface SidebarGroup {
+  title: string;
+  icon: any;
+  list: SidebarList[];
+}
+
+export interface Sidebar {
+  title: string;
+  group: SidebarGroup[];
+}
+
 export default [
   {
     title: '',
@@ -14,7 +30,7 @@ export default [
         title: 'Dashboards',
         icon: DashboardsIcon,
         list: [
-          { title: 'CRM', route: { } },
+          { title: 'CRM', route: { name: Routes.CRM } },
           { title: 'Analytics', route: {} },
           { title: 'eCommerce', route: {} },
         ],
@@ -93,4 +109,4 @@ export default [
       },
     ],
   },
-];
+] as Sidebar[];

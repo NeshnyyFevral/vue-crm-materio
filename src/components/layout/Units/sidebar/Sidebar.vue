@@ -17,7 +17,7 @@
             $style.headerButton,
             $style.menu
           ]"
-          @click="switchSidebar"
+          @click="toggle"
         >
           <CrossIcon />
         </button>
@@ -52,8 +52,7 @@
             :active-list="activeList"
             :closed-items-group="closedItemsGroup"
             :active-link="activeLink"
-            @openList="toggleList"
-            @closeList="toggleList"
+            @toggle="toggleList"
             @choiceLink="choiceLink"
           />
         </div>
@@ -62,7 +61,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 
 import CrossIcon from '@/assets/icons/cross.svg';
@@ -74,25 +73,27 @@ import { useThemeStore } from '@/stores/theme';
 
 const themeStore = useThemeStore();
 
-const props = defineProps({
-  open: {
-    type: Boolean,
-    default: true,
-  },
-  active: {
-    type: Boolean,
-    default: false,
-  },
-});
+interface PropsType {
+  open: boolean;
+  active: boolean;
+}
 
-const activeLink = ref('');
-const activeList = ref('');
+interface EmitsType {
+  (e: 'toggle'): void;
+}
 
-const emits = defineEmits(['switchSidebar']);
-const switchSidebar = () => { emits('switchSidebar'); };
+const props = defineProps<PropsType>();
+const emits = defineEmits<EmitsType>();
 
-const choiceLink = (title) => { activeLink.value = title; };
-const toggleList = (title) => { activeList.value = title; };
+const activeLink = ref<string>('');
+const activeList = ref<string>('');
+
+const toggle = () => { emits('toggle'); };
+
+const choiceLink = (title: string) => { activeLink.value = title; };
+const toggleList = (title: string) => {
+  activeList.value = title;
+};
 
 const closedItemsGroup = computed(() => !props.open && !props.active);
 

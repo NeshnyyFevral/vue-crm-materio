@@ -7,13 +7,12 @@
   />
 </template>
 
-<script setup>
-defineProps({
-  items: {
-    type: Array,
-    default: () => [],
-  },
-});
+<script setup lang="ts">
+interface PropsType {
+  items: any[];
+}
+
+defineProps<PropsType>();
 </script>
 
 <style module lang="scss">

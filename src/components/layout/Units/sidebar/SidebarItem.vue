@@ -2,7 +2,6 @@
   <router-link
     :class="[
       $style.root,
-      $style.link,
       defaultIcon && $style.defaultIcon,
       active && $style.active
     ]"
@@ -19,7 +18,7 @@
   </router-link>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 
 import Ripple from '@/components/basic/Ripple.vue';
@@ -28,27 +27,21 @@ import { Colors } from '@/model/colors/Colors';
 import { ThemeColors } from '@/model/colors/Theme';
 import { useThemeStore } from '@/stores/theme';
 
+interface PropsType {
+  title: string;
+  defaultIcon: boolean;
+  to: { name: string };
+  activeLink: string;
+}
+
+interface EmitsType {
+  (e: 'choiceLink'): void;
+}
+
 const themeStore = useThemeStore();
 
-const emits = defineEmits(['choiceLink']);
-const props = defineProps({
-  title: {
-    type: String,
-    default: '',
-  },
-  defaultIcon: {
-    type: Boolean,
-    default: false,
-  },
-  to: {
-    type: Object,
-    default: () => {},
-  },
-  activeLink: {
-    type: String,
-    default: '',
-  },
-});
+const emits = defineEmits<EmitsType>();
+const props = defineProps<PropsType>();
 
 const active = computed(() => props.title === props.activeLink);
 
@@ -57,7 +50,7 @@ const {
   items,
 } = useRipple();
 
-const onClick = (event) => {
+const onClick = (event: any) => {
   emits('choiceLink');
   const button = event.target;
 
