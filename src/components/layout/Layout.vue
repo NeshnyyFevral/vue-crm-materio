@@ -82,6 +82,7 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
 
 <style module lang="scss">
 @import "@/scss/mixins/mixins";
+@import "@/scss/vars";
   .root {
     display: flex;
     max-width: 1400px;

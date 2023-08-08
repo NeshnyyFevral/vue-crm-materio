@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import Ripple from '@/components/basic/Ripple.vue';
+import Ripple from '@/components/basic/VRipple.vue';
 import { useRipple } from '@/hooks/useRipple';
 import { Colors } from '@/model/colors/Colors';
 

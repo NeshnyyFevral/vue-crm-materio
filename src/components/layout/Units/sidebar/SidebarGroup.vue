@@ -45,7 +45,7 @@
 import { computed, ref } from 'vue';
 
 import ArrowIcon from '@/assets/icons/chevron-down.svg';
-import Ripple from '@/components/basic/Ripple.vue';
+import Ripple from '@/components/basic/VRipple.vue';
 import SidebarItem from '@/components/layout/Units/sidebar/SidebarItem.vue';
 import { useRipple } from '@/hooks/useRipple';
 import type { SidebarList } from '@/model/Sidebar';
