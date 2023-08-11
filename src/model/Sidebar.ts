@@ -31,13 +31,13 @@ export default [
         icon: DashboardsIcon,
         list: [
           { title: 'CRM', route: { name: Routes.CRM } },
-          { title: 'Analytics', route: {} },
-          { title: 'eCommerce', route: {} },
+          /* { title: 'Analytics', route: {} },
+          { title: 'eCommerce', route: {} }, */
         ],
       },
     ],
   },
-  {
+  /* {
     title: 'apps and pages',
     group: [
       {
@@ -70,11 +70,11 @@ export default [
         ],
       },
     ],
-  },
+  }, */
   {
     title: 'user interface',
     group: [
-      {
+      /* {
         title: 'Cards',
         icon: CardsIcon,
         list: [
@@ -84,16 +84,16 @@ export default [
           { title: 'Actions', route: {} },
           { title: 'Chart', route: {} },
         ],
-      },
+      }, */
       {
         title: 'Components',
         icon: ComponentsIcon,
         list: [
-          { title: 'Alert', route: {} },
+          /*  { title: 'Alert', route: {} },
           { title: 'Avatar', route: {} },
-          { title: 'Badge', route: {} },
-          { title: 'Button', route: {} },
-          { title: 'Chip', route: {} },
+          { title: 'Badge', route: {} }, */
+          { title: 'Button', route: { name: Routes.COMPONENTS_BUTTON } },
+          /* { title: 'Chip', route: {} },
           { title: 'Dialog', route: {} },
           { title: 'Expansion Panel  ', route: {} },
           { title: 'List', route: {} },
@@ -104,7 +104,7 @@ export default [
           { title: 'Tabs', route: {} },
           { title: 'Timeline', route: {} },
           { title: 'Tooltip', route: {} },
-          { title: 'Treeview', route: {} },
+          { title: 'Treeview', route: {} }, */
         ],
       },
     ],

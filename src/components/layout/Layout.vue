@@ -101,6 +101,7 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
   }
 
   .content {
+    width: 100%;
     margin-left: 55px;
     transition: margin 0.2s cubic-bezier(.25,.8,.5,1);
   }

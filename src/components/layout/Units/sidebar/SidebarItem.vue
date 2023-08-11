@@ -3,9 +3,9 @@
     :class="[
       $style.root,
       defaultIcon && $style.defaultIcon,
-      active && $style.active
     ]"
     :to="to"
+    :active-class="$style.active"
     @click="onClick"
   >
     <span :class="$style.prependIcon">
@@ -23,7 +23,6 @@ import { computed } from 'vue';
 
 import Ripple from '@/components/basic/VRipple.vue';
 import { useRipple } from '@/hooks/useRipple';
-import { Colors } from '@/model/colors/Colors';
 
 interface PropsType {
   title: string;
@@ -126,17 +125,15 @@ const onClick = (event: any) => {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-    fill: var(--text-color);
+    fill: var(--color-text);
     transition: fill 0.3s cubic-bezier(.25,.8,.5,1);
   }
 
   .active {
-    --bg-color: v-bind(Colors.PRIMARY);
-
-    background: linear-gradient(98deg,#cea0ff, var(--bg-color) 94%);
+    background: linear-gradient(98deg,#cea0ff, var(--color-primary-700) 94%);
 
     &:hover {
-      background: linear-gradient(98deg,#cea0ff, var(--bg-color) 100%);
+      background: linear-gradient(98deg,#cea0ff, var(--color-primary-700) 100%);
     }
   }
 

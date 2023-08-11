@@ -5,6 +5,8 @@
   --color-sidebar: #28243DFF;
   --color-title: #E7E3FCFF;
   --color-text: #E7E3FCDD;
+
+  --color-text-button: #FFFFFF;
 }
 
 @mixin light {
@@ -14,6 +16,8 @@
   --color-sidebar: #F5F5F5;
   --color-title: #5E5669FF;
   --color-text: #5E5669FF;
+
+  --color-text-button: #FFFFFF;
 }
 
 @mixin theme-colors($light-theme: true) {
