@@ -36,7 +36,6 @@ const props = withDefaults(defineProps<PropsType>(), {
   border-radius: 12px;
   min-height: 150px;
   box-shadow: 0px 3px 32px rgba(0, 0, 0, .08);
-
 }
 
 .title {

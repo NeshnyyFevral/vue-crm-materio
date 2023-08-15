@@ -51,8 +51,8 @@ import {
 } from 'vue';
 
 import VLoader from '@/components/basic/VLoader.vue';
+import { GlobalColors } from '@/model/Colors';
 import {
-  ButtonColor,
   ButtonMapColor,
   ButtonMapColorHover,
   ButtonSize,
@@ -61,7 +61,7 @@ import {
 
 interface PropsType {
   variant?: ButtonVariant;
-  color?: ButtonColor;
+  color?: GlobalColors;
   size?: ButtonSize;
   maxWidth?: boolean;
   disabled?: boolean;
@@ -70,7 +70,7 @@ interface PropsType {
 
 const props = withDefaults(defineProps<PropsType>(), {
   variant: ButtonVariant.CONTAINED,
-  color: ButtonColor.PRIMARY,
+  color: GlobalColors.PRIMARY,
   size: ButtonSize.MEDIUM,
 });
 

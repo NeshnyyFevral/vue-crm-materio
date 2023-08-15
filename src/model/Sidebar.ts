@@ -91,8 +91,8 @@ export default [
           { title: 'Avatar', route: {} },
           { title: 'Badge', route: {} }, */
           { title: 'Button', route: { name: Routes.COMPONENTS_BUTTON } },
-          /* { title: 'Chip', route: {} },
-          { title: 'Dialog', route: {} },
+          { title: 'Chip', route: { name: Routes.COMPONENTS_CHIP } },
+          /* { title: 'Dialog', route: {} },
           { title: 'Expansion Panel  ', route: {} },
           { title: 'List', route: {} },
           { title: 'Menu', route: {} },

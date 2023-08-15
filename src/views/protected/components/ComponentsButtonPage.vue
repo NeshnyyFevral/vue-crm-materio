@@ -24,15 +24,15 @@
 
     <VPreviewComponentCard
       title="Button colors"
-      desc="Button colors provided from «ButtonColors» model."
+      desc="Button colors provided from «GlobalColors» model."
     >
       <VButton
-        v-for="color in Object.keys(ButtonColor)"
+        v-for="color in Object.keys(GlobalColors)"
         :key="color"
-        :color="ButtonColor[color]"
+        :color="GlobalColors[color]"
         :size="ButtonSize.SMALL"
       >
-        {{ ButtonColor[color] }}
+        {{ GlobalColors[color] }}
       </VButton>
     </VPreviewComponentCard>
 
@@ -62,7 +62,7 @@
 
       <VButton
         disabled
-        :color="ButtonColor.DEFAULT"
+        :color="GlobalColors.DEFAULT"
       >
         disabled
 
@@ -93,17 +93,14 @@ import RemoveIcon from '@/assets/icons/buttons/remove.svg';
 import SendIcon from '@/assets/icons/buttons/send.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
-import {
-  ButtonColor,
-  ButtonSize,
-  ButtonVariant,
-} from '@/model/components/VButton';
+import { GlobalColors } from '@/model/Colors';
+import { ButtonSize, ButtonVariant } from '@/model/components/VButton';
 </script>
 
 <style module lang="scss">
-  .root {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-  }
+.root {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
 </style>
