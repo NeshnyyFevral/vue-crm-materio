@@ -98,9 +98,9 @@ import { ButtonSize, ButtonVariant } from '@/model/components/VButton';
 </script>
 
 <style module lang="scss">
+@import "@/scss/mixins/mixins";
+
 .root {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+  @include grid;
 }
 </style>

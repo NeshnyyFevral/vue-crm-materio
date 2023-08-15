@@ -87,22 +87,9 @@ export default [
         title: 'Components',
         icon: ComponentsIcon,
         list: [
-          /*  { title: 'Alert', route: {} },
-          { title: 'Avatar', route: {} },
-          { title: 'Badge', route: {} }, */
           { title: 'Button', route: { name: Routes.COMPONENTS_BUTTON } },
           { title: 'Chip', route: { name: Routes.COMPONENTS_CHIP } },
-          /* { title: 'Dialog', route: {} },
-          { title: 'Expansion Panel  ', route: {} },
-          { title: 'List', route: {} },
-          { title: 'Menu', route: {} },
-          { title: 'Pagination', route: {} },
-          { title: 'Snackbar', route: {} },
-          { title: 'Stepper', route: {} },
-          { title: 'Tabs', route: {} },
-          { title: 'Timeline', route: {} },
-          { title: 'Tooltip', route: {} },
-          { title: 'Treeview', route: {} }, */
+          { title: 'Avatar', route: { name: Routes.COMPONENTS_AVATAR } },
         ],
       },
     ],

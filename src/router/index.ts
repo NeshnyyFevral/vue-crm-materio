@@ -7,6 +7,7 @@ export const Routes = {
   COMPONENTS: 'components',
   COMPONENTS_BUTTON: 'components/button',
   COMPONENTS_CHIP: 'components/chip',
+  COMPONENTS_AVATAR: 'components/avatar',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -47,6 +48,10 @@ export default function createRouter() {
           path: `/${Routes.COMPONENTS_CHIP}`,
           name: Routes.COMPONENTS_CHIP,
           component: () => import('@/views/protected/components/ComponentsChipPage.vue'),
+        }, {
+          path: `/${Routes.COMPONENTS_AVATAR}`,
+          name: Routes.COMPONENTS_AVATAR,
+          component: () => import('@/views/protected/components/ComponentsAvatarPage.vue'),
         }],
       }, {
         path: `/${Routes.TYPOGRAPHY}`,
