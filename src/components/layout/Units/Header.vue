@@ -56,9 +56,9 @@ import {
 } from 'vue';
 import { useRouter } from 'vue-router';
 
-import NotifyIcon from '@/assets/icons/Header/notification.svg';
-import SearchIcon from '@/assets/icons/Header/search.svg';
-import MenuIcon from '@/assets/icons/Sidebar/menu.svg';
+import NotifyIcon from '@/assets/icons/headerr/notification.svg';
+import SearchIcon from '@/assets/icons/headerr/search.svg';
+import MenuIcon from '@/assets/icons/sidebarr/menu.svg';
 import appStorage from '@/model/tools/StorageTools';
 import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';

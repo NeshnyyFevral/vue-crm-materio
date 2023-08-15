@@ -27,33 +27,35 @@ const props = withDefaults(defineProps<PropsType>(), {
 </script>
 
 <style module lang="scss">
-  .root {
-    background-color: var(--color-card);
-    width: 100%;
-    padding: 20px 20px 25px;
-    border-radius: 12px;
-    min-height: 150px;
-    box-shadow: 0px 3px 32px rgba(0, 0, 0, .08);
+@import "@/scss/mixins/mixins";
 
-  }
+.root {
+  background-color: var(--color-card);
+  width: 100%;
+  padding: 20px 20px 25px;
+  border-radius: 12px;
+  min-height: 150px;
+  box-shadow: 0px 3px 32px rgba(0, 0, 0, .08);
 
-  .title {
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: 10px;
-  }
+}
 
-  .desc {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
+.title {
+  @include heading4;
 
-  .group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-  }
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.desc {
+  @include subtitle2;
+
+  margin-bottom: 15px;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
 </style>

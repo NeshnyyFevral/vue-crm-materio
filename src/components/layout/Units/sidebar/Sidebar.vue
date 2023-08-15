@@ -65,7 +65,7 @@
 import { computed, ref } from 'vue';
 
 import CrossIcon from '@/assets/icons/cross.svg';
-import LogoIcon from '@/assets/icons/Sidebar/logo.svg';
+import LogoIcon from '@/assets/icons/sidebarr/logo.svg';
 import SidebarGroup from '@/components/layout/Units/sidebar/SidebarGroup.vue';
 import SidebarTree from '@/model/Sidebar';
 

@@ -1,9 +1,10 @@
-import CardsIcon from '@/assets/icons/Sidebar/cards.svg';
-import ComponentsIcon from '@/assets/icons/Sidebar/components.svg';
-import DashboardsIcon from '@/assets/icons/Sidebar/dashboards.svg';
-import InvoiceIcon from '@/assets/icons/Sidebar/invoice.svg';
-import PagesIcon from '@/assets/icons/Sidebar/pages.svg';
-import UserIcon from '@/assets/icons/Sidebar/user.svg';
+import CardsIcon from '@/assets/icons/sidebarr/cards.svg';
+import ComponentsIcon from '@/assets/icons/sidebarr/components.svg';
+import DashboardsIcon from '@/assets/icons/sidebarr/dashboards.svg';
+import InvoiceIcon from '@/assets/icons/sidebarr/invoice.svg';
+import PagesIcon from '@/assets/icons/sidebarr/pages.svg';
+import TypographyIcon from '@/assets/icons/sidebarr/typography.svg';
+import UserIcon from '@/assets/icons/sidebarr/user.svg';
 import { Routes } from '@/router';
 
 export interface SidebarList {
@@ -74,17 +75,14 @@ export default [
   {
     title: 'user interface',
     group: [
-      /* {
-        title: 'Cards',
-        icon: CardsIcon,
+      {
+        title: 'Typography',
+        icon: TypographyIcon,
         list: [
-          { title: 'basic', route: {} },
-          { title: 'Statistics', route: {} },
-          { title: 'Advance', route: {} },
-          { title: 'Actions', route: {} },
-          { title: 'Chart', route: {} },
+          { title: 'Headers', route: { name: Routes.TYPOGRAPHY_HEADERS } },
+          { title: 'Texts', route: { name: Routes.TYPOGRAPHY_TEXTS } },
         ],
-      }, */
+      },
       {
         title: 'Components',
         icon: ComponentsIcon,

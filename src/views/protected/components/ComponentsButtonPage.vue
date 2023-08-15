@@ -37,7 +37,7 @@
     </VPreviewComponentCard>
 
     <VPreviewComponentCard
-      title="Button colors"
+      title="Button variants"
       desc="Button variants provided from «ButtonVariant» model."
     >
       <VButton
@@ -48,10 +48,49 @@
         {{ ButtonVariant[variant] }}
       </VButton>
     </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Buttons with icon and label"
+      desc="Use iconPrepend | iconAppend to add an icon."
+    >
+      <VButton>
+        <template #iconAppend>
+          <SendIcon />
+        </template>
+        Send
+      </VButton>
+
+      <VButton
+        disabled
+        :color="ButtonColor.DEFAULT"
+      >
+        disabled
+
+        <template #iconPrepend>
+          <RemoveIcon />
+        </template>
+      </VButton>
+    </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Button loading"
+      desc="Use «loading» prop for circular animation."
+    >
+      <VButton
+        v-for="variant in Object.keys(ButtonVariant)"
+        :key="variant"
+        loading
+        :variant="ButtonVariant[variant]"
+      >
+        {{ ButtonVariant[variant] }}
+      </VButton>
+    </VPreviewComponentCard>
   </div>
 </template>
 
 <script setup lang="ts">
+import RemoveIcon from '@/assets/icons/buttonss/remove.svg';
+import SendIcon from '@/assets/icons/buttonss/send.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import {
@@ -62,9 +101,9 @@ import {
 </script>
 
 <style module lang="scss">
-.root {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-}
+  .root {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
 </style>

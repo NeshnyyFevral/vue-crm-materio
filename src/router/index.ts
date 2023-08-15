@@ -3,13 +3,18 @@ import { createRouter as _createRouter, createWebHistory } from 'vue-router';
 export const Routes = {
   /* PROTECTED PAGES */
   CRM: 'crm',
+
+  COMPONENTS: 'components',
+  COMPONENTS_BUTTON: 'components/button',
+
+  TYPOGRAPHY: 'typography',
+  TYPOGRAPHY_HEADERS: 'typography/headers',
+  TYPOGRAPHY_TEXTS: 'typography/texts',
   /* PUBLIC PAGES */
   LOGIN: 'login',
   REGISTRATION: 'registration',
   NOT_FOUND: '404',
   RESET_PASSWORD: 'reset-password',
-  COMPONENTS: 'components',
-  COMPONENTS_BUTTON: 'components/button',
 };
 
 export default function createRouter() {
@@ -37,6 +42,20 @@ export default function createRouter() {
           path: `/${Routes.COMPONENTS_BUTTON}`,
           name: Routes.COMPONENTS_BUTTON,
           component: () => import('@/views/protected/components/ComponentsButtonPage.vue'),
+        }],
+      }, {
+        path: `/${Routes.TYPOGRAPHY}`,
+        name: Routes.TYPOGRAPHY,
+        component: () => import('@/views/protected/typography/TypographyPage.vue'),
+        redirect: { name: Routes.TYPOGRAPHY_HEADERS },
+        children: [{
+          path: `/${Routes.TYPOGRAPHY_HEADERS}`,
+          name: Routes.TYPOGRAPHY_HEADERS,
+          component: () => import('@/views/protected/typography/TypographyHeadersPage.vue'),
+        }, {
+          path: `/${Routes.TYPOGRAPHY_TEXTS}`,
+          name: Routes.TYPOGRAPHY_TEXTS,
+          component: () => import('@/views/protected/typography/TypographyTextsPage.vue'),
         }],
       }],
     }, {
