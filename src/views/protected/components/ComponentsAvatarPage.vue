@@ -48,16 +48,23 @@
     </VPreviewComponentCard>
 
     <VPreviewComponentCard
-      title="Avatar letter (without img slot)"
-      desc="if no image is passed to the component slot, then the letter
-        style is displayed, which is taken from v-bind:letter, which by
-        default is «Noname» and the first letters of the first two words are
-        taken and displayed with a capital letter."
+      title="Avatar with svg"
+      desc="You can also pass an svg inside the component."
     >
       <VAvatar
-        v-for="variant in Object.keys(AvatarVariant)"
-        :key="variant"
-        :variant="AvatarVariant[variant]"
+        light
+        :color="GlobalColors.DEFAULT"
+      >
+        <FileIcon />
+      </VAvatar>
+
+      <VAvatar :color="GlobalColors.SUCCESS">
+        <RepairIcon />
+      </VAvatar>
+
+      <VAvatar
+        light
+        :color="GlobalColors.INFO"
       >
         <SuccessIcon />
       </VAvatar>
@@ -66,9 +73,12 @@
 </template>
 
 <script setup lang="ts">
+import FileIcon from '@/assets/avatars/file.svg';
+import RepairIcon from '@/assets/avatars/repair.svg';
 import SuccessIcon from '@/assets/avatars/success.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import { GlobalColors } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/VAvatar';
 </script>
 

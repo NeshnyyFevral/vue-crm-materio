@@ -17,11 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  useSlots,
-  watchEffect,
-} from 'vue';
+import { computed, useSlots } from 'vue';
 
 import { GlobalColors } from '@/model/Colors';
 import {
@@ -47,10 +43,9 @@ const props = withDefaults(defineProps<PropsType>(), {
   light: false,
 });
 
-const slots = useSlots()?.default();
+const slots = useSlots();
 
-const slotTagName = slots[0]?.type;
-const isVisibleLetter = computed<boolean>(() => !slots);
+const isVisibleLetter = computed<boolean>(() => !slots?.default);
 const letterFormatting = computed<string>(() => {
   const name = props.letter.split(' ');
   const { length } = name;
@@ -62,29 +57,35 @@ const letterFormatting = computed<string>(() => {
 
 const avatarColor = computed<string>(() => AvatarMapColor[props.color]);
 const avatarColorLight = computed<string>(() => AvatarMapColorLight[props.color]);
-
-watchEffect(() => {
-  console.log(slotTagName);
-});
 </script>
 
 <style module lang="scss">
+$border-radius: 50%;
+$size-small: 25px;
+$size-medium: 40px;
+$size-large: 56px;
+
 .root {
   --color-avatar: v-bind(avatarColor);
   --color-avatar-light: v-bind(avatarColorLight);
 
-  pointer-events: none;
-}
-
-.withLetter {
+  border-radius: $border-radius;
   background-color: var(--color-avatar);
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+
+  path {
+    fill: var(--color-button-text);
+  }
+}
+
+.withLetter {
   color: var(--color-button-text);
 
   &.variant-cycle {
-    border-radius: 50%;
+    border-radius: $border-radius;
   }
 
   &.variant-rounded {
@@ -110,6 +111,25 @@ watchEffect(() => {
 .light {
   background-color: var(--color-avatar-light);
   color: var(--color-avatar);
+
+  path {
+    fill: var(--color-avatar);
+  }
+}
+
+.size-small {
+  width: $size-small;
+  height: $size-small;
+}
+
+.size-medium {
+  width: $size-medium;
+  height: $size-medium;
+}
+
+.size-large {
+  width: $size-large;
+  height: $size-large;
 }
 
 img {
@@ -118,7 +138,7 @@ img {
   }
 
   .variant-cycle & {
-    border-radius: 50%;
+    border-radius: $border-radius;
   }
 
   .variant-rounded & {
