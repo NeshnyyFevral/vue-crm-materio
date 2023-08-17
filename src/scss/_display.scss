@@ -1,17 +1,17 @@
 $cols: (
-        '0': 'none',
-        '1': repeat(1, 1fr),
-        '2': repeat(2, 1fr),
-        '3': repeat(3, 1fr),
-        '4': repeat(4, 1fr),
+  '0': 'none',
+  '1': repeat(1, 1fr),
+  '2': repeat(2, 1fr),
+  '3': repeat(3, 1fr),
+  '4': repeat(4, 1fr),
 );
 
 $gaps: (
-        '4': 4px,
-        '8': 8px,
-        '16': 16px,
-        '24': 24px,
-        '30': 30px,
+  '4': 4px,
+  '8': 8px,
+  '16': 16px,
+  '24': 24px,
+  '30': 30px,
 );
 
 @each $key, $col in $cols {

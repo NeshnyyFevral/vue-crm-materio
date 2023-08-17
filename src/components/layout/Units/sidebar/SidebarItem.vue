@@ -19,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-
 import Ripple from '@/components/basic/VRipple.vue';
 import { useRipple } from '@/hooks/useRipple';
 
@@ -36,9 +34,7 @@ interface EmitsType {
 }
 
 const emits = defineEmits<EmitsType>();
-const props = defineProps<PropsType>();
-
-const active = computed(() => props.title === props.activeLink);
+defineProps<PropsType>();
 
 const {
   add,
