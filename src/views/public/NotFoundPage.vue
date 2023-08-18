@@ -23,7 +23,7 @@
       </div>
       <div class="auth__image-icon">
         <div class="auth__icon">
-          not found icon
+          <NotFoundIcon />
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-
+import NotFoundIcon from '@/assets/icons/not-found.svg';
 import { router } from '@/main';
 import { Routes } from '@/router';
 
@@ -39,3 +39,5 @@ const goToHome = () => {
   // router.push({ name: Routes.TERMINALS });
 };
 </script>
+
+<style lang="scss"></style>

@@ -1,10 +1,10 @@
 @use './functions/functions' as c;
 
-$color-primary: hsl(260, 100%, 76%);
-$color-success: hsl(96, 81%, 47%);
+$color-primary: hsl(261, 97.7%, 66.3%);
+$color-success: hsl(95, 98%, 40%);
 $color-warning: hsl(42, 100%, 50%);
-$color-error: hsl(14, 100%, 50%);
-$color-info: hsl(198, 100%, 50%);
+$color-error: hsl(358, 100%, 64.9%);
+$color-info: hsl(200, 100%, 54.3%);
 $color-default: hsl(0, 0%, 40%);
 
 $color-primary-700: c.tint($color-primary, 0%);

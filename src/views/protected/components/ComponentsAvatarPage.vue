@@ -69,13 +69,39 @@
         <SuccessIcon />
       </VAvatar>
     </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Avatar light style"
+      desc="Use prop «light» to lighten the background background."
+    >
+      <VAvatar>
+        <NotiIcon />
+      </VAvatar>
+
+      <VAvatar :color="GlobalColors.SUCCESS">
+        <DiskIcon />
+      </VAvatar>
+
+      <VAvatar light>
+        <NotiIcon />
+      </VAvatar>
+
+      <VAvatar
+        light
+        :color="GlobalColors.SUCCESS"
+      >
+        <DiskIcon />
+      </VAvatar>
+    </VPreviewComponentCard>
   </div>
 </template>
 
 <script setup lang="ts">
-import FileIcon from '@/assets/avatars/file.svg';
-import RepairIcon from '@/assets/avatars/repair.svg';
-import SuccessIcon from '@/assets/avatars/success.svg';
+import DiskIcon from '@/assets/icons/avatars/disk.svg';
+import FileIcon from '@/assets/icons/avatars/file.svg';
+import NotiIcon from '@/assets/icons/avatars/noti.svg';
+import RepairIcon from '@/assets/icons/avatars/repair.svg';
+import SuccessIcon from '@/assets/icons/avatars/success.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
