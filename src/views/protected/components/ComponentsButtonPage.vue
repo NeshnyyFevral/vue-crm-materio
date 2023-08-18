@@ -89,8 +89,8 @@
 </template>
 
 <script setup lang="ts">
-import RemoveIcon from '@/assets/icons/buttons/remove.svg';
-import SendIcon from '@/assets/icons/buttons/send.svg';
+import RemoveIcon from '@/assets/icons/button/remove.svg';
+import SendIcon from '@/assets/icons/button/send.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';

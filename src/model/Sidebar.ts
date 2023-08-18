@@ -90,6 +90,7 @@ export default [
           { title: 'Button', route: { name: Routes.COMPONENTS_BUTTON } },
           { title: 'Chip', route: { name: Routes.COMPONENTS_CHIP } },
           { title: 'Avatar', route: { name: Routes.COMPONENTS_AVATAR } },
+          { title: 'Alert', route: { name: Routes.COMPONENTS_ALERT } },
         ],
       },
     ],

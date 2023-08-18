@@ -38,7 +38,7 @@
           :size="AvatarSize.LARGE"
         >
           <img
-            src="@/assets/avatars/1.png"
+            src="@/assets/avatar/1.png"
             alt="avatar"
           >
         </Avatar>

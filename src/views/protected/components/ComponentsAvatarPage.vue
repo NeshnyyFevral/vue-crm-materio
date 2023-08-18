@@ -97,11 +97,11 @@
 </template>
 
 <script setup lang="ts">
-import DiskIcon from '@/assets/icons/avatars/disk.svg';
-import FileIcon from '@/assets/icons/avatars/file.svg';
-import NotiIcon from '@/assets/icons/avatars/noti.svg';
-import RepairIcon from '@/assets/icons/avatars/repair.svg';
-import SuccessIcon from '@/assets/icons/avatars/success.svg';
+import DiskIcon from '@/assets/icons/avatar/disk.svg';
+import FileIcon from '@/assets/icons/avatar/file.svg';
+import NotiIcon from '@/assets/icons/avatar/noti.svg';
+import RepairIcon from '@/assets/icons/avatar/repair.svg';
+import SuccessIcon from '@/assets/icons/avatar/success.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
