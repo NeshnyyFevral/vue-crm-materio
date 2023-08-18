@@ -61,9 +61,11 @@ const avatarColorLight = computed<string>(() => AvatarMapColorLight[props.color]
 
 <style module lang="scss">
 $border-radius: 50%;
-$size-small: 25px;
-$size-medium: 40px;
-$size-large: 56px;
+$sizes: (
+    small: 25px,
+    medium: 40px,
+    large: 56px,
+);
 
 .root {
   --color-avatar: v-bind(avatarColor);
@@ -92,19 +94,11 @@ $size-large: 56px;
     border-radius: 5px;
   }
 
-  &.size-small {
-    width: 25px;
-    height: 25px;
-  }
-
-  &.size-medium {
-    width: 40px;
-    height: 40px;
-  }
-
-  &.size-large {
-    width: 56px;
-    height: 56px;
+  @each $key, $size in $sizes {
+    &.size-#{$key} {
+      width: $size;
+      height: $size;
+    }
   }
 }
 
@@ -117,19 +111,11 @@ $size-large: 56px;
   }
 }
 
-.size-small {
-  width: $size-small;
-  height: $size-small;
-}
-
-.size-medium {
-  width: $size-medium;
-  height: $size-medium;
-}
-
-.size-large {
-  width: $size-large;
-  height: $size-large;
+@each $key, $size in $sizes {
+  .size-#{$key} {
+    width: $size;
+    height: $size;
+  }
 }
 
 img {
@@ -145,19 +131,11 @@ img {
     border-radius: 5px;
   }
 
-  .size-small & {
-    width: 25px;
-    height: 25px;
-  }
-
-  .size-medium & {
-    width: 40px;
-    height: 40px;
-  }
-
-  .size-large & {
-    width: 56px;
-    height: 56px;
+  @each $key, $size in $sizes {
+    .size-#{$key} & {
+      width: $size;
+      height: $size;
+    }
   }
 }
 </style>

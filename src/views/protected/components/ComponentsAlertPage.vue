@@ -2,7 +2,7 @@
   <div :class="$style.root">
     <VPreviewComponentCard
       title="Alert basic"
-      desc="Use color={'error' | 'warning' | 'info' | 'success'} prop with <VAlert> component for different colored alerts."
+      desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VAlert> component for different colored alerts."
     >
       <VAlert
         v-for="color in Object.keys(GlobalColors)"
@@ -43,7 +43,8 @@
 
     <VPreviewComponentCard
       title="Alert filled"
-      desc="Use variant='filled' prop with <VAlert> component for filled alerts."
+      desc="You can add the named word #action to add a button that can
+       be used as an action. in addition to the button, you can add any additional text as well."
     >
       <VAlert :variant="AlertVariant.FILLED">
         This is an {{ AlertVariant.FILLED }} alert — check it out!

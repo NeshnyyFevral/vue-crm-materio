@@ -164,16 +164,16 @@ onMounted(() => {
   }
 
   .size {
-    &-small {
-      padding: 7px 15px;
-    }
+    $sizes: (
+      small: 7px 15px,
+      medium: 10px 20px,
+      large: 13px 35px,
+    );
 
-    &-medium {
-      padding: 10px 20px;
-    }
-
-    &-large {
-      padding: 13px 35px;
+    @each $key, $size in $sizes {
+      &-#{$key} {
+        padding: $size;
+      }
     }
   }
 

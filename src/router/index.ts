@@ -9,6 +9,7 @@ export const Routes = {
   COMPONENTS_CHIP: 'components/chip',
   COMPONENTS_AVATAR: 'components/avatar',
   COMPONENTS_ALERT: 'components/alert',
+  COMPONENTS_ICON_BUTTON: 'components/icon-button',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -57,6 +58,10 @@ export default function createRouter() {
           path: `/${Routes.COMPONENTS_ALERT}`,
           name: Routes.COMPONENTS_ALERT,
           component: () => import('@/views/protected/components/ComponentsAlertPage.vue'),
+        }, {
+          path: `/${Routes.COMPONENTS_ICON_BUTTON}`,
+          name: Routes.COMPONENTS_ICON_BUTTON,
+          component: () => import('@/views/protected/components/ComponentsIconButtonPage.vue'),
         }],
       }, {
         path: `/${Routes.TYPOGRAPHY}`,

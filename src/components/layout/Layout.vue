@@ -66,7 +66,7 @@ import { useThemeStore } from '@/stores/theme';
 const themeStore = useThemeStore();
 
 const active = ref<boolean>(false);
-const openSidebar = ref<boolean>(false);
+const openSidebar = ref<boolean>(true);
 const activeSidebar = ref<boolean>(false);
 const wrapper = ref<HTMLDivElement | null>(null);
 const headerWidth = ref<number>(0);

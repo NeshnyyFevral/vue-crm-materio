@@ -9,20 +9,29 @@
     >
       {{ props.desc }}
     </p>
-    <div :class="$style.group">
+    <div
+      :class="[
+        $style.group,
+        direction === PreviewDirection.ROW ? $style.row : $style.column
+      ]"
+    >
       <slot />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { PreviewDirection } from '@/model/components/VPreviewComponentCard';
+
 interface PropsType {
   title?: string;
   desc?: string;
+  direction?: PreviewDirection;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   title: 'Untitled',
+  direction: PreviewDirection.ROW,
 });
 </script>
 
@@ -56,5 +65,14 @@ const props = withDefaults(defineProps<PropsType>(), {
   flex-wrap: wrap;
   gap: 15px;
   align-items: center;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.column {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 </style>

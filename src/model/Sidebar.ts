@@ -88,6 +88,7 @@ export default [
         icon: ComponentsIcon,
         list: [
           { title: 'Button', route: { name: Routes.COMPONENTS_BUTTON } },
+          { title: 'Icon button', route: { name: Routes.COMPONENTS_ICON_BUTTON } },
           { title: 'Chip', route: { name: Routes.COMPONENTS_CHIP } },
           { title: 'Avatar', route: { name: Routes.COMPONENTS_AVATAR } },
           { title: 'Alert', route: { name: Routes.COMPONENTS_ALERT } },

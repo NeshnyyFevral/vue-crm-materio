@@ -15,9 +15,7 @@
       </div>
     </div>
 
-    <div :class="$style.action">
-      <slot name="action" />
-    </div>
+    <slot name="action" />
   </div>
 </template>
 
@@ -75,10 +73,6 @@ const alertColorLight = computed<string>(() => AlertMapColorLight[props.color]);
 .content {
   display: flex;
   align-items: center;
-}
-
-.action {
-
 }
 
 .text {
