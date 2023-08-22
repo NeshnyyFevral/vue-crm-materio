@@ -6,43 +6,34 @@
     ]"
   >
     <div :class="$style.left">
-      <button
-        :class="[
-          $style.button,
-          $style.mobileSidebar
-        ]"
+      <VIconButton
+        :class="$style.mobileSidebar"
+        :variant="IconButtonVariant.TRANSPARENT"
         @click="emits('switchSidebar')"
       >
         <MenuIcon />
-      </button>
-      <button
-        :class="[
-          $style.button,
-          $style.search
-        ]"
+      </VIconButton>
+      <VIconButton
+        :class="$style.search"
+        :variant="IconButtonVariant.TRANSPARENT"
       >
         <SearchIcon />
-      </button>
+      </VIconButton>
     </div>
     <div :class="$style.right">
-      <button :class="[$style.button, $style.notify]">
-        <NotifyIcon />
-      </button>
-      <!--      <button
-        :class="$style.button"
-        @click="exit"
+      <VIconButton
+        :class="$style.notify"
+        :variant="IconButtonVariant.TRANSPARENT"
       >
-        <Avatar
-          :corner="AvatarCorner.DEFAULT"
-          :class="$style.avatar"
-          :size="AvatarSize.LARGE"
+        <NotifyIcon />
+      </VIconButton>
+
+      <VAvatar>
+        <img
+          src="@/assets/avatars/1.png"
+          alt="avatar"
         >
-          <img
-            src="@/assets/avatar/1.png"
-            alt="avatar"
-          >
-        </Avatar>
-      </button>-->
+      </VAvatar>
     </div>
   </header>
 </template>
@@ -59,6 +50,9 @@ import { useRouter } from 'vue-router';
 import NotifyIcon from '@/assets/icons/header/notification.svg';
 import SearchIcon from '@/assets/icons/header/search.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
+import VAvatar from '@/components/basic/VAvatar.vue';
+import VIconButton from '@/components/basic/VIconButton.vue';
+import { IconButtonVariant } from '@/model/components/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
 import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';
@@ -194,13 +188,11 @@ const exit = () => {
 
   .mobileSidebar {
     display: none;
-    width: 23px;
-    height: 23px;
     fill: var(--color-text);
 
-    @media screen and (max-width: 1270px) {
+    @media screen and (max-width: 1405px) {
       & {
-        display: block;
+        display: flex;
       }
     }
   }
