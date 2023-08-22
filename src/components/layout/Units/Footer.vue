@@ -1,12 +1,12 @@
 <template>
-  <div :class="$style.root">
+  <footer :class="$style.root">
     <p :class="$style.copyright">
       COPYRIGHT © 2022 ThemeSelection, All rights Reserved
     </p>
     <p :class="$style.made">
       Hand-crafted & Made with
     </p>
-  </div>
+  </footer>
 </template>
 
 <script setup lang="ts">

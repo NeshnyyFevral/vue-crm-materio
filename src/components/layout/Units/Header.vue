@@ -1,5 +1,5 @@
 <template>
-  <div
+  <header
     :class="[
       $style.root,
       active && $style.active
@@ -44,7 +44,7 @@
         </Avatar>
       </button>-->
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">
@@ -66,7 +66,6 @@ import { useThemeStore } from '@/stores/theme';
 interface PropsType {
   active: boolean;
   language?: string;
-  width: string;
 }
 
 interface EmitsType {
@@ -103,6 +102,10 @@ const exit = () => {
 
 <style module lang="scss">
   .root {
+    width: calc(100% - 30px);
+    position: fixed;
+    top: 0;
+    z-index: 8888;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -113,11 +116,7 @@ const exit = () => {
       width 0.2s cubic-bezier(.25,.8,.5,1);
   }
 
-  .left {
-    display: flex;
-    align-items: center;
-  }
-
+  .left,
   .right {
     display: flex;
     align-items: center;
@@ -187,12 +186,6 @@ const exit = () => {
   }
 
   .active {
-    --header-width: v-bind(props.width);
-
-    position: fixed;
-    top: 0;
-    z-index: 8888;
-    width: var(--header-width);
     padding: 10px 20px;
     background-color: var(--color-header);
     border-radius: 0 0 10px 10px;
