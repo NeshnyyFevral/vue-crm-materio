@@ -50,9 +50,9 @@ import {
   ref,
 } from 'vue';
 
-import Footer from '@/components/layout/Units/Footer.vue';
-import Header from '@/components/layout/Units/Header.vue';
-import Sidebar from '@/components/layout/Units/sidebar/Sidebar.vue';
+import Footer from '@/components/layout/units/Footer.vue';
+import Header from '@/components/layout/units/Header.vue';
+import Sidebar from '@/components/layout/units/sidebar/Sidebar.vue';
 import { useThemeStore } from '@/stores/theme';
 
 const themeStore = useThemeStore();

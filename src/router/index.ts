@@ -11,6 +11,7 @@ export const Routes = {
   COMPONENTS_ALERT: 'components/alert',
   COMPONENTS_ICON_BUTTON: 'components/icon-button',
   COMPONENTS_DIALOG: 'components/dialog',
+  COMPONENTS_ACCORDION: 'components/accordion',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -67,6 +68,10 @@ export default function createRouter() {
           path: `/${Routes.COMPONENTS_DIALOG}`,
           name: Routes.COMPONENTS_DIALOG,
           component: () => import('@/views/protected/components/ComponentsDialogPage.vue'),
+        }, {
+          path: `/${Routes.COMPONENTS_ACCORDION}`,
+          name: Routes.COMPONENTS_ACCORDION,
+          component: () => import('@/views/protected/components/ComponentsAccordionPage.vue'),
         }],
       }, {
         path: `/${Routes.TYPOGRAPHY}`,

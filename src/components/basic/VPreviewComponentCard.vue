@@ -1,5 +1,10 @@
 <template>
-  <div :class="$style.root">
+  <div
+    :class="[
+      $style.root,
+      transparent && $style.transparent
+    ]"
+  >
     <h4 :class="$style.title">
       {{ props.title }}
     </h4>
@@ -27,11 +32,13 @@ interface PropsType {
   title?: string;
   desc?: string;
   direction?: PreviewDirection;
+  transparent?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   title: 'Untitled',
   direction: PreviewDirection.ROW,
+  transparent: false,
 });
 </script>
 
@@ -45,6 +52,12 @@ const props = withDefaults(defineProps<PropsType>(), {
   border-radius: 12px;
   min-height: 150px;
   box-shadow: 0px 3px 32px rgba(0, 0, 0, .08);
+}
+
+.transparent {
+  background-color: transparent;
+  box-shadow: none;
+  border: 1px solid var(--color-border);
 }
 
 .title {
