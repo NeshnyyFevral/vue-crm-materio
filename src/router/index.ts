@@ -10,6 +10,7 @@ export const Routes = {
   COMPONENTS_AVATAR: 'components/avatar',
   COMPONENTS_ALERT: 'components/alert',
   COMPONENTS_ICON_BUTTON: 'components/icon-button',
+  COMPONENTS_DIALOG: 'components/dialog',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -62,6 +63,10 @@ export default function createRouter() {
           path: `/${Routes.COMPONENTS_ICON_BUTTON}`,
           name: Routes.COMPONENTS_ICON_BUTTON,
           component: () => import('@/views/protected/components/ComponentsIconButtonPage.vue'),
+        }, {
+          path: `/${Routes.COMPONENTS_DIALOG}`,
+          name: Routes.COMPONENTS_DIALOG,
+          component: () => import('@/views/protected/components/ComponentsDialogPage.vue'),
         }],
       }, {
         path: `/${Routes.TYPOGRAPHY}`,

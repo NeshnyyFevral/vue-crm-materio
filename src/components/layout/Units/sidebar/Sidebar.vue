@@ -2,8 +2,8 @@
   <div
     :class="[
       $style.root,
-      open && $style.open,
-      !open && active && $style.active
+      modelValue && $style.open,
+      !modelValue && active && $style.active
     ]"
   >
     <div :class="$style.header">
@@ -33,7 +33,7 @@
             v-if="node.title"
             :class="[
               $style.titleWrapper,
-              !open && $style.titleWrapperHide,
+              !modelValue && $style.titleWrapperHide,
               active && $style.titleWrapperShow
             ]"
           >
@@ -70,12 +70,12 @@ import SidebarGroup from '@/components/layout/Units/sidebar/SidebarGroup.vue';
 import SidebarTree from '@/model/Sidebar';
 
 interface PropsType {
-  open: boolean;
+  modelValue: boolean;
   active: boolean;
 }
 
 interface EmitsType {
-  (e: 'toggle'): void;
+  (e: 'update:modelValue', value: boolean): void;
 }
 
 const props = defineProps<PropsType>();
@@ -84,14 +84,14 @@ const emits = defineEmits<EmitsType>();
 const activeLink = ref<string>('');
 const activeList = ref<string>('');
 
-const toggle = () => { emits('toggle'); };
+const toggle = () => { emits('update:modelValue', !props.modelValue); };
 
 const choiceLink = (title: string) => { activeLink.value = title; };
 const toggleList = (title: string) => {
   activeList.value = title;
 };
 
-const closedItemsGroup = computed(() => !props.open && !props.active);
+const closedItemsGroup = computed(() => !props.modelValue && !props.active);
 
 </script>
 
@@ -274,7 +274,7 @@ const closedItemsGroup = computed(() => !props.open && !props.active);
     left: 0;
   }
 
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1405px) {
     .root {
       overflow: visible;
       transform: translateX(-300px);

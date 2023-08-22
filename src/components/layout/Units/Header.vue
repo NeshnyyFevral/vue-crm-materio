@@ -1,50 +1,41 @@
 <template>
-  <div
+  <header
     :class="[
       $style.root,
       active && $style.active
     ]"
   >
     <div :class="$style.left">
-      <button
-        :class="[
-          $style.button,
-          $style.mobileSidebar
-        ]"
+      <VIconButton
+        :class="$style.mobileSidebar"
+        :variant="IconButtonVariant.TRANSPARENT"
         @click="emits('switchSidebar')"
       >
         <MenuIcon />
-      </button>
-      <button
-        :class="[
-          $style.button,
-          $style.search
-        ]"
+      </VIconButton>
+      <VIconButton
+        :class="$style.search"
+        :variant="IconButtonVariant.TRANSPARENT"
       >
         <SearchIcon />
-      </button>
+      </VIconButton>
     </div>
     <div :class="$style.right">
-      <button :class="[$style.button, $style.notify]">
-        <NotifyIcon />
-      </button>
-      <!--      <button
-        :class="$style.button"
-        @click="exit"
+      <VIconButton
+        :class="$style.notify"
+        :variant="IconButtonVariant.TRANSPARENT"
       >
-        <Avatar
-          :corner="AvatarCorner.DEFAULT"
-          :class="$style.avatar"
-          :size="AvatarSize.LARGE"
+        <NotifyIcon />
+      </VIconButton>
+
+      <VAvatar>
+        <img
+          src="@/assets/avatars/1.png"
+          alt="avatar"
         >
-          <img
-            src="@/assets/avatar/1.png"
-            alt="avatar"
-          >
-        </Avatar>
-      </button>-->
+      </VAvatar>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">
@@ -59,6 +50,9 @@ import { useRouter } from 'vue-router';
 import NotifyIcon from '@/assets/icons/header/notification.svg';
 import SearchIcon from '@/assets/icons/header/search.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
+import VAvatar from '@/components/basic/VAvatar.vue';
+import VIconButton from '@/components/basic/VIconButton.vue';
+import { IconButtonVariant } from '@/model/components/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
 import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';
@@ -66,7 +60,6 @@ import { useThemeStore } from '@/stores/theme';
 interface PropsType {
   active: boolean;
   language?: string;
-  width: string;
 }
 
 interface EmitsType {
@@ -103,6 +96,10 @@ const exit = () => {
 
 <style module lang="scss">
   .root {
+    width: calc(100% - 30px);
+    position: fixed;
+    top: 0;
+    z-index: 8888;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -113,11 +110,7 @@ const exit = () => {
       width 0.2s cubic-bezier(.25,.8,.5,1);
   }
 
-  .left {
-    display: flex;
-    align-items: center;
-  }
-
+  .left,
   .right {
     display: flex;
     align-items: center;
@@ -187,12 +180,6 @@ const exit = () => {
   }
 
   .active {
-    --header-width: v-bind(props.width);
-
-    position: fixed;
-    top: 0;
-    z-index: 8888;
-    width: var(--header-width);
     padding: 10px 20px;
     background-color: var(--color-header);
     border-radius: 0 0 10px 10px;
@@ -201,13 +188,11 @@ const exit = () => {
 
   .mobileSidebar {
     display: none;
-    width: 23px;
-    height: 23px;
     fill: var(--color-text);
 
-    @media screen and (max-width: 1270px) {
+    @media screen and (max-width: 1405px) {
       & {
-        display: block;
+        display: flex;
       }
     }
   }

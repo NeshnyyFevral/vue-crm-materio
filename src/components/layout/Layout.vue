@@ -7,9 +7,8 @@
   >
     <div>
       <Sidebar
+        v-model="openSidebar"
         :active="activeSidebar"
-        :open="openSidebar"
-        @toggle="openSidebar = !openSidebar"
         @mouseenter="activeSidebar = true"
         @mouseleave="activeSidebar = false"
       />
@@ -28,25 +27,18 @@
     >
       <div
         ref="wrapper"
-        :class="[
-          $style.wrapper,
-          active && $style.active
-        ]"
+        :class="$style.wrapper"
       >
-        <header :class="$style.header">
-          <Header
-            :width="headerWidth + 'px'"
-            :active="active"
-            @switchSidebar="openSidebar = !openSidebar"
-          />
-        </header>
+        <Header
+          :class="$style.header"
+          :active="active"
+          @switchSidebar="openSidebar = !openSidebar"
+        />
         <main :class="$style.main">
           <router-view />
         </main>
       </div>
-      <footer :class="$style.footer">
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   </div>
 </template>
@@ -66,7 +58,7 @@ import { useThemeStore } from '@/stores/theme';
 const themeStore = useThemeStore();
 
 const active = ref<boolean>(false);
-const openSidebar = ref<boolean>(true);
+const openSidebar = ref<boolean>(false);
 const activeSidebar = ref<boolean>(false);
 const wrapper = ref<HTMLDivElement | null>(null);
 const headerWidth = ref<number>(0);
@@ -110,50 +102,65 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
     min-height: calc(100vh - 40px);
   }
 
+  .main {
+    margin-top: 70px;
+  }
+
   .header {
-    position: relative;
-    width: 100%;
-  }
-
-  .footer {
-    margin-top: 40px;
-  }
-
-  .active .main {
-    margin-top: 110px;
+    max-width: 1315px;
   }
 
   @media screen and (max-width: 1800px) {
     .openSidebar {
       margin-left: 100px;
+
+      .header {
+        max-width: 1270px;
+      }
     }
   }
 
   @media screen and (max-width: 1720px) {
     .openSidebar {
       margin-left: 150px;
+
+      .header {
+        max-width: 1220px;
+      }
     }
   }
 
   @media screen and (max-width: 1650px) {
     .openSidebar {
       margin-left: 200px;
+
+      .header {
+        max-width: 1170px;
+      }
     }
   }
 
   @media screen and (max-width: 1500px) {
     .openSidebar {
       margin-left: 250px;
+
+      .header {
+        max-width: 1120px;
+      }
     }
   }
 
-  @media screen and (max-width: 1270px) {
+  @media screen and (max-width: 1405px) {
     .content {
       margin-left: 0;
     }
 
     .openSidebar {
       margin-left: 0;
+
+      .header {
+        max-width: 1315px;
+      }
     }
 
     .modal {
