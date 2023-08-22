@@ -66,7 +66,7 @@ import { computed, ref } from 'vue';
 
 import CrossIcon from '@/assets/icons/cross.svg';
 import LogoIcon from '@/assets/icons/sidebar/logo.svg';
-import SidebarGroup from '@/components/layout/Units/sidebar/SidebarGroup.vue';
+import SidebarGroup from '@/components/layout/units/sidebar/SidebarGroup.vue';
 import SidebarTree from '@/model/Sidebar';
 
 interface PropsType {
