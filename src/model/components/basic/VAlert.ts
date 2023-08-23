@@ -1,5 +1,5 @@
-import { ButtonMapColor } from '@/model/components/VButton';
-import { ChipMapColorLight } from '@/model/components/VChip';
+import { ButtonMapColor } from '@/model/components/basic/VButton';
+import { ChipMapColorLight } from '@/model/components/basic/VChip';
 
 export enum AlertVariant {
   FILLED = 'filled',

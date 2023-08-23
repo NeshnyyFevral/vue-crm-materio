@@ -99,7 +99,9 @@ export default [
       {
         title: 'Form components',
         icon: ComponentsIcon,
-        list: [],
+        list: [
+          { title: 'Text field', route: { name: Routes.FORM_COMPONENTS_TEXT_FIELD } },
+        ],
       },
     ],
   },

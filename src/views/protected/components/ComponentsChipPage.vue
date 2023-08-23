@@ -108,7 +108,7 @@ import RemoveIcon from '@/assets/icons/remove.svg';
 import VChip from '@/components/basic/VChip.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
-import { ChipSize, ChipVariant } from '@/model/components/VChip';
+import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 </script>
 
 <style module lang="scss">

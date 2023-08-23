@@ -52,7 +52,7 @@ import SearchIcon from '@/assets/icons/header/search.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
-import { IconButtonVariant } from '@/model/components/VIconButton';
+import { IconButtonVariant } from '@/model/components/basic/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
 import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';

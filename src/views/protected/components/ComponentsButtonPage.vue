@@ -94,7 +94,7 @@ import SendIcon from '@/assets/icons/button/send.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
-import { ButtonSize, ButtonVariant } from '@/model/components/VButton';
+import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 </script>
 
 <style module lang="scss">

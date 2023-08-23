@@ -30,7 +30,7 @@ import {
   AlertMapColor,
   AlertMapColorLight,
   AlertVariant,
-} from '@/model/components/VAlert';
+} from '@/model/components/basic/VAlert';
 
 interface PropsType {
   icon?: any;

@@ -105,7 +105,7 @@ import SuccessIcon from '@/assets/icons/avatar/success.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
-import { AvatarSize, AvatarVariant } from '@/model/components/VAvatar';
+import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
 </script>
 
 <style module lang="scss">

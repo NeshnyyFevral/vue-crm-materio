@@ -3,7 +3,7 @@ import {
   generateCssVarName400,
   GlobalColors,
 } from '@/model/Colors';
-import { ButtonMapColor } from '@/model/components/VButton';
+import { ButtonMapColor } from '@/model/components/basic/VButton';
 import { getCssVarValue } from '@/model/tools/CssTools';
 
 export enum ChipVariant {

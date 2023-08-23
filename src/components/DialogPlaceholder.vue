@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import VButton from '@/components/basic/VButton.vue';
-import { ButtonSize, ButtonVariant } from '@/model/components/VButton';
+import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 
 interface PropsType {
   modelValue: boolean;

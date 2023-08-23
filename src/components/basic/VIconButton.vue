@@ -21,7 +21,7 @@ import {
   IconButtonMapColorLight,
   IconButtonSize,
   IconButtonVariant,
-} from '@/model/components/VIconButton';
+} from '@/model/components/basic/VIconButton';
 
 interface PropsType {
   size?: IconButtonSize;

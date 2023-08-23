@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { PreviewDirection } from '@/model/components/VPreviewComponentCard';
+import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard';
 
 interface PropsType {
   title?: string;

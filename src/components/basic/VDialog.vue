@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
-import { DialogSize } from '@/model/components/VDialog';
+import { DialogSize } from '@/model/components/basic/VDialog';
 
 interface PropsType {
   modelValue: boolean;

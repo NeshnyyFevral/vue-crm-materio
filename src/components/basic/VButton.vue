@@ -58,7 +58,7 @@ import {
   ButtonMapColorHover,
   ButtonSize,
   ButtonVariant,
-} from '@/model/components/VButton';
+} from '@/model/components/basic/VButton';
 
 interface PropsType {
   variant?: ButtonVariant;
