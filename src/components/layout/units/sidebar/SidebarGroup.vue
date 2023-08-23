@@ -6,6 +6,7 @@
     ]"
   >
     <button
+      v-ripple
       :class="[
         $style.button,
         active && !closedItemsGroup && $style.buttonOpen
@@ -19,7 +20,6 @@
         {{ title }}
       </h3>
       <ArrowIcon :class="$style.arrowIcon" />
-      <Ripple :items="items" />
     </button>
     <div
       ref="listItems"
@@ -45,9 +45,7 @@
 import { computed, ref } from 'vue';
 
 import ArrowIcon from '@/assets/icons/chevron-down.svg';
-import Ripple from '@/components/basic/VRipple.vue';
 import SidebarItem from '@/components/layout/units/sidebar/SidebarItem.vue';
-import { useRipple } from '@/hooks/useRipple';
 import type { SidebarList } from '@/model/Sidebar';
 
 interface PropsType {
@@ -74,20 +72,7 @@ const listHeight = ref(`${props.count * 49}px`);
 
 const active = computed(() => (props.activeList === props.title));
 
-const {
-  add,
-  items,
-} = useRipple();
-
-const openList = (event: any) => {
-  const button = event.target;
-
-  const left = event.pageX - button.clientLeft - 15;
-  const top = event.offsetY - button.clientTop - 15;
-  const rippleColor = getComputedStyle(button).color;
-
-  add(top, left, rippleColor);
-
+const openList = () => {
   if (active.value) {
     emits('toggle', '');
   } else {
@@ -99,6 +84,8 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
 </script>
 
 <style module lang="scss">
+@import "@/scss/mixins/ripple";
+
   .root {
     position: relative;
     z-index: 100;
@@ -107,6 +94,8 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
   }
 
   .button {
+    @include ripple-block;
+
     position: relative;
     display: flex;
     align-items: center;
