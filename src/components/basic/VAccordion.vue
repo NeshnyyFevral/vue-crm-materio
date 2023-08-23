@@ -6,7 +6,9 @@
     ]"
     @click="isOpen = !isOpen"
   >
-    <div :class="$style.visible">
+    <div
+      :class="$style.visible"
+    >
       <h6 :class="$style.title">
         {{ props.title }}
       </h6>
@@ -71,7 +73,7 @@ watch(() => props.name, () => {
 </script>
 
 <style module lang="scss">
-@import '@/scss/mixins/typography';
+@import '@/scss/mixins/mixins';
 
 .root {
   padding: 10px 25px;

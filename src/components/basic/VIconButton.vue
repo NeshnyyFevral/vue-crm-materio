@@ -1,5 +1,6 @@
 <template>
   <button
+    v-ripple
     :class="[
       $style.root,
       $style[`variant-${props.variant}`],
@@ -39,7 +40,10 @@ const iconButtonColorLight = computed(() => IconButtonMapColorLight[props.color]
 </script>
 
 <style module lang="scss">
+@import '@/scss/mixins/mixins';
 .root {
+  @include ripple-block;
+
   --icon-button-color: v-bind(iconButtonColor);
   --icon-button-color-light: v-bind(iconButtonColorLight);
 

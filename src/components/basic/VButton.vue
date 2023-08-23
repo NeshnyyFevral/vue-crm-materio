@@ -1,5 +1,6 @@
 <template>
   <button
+    v-ripple
     :class="[
       $style.root,
       $style[`variant-${props.variant}`],
@@ -102,6 +103,7 @@ onMounted(() => {
 
   .root {
     @include button;
+    @include ripple-block;
 
     --color-button: v-bind(buttonColor);
     --color-button-hover: v-bind(buttonColorHover);
