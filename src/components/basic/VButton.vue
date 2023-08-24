@@ -99,110 +99,110 @@ onMounted(() => {
 </script>
 
 <style module lang="scss">
-  @import '@/scss/mixins/mixins';
+@import '@/scss/mixins/mixins';
 
-  .root {
-    @include button;
-    @include ripple-block;
+$sizes: (
+    small: 7px 15px,
+    medium: 10px 20px,
+    large: 13px 35px,
+);
 
-    --color-button: v-bind(buttonColor);
-    --color-button-hover: v-bind(buttonColorHover);
+.root {
+  @include button;
+  @include ripple-block;
 
-    background-color: transparent;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    overflow: hidden;
-  }
+  --color-button: v-bind(buttonColor);
+  --color-button-hover: v-bind(buttonColorHover);
 
-  .variant {
-    &-contained {
-      background-color: var(--color-button);
-      color: var(--color-button-text);
-      box-shadow: 0 4px 8px -4px var(--color-button);
-      transition: box-shadow .25s,
-      opacity .25s;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+}
 
-      &:hover {
-        box-shadow: 0 6px 20px -8px var(--color-button);
-        opacity: 0.9;
-      }
-    }
+.variant {
+  &-contained {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    box-shadow: 0 4px 8px -4px var(--color-button);
+    transition: box-shadow .25s,
+    opacity .25s;
 
-    &-outlined {
-      --color-button-text: var(--color-button);
-
-      border: 1px solid var(--color-button);
-      color: var(--color-button-text);
-      transition: background-color 0.25s;
-
-      &:hover {
-        background-color: var(--color-button-hover);
-      }
-    }
-
-    &-text {
-      --color-button-text: var(--color-button);
-
-      color: var(--color-button-text);
-      transition: background-color 0.25s;
-
-      &:hover {
-        background-color: var(--color-button-hover);
-      }
+    &:hover {
+      box-shadow: 0 6px 20px -8px var(--color-button);
+      opacity: 0.9;
     }
   }
 
-  .disabled {
-    --color-button: v-bind(buttonColorDisabled);
-    --color-button-text: v-bind(buttonColorDisabledText);
+  &-outlined {
+    --color-button-text: var(--color-button);
+
+    border: 1px solid var(--color-button);
+    color: var(--color-button-text);
+    transition: background-color 0.25s;
+
+    &:hover {
+      background-color: var(--color-button-hover);
+    }
+  }
+
+  &-text {
+    --color-button-text: var(--color-button);
 
     color: var(--color-button-text);
-    pointer-events: none;
-  }
+    transition: background-color 0.25s;
 
-  .loading {
-    pointer-events: none;
-  }
-
-  .size {
-    $sizes: (
-      small: 7px 15px,
-      medium: 10px 20px,
-      large: 13px 35px,
-    );
-
-    @each $key, $size in $sizes {
-      &-#{$key} {
-        padding: $size;
-      }
+    &:hover {
+      background-color: var(--color-button-hover);
     }
   }
+}
+
+.disabled {
+  --color-button: v-bind(buttonColorDisabled);
+  --color-button-text: v-bind(buttonColorDisabledText);
+
+  color: var(--color-button-text);
+  pointer-events: none;
+}
+
+.loading {
+  pointer-events: none;
+}
+
+.size {
+  @each $key, $size in $sizes {
+    &-#{$key} {
+      padding: $size;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.block {
+  display: block;
+  width: 100%;
 
   .content {
-    display: flex;
-    align-items: center;
+    justify-content: center;
   }
+}
 
-  .block {
-    display: block;
-    width: 100%;
+.prepend,
+.append {
+  display: flex;
+}
 
-    .content {
-      justify-content: center;
-    }
-  }
+.prepend {
+  margin-right: 5px;
+}
 
-  .prepend,
-  .append {
-    display: flex;
-  }
-
-  .prepend {
-    margin-right: 5px;
-  }
-
-  .append {
-    margin-left: 5px;
-  }
+.append {
+  margin-left: 5px;
+}
 </style>

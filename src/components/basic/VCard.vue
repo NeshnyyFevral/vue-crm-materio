@@ -9,7 +9,7 @@
 </script>
 
 <style module lang="scss">
-  .root {
+.root {
 
-  }
+}
 </style>

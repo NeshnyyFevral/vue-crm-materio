@@ -20,8 +20,7 @@ export default defineConfig({
         plugins: [{
           name: 'preset-default',
           params: { overrides: { removeViewBox: false } },
-        },
-        ],
+        }],
       },
     }),
   ],

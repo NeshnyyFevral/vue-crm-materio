@@ -22,4 +22,4 @@ export enum TextFieldSize {
   NORMAL = 'normal',
 }
 
-export const ChipMapColor: { [index: string]: string } = ButtonMapColor;
+export const TextFieldMapColor: { [index: string]: string } = ButtonMapColor;

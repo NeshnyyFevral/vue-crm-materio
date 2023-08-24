@@ -41,6 +41,13 @@ const iconButtonColorLight = computed(() => IconButtonMapColorLight[props.color]
 
 <style module lang="scss">
 @import '@/scss/mixins/mixins';
+
+$sizes: (
+    small: 20px,
+    medium: 26px,
+    large: 42px,
+);
+
 .root {
   @include ripple-block;
 
@@ -108,12 +115,6 @@ const iconButtonColorLight = computed(() => IconButtonMapColorLight[props.color]
 }
 
 .size {
-  $sizes: (
-    small: 20px,
-    medium: 26px,
-    large: 42px,
-  );
-
   @each $key, $size in $sizes {
     &-#{$key} {
       width: calc($size + 10px);
