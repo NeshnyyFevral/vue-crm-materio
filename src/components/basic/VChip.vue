@@ -34,7 +34,7 @@ import {
   ChipMapColorLight,
   ChipSize,
   ChipVariant,
-} from '@/model/components/VChip';
+} from '@/model/components/basic/VChip';
 
 interface PropsType {
   variant?: ChipVariant;

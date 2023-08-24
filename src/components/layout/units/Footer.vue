@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
     color: var(--text-color);
   }
 

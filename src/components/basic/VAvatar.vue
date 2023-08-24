@@ -25,7 +25,7 @@ import {
   AvatarMapColorLight,
   AvatarSize,
   AvatarVariant,
-} from '@/model/components/VAvatar';
+} from '@/model/components/basic/VAvatar';
 
 interface PropsType {
   size?: AvatarSize;

@@ -30,7 +30,7 @@ import {
   AlertMapColor,
   AlertMapColorLight,
   AlertVariant,
-} from '@/model/components/VAlert';
+} from '@/model/components/basic/VAlert';
 
 interface PropsType {
   icon?: any;
@@ -43,6 +43,9 @@ const props = withDefaults(defineProps<PropsType>(), {
   variant: AlertVariant.LIGHT,
 });
 
+const alertColor = computed<string>(() => AlertMapColor[props.color]);
+const alertColorLight = computed<string>(() => AlertMapColorLight[props.color]);
+
 const getIconFromColor = (color: GlobalColors) => {
   switch (color) {
   case GlobalColors.SUCCESS: return SuccessIcon;
@@ -51,9 +54,6 @@ const getIconFromColor = (color: GlobalColors) => {
   default: return InfoIcon;
   }
 };
-
-const alertColor = computed<string>(() => AlertMapColor[props.color]);
-const alertColorLight = computed<string>(() => AlertMapColorLight[props.color]);
 </script>
 
 <style module lang="scss">

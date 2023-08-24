@@ -1,7 +1,7 @@
 <template>
-  <div :class="$style.root">
+  <form autocomplete="off">
     <slot />
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">
@@ -9,7 +9,5 @@
 </script>
 
 <style module lang="scss">
-.root {
 
-}
 </style>

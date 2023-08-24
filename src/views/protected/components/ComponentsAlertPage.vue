@@ -93,8 +93,8 @@ import VAlert from '@/components/basic/VAlert.vue';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
-import { AlertVariant } from '@/model/components/VAlert';
-import { ButtonSize, ButtonVariant } from '@/model/components/VButton';
+import { AlertVariant } from '@/model/components/basic/VAlert';
+import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 </script>
 
 <style module lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style['lds-ring']">
+  <div :class="$style.loader">
     <div />
     <div />
     <div />
@@ -22,7 +22,7 @@ const size = computed(() => props.size);
 </script>
 
 <style module lang="scss">
-.lds-ring {
+.loader {
   --size-loader: v-bind(size);
 
   display: inline-block;
@@ -38,7 +38,7 @@ const size = computed(() => props.size);
     height: var(--size-loader);
     border: 3px solid var(--color-button-text);
     border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    animation: isLoading 1.3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: var(--color-button-text) transparent transparent transparent;
   }
 
@@ -54,7 +54,7 @@ const size = computed(() => props.size);
     animation-delay: -0.15s;
   }
 }
-@keyframes lds-ring {
+@keyframes isLoading {
   0% {
     transform: rotate(0deg);
   }

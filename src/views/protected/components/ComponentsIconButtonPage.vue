@@ -74,8 +74,8 @@ import ZoomIcon from '@/assets/icons/button/zoom.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import { GlobalColors } from '@/model/Colors';
-import { IconButtonSize, IconButtonVariant } from '@/model/components/VIconButton';
-import { PreviewDirection } from '@/model/components/VPreviewComponentCard';
+import { IconButtonSize, IconButtonVariant } from '@/model/components/basic/VIconButton';
+import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard';
 </script>
 
 <style module lang="scss">

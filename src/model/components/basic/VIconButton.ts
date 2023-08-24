@@ -1,4 +1,4 @@
-import { ButtonMapColor, ButtonMapColorHover } from '@/model/components/VButton';
+import { ButtonMapColor, ButtonMapColorHover } from '@/model/components/basic/VButton';
 
 export enum IconButtonSize {
   SMALL = 'small',

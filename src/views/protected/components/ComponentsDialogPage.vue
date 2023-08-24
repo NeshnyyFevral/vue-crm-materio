@@ -110,7 +110,7 @@ import VButton from '@/components/basic/VButton.vue';
 import VDialog from '@/components/basic/VDialog.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import DialogPlaceholder from '@/components/DialogPlaceholder.vue';
-import { DialogSize } from '@/model/components/VDialog';
+import { DialogSize } from '@/model/components/basic/VDialog';
 
 const isVisibleBasicDialog = ref<boolean>(false);
 

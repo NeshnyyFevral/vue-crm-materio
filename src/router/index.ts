@@ -13,6 +13,9 @@ export const Routes = {
   COMPONENTS_DIALOG: 'components/dialog',
   COMPONENTS_ACCORDION: 'components/accordion',
 
+  FORM_COMPONENTS: 'form-components',
+  FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
+
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
   TYPOGRAPHY_TEXTS: 'typography/texts',
@@ -86,6 +89,16 @@ export default function createRouter() {
           path: `/${Routes.TYPOGRAPHY_TEXTS}`,
           name: Routes.TYPOGRAPHY_TEXTS,
           component: () => import('@/views/protected/typography/TypographyTextsPage.vue'),
+        }],
+      }, {
+        path: `/${Routes.FORM_COMPONENTS}`,
+        name: Routes.FORM_COMPONENTS,
+        component: () => import('@/views/protected/form-components/FormComponentsPage.vue'),
+        redirect: { name: Routes.FORM_COMPONENTS_TEXT_FIELD },
+        children: [{
+          path: `/${Routes.FORM_COMPONENTS_TEXT_FIELD}`,
+          name: Routes.FORM_COMPONENTS_TEXT_FIELD,
+          component: () => import('@/views/protected/form-components/FormComponentsTextFieldPage.vue'),
         }],
       }],
     }, {

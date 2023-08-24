@@ -1,6 +1,6 @@
 export default {
   mounted(el: any, binding: any) {
-    const color = binding.value === undefined ? '#000' : binding.value;
+    const color = binding.value === undefined ? '#222' : binding.value;
     const SIZE = 20;
 
     el.style.position = 'relative';
@@ -31,7 +31,7 @@ export default {
       ev.stopPropagation();
 
       setTimeout(() => {
-        circle!.parentNode!.removeChild(circle);
+        circle.parentNode?.removeChild(circle);
       }, 1000);
     };
   },
