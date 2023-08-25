@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Alert basic"
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VAlert> component for different colored alerts."
@@ -85,22 +85,15 @@
         </template>
       </VAlert>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
 import VAlert from '@/components/basic/VAlert.vue';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { GlobalColors } from '@/model/Colors';
 import { AlertVariant } from '@/model/components/basic/VAlert';
 import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-</style>

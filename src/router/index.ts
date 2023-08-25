@@ -15,15 +15,14 @@ export const Routes = {
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
+  FORM_COMPONENTS_CHECKBOX: 'form-components/checkbox',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
   TYPOGRAPHY_TEXTS: 'typography/texts',
   /* PUBLIC PAGES */
   LOGIN: 'login',
-  REGISTRATION: 'registration',
   NOT_FOUND: '404',
-  RESET_PASSWORD: 'reset-password',
 };
 
 export default function createRouter() {
@@ -99,6 +98,10 @@ export default function createRouter() {
           path: `/${Routes.FORM_COMPONENTS_TEXT_FIELD}`,
           name: Routes.FORM_COMPONENTS_TEXT_FIELD,
           component: () => import('@/views/protected/form-components/FormComponentsTextFieldPage.vue'),
+        }, {
+          path: `/${Routes.FORM_COMPONENTS_CHECKBOX}`,
+          name: Routes.FORM_COMPONENTS_CHECKBOX,
+          component: () => import('@/views/protected/form-components/FormComponentsCheckbox.vue'),
         }],
       }],
     }, {

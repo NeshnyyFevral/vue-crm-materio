@@ -101,6 +101,7 @@ export default [
         icon: ComponentsIcon,
         list: [
           { title: 'Text field', route: { name: Routes.FORM_COMPONENTS_TEXT_FIELD } },
+          { title: 'Checkbox', route: { name: Routes.FORM_COMPONENTS_CHECKBOX } },
         ],
       },
     ],

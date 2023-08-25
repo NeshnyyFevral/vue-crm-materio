@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Button sizes"
       desc="Button sizes provided from the «ButtonSize» model."
@@ -85,7 +85,7 @@
         {{ ButtonVariant[variant] }}
       </VButton>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
@@ -93,14 +93,7 @@ import RemoveIcon from '@/assets/icons/button/remove.svg';
 import SendIcon from '@/assets/icons/button/send.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { GlobalColors } from '@/model/Colors';
 import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-</style>

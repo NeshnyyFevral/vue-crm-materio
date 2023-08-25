@@ -136,10 +136,6 @@ const clickLabel = () => {
   }
 };
 
-watchEffect(() => {
-  inputValue.value = props.modelValue;
-});
-
 onMounted(() => {
   if (prefixRef.value) {
     prefixWidth.value = `${prefixRef.value!.getBoundingClientRect().width + 10}px`;
@@ -148,6 +144,10 @@ onMounted(() => {
     suffixWidth.value = `${suffixRef.value!.getBoundingClientRect().width + 10}px`;
   }
 });
+
+watchEffect(() => {
+  inputValue.value = props.modelValue;
+});
 </script>
 
 <style module lang="scss">
@@ -155,7 +155,7 @@ onMounted(() => {
 
 $sizes: (
   small: 8.5px 14px,
-  normal: 16.5px 14px,
+  normal: 12.5px 14px,
 );
 
 .root {
@@ -251,7 +251,7 @@ $sizes: (
 
   .hasFocused &,
   .hasFilled &,
-  .isPrefix &{
+  .isPrefix & {
     top: 0;
     transform: translateY(-50%) scale(0.9);
   }

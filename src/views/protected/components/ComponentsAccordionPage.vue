@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Basic accordion"
       desc="Use <VAccordion> components"
@@ -54,7 +54,7 @@
         unde. Consectetur consequuntur exercitationem in laboriosam, magni neque numquam provident quod saepe sed tenetur!
       </VAccordion>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
@@ -62,14 +62,7 @@ import { ref } from 'vue';
 
 import VAccordion from '@/components/basic/VAccordion.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 
 const linkedAccordion = ref<string>('');
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-</style>

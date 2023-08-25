@@ -86,7 +86,6 @@ const isVisiblePrepend = computed<boolean>(() => !!slots.iconPrepend);
 const isVisibleAppend = computed<boolean>(() => !!slots.iconAppend);
 const buttonColor = computed<string>(() => ButtonMapColor[props.color]);
 const buttonColorHover = computed<string>(() => ButtonMapColorHover[props.color]);
-
 const buttonColorDisabledText = computed<string>(() => ButtonMapColor.default);
 const buttonColorDisabled = computed<string>(() => ButtonMapColorHover.default);
 

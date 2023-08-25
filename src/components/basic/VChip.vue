@@ -54,7 +54,6 @@ const slots = useSlots();
 
 const isVisiblePrepend = computed<boolean>(() => !!slots.iconPrepend);
 const isVisibleAppend = computed<boolean>(() => !!slots.iconAppend);
-
 const chipColor = computed<string>(() => ChipMapColor[props.color]);
 const chipColorHover = computed<string>(() => ChipMapColorHover[props.color]);
 const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);

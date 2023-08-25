@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Avatar sizes"
       desc="Avatar sizes provided by «AvatarSize» model."
@@ -93,7 +93,7 @@
         <DiskIcon />
       </VAvatar>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
@@ -104,14 +104,7 @@ import RepairIcon from '@/assets/icons/avatar/repair.svg';
 import SuccessIcon from '@/assets/icons/avatar/success.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { GlobalColors } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-</style>

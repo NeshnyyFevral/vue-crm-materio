@@ -54,7 +54,6 @@ const letterFormatting = computed<string>(() => {
   if (length === 1) return name[0][0].toUpperCase();
   return 'N';
 });
-
 const avatarColor = computed<string>(() => AvatarMapColor[props.color]);
 const avatarColorLight = computed<string>(() => AvatarMapColorLight[props.color]);
 </script>
