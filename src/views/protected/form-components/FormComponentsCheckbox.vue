@@ -41,6 +41,25 @@
         {{ CheckboxLabelPlacement[place] }}
       </VCheckbox>
     </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Checkbox disabled"
+      desc="Use disabled=true."
+    >
+      <VCheckbox
+        :model-value="false"
+        disabled
+      >
+        Unchecked
+      </VCheckbox>
+
+      <VCheckbox
+        :model-value="true"
+        disabled
+      >
+        Checked
+      </VCheckbox>
+    </VPreviewComponentCard>
   </VPreviewComponentPage>
 </template>
 

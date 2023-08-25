@@ -1,44 +1,46 @@
 <template>
   <div
     :class="[
-      $style.root,
-      themeStore.theme && $style.darkRoot
+      $style.app,
+      themeStore.theme && $style.dark
     ]"
   >
-    <div>
-      <Sidebar
-        v-model="openSidebar"
-        :active="activeSidebar"
-        @mouseenter="activeSidebar = true"
-        @mouseleave="activeSidebar = false"
-      />
-    </div>
-    <div
-      v-if="openSidebar"
-      :class="$style.modal"
-      @click="openSidebar = false"
-    />
-    <div
-      :class="[
-        $style.content,
-        openSidebar && $style.openSidebar
-      ]"
-      @transitionend="scroll"
-    >
-      <div
-        ref="wrapper"
-        :class="$style.wrapper"
-      >
-        <Header
-          :class="$style.header"
-          :active="active"
-          @switchSidebar="openSidebar = !openSidebar"
+    <div :class="$style.root">
+      <div>
+        <Sidebar
+          v-model="openSidebar"
+          :active="activeSidebar"
+          @mouseenter="activeSidebar = true"
+          @mouseleave="activeSidebar = false"
         />
-        <main :class="$style.main">
-          <router-view />
-        </main>
       </div>
-      <Footer />
+      <div
+        v-if="openSidebar"
+        :class="$style.modal"
+        @click="openSidebar = false"
+      />
+      <div
+        :class="[
+          $style.content,
+          openSidebar && $style.openSidebar
+        ]"
+        @transitionend="scroll"
+      >
+        <div
+          ref="wrapper"
+          :class="$style.wrapper"
+        >
+          <Header
+            :class="$style.header"
+            :active="active"
+            @switchSidebar="openSidebar = !openSidebar"
+          />
+          <main :class="$style.main">
+            <router-view />
+          </main>
+        </div>
+        <Footer />
+      </div>
     </div>
   </div>
 </template>
@@ -58,7 +60,7 @@ import { useThemeStore } from '@/stores/theme';
 const themeStore = useThemeStore();
 
 const active = ref<boolean>(false);
-const openSidebar = ref<boolean>(false);
+const openSidebar = ref<boolean>(true);
 const activeSidebar = ref<boolean>(false);
 const wrapper = ref<HTMLDivElement | null>(null);
 const headerWidth = ref<number>(0);
@@ -75,6 +77,13 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
 <style module lang="scss">
 @import "@/scss/mixins/mixins";
 @import "@/scss/vars";
+
+.app {
+  background-color: var(--color-bg);
+
+  transition: background-color 0.2s;
+}
+
   .root {
     display: flex;
     max-width: 1400px;
@@ -84,10 +93,9 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
   }
 
   body {
-    background-color: var(--color-bg);
     @include theme-colors(true);
 
-    .darkRoot {
+    .dark {
       @include theme-colors(false);
     }
   }

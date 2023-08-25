@@ -21,6 +21,10 @@
       </VIconButton>
     </div>
     <div :class="$style.right">
+      <VSwitch v-model="themeValue">
+        {{ displayedThemeValue }}
+      </VSwitch>
+
       <VIconButton
         :class="$style.notify"
         :variant="IconButtonVariant.TRANSPARENT"
@@ -52,6 +56,7 @@ import SearchIcon from '@/assets/icons/header/search.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
+import VSwitch from '@/components/form/VSwitch.vue';
 import { IconButtonVariant } from '@/model/components/basic/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
 import { Routes } from '@/router';
@@ -79,8 +84,6 @@ watch(() => themeValue.value, () => {
   appStorage.set('themeColor', themeValue.value ? 1 : 0);
   themeStore.changeTheme();
 });
-
-const languageIcon = computed(() => new URL(`../../../assets/icons/Header/${props.language}.png`, import.meta.url));
 
 onMounted(() => {
   themeValue.value = !!appStorage.get('themeColor');
