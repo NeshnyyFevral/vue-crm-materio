@@ -21,6 +21,14 @@
       </VIconButton>
     </div>
     <div :class="$style.right">
+      <VSwitch
+        v-model="themeValue"
+        :color="GlobalColors.DEFAULT"
+        :class="$style.theme"
+      >
+        {{ displayedThemeValue }}
+      </VSwitch>
+
       <VIconButton
         :class="$style.notify"
         :variant="IconButtonVariant.TRANSPARENT"
@@ -52,9 +60,10 @@ import SearchIcon from '@/assets/icons/header/search.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
+import VSwitch from '@/components/form/VSwitch.vue';
+import { GlobalColors } from '@/model/Colors';
 import { IconButtonVariant } from '@/model/components/basic/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
-import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';
 
 interface PropsType {
@@ -78,20 +87,18 @@ const displayedThemeValue = computed<'Dark' | 'Light'>(() => (themeValue.value ?
 watch(() => themeValue.value, () => {
   appStorage.set('themeColor', themeValue.value ? 1 : 0);
   themeStore.changeTheme();
-});
 
-const languageIcon = computed(() => new URL(`../../../assets/icons/Header/${props.language}.png`, import.meta.url));
+  if (themeValue.value) {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
+});
 
 onMounted(() => {
   themeValue.value = !!appStorage.get('themeColor');
   themeStore.changeTheme();
 });
-
-const exit = () => {
-  appStorage.removeItem('authUser');
-  router.push(Routes.LOGIN);
-};
-
 </script>
 
 <style module lang="scss">
@@ -169,14 +176,6 @@ const exit = () => {
     width: 22px;
     height: 14px;
     transform: translateY(-50%);
-  }
-
-  .search,
-  .theme,
-  .notify {
-    svg {
-      width: 25px;
-    }
   }
 
   .active {

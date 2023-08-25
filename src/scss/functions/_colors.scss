@@ -7,3 +7,7 @@
 @function shade($color, $percentage) {
   @return color.mix(black, $color, $percentage);
 }
+
+@function alpha($color, $percentage) {
+  @return color.change($color, $alpha: $percentage);
+}

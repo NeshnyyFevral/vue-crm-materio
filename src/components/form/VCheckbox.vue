@@ -105,6 +105,7 @@ $sizes: (
   position: relative;
   display: inline-block;
   border: 2px solid var(--checkbox-color);
+  border-radius: 5px;
 
   &.hasChecked {
     background-color: var(--checkbox-color);

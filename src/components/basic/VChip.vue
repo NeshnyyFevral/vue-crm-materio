@@ -111,7 +111,7 @@ const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
 
   &-light {
     background-color: var(--color-chip-light);
-    border-color: var(--color-chip-light);
+    border: none;
     color: var(--color-chip);
   }
 }
