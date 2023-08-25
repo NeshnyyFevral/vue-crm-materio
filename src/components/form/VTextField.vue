@@ -136,10 +136,6 @@ const clickLabel = () => {
   }
 };
 
-watchEffect(() => {
-  inputValue.value = props.modelValue;
-});
-
 onMounted(() => {
   if (prefixRef.value) {
     prefixWidth.value = `${prefixRef.value!.getBoundingClientRect().width + 10}px`;
@@ -147,6 +143,10 @@ onMounted(() => {
   if (suffixRef.value) {
     suffixWidth.value = `${suffixRef.value!.getBoundingClientRect().width + 10}px`;
   }
+});
+
+watchEffect(() => {
+  inputValue.value = props.modelValue;
 });
 </script>
 
