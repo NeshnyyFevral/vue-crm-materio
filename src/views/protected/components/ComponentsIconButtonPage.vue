@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Icon button variant"
       desc="Use variant={'filled' | 'transparent' | 'light'} prop with <VIconButton> component for different varianted buttons."
@@ -66,25 +66,20 @@
         </VIconButton>
       </div>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
 import ZoomIcon from '@/assets/icons/button/zoom.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { GlobalColors } from '@/model/Colors';
 import { IconButtonSize, IconButtonVariant } from '@/model/components/basic/VIconButton';
 import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard';
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-
 .flex {
   display: flex;
   gap: 15px;

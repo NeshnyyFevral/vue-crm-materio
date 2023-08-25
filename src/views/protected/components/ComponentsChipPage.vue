@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Chip sizes"
       desc="Chip sizes provided from the «ChipSize» model."
@@ -100,21 +100,14 @@
         {{ GlobalColors[color] }}
       </VChip>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
 import RemoveIcon from '@/assets/icons/remove.svg';
 import VChip from '@/components/basic/VChip.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { GlobalColors } from '@/model/Colors';
 import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-</style>

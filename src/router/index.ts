@@ -21,9 +21,7 @@ export const Routes = {
   TYPOGRAPHY_TEXTS: 'typography/texts',
   /* PUBLIC PAGES */
   LOGIN: 'login',
-  REGISTRATION: 'registration',
   NOT_FOUND: '404',
-  RESET_PASSWORD: 'reset-password',
 };
 
 export default function createRouter() {

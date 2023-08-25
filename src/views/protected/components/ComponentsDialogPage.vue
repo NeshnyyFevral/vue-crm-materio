@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Basic dialog"
       desc="Manage model-value prop with the help of a state."
@@ -100,7 +100,7 @@
         />
       </VDialog>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
@@ -109,6 +109,7 @@ import { ref } from 'vue';
 import VButton from '@/components/basic/VButton.vue';
 import VDialog from '@/components/basic/VDialog.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import DialogPlaceholder from '@/components/DialogPlaceholder.vue';
 import { DialogSize } from '@/model/components/basic/VDialog';
 
@@ -123,12 +124,3 @@ const isVisiblePersistentDialog = ref<boolean>(false);
 
 const isVisibleScrollDialog = ref<boolean>(false);
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-
-</style>

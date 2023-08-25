@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VPreviewComponentPage>
     <VPreviewComponentCard
       title="Input colors"
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VTextField> component for different colored inputs."
@@ -127,7 +127,7 @@
         </template>
       </VTextField>
     </VPreviewComponentCard>
-  </div>
+  </VPreviewComponentPage>
 </template>
 
 <script setup lang="ts">
@@ -138,6 +138,7 @@ import PasswordOpenIcon from '@/assets/icons/text-field/password-open.svg';
 import PeopleIcon from '@/assets/icons/text-field/people.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
+import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
@@ -159,11 +160,3 @@ const isPassword = ref<boolean>(true);
 const getPasswordIcon = () => (isPassword.value ? PasswordCloseIcon : PasswordOpenIcon);
 const getType = () => (isPassword.value ? TextFieldType.PASSWORD : TextFieldType.TEXT);
 </script>
-
-<style module lang="scss">
-@import "@/scss/mixins/mixins";
-
-.root {
-  @include grid;
-}
-</style>

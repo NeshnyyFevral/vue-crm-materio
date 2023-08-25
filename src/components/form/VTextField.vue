@@ -155,7 +155,7 @@ onMounted(() => {
 
 $sizes: (
   small: 8.5px 14px,
-  normal: 16.5px 14px,
+  normal: 12.5px 14px,
 );
 
 .root {
@@ -251,7 +251,7 @@ $sizes: (
 
   .hasFocused &,
   .hasFilled &,
-  .isPrefix &{
+  .isPrefix & {
     top: 0;
     transform: translateY(-50%) scale(0.9);
   }
