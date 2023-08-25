@@ -106,7 +106,7 @@ const getIconFromColor = (color: GlobalColors) => {
 
   &-light {
     background-color: var(--alert-color-light);
-    border-color: var(--alert-color-light);
+    border: none;
     color: var(--alert-color);
 
     path {

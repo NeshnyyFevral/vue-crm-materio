@@ -103,7 +103,7 @@ $sizes: (
   position: relative;
   display: inline-block;
   border-radius: 7px;
-  background-color: var(--color-default-200);
+  background-color: var(--color-default-300);
   transition: background-color 0.2s;
 
   &.hasChecked {
@@ -188,13 +188,11 @@ $sizes: (
   top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
-  background-color: var(--color-card);
+  background-color: var(--color-switch);
   transition: left 0.2s,
     background-color 0.2s;
 
-  box-shadow: rgba(58, 53, 65, 0.2) 0 2px 1px -1px,
-  rgba(58, 53, 65, 0.14) 0 1px 3px 0,
-  rgba(58, 53, 65, 0.12) 0 1px 3px 0;
+  box-shadow: var(--shadow-switch);
 
   @each $key, $size in $sizes {
     .size-#{$key}.hasChecked & {

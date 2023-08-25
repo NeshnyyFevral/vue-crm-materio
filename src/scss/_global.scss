@@ -1,3 +1,5 @@
+@import "mixins/theme";
+
 *,
 *::after,
 *::before {
@@ -9,4 +11,15 @@ body {
   padding: 0;
   margin: 0;
   font-family: Inter, sans-serif;
+}
+
+body {
+  @include theme-colors(true);
+
+  background-color: var(--color-bg);
+  transition: background-color 0.2s;
+
+  &.dark {
+    @include theme-colors(false);
+  }
 }

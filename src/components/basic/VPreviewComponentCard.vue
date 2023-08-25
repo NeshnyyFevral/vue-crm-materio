@@ -52,7 +52,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   padding: 20px 20px 25px;
   border-radius: 12px;
   min-height: 150px;
-  box-shadow: 0 3px 32px rgba(0, 0, 0, .08);
+  box-shadow: var(--shadow-preview-card);
 }
 
 .transparent {

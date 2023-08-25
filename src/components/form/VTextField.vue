@@ -169,10 +169,6 @@ $sizes: (
 
   &.hasDisabled {
     opacity: 0.7;
-
-    .input {
-      background-color: transparent;
-    }
   }
 
   &.isError .input {
@@ -197,7 +193,7 @@ $sizes: (
       padding-right: 0;
       outline: none;
       border: none;
-      border-bottom: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-text-input);
     }
 
     &::after {
@@ -226,7 +222,7 @@ $sizes: (
 
   &-outlined {
     .input {
-      border: 1px solid var(--color-border);
+      border: 1px solid var(--color-text-input);
       border-radius: 5px;
     }
   }
@@ -241,7 +237,7 @@ $sizes: (
   top: 50%;
   transform: translateY(-50%) scale(1.2);
   background-color: var(--color-card);
-  color: var(--color-default-500);
+  color: var(--color-text-input);
   padding: 0 5px;
   transition: transform 0.2s,
     top 0.2s,
@@ -273,6 +269,8 @@ $sizes: (
   width: 100%;
   font-family: Inter, sans-serif;
   outline-color: var(--text-field-color);
+  background-color: transparent;
+  color: var(--color-text);
 
   .isPrefix & {
     padding-left: var(--input-padding-left);
@@ -302,6 +300,10 @@ $sizes: (
   top: 50%;
   transform: translateY(-50%);
   right: 5px;
+
+  svg path {
+    fill: var(--color-text-input);
+  }
 }
 
 .prefix {
@@ -309,6 +311,10 @@ $sizes: (
   top: 50%;
   left: 5px;
   transform: translateY(-50%);
+
+  svg path {
+    fill: var(--color-text-input);
+  }
 }
 
 @keyframes animationErrorHelpText {
