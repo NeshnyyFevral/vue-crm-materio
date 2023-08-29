@@ -88,12 +88,7 @@ $sizes: (
 
 .table {
   &.hasWithKey {
-    .th {
-      &:not(:first-child) {
-        text-align: end;
-      }
-    }
-
+    .th,
     .item td {
       &:not(:first-child) {
         text-align: end;
@@ -106,10 +101,7 @@ $sizes: (
   }
 
   &.hasSmallPaddings {
-    .th {
-      padding: map-get($sizes, small);
-    }
-
+    .th,
     .item td {
       padding: map-get($sizes, small);
     }
