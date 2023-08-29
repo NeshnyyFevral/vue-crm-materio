@@ -14,8 +14,8 @@
     </VPreviewComponentCard>
 
     <VPreviewComponentCard
-      title="Input disabled"
-      desc="Use disabled=true."
+      title="Input disabled and readonly"
+      desc="Use {disabled | readonly}=true."
     >
       <VTextField
         v-for="variant in Object.keys(TextFieldVariant)"
@@ -32,6 +32,15 @@
         :variant="TextFieldVariant[variant]"
         :label="`${TextFieldVariant[variant]} + disabled`"
         disabled
+      />
+
+      <VTextField
+        v-for="variant in Object.keys(TextFieldVariant)"
+        :key="variant"
+        v-model="inputDisabledValue"
+        :variant="TextFieldVariant[variant]"
+        :label="`${TextFieldVariant[variant]} + readonly`"
+        readonly
       />
     </VPreviewComponentCard>
 

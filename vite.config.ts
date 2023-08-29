@@ -11,6 +11,7 @@ function generateRichClassName(name: string, filename: string) {
   const { groups: { fileName } } = /(?<fileName>\w+)(\.\w+)*(\.\w+)(\?.+)?$/.exec(filename);
   return `${fileName}_${name}`;
 }
+
 export default defineConfig({
   plugins: [
     vitePluginVue(),

@@ -1,6 +1,7 @@
 @mixin dark {
   --color-bg: #28243D;
   --color-card: #312D4B;
+  --color-card-hover: #49456c;
   --color-header: #312D4B;
   --color-sidebar: #28243D;
   --color-title: #E7E3FC;
@@ -25,6 +26,7 @@
 @mixin light {
   --color-bg: #F4F5FA;
   --color-card: #FFFFFF;
+  --color-card-hover: #f5f5f5;
   --color-header: #FFFFFF;
   --color-sidebar: #F4F5FA;
   --color-title: #5E5669;
