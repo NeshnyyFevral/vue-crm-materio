@@ -4,6 +4,7 @@
       $style.root,
       $style[`labelPlace-${props.labelPlace}`],
       disabled && $style.hasDisabled,
+      hasFocused && $style.hasFocused
     ]"
   >
     <span
@@ -17,7 +18,10 @@
         v-model="checkboxValue"
         :class="$style.input"
         type="checkbox"
+        :disabled="disabled"
         @change="changeHandler"
+        @focusin="hasFocused = true"
+        @focusout="hasFocused = false"
       >
 
       <SuccessIcon
@@ -67,6 +71,7 @@ const props = withDefaults(defineProps<PropsType>(), {
 const emits = defineEmits<EmitsType>();
 
 const checkboxValue = ref<boolean>(false);
+const hasFocused = ref<boolean>(false);
 
 const checkboxColor = computed(() => CheckboxMapColor[props.color]);
 
@@ -98,6 +103,11 @@ $sizes: (
   &.hasDisabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &.hasFocused .container {
+    outline: 2px solid var(--checkbox-color);
+    outline-offset: 2px;
   }
 }
 
