@@ -35,6 +35,7 @@
       :disabled="disabled"
       :required="required"
       :type="type"
+      :readonly="readonly"
       @input="inputHandler"
       @focus="hasFocused = true"
       @focusout="hasFocused = false"
@@ -88,6 +89,7 @@ interface PropsType {
   disabled?: boolean;
   error?: boolean;
   required?: boolean;
+  readonly?: boolean;
 }
 
 interface EmitsType {
@@ -106,6 +108,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   name: '',
   required: false,
   helpText: '',
+  readonly: false,
 });
 const emits = defineEmits<EmitsType>();
 const slots = useSlots();
@@ -205,7 +208,7 @@ $sizes: (
       height: 2px;
       background-color: var(--text-field-color);
       left: 50%;
-      transition: width 0.2s, left 0.2s;
+      transition: width 0.2s, left 0.2s, background-color 0.2s;
     }
 
     &.hasFocused::after {
@@ -241,7 +244,8 @@ $sizes: (
   padding: 0 5px;
   transition: transform 0.2s,
     top 0.2s,
-    color 0.1s;
+    color 0.1s,
+    background-color 0.2s;
   transform-origin: left;
   cursor: text;
 

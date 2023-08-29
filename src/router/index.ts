@@ -18,6 +18,7 @@ export const Routes = {
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
   FORM_COMPONENTS_CHECKBOX: 'form-components/checkbox',
   FORM_COMPONENTS_SWITCH: 'form-components/switch',
+  FORM_COMPONENTS_SELECT: 'form-components/select',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -112,6 +113,10 @@ export default function createRouter() {
           path: `/${Routes.FORM_COMPONENTS_SWITCH}`,
           name: Routes.FORM_COMPONENTS_SWITCH,
           component: () => import('@/views/protected/form-components/FormComponentsSwitchPage.vue'),
+        }, {
+          path: `/${Routes.FORM_COMPONENTS_SELECT}`,
+          name: Routes.FORM_COMPONENTS_SELECT,
+          component: () => import('@/views/protected/form-components/FormComponentsSelectPage.vue'),
         }],
       }],
     }, {

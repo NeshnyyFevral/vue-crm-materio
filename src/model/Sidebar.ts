@@ -104,6 +104,7 @@ export default [
           { title: 'Text field', route: { name: Routes.FORM_COMPONENTS_TEXT_FIELD } },
           { title: 'Checkbox', route: { name: Routes.FORM_COMPONENTS_CHECKBOX } },
           { title: 'Switch', route: { name: Routes.FORM_COMPONENTS_SWITCH } },
+          { title: 'Select', route: { name: Routes.FORM_COMPONENTS_SELECT } },
         ],
       },
     ],

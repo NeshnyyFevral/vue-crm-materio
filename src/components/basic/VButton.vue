@@ -119,7 +119,7 @@ $sizes: (
   border: none;
   overflow: hidden;
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--color-button);
     outline-offset: 2px;
   }
