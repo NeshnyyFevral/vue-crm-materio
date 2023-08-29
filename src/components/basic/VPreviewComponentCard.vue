@@ -53,6 +53,8 @@ const props = withDefaults(defineProps<PropsType>(), {
   border-radius: 12px;
   min-height: 150px;
   box-shadow: var(--shadow-preview-card);
+
+  transition: background-color 0.2s;
 }
 
 .transparent {

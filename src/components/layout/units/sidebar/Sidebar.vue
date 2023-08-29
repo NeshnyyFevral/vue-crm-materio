@@ -201,16 +201,16 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(199 199 199);
+      background-color: var(--color-thumb);
       border-radius: 5px;
     }
 
     &::-webkit-scrollbar-thumb:hover {
-      background-color: #999;
+      background-color: var(--color-thumb-hover);
     }
 
     &::-webkit-scrollbar-track {
-      background-color: #eee;
+      background-color: var(--color-track);
       border-radius: 5px;
     }
   }
@@ -244,7 +244,7 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
     text-transform: uppercase;
     white-space: nowrap;
     background-color: var(--color-sidebar);
-    transition: background-color 0.3s cubic-bezier(.25,.8,.5,1);
+    transition: background-color 0.3s;
   }
 
   .line {
