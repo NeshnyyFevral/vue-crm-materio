@@ -65,6 +65,11 @@ $sizes: (
 
   transition: background-color 0.2s;
 
+  &:focus {
+    outline: 2px solid var(--icon-button-color);
+    outline-offset: 2px;
+  }
+
   path {
     transition: fill 0.2s;
   }

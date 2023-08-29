@@ -118,6 +118,11 @@ $sizes: (
   cursor: pointer;
   border: none;
   overflow: hidden;
+
+  &:focus {
+    outline: 2px solid var(--color-button);
+    outline-offset: 2px;
+  }
 }
 
 .variant {

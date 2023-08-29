@@ -1,9 +1,9 @@
 @mixin dark {
-  --color-bg: #28243DFF;
-  --color-card: #312D4BFF;
-  --color-header: #312D4BFF;
-  --color-sidebar: #28243DFF;
-  --color-title: #E7E3FCFF;
+  --color-bg: #28243D;
+  --color-card: #312D4B;
+  --color-header: #312D4B;
+  --color-sidebar: #28243D;
+  --color-title: #E7E3FC;
   --color-text: #E7E3FC;
   --color-border: #d3d3d3;
 
@@ -16,14 +16,18 @@
     rgba(19, 17, 32, 0.12) 0px 1px 3px 0px;
 
   --color-text-input: rgba(231, 227, 252, 0.6);
+
+  --color-thumb: #494569;
+  --color-thumb-hover: #312D4B;
+  --color-track: #312D4B;
 }
 
 @mixin light {
-  --color-bg: #F5F5F5;
+  --color-bg: #F4F5FA;
   --color-card: #FFFFFF;
   --color-header: #FFFFFF;
-  --color-sidebar: #F5F5F5;
-  --color-title: #5E5669FF;
+  --color-sidebar: #F4F5FA;
+  --color-title: #5E5669;
   --color-text: #5E5669;
   --color-border: #d3d3d3;
 
@@ -36,6 +40,10 @@
     rgba(58, 53, 65, 0.12) 0 1px 3px 0;
 
   --color-text-input: rgba(58, 53, 65, 0.6);
+
+  --color-thumb: #C7C7C7;
+  --color-thumb-hover: #999999;
+  --color-track: #EEEEEE;
 }
 
 @mixin theme-colors($light-theme: true) {

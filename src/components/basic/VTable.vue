@@ -2,9 +2,9 @@
   <table
     :class="[
       $style.table,
-      withKey && $style.hasWithKey,
-      maxWidth && $style.hasMaxWidth,
-      smallPaddings && $style.hasSmallPaddings,
+      withKey && $style.withKey,
+      maxWidth && $style.withMaxWidth,
+      smallPaddings && $style.withSmallPaddings,
     ]"
   >
     <thead>
@@ -87,7 +87,7 @@ $sizes: (
 @import '@/scss/mixins/typography';
 
 .table {
-  &.hasWithKey {
+  &.withKey {
     .th,
     .item td {
       &:not(:first-child) {
@@ -96,11 +96,11 @@ $sizes: (
     }
   }
 
-  &.hasMaxWidth {
+  &.withMaxWidth {
     width: 100%;
   }
 
-  &.hasSmallPaddings {
+  &.withSmallPaddings {
     .th,
     .item td {
       padding: map-get($sizes, small);

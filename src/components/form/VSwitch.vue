@@ -4,6 +4,7 @@
       $style.root,
       $style[`labelPlace-${props.labelPlace}`],
       disabled && $style.hasDisabled,
+      hasFocused && $style.hasFocused,
     ]"
   >
     <span
@@ -18,7 +19,10 @@
         v-model="switchValue"
         :class="$style.input"
         type="checkbox"
+        :disabled="disabled"
         @change="changeHandler"
+        @focusin="hasFocused = true"
+        @focusout="hasFocused = false"
       >
     </span>
     <span :class="$style.label">
@@ -63,6 +67,7 @@ const props = withDefaults(defineProps<PropsType>(), {
 const emits = defineEmits<EmitsType>();
 
 const switchValue = ref<boolean>(false);
+const hasFocused = ref<boolean>(false);
 
 const switchColor = computed(() => SwitchMapColor[props.color]);
 const switchColorLight = computed(() => SwitchMapColorLight[props.color]);
@@ -96,6 +101,11 @@ $sizes: (
   &.hasDisabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &.hasFocused .cycle  {
+    outline: 2px solid var(--switch-color);
+    outline-offset: 2px;
   }
 }
 
