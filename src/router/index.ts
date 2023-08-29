@@ -12,6 +12,7 @@ export const Routes = {
   COMPONENTS_ICON_BUTTON: 'components/icon-button',
   COMPONENTS_DIALOG: 'components/dialog',
   COMPONENTS_ACCORDION: 'components/accordion',
+  COMPONENTS_TABLE: 'components/table',
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
@@ -75,6 +76,10 @@ export default function createRouter() {
           path: `/${Routes.COMPONENTS_ACCORDION}`,
           name: Routes.COMPONENTS_ACCORDION,
           component: () => import('@/views/protected/components/ComponentsAccordionPage.vue'),
+        }, {
+          path: `/${Routes.COMPONENTS_TABLE}`,
+          name: Routes.COMPONENTS_TABLE,
+          component: () => import('@/views/protected/components/ComponentsTablePage.vue'),
         }],
       }, {
         path: `/${Routes.TYPOGRAPHY}`,
