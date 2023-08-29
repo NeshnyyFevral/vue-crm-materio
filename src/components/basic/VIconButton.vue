@@ -65,7 +65,7 @@ $sizes: (
 
   transition: background-color 0.2s;
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid var(--icon-button-color);
     outline-offset: 2px;
   }
