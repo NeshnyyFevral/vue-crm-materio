@@ -94,6 +94,7 @@ export default [
           { title: 'Chip', route: { name: Routes.COMPONENTS_CHIP } },
           { title: 'Dialog', route: { name: Routes.COMPONENTS_DIALOG } },
           { title: 'Icon button', route: { name: Routes.COMPONENTS_ICON_BUTTON } },
+          { title: 'Table', route: { name: Routes.COMPONENTS_TABLE } },
         ],
       },
       {
