@@ -1,8 +1,8 @@
 <template>
   <VPreviewComponentPage>
     <VPreviewComponentCard
-      title="Select variants"
-      desc="Use variant={'outlined' | 'standard'}"
+      title="Select variants and colors extends from <VTextField>"
+      desc="Use variant={'outlined' | 'standard'}, color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'}"
       :direction="PreviewDirection.COLUMN"
     >
       <VSelect
@@ -19,6 +19,70 @@
         :options="colorOptions"
       />
     </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Select error and disabled"
+      desc="Use {disabled | error}=true."
+      :direction="PreviewDirection.COLUMN"
+    >
+      <VSelect
+        v-model="unclicableSelectValue"
+        label="Disabled"
+        :options="defaultOptions"
+        disabled
+      />
+
+      <VSelect
+        v-model="unclicableSelectValue"
+        label="Error"
+        :options="defaultOptions"
+        error
+      />
+    </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Select without label and with placeholder"
+      desc="Use props «label» and «placeholder» (string type)."
+      :direction="PreviewDirection.COLUMN"
+    >
+      <VSelect
+        v-model="withoutLabelSelectValue"
+        :options="defaultOptions"
+      />
+
+      <VSelect
+        v-model="withoutLabelSelectValue"
+        :options="defaultOptions"
+        placeholder="Placeholder"
+      />
+
+      <VSelect
+        v-model="withoutLabelSelectValue"
+        :options="defaultOptions"
+        label="Label"
+      />
+
+      <VSelect
+        v-model="withoutLabelSelectValue"
+        :options="defaultOptions"
+        placeholder="Placeholder"
+        label="Label"
+      />
+    </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Select with help text"
+      desc="Use {disabled | error}=true."
+      :direction="PreviewDirection.COLUMN"
+    >
+      <VSelect
+        v-model="withHelpTextSelectValue"
+        :options="defaultOptions"
+        help-text="Some important text!"
+        label="Label"
+        placeholder="Placeholder"
+      />
+    </VPreviewComponentCard>
   </VPreviewComponentPage>
 </template>
 <script setup lang="ts">
@@ -32,8 +96,18 @@ import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard
 import { type SelectOptions } from '@/model/components/form/VSelect';
 import type { TextFieldVariant } from '@/model/components/form/VTextField';
 
+const unclicableSelectValue = ref<string>('');
+const withoutLabelSelectValue = ref<string>('');
+const withHelpTextSelectValue = ref<string>('');
 const variantSelectValue = ref<string>('outlined');
 const colorSelectValue = ref<string>('primary');
+
+const defaultOptions = ref<SelectOptions<string>[]>([
+  { name: 'Option 1', value: '1' },
+  { name: 'Option 2', value: '2' },
+  { name: 'Option 3', value: '3' },
+  { name: 'Option 4', value: '4' },
+]);
 
 const variantOptions = ref<SelectOptions<string>[]>([
   { name: 'Outlined', value: 'outlined' },

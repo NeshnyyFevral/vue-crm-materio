@@ -21,6 +21,10 @@
   --color-thumb: #494569;
   --color-thumb-hover: #312D4B;
   --color-track: #312D4B;
+
+  --shadow-select-options: rgba(200, 200, 200, 0.2) 0 5px 5px -3px,
+  rgba(200, 200, 200, 0.04) 0 5px 8px 2px,
+  rgba(200, 200, 200, 0.04) 0 3px 12px 1px;
 }
 
 @mixin light {
@@ -46,6 +50,10 @@
   --color-thumb: #C7C7C7;
   --color-thumb-hover: #999999;
   --color-track: #EEEEEE;
+
+  --shadow-select-options: rgba(58, 53, 65, 0.2) 0 5px 5px -3px,
+  rgba(58, 53, 65, 0.14) 0 8px 10px 1px,
+  rgba(58, 53, 65, 0.12) 0 3px 14px 2px;
 }
 
 @mixin theme-colors($light-theme: true) {

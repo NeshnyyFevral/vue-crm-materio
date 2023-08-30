@@ -75,7 +75,6 @@ import {
 
 interface PropsType {
   modelValue: string;
-  name?: string;
 
   label?: string;
   placeholder?: string;
@@ -105,7 +104,6 @@ const props = withDefaults(defineProps<PropsType>(), {
   disabled: false,
   error: false,
   placeholder: '',
-  name: '',
   required: false,
   helpText: '',
   readonly: false,
@@ -236,7 +234,7 @@ $sizes: (
 
   font-weight: 400;
   position: absolute;
-  left: 5%;
+  left: 15px;
   top: 50%;
   transform: translateY(-50%) scale(1.2);
   background-color: var(--color-card);
@@ -283,6 +281,10 @@ $sizes: (
   .isSuffix & {
     padding-right: var(--input-padding-right);
   }
+
+  &::placeholder {
+    color: var(--color-text-input);
+  }
 }
 
 .helpText {
@@ -291,7 +293,7 @@ $sizes: (
   position: absolute;
   color: var(--color-default-500);
   top: calc(100%);
-  left: 5%;
+  left: 15px;
 
   .isError & {
     color: var(--text-field-color);
