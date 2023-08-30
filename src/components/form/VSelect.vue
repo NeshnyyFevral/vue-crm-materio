@@ -4,29 +4,39 @@
     :class="[
       $style.root,
       hasOpened && $style.hasOpened,
+      disabled && $style.hasDisabled,
+      hasNoSpaced && $style.hasNoSpaced
     ]"
     @click="hasOpened = !hasOpened"
   >
-    <VTextField
-      :model-value="selectValue"
-      :disabled="disabled"
-      :color="color"
-      :label="label"
-      :error="error"
-      :required="required"
-      :variant="variant"
-      :size="size"
-      :help-text="helpText"
-      :placeholder="placeholder"
-      readonly
-    />
+    <div :class="$style.textField">
+      <VTextField
+        :model-value="selectValue"
+        :disabled="disabled"
+        :color="color"
+        :label="label"
+        :error="error"
+        :required="required"
+        :variant="variant"
+        :size="size"
+        :help-text="helpText"
+        :placeholder="placeholder"
+        readonly
+        :class="$style.input"
+      />
+
+      <div :class="$style.icon">
+        <ArrowIcon />
+      </div>
+    </div>
 
     <div
-      v-if="hasOpened"
+      v-if="hasOpened && !disabled"
+      ref="optionsRef"
       :class="$style.options"
     >
       <div
-        v-for="opt in options"
+        v-for="opt in displayedOptions"
         :key="opt"
         :class="$style.option"
         @click="selectHandler(opt)"
@@ -39,8 +49,15 @@
 
 <script setup lang="ts">
 // todo продумать логику, если value в option будут одинаковыми
-import { ref, watchEffect } from 'vue';
+import {
+  computed,
+  nextTick,
+  ref,
+  watch,
+  watchEffect,
+} from 'vue';
 
+import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
@@ -53,7 +70,6 @@ import { TextFieldSize, TextFieldVariant } from '@/model/components/form/VTextFi
 interface PropsType {
   modelValue: string;
   options: SelectOptions<any>[];
-  name?: string;
 
   variant?: TextFieldVariant;
   color?: GlobalColors;
@@ -73,8 +89,6 @@ interface EmitsType {
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
-  name: '',
-
   variant: SelectVariant.OUTLINED,
   color: GlobalColors.PRIMARY,
   size: SelectSize.NORMAL,
@@ -89,8 +103,14 @@ const props = withDefaults(defineProps<PropsType>(), {
 });
 const emits = defineEmits<EmitsType>();
 
+const optionsRef = ref<HTMLDivElement | null>(null);
 const selectValue = ref<string>('');
 const hasOpened = ref<boolean>(false);
+const hasNoSpaced = ref<boolean>(false);
+
+const displayedOptions = computed<SelectOptions<any>[]>(
+  () => [{ name: '', value: '' }, ...props.options],
+);
 
 const selectHandler = (opt: SelectOptions<any>) => {
   selectValue.value = opt.name;
@@ -106,38 +126,95 @@ const clickOutside = (value: boolean) => {
 watchEffect(() => {
   selectValue.value = props.options.find((el: SelectOptions<any>) => el.value === props.modelValue)?.name || '';
 });
+
+watch(() => hasOpened.value, async () => {
+  hasNoSpaced.value = false;
+
+  await nextTick();
+  if (optionsRef.value) {
+    const selectHeight = optionsRef.value.offsetHeight;
+    const selectRectTop = optionsRef.value.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    hasNoSpaced.value = selectHeight + selectRectTop > windowHeight;
+  }
+});
 </script>
 
 <style module lang="scss">
-@import '@/scss/mixins/typography';
+@import '@/scss/mixins/mixins';
 
 .root {
   position: relative;
   width: 100%;
+  cursor: pointer;
+
+  &.hasDisabled {
+    pointer-events: none;
+  }
 }
 
 .options {
+  @include scroll-style;
+
   z-index: 999;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   background-color: var(--color-card);
   width: 100%;
+  max-height: 350px;
+  overflow-y: auto;
   border-radius: 10px;
-  box-shadow: var(--shadow-preview-card);
+  box-shadow: var(--shadow-select-options);
 
   .hasOpened & {
     animation: opening 0.1s;
+  }
+
+  .hasNoSpaced & {
+    bottom: calc(100% + 10px);
+    top: auto;
   }
 }
 
 .option {
   @include subtitle1;
 
+  min-height: 38px;
   padding: 5px 10px;
 
   &:hover {
     background-color: var(--color-card-hover);
     cursor: pointer;
+  }
+}
+
+.textField {
+  position: relative;
+
+  & .input {
+    margin: 0;
+  }
+
+  & input {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+
+  transition: transform 0.4s;
+  pointer-events: none;
+  fill: var(--color-text);
+
+  .hasOpened & {
+    transform: translateY(-50%) rotateZ(540deg);
   }
 }
 

@@ -96,211 +96,197 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
 </script>
 
 <style module lang="scss">
-  .root {
-    position: fixed;
-    top: 0;
-    z-index: 9999;
-    left: 0;
-    width: 55px;
-    height: 100vh;
-    padding: 0;
-    overflow: hidden;
-    background-color: var(--color-bg);
-    transition: width 0.3s cubic-bezier(.25,.8,.5,1),
-      transform 0.3s cubic-bezier(.25,.8,.5,1),
+@import "@/scss/mixins/scroll";
+
+.root {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  left: 0;
+  width: 55px;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  transition: width 0.3s cubic-bezier(.25,.8,.5,1),
+    transform 0.3s cubic-bezier(.25,.8,.5,1),
+    background-color 0.3s cubic-bezier(.25,.8,.5,1);
+}
+
+.open {
+  width: 260px;
+  padding-right: 3px;
+}
+
+.active {
+  width: 260px;
+  padding-right: 3px;
+  box-shadow: 0 5px 6px -3px rgb(94 86 105 / 20%),
+    0 3px 16px 2px rgb(94 86 105 / 12%),
+    0 9px 12px 1px rgb(94 86 105 / 14%);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  margin: 22px 0 15px 18px;
+}
+
+.headerWrapper {
+  position: relative;
+  margin-left: 42px;
+  opacity: 0;
+}
+
+.titleLogo {
+  display: block;
+  font-size: 20px;
+  color: var(--color-title);
+  text-transform: uppercase;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.headerButton {
+  position: absolute;
+  top: 50%;
+  right: -85px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid var(--color-title);
+  border-radius: 50%;
+  transition: right 0.3s cubic-bezier(.25,.8,.5,1),
+    background-color 0.3s cubic-bezier(.25,.8,.5,1);
+  transform: translateY(-50%);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    content: '';
+    background-color: var(--color-title);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s cubic-bezier(.25,.8,.5,1),
       background-color 0.3s cubic-bezier(.25,.8,.5,1);
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+.menu {
+  fill: none;
+}
+
+.active .headerWrapper,
+.open .headerWrapper,
+.open .headerButton::after {
+  opacity: 1;
+}
+
+.container {
+  @include scroll-style;
+
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.open .container,
+.active .container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.content {
+  height: 100%;
+  padding-right: 10px;
+  font-size: 16px;
+  color: var(--color-title);
+}
+
+.titleWrapper {
+  position: relative;
+  margin: 15px 0 20px;
+}
+
+.title {
+  position: relative;
+  z-index: 11;
+  display: inline-block;
+  padding: 0 5px;
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: var(--color-sidebar);
+  transition: background-color 0.3s;
+}
+
+.line {
+  position: absolute;
+  top: 55%;
+  z-index: 10;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: translateY(-50%);
+}
+
+.titleWrapperHide .title {
+  opacity: 0;
+}
+
+.titleWrapperHide .line {
+  left: 15px;
+  line-height: 12px;
+}
+
+.titleWrapperShow .title {
+  opacity: 1;
+}
+
+.titleWrapperShow .line {
+  left: 0;
+}
+
+@media screen and (max-width: 1405px) {
+  .root {
+    overflow: visible;
+    transform: translateX(-300px);
   }
 
   .open {
-    width: 260px;
-    padding-right: 3px;
-  }
-
-  .active {
-    width: 260px;
-    padding-right: 3px;
-    box-shadow: 0 5px 6px -3px rgb(94 86 105 / 20%),
-      0 3px 16px 2px rgb(94 86 105 / 12%),
-      0 9px 12px 1px rgb(94 86 105 / 14%);
-  }
-
-  .header {
-    position: relative;
-    display: flex;
-    margin: 22px 0 15px 18px;
+    transform: translateX(0);
   }
 
   .headerWrapper {
-    position: relative;
-    margin-left: 42px;
-    opacity: 0;
-  }
-
-  .titleLogo {
-    display: block;
-    font-size: 20px;
-    color: var(--color-title);
-    text-transform: uppercase;
-  }
-
-  .logo {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    opacity: 1;
   }
 
   .headerButton {
-    position: absolute;
-    top: 50%;
-    right: -85px;
-    display: block;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    background-color: transparent;
-    border: 2px solid var(--color-title);
-    border-radius: 50%;
-    transition: right 0.3s cubic-bezier(.25,.8,.5,1),
-      background-color 0.3s cubic-bezier(.25,.8,.5,1);
-    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: none;
+    fill: var(--color-title);
 
     &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      content: '';
-      background-color: var(--color-title);
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.2s cubic-bezier(.25,.8,.5,1),
-        background-color 0.3s cubic-bezier(.25,.8,.5,1);
-      transform: translate3d(-50%, -50%, 0);
+      display: none;
     }
   }
 
   .menu {
-    fill: none;
+    fill: var(--color-title);
   }
-
-  .active .headerWrapper,
-  .open .headerWrapper,
-  .open .headerButton::after {
-    opacity: 1;
-  }
-
-  .container {
-    height: 90%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--color-thumb);
-      border-radius: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: var(--color-thumb-hover);
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: var(--color-track);
-      border-radius: 5px;
-    }
-  }
-
-  .open .container,
-  .active .container {
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-
-  .content {
-    height: 100%;
-    padding-right: 10px;
-    font-size: 16px;
-    color: var(--color-title);
-  }
-
-  .titleWrapper {
-    position: relative;
-    margin: 15px 0 20px;
-  }
-
-  .title {
-    position: relative;
-    z-index: 11;
-    display: inline-block;
-    padding: 0 5px;
-    margin-left: 20px;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-    white-space: nowrap;
-    background-color: var(--color-sidebar);
-    transition: background-color 0.3s;
-  }
-
-  .line {
-    position: absolute;
-    top: 55%;
-    z-index: 10;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transform: translateY(-50%);
-  }
-
-  .titleWrapperHide .title {
-    opacity: 0;
-  }
-
-  .titleWrapperHide .line {
-    left: 15px;
-    line-height: 12px;
-  }
-
-  .titleWrapperShow .title {
-    opacity: 1;
-  }
-
-  .titleWrapperShow .line {
-    left: 0;
-  }
-
-  @media screen and (max-width: 1405px) {
-    .root {
-      overflow: visible;
-      transform: translateX(-300px);
-    }
-
-    .open {
-      transform: translateX(0);
-    }
-
-    .headerWrapper {
-      opacity: 1;
-    }
-
-    .headerButton {
-      width: 28px;
-      height: 28px;
-      border: none;
-      fill: var(--color-title);
-
-      &::after {
-        display: none;
-      }
-    }
-
-    .menu {
-      fill: var(--color-title);
-    }
-  }
+}
 </style>
