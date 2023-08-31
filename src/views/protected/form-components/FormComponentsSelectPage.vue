@@ -72,7 +72,7 @@
 
     <VPreviewComponentCard
       title="Select with help text"
-      desc="Use {disabled | error}=true."
+      desc="Use prop help-text."
       :direction="PreviewDirection.COLUMN"
     >
       <VSelect

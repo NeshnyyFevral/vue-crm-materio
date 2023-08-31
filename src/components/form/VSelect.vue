@@ -228,7 +228,7 @@ watch(() => hasOpened.value, async () => {
 
   min-height: 38px;
   padding: 5px 10px;
-  transition: background-color 0.2s;
+  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
 
   &:hover {
     background-color: var(--color-card-hover);
@@ -264,7 +264,7 @@ watch(() => hasOpened.value, async () => {
   width: 30px;
   height: 30px;
 
-  transition: transform 0.4s;
+  transition: transform 0.4s var(--transition-timing-func);
   pointer-events: none;
   fill: var(--color-text);
 

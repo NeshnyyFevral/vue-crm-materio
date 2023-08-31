@@ -1,7 +1,5 @@
 import { createRouter as _createRouter, createWebHistory } from 'vue-router';
 
-const BASE_DIR = '/vue-crm-materio';
-
 export const Routes = {
   /* PROTECTED PAGES */
   CRM: 'crm',
@@ -21,6 +19,7 @@ export const Routes = {
   FORM_COMPONENTS_CHECKBOX: 'form-components/checkbox',
   FORM_COMPONENTS_SWITCH: 'form-components/switch',
   FORM_COMPONENTS_SELECT: 'form-components/select',
+  FORM_COMPONENTS_RADIO: 'form-components/radio',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -35,11 +34,11 @@ export default function createRouter() {
   return _createRouter({
     history: createWebHistory(),
     routes: [{
-      path: `${BASE_DIR}/${Routes.LOGIN}`,
+      path: `/${Routes.LOGIN}`,
       name: Routes.LOGIN,
       component: () => import('@/views/public/LoginPage.vue'),
     }, {
-      path: `${BASE_DIR}/`,
+      path: '/',
       name: 'default',
       component: () => import('@/components/layout/Layout.vue'),
       redirect: { name: Routes.CRM },
@@ -120,6 +119,10 @@ export default function createRouter() {
           path: `/${Routes.FORM_COMPONENTS_SELECT}`,
           name: Routes.FORM_COMPONENTS_SELECT,
           component: () => import('@/views/protected/form-components/FormComponentsSelectPage.vue'),
+        }, {
+          path: `/${Routes.FORM_COMPONENTS_RADIO}`,
+          name: Routes.FORM_COMPONENTS_RADIO,
+          component: () => import('@/views/protected/form-components/FormComponentsRadioPage.vue'),
         }],
       }],
     }, {

@@ -54,7 +54,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   min-height: 150px;
   box-shadow: var(--shadow-preview-card);
 
-  transition: background-color 0.2s;
+  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
 }
 
 .transparent {

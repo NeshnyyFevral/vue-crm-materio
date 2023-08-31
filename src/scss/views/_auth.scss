@@ -115,7 +115,7 @@
     margin-left: 5px;
     font-size: 16px;
     color: var(--color-primary-700);
-    transition: color 0.2s;
+    transition: color var(--transitiom-duration) var(--transition-timing-func);
     font-weight: 500;
 
     &:hover {

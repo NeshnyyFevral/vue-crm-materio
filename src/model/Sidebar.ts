@@ -105,6 +105,7 @@ export default [
           { title: 'Select', route: { name: Routes.FORM_COMPONENTS_SELECT } },
           { title: 'Checkbox', route: { name: Routes.FORM_COMPONENTS_CHECKBOX } },
           { title: 'Switch', route: { name: Routes.FORM_COMPONENTS_SWITCH } },
+          { title: 'Radio', route: { name: Routes.FORM_COMPONENTS_RADIO } },
         ],
       },
     ],

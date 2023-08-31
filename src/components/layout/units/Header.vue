@@ -112,9 +112,9 @@ onMounted(() => {
     justify-content: space-between;
     padding: 10px 0;
     margin-bottom: 40px;
-    transition: padding 0.2s cubic-bezier(.25,.8,.5,1),
-      background-color 0.3s cubic-bezier(.25,.8,.5,1),
-      width 0.2s cubic-bezier(.25,.8,.5,1);
+    transition: padding var(--transitiom-duration) var(--transition-timing-func),
+      background-color var(--transitiom-duration) var(--transition-timing-func),
+      width var(--transitiom-duration) var(--transition-timing-func);
   }
 
   .left,
@@ -151,7 +151,7 @@ onMounted(() => {
       background-color: var(--color-text);
       border-radius: 50%;
       opacity: 0;
-      transition: opacity 0.2s linear;
+      transition: opacity var(--transitiom-duration) var(--transition-timing-func);
       transform: translate3d(-50%, -50%, 0);
     }
 

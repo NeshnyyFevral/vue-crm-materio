@@ -110,7 +110,7 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
     border: none;
     border-top-right-radius: 32px;
     border-bottom-right-radius: 32px;
-    transition: background-color 0.3s cubic-bezier(.25,.8,.5,1);
+    transition: background-color var(--transitiom-duration) var(--transition-timing-func);
 
     &::after {
       position: absolute;
@@ -148,7 +148,7 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
     position: absolute;
     top: 25%;
     right: 10px;
-    transition: transform 0.3s cubic-bezier(.25,.8,.5,1);
+    transition: transform var(--transitiom-duration) var(--transition-timing-func);
     transform: rotate(-90deg);
   }
 
@@ -169,7 +169,7 @@ const choiceLink = (title: string) => { emits('choiceLink', title); };
   .listItems {
     height: 0;
     overflow-y: hidden;
-    transition: height 0.3s cubic-bezier(.25,.8,.5,1);
+    transition: height var(--transitiom-duration) var(--transition-timing-func);
   }
 
   .listOpen {
