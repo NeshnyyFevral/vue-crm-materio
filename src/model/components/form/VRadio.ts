@@ -3,6 +3,7 @@ import { ButtonMapColor } from '@/model/components/basic/VButton';
 export enum RadioSize {
   SMALL = 'small',
   NORMAL = 'normal',
+  LARGE = 'large',
 }
 
 export enum RadioLabelPlacement {

@@ -7,6 +7,7 @@
       $style[`labelPlace-${props.labelPlace}`],
 
       hasChecked && $style.hasChecked,
+      disabled && $style.hasDisabled,
     ]"
   >
     <div :class="$style.container">
@@ -18,6 +19,7 @@
         :name="name"
         type="radio"
         :value="value"
+        :disabled="disabled"
         @change="changeHandler"
       >
 
@@ -78,8 +80,9 @@ const changeHandler = async (e: InputEvent) => {
 
 $offset-cycle: 8px;
 $sizes: (
-  small: 10px,
+  small: 12px,
   normal: 16px,
+  large: 20px,
 );
 
 .root {
@@ -90,6 +93,11 @@ $sizes: (
 
   &.hasChecked {
     --radio-color: v-bind(radioColor);
+  }
+
+  &.hasDisabled {
+    opacity: 0.6;
+    pointer-events: none;
   }
 }
 
@@ -123,16 +131,16 @@ $sizes: (
         border-radius: 50%;
         opacity: 0;
 
-        transition: background-color var(--transitiom-duration) var(--transition-timing-func),
-          opacity var(--transitiom-duration) var(--transition-timing-func);
+        transition: background-color 0.15s var(--transition-timing-func),
+          opacity 0.15s var(--transition-timing-func);
       }
 
       &:hover::before {
-        opacity: 0.1;
+        opacity: 0.2;
       }
 
       &:active::before {
-        opacity: 0.2;
+        opacity: 0.3;
       }
     }
 
@@ -149,6 +157,8 @@ $sizes: (
         background-color: var(--radio-color);
 
         transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+        animation: appear 0.15s;
+        transform-origin: center;
       }
 
       &::before {
@@ -156,11 +166,11 @@ $sizes: (
       }
 
       &:hover::before {
-        opacity: 0.2;
+        opacity: 0.3;
       }
 
       &:active::before {
-        opacity: 0.3;
+        opacity: 0.4;
       }
     }
   }
@@ -173,7 +183,49 @@ $sizes: (
 
 .label {
   @include subtitle2;
+}
 
-  margin-left: 5px;
+.labelPlace {
+  &-left .container {
+    flex-direction: row-reverse;
+
+    & .label {
+      margin-right: 5px;
+    }
+  }
+
+  &-top .container {
+    flex-direction: column-reverse;
+
+    & .label {
+      margin-bottom: 5px;
+    }
+  }
+
+  &-bottom .container {
+    flex-direction: column;
+
+    & .label {
+      margin-top: 5px;
+    }
+  }
+
+  &-right .container {
+    flex-direction: row;
+
+    & .label {
+      margin-left: 5px;
+    }
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  to {
+    transform:  translate(-50%, -50%) scale(1);
+  }
 }
 </style>
