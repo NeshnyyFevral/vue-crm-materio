@@ -82,14 +82,16 @@ watch(() => props.name, () => {
   border-radius: 15px;
   cursor: pointer;
   border: 1px solid var(--color-border);
+
+  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
 }
 
 .desc {
   --width-desc: v-bind(descHeight);
 
   overflow: hidden;
-  transition: height 0.2s,
-    margin 0.2s;
+  transition: height var(--transitiom-duration) var(--transition-timing-func),
+    margin var(--transitiom-duration) var(--transition-timing-func);
   height: 0;
 
   .open & {
@@ -118,7 +120,7 @@ watch(() => props.name, () => {
     background-color: var(--color-text);
     width: 2px;
     height: 15px;
-    transition: transform 0.1s;
+    transition: transform 0.1s var(--transition-timing-func);
   }
 
   & div:nth-child(2) {

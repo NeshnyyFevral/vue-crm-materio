@@ -104,8 +104,8 @@ $sizes: (
   }
 
   &.hasFocused .cycle  {
-    outline: 2px solid var(--switch-color);
-    outline-offset: 2px;
+    //outline: 2px solid var(--switch-color);
+    //outline-offset: 2px;
   }
 }
 
@@ -114,7 +114,7 @@ $sizes: (
   display: inline-block;
   border-radius: 7px;
   background-color: var(--color-default-300);
-  transition: background-color 0.2s;
+  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
 
   &.hasChecked {
     background-color: var(--switch-color-light);
@@ -176,8 +176,8 @@ $sizes: (
           border-radius: 50%;
           transform: translate(-50%, -50%);
           background-color: var(--color-default-700);
-          transition: opacity 0.2s,
-            background-color 0.2s;
+          transition: opacity var(--transitiom-duration) var(--transition-timing-func),
+            background-color var(--transitiom-duration) var(--transition-timing-func);
         }
 
         &:hover::before {
@@ -199,8 +199,8 @@ $sizes: (
   transform: translateY(-50%);
   border-radius: 50%;
   background-color: var(--color-switch);
-  transition: left 0.2s,
-    background-color 0.2s;
+  transition: left var(--transitiom-duration) var(--transition-timing-func),
+    background-color var(--transitiom-duration) var(--transition-timing-func);
 
   box-shadow: var(--shadow-switch);
 
