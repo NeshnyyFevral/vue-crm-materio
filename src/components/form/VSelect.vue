@@ -7,7 +7,7 @@
       disabled && $style.hasDisabled,
       hasNoSpaced && $style.hasNoSpaced
     ]"
-    @click="hasOpened = multiply ? true : !hasOpened"
+    @click="hasOpened = !hasOpened"
   >
     <div :class="$style.textField">
       <VTextField
@@ -42,7 +42,7 @@
           $style.option,
           selectValue.split(', ').includes(opt.name) && $style['option-active']
         ]"
-        @click="selectHandler(opt)"
+        @click.stop="selectHandler(opt)"
       >
         {{ opt.name }}
       </div>
