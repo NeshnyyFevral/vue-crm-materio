@@ -86,6 +86,7 @@
 
     <VPreviewComponentCard
       title="Select multiply"
+      desc="Use multiply prop to get multiple selection capability (MUST: use model-value must be an array of strings)."
       :direction="PreviewDirection.COLUMN"
     >
       <VSelect
@@ -98,7 +99,7 @@
   </VPreviewComponentPage>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
@@ -135,10 +136,6 @@ const colorOptions = ref<SelectOptions<string>[]>([
   { name: 'Error', value: 'error' },
   { name: 'Default', value: 'default' },
 ]);
-
-watch(() => multiplySelectValue.value, () => {
-  console.log(multiplySelectValue.value);
-}, { deep: true });
 </script>
 
 <style module lang="scss">

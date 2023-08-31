@@ -15,7 +15,6 @@ export interface SelectOptions<T> {
   value: T;
 }
 
-export const SelectMapColor: { [index: string]: string } = ButtonMapColor;
 export const SelectMapColorActive: { [index: string]: string } = ButtonMapColorHover;
 export const SelectMapColorActiveHover: { [index: string]: string } = {
   [GlobalColors.PRIMARY]: getCssVarValue(generateCssVarName300(GlobalColors.PRIMARY)),
