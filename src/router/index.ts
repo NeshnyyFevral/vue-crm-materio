@@ -1,5 +1,6 @@
 import { createRouter as _createRouter, createWebHistory } from 'vue-router';
 
+const BASE = '/vue-crm-materio';
 export const Routes = {
   /* PROTECTED PAGES */
   CRM: 'crm',
@@ -34,93 +35,93 @@ export default function createRouter() {
   return _createRouter({
     history: createWebHistory(),
     routes: [{
-      path: `/${Routes.LOGIN}`,
+      path: `${BASE}/${Routes.LOGIN}`,
       name: Routes.LOGIN,
       component: () => import('@/views/public/LoginPage.vue'),
     }, {
-      path: '/',
+      path: `${BASE}/`,
       name: 'default',
       component: () => import('@/components/layout/Layout.vue'),
       redirect: { name: Routes.CRM },
       children: [{
-        path: `/${Routes.CRM}`,
+        path: `${BASE}/${Routes.CRM}`,
         name: Routes.CRM,
         component: () => import('@/views/protected/CRMPage.vue'),
       }, {
-        path: `/${Routes.COMPONENTS}`,
+        path: `${BASE}/${Routes.COMPONENTS}`,
         name: Routes.COMPONENTS,
         component: () => import('@/views/protected/components/ComponentsPage.vue'),
         redirect: { name: Routes.COMPONENTS_BUTTON },
         children: [{
-          path: `/${Routes.COMPONENTS_BUTTON}`,
+          path: `${BASE}/${Routes.COMPONENTS_BUTTON}`,
           name: Routes.COMPONENTS_BUTTON,
           component: () => import('@/views/protected/components/ComponentsButtonPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_CHIP}`,
+          path: `${BASE}/${Routes.COMPONENTS_CHIP}`,
           name: Routes.COMPONENTS_CHIP,
           component: () => import('@/views/protected/components/ComponentsChipPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_AVATAR}`,
+          path: `${BASE}/${Routes.COMPONENTS_AVATAR}`,
           name: Routes.COMPONENTS_AVATAR,
           component: () => import('@/views/protected/components/ComponentsAvatarPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_ALERT}`,
+          path: `${BASE}/${Routes.COMPONENTS_ALERT}`,
           name: Routes.COMPONENTS_ALERT,
           component: () => import('@/views/protected/components/ComponentsAlertPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_ICON_BUTTON}`,
+          path: `${BASE}/${Routes.COMPONENTS_ICON_BUTTON}`,
           name: Routes.COMPONENTS_ICON_BUTTON,
           component: () => import('@/views/protected/components/ComponentsIconButtonPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_DIALOG}`,
+          path: `${BASE}/${Routes.COMPONENTS_DIALOG}`,
           name: Routes.COMPONENTS_DIALOG,
           component: () => import('@/views/protected/components/ComponentsDialogPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_ACCORDION}`,
+          path: `${BASE}/${Routes.COMPONENTS_ACCORDION}`,
           name: Routes.COMPONENTS_ACCORDION,
           component: () => import('@/views/protected/components/ComponentsAccordionPage.vue'),
         }, {
-          path: `/${Routes.COMPONENTS_TABLE}`,
+          path: `${BASE}/${Routes.COMPONENTS_TABLE}`,
           name: Routes.COMPONENTS_TABLE,
           component: () => import('@/views/protected/components/ComponentsTablePage.vue'),
         }],
       }, {
-        path: `/${Routes.TYPOGRAPHY}`,
+        path: `${BASE}/${Routes.TYPOGRAPHY}`,
         name: Routes.TYPOGRAPHY,
         component: () => import('@/views/protected/typography/TypographyPage.vue'),
         redirect: { name: Routes.TYPOGRAPHY_HEADERS },
         children: [{
-          path: `/${Routes.TYPOGRAPHY_HEADERS}`,
+          path: `${BASE}/${Routes.TYPOGRAPHY_HEADERS}`,
           name: Routes.TYPOGRAPHY_HEADERS,
           component: () => import('@/views/protected/typography/TypographyHeadersPage.vue'),
         }, {
-          path: `/${Routes.TYPOGRAPHY_TEXTS}`,
+          path: `${BASE}/${Routes.TYPOGRAPHY_TEXTS}`,
           name: Routes.TYPOGRAPHY_TEXTS,
           component: () => import('@/views/protected/typography/TypographyTextsPage.vue'),
         }],
       }, {
-        path: `/${Routes.FORM_COMPONENTS}`,
+        path: `${BASE}/${Routes.FORM_COMPONENTS}`,
         name: Routes.FORM_COMPONENTS,
         component: () => import('@/views/protected/form-components/FormComponentsPage.vue'),
         redirect: { name: Routes.FORM_COMPONENTS_TEXT_FIELD },
         children: [{
-          path: `/${Routes.FORM_COMPONENTS_TEXT_FIELD}`,
+          path: `${BASE}/${Routes.FORM_COMPONENTS_TEXT_FIELD}`,
           name: Routes.FORM_COMPONENTS_TEXT_FIELD,
           component: () => import('@/views/protected/form-components/FormComponentsTextFieldPage.vue'),
         }, {
-          path: `/${Routes.FORM_COMPONENTS_CHECKBOX}`,
+          path: `${BASE}/${Routes.FORM_COMPONENTS_CHECKBOX}`,
           name: Routes.FORM_COMPONENTS_CHECKBOX,
           component: () => import('@/views/protected/form-components/FormComponentsCheckbox.vue'),
         }, {
-          path: `/${Routes.FORM_COMPONENTS_SWITCH}`,
+          path: `${BASE}/${Routes.FORM_COMPONENTS_SWITCH}`,
           name: Routes.FORM_COMPONENTS_SWITCH,
           component: () => import('@/views/protected/form-components/FormComponentsSwitchPage.vue'),
         }, {
-          path: `/${Routes.FORM_COMPONENTS_SELECT}`,
+          path: `${BASE}/${Routes.FORM_COMPONENTS_SELECT}`,
           name: Routes.FORM_COMPONENTS_SELECT,
           component: () => import('@/views/protected/form-components/FormComponentsSelectPage.vue'),
         }, {
-          path: `/${Routes.FORM_COMPONENTS_RADIO}`,
+          path: `${BASE}/${Routes.FORM_COMPONENTS_RADIO}`,
           name: Routes.FORM_COMPONENTS_RADIO,
           component: () => import('@/views/protected/form-components/FormComponentsRadioPage.vue'),
         }],

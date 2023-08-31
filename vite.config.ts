@@ -25,6 +25,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: '/vue-crm-materio/',
   css: { modules: { generateScopedName: isDev ? generateRichClassName : undefined } },
   build: { outDir: './docs' },
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
