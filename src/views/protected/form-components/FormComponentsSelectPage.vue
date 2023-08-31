@@ -83,10 +83,22 @@
         placeholder="Placeholder"
       />
     </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Select multiply"
+      :direction="PreviewDirection.COLUMN"
+    >
+      <VSelect
+        v-model="multiplySelectValue"
+        :options="defaultOptions"
+        label="Label"
+        multiply
+      />
+    </VPreviewComponentCard>
   </VPreviewComponentPage>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
@@ -99,6 +111,7 @@ import type { TextFieldVariant } from '@/model/components/form/VTextField';
 const unclicableSelectValue = ref<string>('');
 const withoutLabelSelectValue = ref<string>('');
 const withHelpTextSelectValue = ref<string>('');
+const multiplySelectValue = ref<string[]>([]);
 const variantSelectValue = ref<string>('outlined');
 const colorSelectValue = ref<string>('primary');
 
@@ -122,6 +135,10 @@ const colorOptions = ref<SelectOptions<string>[]>([
   { name: 'Error', value: 'error' },
   { name: 'Default', value: 'default' },
 ]);
+
+watch(() => multiplySelectValue.value, () => {
+  console.log(multiplySelectValue.value);
+}, { deep: true });
 </script>
 
 <style module lang="scss">

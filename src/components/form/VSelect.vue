@@ -7,7 +7,7 @@
       disabled && $style.hasDisabled,
       hasNoSpaced && $style.hasNoSpaced
     ]"
-    @click="hasOpened = !hasOpened"
+    @click="hasOpened = multiply ? true : !hasOpened"
   >
     <div :class="$style.textField">
       <VTextField
@@ -38,7 +38,10 @@
       <div
         v-for="opt in displayedOptions"
         :key="opt"
-        :class="$style.option"
+        :class="[
+          $style.option,
+          selectValue.split(', ').includes(opt.name) && $style['option-active']
+        ]"
         @click="selectHandler(opt)"
       >
         {{ opt.name }}
@@ -62,13 +65,15 @@ import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   type SelectOptions,
+  SelectMapColorActive,
+  SelectMapColorActiveHover,
   SelectSize,
   SelectVariant,
 } from '@/model/components/form/VSelect';
 import { TextFieldSize, TextFieldVariant } from '@/model/components/form/VTextField';
 
 interface PropsType {
-  modelValue: string;
+  modelValue: string | string[];
   options: SelectOptions<any>[];
 
   variant?: TextFieldVariant;
@@ -82,10 +87,12 @@ interface PropsType {
   disabled?: boolean;
   error?: boolean;
   required?: boolean;
+
+  multiply?: boolean;
 }
 
 interface EmitsType {
-  (e: 'update:modelValue', value: string): void;
+  (e: 'update:modelValue', value: string | string[]): void;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -103,18 +110,41 @@ const props = withDefaults(defineProps<PropsType>(), {
 });
 const emits = defineEmits<EmitsType>();
 
+const SEPARATOR = ',';
+
 const optionsRef = ref<HTMLDivElement | null>(null);
 const selectValue = ref<string>('');
 const hasOpened = ref<boolean>(false);
 const hasNoSpaced = ref<boolean>(false);
 
+const colorOptionActive = computed(() => SelectMapColorActive[props.color]);
+const colorOptionActiveHover = computed(() => SelectMapColorActiveHover[props.color]);
 const displayedOptions = computed<SelectOptions<any>[]>(
   () => [{ name: '', value: '' }, ...props.options],
 );
 
 const selectHandler = (opt: SelectOptions<any>) => {
-  selectValue.value = opt.name;
-  emits('update:modelValue', opt.value);
+  if (props.multiply) {
+    if (opt.name === '') {
+      console.log(1);
+      selectValue.value = '';
+      emits('update:modelValue', []);
+      return;
+    }
+
+    let optionsValues: string[] = props.modelValue as string[];
+
+    if (optionsValues.includes(opt.value)) {
+      optionsValues = optionsValues.filter((el) => el !== opt.value);
+    } else {
+      optionsValues.push(opt.value);
+    }
+
+    emits('update:modelValue', optionsValues);
+  } else {
+    selectValue.value = opt.name;
+    emits('update:modelValue', opt.value);
+  }
 };
 
 const clickOutside = (value: boolean) => {
@@ -124,7 +154,19 @@ const clickOutside = (value: boolean) => {
 };
 
 watchEffect(() => {
-  selectValue.value = props.options.find((el: SelectOptions<any>) => el.value === props.modelValue)?.name || '';
+  if (props.multiply) {
+    const selectedOptions: string[] = props.modelValue as string[];
+    const selectedNames: string[] = [];
+
+    selectedOptions.forEach((selected: string) => {
+      const name: string = props.options.find((el: SelectOptions<any>) => el.value === selected)?.name || '';
+      selectedNames.push(name);
+    });
+
+    selectValue.value = selectedNames.join(', ');
+  } else {
+    selectValue.value = props.options.find((el: SelectOptions<any>) => el.value === props.modelValue)?.name || '';
+  }
 });
 
 watch(() => hasOpened.value, async () => {
@@ -145,6 +187,9 @@ watch(() => hasOpened.value, async () => {
 @import '@/scss/mixins/mixins';
 
 .root {
+  --color-option-active: v-bind(colorOptionActive);
+  --color-option-active-hover: v-bind(colorOptionActiveHover);
+
   position: relative;
   width: 100%;
   cursor: pointer;
@@ -182,10 +227,19 @@ watch(() => hasOpened.value, async () => {
 
   min-height: 38px;
   padding: 5px 10px;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: var(--color-card-hover);
     cursor: pointer;
+  }
+
+  &-active {
+    background-color: var(--color-option-active);
+
+    &:hover {
+      background-color: var(--color-option-active-hover);
+    }
   }
 }
 
