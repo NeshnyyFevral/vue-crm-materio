@@ -1,5 +1,7 @@
 import { createRouter as _createRouter, createWebHistory } from 'vue-router';
 
+const BASE_DIR = '/vue-crm-materio';
+
 export const Routes = {
   /* PROTECTED PAGES */
   CRM: 'crm',
@@ -23,6 +25,7 @@ export const Routes = {
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
   TYPOGRAPHY_TEXTS: 'typography/texts',
+
   /* PUBLIC PAGES */
   LOGIN: 'login',
   NOT_FOUND: '404',
@@ -32,11 +35,11 @@ export default function createRouter() {
   return _createRouter({
     history: createWebHistory(),
     routes: [{
-      path: `/${Routes.LOGIN}`,
+      path: `${BASE_DIR}/${Routes.LOGIN}`,
       name: Routes.LOGIN,
       component: () => import('@/views/public/LoginPage.vue'),
     }, {
-      path: '/',
+      path: `${BASE_DIR}/`,
       name: 'default',
       component: () => import('@/components/layout/Layout.vue'),
       redirect: { name: Routes.CRM },

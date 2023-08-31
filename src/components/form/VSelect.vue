@@ -213,6 +213,7 @@ watch(() => hasOpened.value, async () => {
   box-shadow: var(--shadow-select-options);
 
   .hasOpened & {
+
     animation: opening 0.1s;
   }
 
