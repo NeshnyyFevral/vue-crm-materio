@@ -42,7 +42,7 @@
           $style.option,
           selectValue.split(', ').includes(opt.name) && $style['option-active']
         ]"
-        @click.stop="selectHandler(opt)"
+        @click="selectHandler(opt, $event)"
       >
         {{ opt.name }}
       </div>
@@ -123,7 +123,7 @@ const displayedOptions = computed<SelectOptions<any>[]>(
   () => [{ name: '', value: '' }, ...props.options],
 );
 
-const selectHandler = (opt: SelectOptions<any>) => {
+const selectHandler = (opt: SelectOptions<any>, e: MouseEvent) => {
   if (props.multiply) {
     if (opt.name === '') {
       console.log(1);
@@ -141,6 +141,7 @@ const selectHandler = (opt: SelectOptions<any>) => {
     }
 
     emits('update:modelValue', optionsValues);
+    e.stopPropagation();
   } else {
     selectValue.value = opt.name;
     emits('update:modelValue', opt.value);
