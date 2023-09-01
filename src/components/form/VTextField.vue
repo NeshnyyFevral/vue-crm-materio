@@ -4,12 +4,15 @@
       $style.root,
       $style[`variant-${props.variant}`],
       $style[`size-${props.size}`],
+
       hasFocused && $style.hasFocused,
       hasFilled && $style.hasFilled,
       disabled && $style.hasDisabled,
       isError && $style.isError,
       hasExistPrefix && $style.isPrefix,
       hasExistSuffix && $style.isSuffix,
+      multiline && $style.isMultiline,
+      maxWidth && $style.isMaxWidth,
     ]"
   >
     <div
@@ -27,7 +30,8 @@
       {{ props.label }}
     </p>
 
-    <input
+    <component
+      :is="tagName"
       ref="inputRef"
       v-model="inputValue"
       :class="$style.input"
@@ -36,22 +40,23 @@
       :required="required"
       :type="type"
       :readonly="readonly"
+      :rows="rows"
       @input="inputHandler"
       @focus="hasFocused = true"
       @focusout="hasFocused = false"
     >
+      <p :class="$style.helpText">
+        {{ props.helpText }}
+      </p>
 
-    <p :class="$style.helpText">
-      {{ props.helpText }}
-    </p>
-
-    <div
-      v-if="hasExistSuffix"
-      ref="suffixRef"
-      :class="$style.suffix"
-    >
-      <slot name="suffix" />
-    </div>
+      <div
+        v-if="hasExistSuffix"
+        ref="suffixRef"
+        :class="$style.suffix"
+      >
+        <slot name="suffix" />
+      </div>
+    </component>
   </div>
 </template>
 
@@ -79,6 +84,7 @@ interface PropsType {
   label?: string;
   placeholder?: string;
   helpText?: string;
+  rows: string;
 
   type?: TextFieldType;
   variant?: TextFieldVariant;
@@ -89,6 +95,8 @@ interface PropsType {
   error?: boolean;
   required?: boolean;
   readonly?: boolean;
+  multiline?: boolean;
+  maxWidth?: boolean;
 }
 
 interface EmitsType {
@@ -97,16 +105,22 @@ interface EmitsType {
 
 const props = withDefaults(defineProps<PropsType>(), {
   label: '',
+
+  placeholder: '',
+  helpText: '',
+  rows: '1',
+
   type: TextFieldType.TEXT,
   color: GlobalColors.PRIMARY,
   variant: TextFieldVariant.OUTLINED,
   size: TextFieldSize.NORMAL,
+
   disabled: false,
   error: false,
-  placeholder: '',
   required: false,
-  helpText: '',
   readonly: false,
+  multiline: false,
+  maxWidth: false,
 });
 const emits = defineEmits<EmitsType>();
 const slots = useSlots();
@@ -124,6 +138,7 @@ const isError = computed(() => props.error);
 const textFieldColor = computed(() => (isError.value ? TextFieldMapColor.error : TextFieldMapColor[props.color]));
 const hasExistPrefix = computed(() => !!slots.prefix);
 const hasExistSuffix = computed(() => !!slots.suffix);
+const tagName = computed(() => (props.multiline ? 'textarea' : 'input'));
 
 const inputHandler = async (e: Event) => {
   emits('update:modelValue', (e.target as HTMLInputElement).value);
@@ -152,11 +167,11 @@ watchEffect(() => {
 </script>
 
 <style module lang="scss">
-@import '@/scss/mixins/typography';
+@import '@/scss/mixins/mixins';
 
 $sizes: (
-  small: 8.5px 14px,
-  normal: 12.5px 14px,
+    small: 8.5px 14px,
+    normal: 12.5px 14px,
 );
 
 .root {
@@ -174,6 +189,18 @@ $sizes: (
 
   &.isError .input {
     border-color: var(--text-field-color);
+  }
+
+  &.isMultiline {
+    textarea {
+      @include scroll-style;
+
+      resize: none;
+    }
+  }
+
+  &.isMaxWidth {
+    width: 100%;
   }
 }
 
@@ -207,8 +234,8 @@ $sizes: (
       background-color: var(--text-field-color);
       left: 50%;
       transition: width var(--transitiom-duration) var(--transition-timing-func),
-        left var(--transitiom-duration) var(--transition-timing-func),
-        background-color var(--transitiom-duration) var(--transition-timing-func);
+      left var(--transitiom-duration) var(--transition-timing-func),
+      background-color var(--transitiom-duration) var(--transition-timing-func);
     }
 
     &.hasFocused::after {
@@ -243,11 +270,15 @@ $sizes: (
   color: var(--color-text-input);
   padding: 0 5px;
   transition: transform var(--transitiom-duration) var(--transition-timing-func),
-    top var(--transitiom-duration) var(--transition-timing-func),
-    color var(--transitiom-duration) var(--transition-timing-func),
-    background-color var(--transitiom-duration) var(--transition-timing-func);
+  top var(--transitiom-duration) var(--transition-timing-func),
+  color var(--transitiom-duration) var(--transition-timing-func),
+  background-color var(--transitiom-duration) var(--transition-timing-func);
   transform-origin: left;
   cursor: text;
+
+  .isMultiline & {
+    top: 23px;
+  }
 
   .hasFocused &,
   .hasFilled &,
@@ -272,9 +303,13 @@ $sizes: (
 
   width: 100%;
   font-family: Inter, sans-serif;
-  outline-color: var(--text-field-color);
   background-color: transparent;
   color: var(--color-text);
+
+  .hasFocused.variant-outlined & {
+    border-color: var(--text-field-color);
+    outline: 1px solid var(--text-field-color);
+  }
 
   .isPrefix & {
     padding-left: var(--input-padding-left);

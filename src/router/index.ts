@@ -17,6 +17,7 @@ export const Routes = {
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
+  FORM_COMPONENTS_TEXTAREA: 'form-components/textarea',
   FORM_COMPONENTS_CHECKBOX: 'form-components/checkbox',
   FORM_COMPONENTS_SWITCH: 'form-components/switch',
   FORM_COMPONENTS_SELECT: 'form-components/select',
@@ -124,6 +125,10 @@ export default function createRouter() {
           path: `${BASE}/${Routes.FORM_COMPONENTS_RADIO}`,
           name: Routes.FORM_COMPONENTS_RADIO,
           component: () => import('@/views/protected/form-components/FormComponentsRadioPage.vue'),
+        }, {
+          path: `${BASE}/${Routes.FORM_COMPONENTS_TEXTAREA}`,
+          name: Routes.FORM_COMPONENTS_TEXTAREA,
+          component: () => import('@/views/protected/form-components/FormComponentsTextareaPage.vue'),
         }],
       }],
     }, {
