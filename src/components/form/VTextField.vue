@@ -30,8 +30,8 @@
       {{ props.label }}
     </p>
 
-    <component
-      :is="tagName"
+    <input
+      v-if="!multiline"
       ref="inputRef"
       v-model="inputValue"
       :class="$style.input"
@@ -40,23 +40,35 @@
       :required="required"
       :type="type"
       :readonly="readonly"
-      :rows="rows"
       @input="inputHandler"
       @focus="hasFocused = true"
       @focusout="hasFocused = false"
     >
-      <p :class="$style.helpText">
-        {{ props.helpText }}
-      </p>
+    <textarea
+      v-else
+      ref="inputRef"
+      v-model="inputValue"
+      :class="$style.input"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :required="required"
+      :readonly="readonly"
+      :rows="rows"
+      @input="inputHandler"
+      @focus="hasFocused = true"
+      @focusout="hasFocused = false"
+    />
+    <p :class="$style.helpText">
+      {{ props.helpText }}
+    </p>
 
-      <div
-        v-if="hasExistSuffix"
-        ref="suffixRef"
-        :class="$style.suffix"
-      >
-        <slot name="suffix" />
-      </div>
-    </component>
+    <div
+      v-if="hasExistSuffix"
+      ref="suffixRef"
+      :class="$style.suffix"
+    >
+      <slot name="suffix" />
+    </div>
   </div>
 </template>
 
@@ -84,7 +96,7 @@ interface PropsType {
   label?: string;
   placeholder?: string;
   helpText?: string;
-  rows: string;
+  rows?: string;
 
   type?: TextFieldType;
   variant?: TextFieldVariant;
@@ -138,7 +150,6 @@ const isError = computed(() => props.error);
 const textFieldColor = computed(() => (isError.value ? TextFieldMapColor.error : TextFieldMapColor[props.color]));
 const hasExistPrefix = computed(() => !!slots.prefix);
 const hasExistSuffix = computed(() => !!slots.suffix);
-const tagName = computed(() => (props.multiline ? 'textarea' : 'input'));
 
 const inputHandler = async (e: Event) => {
   emits('update:modelValue', (e.target as HTMLInputElement).value);

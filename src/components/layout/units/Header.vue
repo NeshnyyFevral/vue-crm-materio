@@ -102,97 +102,97 @@ onMounted(() => {
 </script>
 
 <style module lang="scss">
-  .root {
-    width: calc(100% - 30px);
-    position: fixed;
-    top: 0;
-    z-index: 8888;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    margin-bottom: 40px;
-    transition: padding var(--transitiom-duration) var(--transition-timing-func),
-      background-color var(--transitiom-duration) var(--transition-timing-func),
-      width var(--transitiom-duration) var(--transition-timing-func);
-  }
+.root {
+  width: calc(100% - 30px);
+  position: fixed;
+  top: 0;
+  z-index: 8888;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin-bottom: 40px;
+  transition: padding var(--transitiom-duration) var(--transition-timing-func),
+    background-color var(--transitiom-duration) var(--transition-timing-func),
+    width var(--transitiom-duration) var(--transition-timing-func);
+}
 
-  .left,
-  .right {
-    display: flex;
-    align-items: center;
-  }
+.left,
+.right {
+  display: flex;
+  align-items: center;
+}
 
-  .search {
-    margin-left: 10px;
-  }
+.search {
+  margin-left: 10px;
+}
 
-  .languageButton,
-  .theme,
-  .notify {
-    margin-right: 15px;
-  }
+.languageButton,
+.theme,
+.notify {
+  margin-right: 15px;
+}
 
-  .button {
-    position: relative;
-    color: var(--color-text);
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    fill: var(--color-text);
+.button {
+  position: relative;
+  color: var(--color-text);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  fill: var(--color-text);
 
-    &::after {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 30px;
-      height: 30px;
-      content: '';
-      background-color: var(--color-text);
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity var(--transitiom-duration) var(--transition-timing-func);
-      transform: translate3d(-50%, -50%, 0);
-    }
-
-    &:hover::after {
-      opacity: 0.1;
-    }
-  }
-
-  .languageButton {
-    position: relative;
-    margin-left: 40px;
-    color: var(--color-text);
-    cursor: pointer;
-    background: transparent;
-    border: none;
-  }
-
-  .languageIcon {
+  &::after {
     position: absolute;
     top: 50%;
-    left: -27px;
-    width: 22px;
-    height: 14px;
-    transform: translateY(-50%);
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    content: '';
+    background-color: var(--color-text);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity var(--transitiom-duration) var(--transition-timing-func);
+    transform: translate3d(-50%, -50%, 0);
   }
 
-  .active {
-    padding: 10px 20px;
-    background-color: var(--color-header);
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 8px -4px rgb(94 86 105 / 42%);
+  &:hover::after {
+    opacity: 0.1;
   }
+}
 
-  .mobileSidebar {
-    display: none;
-    fill: var(--color-text);
+.languageButton {
+  position: relative;
+  margin-left: 40px;
+  color: var(--color-text);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
 
-    @media screen and (max-width: 1405px) {
-      & {
-        display: flex;
-      }
+.languageIcon {
+  position: absolute;
+  top: 50%;
+  left: -27px;
+  width: 22px;
+  height: 14px;
+  transform: translateY(-50%);
+}
+
+.active {
+  padding: 10px 20px;
+  background-color: var(--color-header);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 8px -4px rgb(94 86 105 / 42%);
+}
+
+.mobileSidebar {
+  display: none !important;
+  fill: var(--color-text);
+
+  @media screen and (max-width: 1405px) {
+    & {
+      display: flex;
     }
   }
+}
 </style>
