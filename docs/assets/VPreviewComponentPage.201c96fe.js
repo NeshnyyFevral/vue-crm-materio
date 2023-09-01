@@ -1,0 +1,1 @@
+import{_ as s,b as o,c as r,y as t,n as a}from"./index.9ed30244.js";const n="_root_1pfjt_11";var l={root:n,"anka-ripple":"_anka-ripple_1pfjt_1"};const c={};function _(e,f){return o(),r("div",{class:a(e.$style.root)},[t(e.$slots,"default")],2)}const p={$style:l};var d=s(c,[["render",_],["__cssModules",p]]);export{d as V};
