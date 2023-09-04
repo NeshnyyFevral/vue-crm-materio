@@ -17,7 +17,7 @@ body {
   @include theme-colors(true);
 
   background-color: var(--color-bg);
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 
   &.dark {
     @include theme-colors(false);

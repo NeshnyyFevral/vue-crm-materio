@@ -116,7 +116,7 @@ $sizes: (
       border: 2px solid var(--radio-color);
 
       transition: border-color
-        var(--transitiom-duration)
+        var(--transition-duration)
         var(--transition-timing-func);
 
       &::before {
@@ -156,7 +156,7 @@ $sizes: (
         border-radius: 50%;
         background-color: var(--radio-color);
 
-        transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+        transition: background-color var(--transition-duration) var(--transition-timing-func);
         animation: appear 0.15s;
         transform-origin: center;
       }

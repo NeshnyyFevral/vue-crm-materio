@@ -50,7 +50,7 @@ defineProps<PropsType>();
   border: none;
   border-top-right-radius: 32px;
   border-bottom-right-radius: 32px;
-  transition: background var(--transitiom-duration) var(--transition-timing-func);
+  transition: background var(--transition-duration) var(--transition-timing-func);
 
   &::after {
     position: absolute;
@@ -76,7 +76,7 @@ defineProps<PropsType>();
   font-size: 16px;
   font-weight: 400;
   color: var(--color-text);
-  transition: color var(--transitiom-duration) var(--transition-timing-func);
+  transition: color var(--transition-duration) var(--transition-timing-func);
 }
 
 .defaultIcon .title {
@@ -100,7 +100,7 @@ defineProps<PropsType>();
   height: 24px;
   margin-right: 10px;
   fill: var(--color-text);
-  transition: fill var(--transitiom-duration) var(--transition-timing-func);
+  transition: fill var(--transition-duration) var(--transition-timing-func);
 }
 
 .active {

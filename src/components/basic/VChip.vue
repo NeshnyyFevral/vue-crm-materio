@@ -76,9 +76,9 @@ const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
   background-color: var(--color-chip);
   color: var(--color-button-text);
 
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func),
-    color var(--transitiom-duration) var(--transition-timing-func),
-    border-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func),
+    color var(--transition-duration) var(--transition-timing-func),
+    border-color var(--transition-duration) var(--transition-timing-func);
 }
 
 .clickable {
@@ -134,7 +134,7 @@ const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
   cursor: pointer;
   fill: var(--color-button-text);
 
-  transition: fill var(--transitiom-duration) var(--transition-timing-func);
+  transition: fill var(--transition-duration) var(--transition-timing-func);
 
   &:hover {
     fill: var(--color-chip-hover);

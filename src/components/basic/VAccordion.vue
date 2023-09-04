@@ -83,15 +83,15 @@ watch(() => props.name, () => {
   cursor: pointer;
   border: 1px solid var(--color-border);
 
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 }
 
 .desc {
   --width-desc: v-bind(descHeight);
 
   overflow: hidden;
-  transition: height var(--transitiom-duration) var(--transition-timing-func),
-    margin var(--transitiom-duration) var(--transition-timing-func);
+  transition: height var(--transition-duration) var(--transition-timing-func),
+    margin var(--transition-duration) var(--transition-timing-func);
   height: 0;
 
   .open & {

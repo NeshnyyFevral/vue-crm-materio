@@ -173,7 +173,7 @@ $sizes: (
         border-radius: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--checkbox-color);
-        transition: opacity var(--transitiom-duration) var(--transition-timing-func);
+        transition: opacity var(--transition-duration) var(--transition-timing-func);
       }
 
       &:hover::before {

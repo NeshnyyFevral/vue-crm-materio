@@ -14,6 +14,7 @@ export const Routes = {
   COMPONENTS_DIALOG: 'components/dialog',
   COMPONENTS_ACCORDION: 'components/accordion',
   COMPONENTS_TABLE: 'components/table',
+  COMPONENTS_BADGE: 'components/badge',
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
@@ -85,6 +86,10 @@ export default function createRouter() {
           path: `${BASE}/${Routes.COMPONENTS_TABLE}`,
           name: Routes.COMPONENTS_TABLE,
           component: () => import('@/views/protected/components/ComponentsTablePage.vue'),
+        }, {
+          path: `${BASE}/${Routes.COMPONENTS_BADGE}`,
+          name: Routes.COMPONENTS_BADGE,
+          component: () => import('@/views/protected/components/ComponentsBadgePage.vue'),
         }],
       }, {
         path: `${BASE}/${Routes.TYPOGRAPHY}`,

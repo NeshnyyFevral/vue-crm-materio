@@ -90,6 +90,7 @@ export default [
           { title: 'Accordion', route: { name: Routes.COMPONENTS_ACCORDION } },
           { title: 'Alert', route: { name: Routes.COMPONENTS_ALERT } },
           { title: 'Avatar', route: { name: Routes.COMPONENTS_AVATAR } },
+          { title: 'Badge', route: { name: Routes.COMPONENTS_BADGE } },
           { title: 'Button', route: { name: Routes.COMPONENTS_BUTTON } },
           { title: 'Chip', route: { name: Routes.COMPONENTS_CHIP } },
           { title: 'Dialog', route: { name: Routes.COMPONENTS_DIALOG } },

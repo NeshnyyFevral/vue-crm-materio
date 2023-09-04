@@ -108,9 +108,9 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
   padding: 0;
   overflow: hidden;
   background-color: var(--color-bg);
-  transition: width var(--transitiom-duration) var(--transition-timing-func),
-    transform var(--transitiom-duration) var(--transition-timing-func),
-    background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: width var(--transition-duration) var(--transition-timing-func),
+    transform var(--transition-duration) var(--transition-timing-func),
+    background-color var(--transition-duration) var(--transition-timing-func);
 }
 
 .open {
@@ -163,8 +163,8 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
   background-color: transparent;
   border: 2px solid var(--color-title);
   border-radius: 50%;
-  transition: right var(--transitiom-duration) var(--transition-timing-func),
-    background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: right var(--transition-duration) var(--transition-timing-func),
+    background-color var(--transition-duration) var(--transition-timing-func);
   transform: translateY(-50%);
 
   &::after {
@@ -177,8 +177,8 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
     background-color: var(--color-title);
     border-radius: 50%;
     opacity: 0;
-    transition: opacity var(--transitiom-duration) var(--transition-timing-func),
-      background-color var(--transitiom-duration) var(--transition-timing-func);
+    transition: opacity var(--transition-duration) var(--transition-timing-func),
+      background-color var(--transition-duration) var(--transition-timing-func);
     transform: translate3d(-50%, -50%, 0);
   }
 }
@@ -230,7 +230,7 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
   text-transform: uppercase;
   white-space: nowrap;
   background-color: var(--color-sidebar);
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 }
 
 .line {

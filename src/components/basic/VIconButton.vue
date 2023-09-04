@@ -63,7 +63,7 @@ $sizes: (
   justify-content: center;
   align-items: center;
 
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 
   &:focus-visible {
     outline: 2px solid var(--icon-button-color);
@@ -71,7 +71,7 @@ $sizes: (
   }
 
   path {
-    transition: fill var(--transitiom-duration) var(--transition-timing-func);
+    transition: fill var(--transition-duration) var(--transition-timing-func);
   }
 }
 

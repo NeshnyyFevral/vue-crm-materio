@@ -244,9 +244,9 @@ $sizes: (
       height: 2px;
       background-color: var(--text-field-color);
       left: 50%;
-      transition: width var(--transitiom-duration) var(--transition-timing-func),
-      left var(--transitiom-duration) var(--transition-timing-func),
-      background-color var(--transitiom-duration) var(--transition-timing-func);
+      transition: width var(--transition-duration) var(--transition-timing-func),
+      left var(--transition-duration) var(--transition-timing-func),
+      background-color var(--transition-duration) var(--transition-timing-func);
     }
 
     &.hasFocused::after {
@@ -280,10 +280,10 @@ $sizes: (
   background-color: var(--color-card);
   color: var(--color-text-input);
   padding: 0 5px;
-  transition: transform var(--transitiom-duration) var(--transition-timing-func),
-  top var(--transitiom-duration) var(--transition-timing-func),
-  color var(--transitiom-duration) var(--transition-timing-func),
-  background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: transform var(--transition-duration) var(--transition-timing-func),
+  top var(--transition-duration) var(--transition-timing-func),
+  color var(--transition-duration) var(--transition-timing-func),
+  background-color var(--transition-duration) var(--transition-timing-func);
   transform-origin: left;
   cursor: text;
 

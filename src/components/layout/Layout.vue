@@ -77,7 +77,7 @@ onUnmounted(() => { window.removeEventListener('scroll', scroll); });
 .content {
   width: 100%;
   margin-left: 55px;
-  transition: margin var(--transitiom-duration) var(--transition-timing-func);
+  transition: margin var(--transition-duration) var(--transition-timing-func);
 
   @media screen and (max-width: 1405px) {
     margin-left: 0;
