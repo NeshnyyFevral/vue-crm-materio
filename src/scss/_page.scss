@@ -10,8 +10,8 @@
     font-weight: 600;
     cursor: pointer;
     border-radius: 12px;
-    transition: background-color var(--transitiom-duration) var(--transition-timing-func),
-      color var(--transitiom-duration) var(--transition-timing-func);
+    transition: background-color var(--transition-duration) var(--transition-timing-func),
+      color var(--transition-duration) var(--transition-timing-func);
     color: var(--dark-color-600);
     text-decoration: none;
 
@@ -118,7 +118,7 @@
   font-size: 16px;
   color: var(--primary-color-700);
   cursor: pointer;
-  transition: color var(--transitiom-duration) var(--transition-timing-func);
+  transition: color var(--transition-duration) var(--transition-timing-func);
   font-weight: 600;
   margin: 24px 0;
 

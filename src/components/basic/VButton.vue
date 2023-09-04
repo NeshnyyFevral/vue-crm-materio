@@ -130,7 +130,7 @@ $sizes: (
     background-color: var(--color-button);
     color: var(--color-button-text);
     box-shadow: 0 4px 8px -4px var(--color-button);
-    transition: box-shadow var(--transitiom-duration) var(--transition-timing-func),
+    transition: box-shadow var(--transition-duration) var(--transition-timing-func),
     opacity .25s;
 
     &:hover {
@@ -144,7 +144,7 @@ $sizes: (
 
     border: 1px solid var(--color-button);
     color: var(--color-button-text);
-    transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+    transition: background-color var(--transition-duration) var(--transition-timing-func);
 
     &:hover {
       background-color: var(--color-button-hover);
@@ -155,7 +155,7 @@ $sizes: (
     --color-button-text: var(--color-button);
 
     color: var(--color-button-text);
-    transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+    transition: background-color var(--transition-duration) var(--transition-timing-func);
 
     &:hover {
       background-color: var(--color-button-hover);

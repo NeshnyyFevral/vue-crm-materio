@@ -36,12 +36,20 @@
         <NotifyIcon />
       </VIconButton>
 
-      <VAvatar>
-        <img
-          src="@/assets/avatars/1.png"
-          alt="avatar"
-        >
-      </VAvatar>
+      <VBadge
+        :variant="BadgeVariant.DOT"
+        :size="BadgeSize.SMALL"
+        :value="1"
+        :position="BadgePosition.RIGHT_BOTTOM"
+        :color="GlobalColors.SUCCESS"
+      >
+        <VAvatar>
+          <img
+            src="@/assets/avatars/1.png"
+            alt="avatar"
+          >
+        </VAvatar>
+      </VBadge>
     </div>
   </header>
 </template>
@@ -49,6 +57,7 @@
 <script setup lang="ts">
 import {
   computed,
+  onBeforeMount,
   onMounted,
   ref,
   watch,
@@ -59,9 +68,15 @@ import NotifyIcon from '@/assets/icons/header/notification.svg';
 import SearchIcon from '@/assets/icons/header/search.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
+import VBadge from '@/components/basic/VBadge.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VSwitch from '@/components/form/VSwitch.vue';
 import { GlobalColors } from '@/model/Colors';
+import {
+  BadgePosition,
+  BadgeSize,
+  BadgeVariant,
+} from '@/model/components/basic/VBadge';
 import { IconButtonVariant } from '@/model/components/basic/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
 import { useThemeStore } from '@/stores/theme';
@@ -95,7 +110,7 @@ watch(() => themeValue.value, () => {
   }
 });
 
-onMounted(() => {
+onBeforeMount(() => {
   themeValue.value = !!appStorage.get('themeColor');
   themeStore.changeTheme();
 });
@@ -112,9 +127,9 @@ onMounted(() => {
   justify-content: space-between;
   padding: 10px 0;
   margin-bottom: 40px;
-  transition: padding var(--transitiom-duration) var(--transition-timing-func),
-    background-color var(--transitiom-duration) var(--transition-timing-func),
-    width var(--transitiom-duration) var(--transition-timing-func);
+  transition: padding var(--transition-duration) var(--transition-timing-func),
+    background-color var(--transition-duration) var(--transition-timing-func),
+    width var(--transition-duration) var(--transition-timing-func);
 }
 
 .left,
@@ -151,7 +166,7 @@ onMounted(() => {
     background-color: var(--color-text);
     border-radius: 50%;
     opacity: 0;
-    transition: opacity var(--transitiom-duration) var(--transition-timing-func);
+    transition: opacity var(--transition-duration) var(--transition-timing-func);
     transform: translate3d(-50%, -50%, 0);
   }
 

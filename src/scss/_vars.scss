@@ -105,6 +105,6 @@ $color-default-100: c.alpha($color-default, 0.1);
   --color-default-200: #{ $color-default-200 };
   --color-default-100: #{ $color-default-100 };
 
-  --transitiom-duration: 0.3s;
+  --transition-duration: 0.3s;
   --transition-timing-func: cubic-bezier(.25,.8,.5,1);
 }

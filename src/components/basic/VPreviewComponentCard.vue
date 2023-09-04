@@ -26,6 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard';
 
 interface PropsType {
@@ -33,6 +35,7 @@ interface PropsType {
   desc?: string;
   direction?: PreviewDirection;
   transparent?: boolean;
+  gap?: number;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -40,13 +43,18 @@ const props = withDefaults(defineProps<PropsType>(), {
   direction: PreviewDirection.ROW,
   transparent: false,
   desc: undefined,
+  gap: 15,
 });
+
+const gapElement = computed(() => `${props.gap}px`);
 </script>
 
 <style module lang="scss">
 @import "@/scss/mixins/mixins";
 
 .root {
+  --gap-card: v-bind(gapElement);
+
   background-color: var(--color-card);
   width: 100%;
   padding: 20px 20px 25px;
@@ -54,7 +62,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   min-height: 150px;
   box-shadow: var(--shadow-preview-card);
 
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 }
 
 .transparent {
@@ -79,7 +87,7 @@ const props = withDefaults(defineProps<PropsType>(), {
 .group {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: var(--gap-card);
   align-items: center;
 
   &.row {

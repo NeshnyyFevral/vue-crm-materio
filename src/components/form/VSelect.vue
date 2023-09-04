@@ -229,7 +229,7 @@ watch(() => hasOpened.value, async () => {
 
   min-height: 38px;
   padding: 5px 10px;
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 
   &:hover {
     background-color: var(--color-card-hover);

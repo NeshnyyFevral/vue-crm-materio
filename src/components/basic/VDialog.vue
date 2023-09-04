@@ -114,7 +114,7 @@ $sizes: (
 
 .persistent {
   transform-origin: 0 0;
-  animation: persistentCancel var(--transitiom-duration);
+  animation: persistentCancel var(--transition-duration);
 }
 
 .fullscreen {

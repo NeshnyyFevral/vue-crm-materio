@@ -114,7 +114,7 @@ $sizes: (
   display: inline-block;
   border-radius: 7px;
   background-color: var(--color-default-300);
-  transition: background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 
   &.hasChecked {
     background-color: var(--switch-color-light);
@@ -176,8 +176,8 @@ $sizes: (
           border-radius: 50%;
           transform: translate(-50%, -50%);
           background-color: var(--color-default-700);
-          transition: opacity var(--transitiom-duration) var(--transition-timing-func),
-            background-color var(--transitiom-duration) var(--transition-timing-func);
+          transition: opacity var(--transition-duration) var(--transition-timing-func),
+            background-color var(--transition-duration) var(--transition-timing-func);
         }
 
         &:hover::before {
@@ -199,8 +199,8 @@ $sizes: (
   transform: translateY(-50%);
   border-radius: 50%;
   background-color: var(--color-switch);
-  transition: left var(--transitiom-duration) var(--transition-timing-func),
-    background-color var(--transitiom-duration) var(--transition-timing-func);
+  transition: left var(--transition-duration) var(--transition-timing-func),
+    background-color var(--transition-duration) var(--transition-timing-func);
 
   box-shadow: var(--shadow-switch);
 
