@@ -40,8 +40,22 @@
     </VPreviewComponentCard>
 
     <VPreviewComponentCard
+      title="Icon button rounded"
+      desc="Use «rounded» prop with <VIconButton> component."
+    >
+      <VIconButton
+        v-for="variant in Object.keys(IconButtonVariant)"
+        :key="variant"
+        :variant="IconButtonVariant[variant]"
+        rounded
+      >
+        <ZoomIcon />
+      </VIconButton>
+    </VPreviewComponentCard>
+
+    <VPreviewComponentCard
       title="Icon button disabled"
-      desc="Use «disabled» prop <VIconButton> component."
+      desc="Use «disabled» prop with <VIconButton> component."
       :direction="PreviewDirection.COLUMN"
     >
       <div :class="$style.flex">

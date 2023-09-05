@@ -1,25 +1,45 @@
 <template>
-  <div :class="$style.root">
-    <div :class="$style.container">
-      <VIconButton :disabled="props.page === 1">
-        <ArrowIcon :class="$style.arrowLeft" />
-      </VIconButton>
+  <nav :class="$style.root">
+    <ul :class="$style.container">
+      <li>
+        <VIconButton
+          :size="size as IconButtonSize"
+          :disabled="modelValue === 1"
+          :rounded="rounded"
+          @click="changePage('decrease')"
+        >
+          <ArrowIcon :class="$style.arrowLeft" />
+        </VIconButton>
+      </li>
 
-      <VIconButton
+      <li
         v-for="item in items"
         :key="item"
-        :variant="props.page === item ? IconButtonVariant.FILLED : IconButtonVariant.TRANSPARENT"
-        :color="color"
-        :size="size"
       >
-        {{ item }}
-      </VIconButton>
+        <VIconButton
+          :variant="modelValue === item ? variant as IconButtonVariant : IconButtonVariant.TRANSPARENT"
+          :color="color"
+          :size="size as IconButtonSize"
+          :class="$style.item"
+          :rounded="rounded"
+          @click="changePage('target', item)"
+        >
+          {{ item }}
+        </VIconButton>
+      </li>
 
-      <VIconButton :disabled="props.page === props.count">
-        <ArrowIcon :class="$style.arrowRight" />
-      </VIconButton>
-    </div>
-  </div>
+      <li>
+        <VIconButton
+          :size="size as IconButtonSize"
+          :disabled="modelValue === count"
+          :rounded="rounded"
+          @click="changePage('increase')"
+        >
+          <ArrowIcon :class="$style.arrowRight" />
+        </VIconButton>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script setup lang="ts">
@@ -28,41 +48,72 @@ import { computed } from 'vue';
 import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import { GlobalColors } from '@/model/Colors';
-import { IconButtonVariant } from '@/model/components/basic/VIconButton';
-import {
-  PaginationMapColor,
-  PaginationSize,
-  PaginationVariant,
-} from '@/model/components/basic/VPagination';
+import { IconButtonSize, IconButtonVariant } from '@/model/components/basic/VIconButton';
+import { PaginationSize, PaginationVariant } from '@/model/components/basic/VPagination';
 
 interface PropsType {
-  page: number;
+  modelValue: number;
   count: number;
 
   color?: GlobalColors;
   size?: PaginationSize;
   variant?: PaginationVariant;
+
   disabled?: boolean;
+  rounded?: boolean;
+}
+
+interface EmitsType {
+  (e: 'update:modelValue', value: number): void;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
-  page: 1,
   count: 1,
 
   color: GlobalColors.PRIMARY,
   size: PaginationSize.MEDIUM,
-  variant: PaginationVariant.DEFAULT,
+  variant: PaginationVariant.FILLED,
+
   disabled: false,
+  rounded: false,
+});
+const emits = defineEmits<EmitsType>();
+
+const items = computed<Array<number | string>>(() => {
+  const VISIBLE_COUNT = 3;
+
+  if (VISIBLE_COUNT + 5 < props.count) {
+    if (props.modelValue <= VISIBLE_COUNT) {
+      return [1, 2, 3, 4, 5, '...', props.count];
+    }
+
+    if (props.modelValue > VISIBLE_COUNT && props.modelValue + VISIBLE_COUNT <= props.count) {
+      return [1, '...', props.modelValue - 1, props.modelValue, props.modelValue + 1, '...', props.count];
+    }
+
+    if (props.modelValue + VISIBLE_COUNT > props.count) {
+      return [1, '...', props.count - 4, props.count - 3, props.count - 2, props.count - 1, props.count];
+    }
+  }
+
+  return Array.from({ length: props.count }, (_, index) => index + 1);
 });
 
-const items = computed(() => Array.from({ length: props.count }, (_, index) => index + 1));
-const paginationColor = computed(() => PaginationMapColor[props.color]);
+const changePage = (type: 'decrease' | 'increase' | 'target', target?: number | string) => {
+  switch (type) {
+  case 'decrease': emits('update:modelValue', props.modelValue - 1); break;
+  case 'increase': emits('update:modelValue', props.modelValue + 1); break;
+  case 'target':
+    if (target && typeof target === 'number') {
+      emits('update:modelValue', target);
+    } break;
+  default: break;
+  }
+};
 </script>
 
 <style module lang="scss">
-.root {
-  --pagination-color: v-bind(paginationColor);
-}
+.root {}
 
 .container {
   display: flex;
@@ -74,5 +125,11 @@ const paginationColor = computed(() => PaginationMapColor[props.color]);
 
 .arrowRight {
   transform: rotateZ(-90deg);
+  margin-left: 5px;
+}
+
+.item {
+  margin-left: 5px;
+  transition: none;
 }
 </style>

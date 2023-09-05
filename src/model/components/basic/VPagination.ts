@@ -1,9 +1,7 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
-
 export enum PaginationVariant {
-  OUTLINED = 'outlined',
+  FILLED = 'filled',
   LIGHT = 'light',
-  DEFAULT = 'default',
+  TRANSPARENT = 'transparent',
 }
 
 export enum PaginationSize {
@@ -11,5 +9,3 @@ export enum PaginationSize {
   MEDIUM = 'medium',
   LARGE = 'large',
 }
-
-export const PaginationMapColor: { [index: string]: string } = ButtonMapColor;
