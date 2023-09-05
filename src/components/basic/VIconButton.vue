@@ -5,7 +5,8 @@
       $style.root,
       $style[`variant-${props.variant}`],
       $style[`size-${props.size}`],
-      disabled && $style.disabled
+      disabled && $style.disabled,
+      rounded && $style.rounded,
     ]"
   >
     <slot />
@@ -27,12 +28,15 @@ interface PropsType {
   size?: IconButtonSize;
   color?: GlobalColors;
   variant?: IconButtonVariant;
+  rounded?: boolean;
   disabled?: boolean;
 }
 const props = withDefaults(defineProps<PropsType>(), {
   size: IconButtonSize.MEDIUM,
   color: GlobalColors.DEFAULT,
   variant: IconButtonVariant.TRANSPARENT,
+  disabled: false,
+  rounded: false,
 });
 
 const iconButtonColor = computed(() => IconButtonMapColor[props.color]);
@@ -42,11 +46,15 @@ const iconButtonColorLight = computed(() => IconButtonMapColorLight[props.color]
 <style module lang="scss">
 @import '@/scss/mixins/mixins';
 
-$sizes: (
-    small: 20px,
-    medium: 26px,
-    large: 42px,
-);
+$size-small: 'small', // $key
+  20px, // $size
+  12px; // $font-size
+$size-medium: 'medium', // $key
+  26px, // $size
+  14px; // $font-size
+$size-large: 'large', // $key
+  42px, // $size
+  20px; // $font-size
 
 .root {
   @include ripple-block;
@@ -62,6 +70,7 @@ $sizes: (
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-text);
 
   transition: background-color var(--transition-duration) var(--transition-timing-func);
 
@@ -78,6 +87,7 @@ $sizes: (
 .variant {
   &-filled {
     background-color: var(--icon-button-color);
+    color: var(--color-button-text);
 
     path {
       fill: var(--color-button-text);
@@ -120,8 +130,9 @@ $sizes: (
 }
 
 .size {
-  @each $key, $size in $sizes {
+  @each $key, $size, $font-size in $size-small, $size-medium, $size-large {
     &-#{$key} {
+      font-size: $font-size;
       width: calc($size + 10px);
       height: calc($size + 10px);
 
@@ -136,5 +147,9 @@ $sizes: (
 .disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+.rounded {
+  border-radius: 8px;
 }
 </style>
