@@ -15,6 +15,7 @@ export const Routes = {
   COMPONENTS_ACCORDION: 'components/accordion',
   COMPONENTS_TABLE: 'components/table',
   COMPONENTS_BADGE: 'components/badge',
+  COMPONENTS_PAGINATION: 'components/pagination',
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
@@ -90,6 +91,10 @@ export default function createRouter() {
           path: `${BASE}/${Routes.COMPONENTS_BADGE}`,
           name: Routes.COMPONENTS_BADGE,
           component: () => import('@/views/protected/components/ComponentsBadgePage.vue'),
+        }, {
+          path: `${BASE}/${Routes.COMPONENTS_PAGINATION}`,
+          name: Routes.COMPONENTS_PAGINATION,
+          component: () => import('@/views/protected/components/ComponentsPaginationPage.vue'),
         }],
       }, {
         path: `${BASE}/${Routes.TYPOGRAPHY}`,

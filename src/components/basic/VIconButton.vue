@@ -62,6 +62,7 @@ $sizes: (
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--color-text);
 
   transition: background-color var(--transition-duration) var(--transition-timing-func);
 
@@ -78,6 +79,7 @@ $sizes: (
 .variant {
   &-filled {
     background-color: var(--icon-button-color);
+    color: var(--color-button-text);
 
     path {
       fill: var(--color-button-text);
