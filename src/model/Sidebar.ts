@@ -97,6 +97,7 @@ export default [
           { title: 'Icon button', route: { name: Routes.COMPONENTS_ICON_BUTTON } },
           { title: 'Pagination', route: { name: Routes.COMPONENTS_PAGINATION } },
           { title: 'Table', route: { name: Routes.COMPONENTS_TABLE } },
+          { title: 'Menu', route: { name: Routes.COMPONENTS_MENU } },
         ],
       },
       {
