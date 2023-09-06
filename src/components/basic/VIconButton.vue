@@ -104,6 +104,7 @@ $size-large: 'large', // $key
 
   &-light {
     background-color: var(--icon-button-color-light);
+    color: var(--color-default-700);
 
     path {
       fill: var(--icon-button-color);

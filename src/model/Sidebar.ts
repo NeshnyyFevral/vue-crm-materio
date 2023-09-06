@@ -109,6 +109,7 @@ export default [
           { title: 'Checkbox', route: { name: Routes.FORM_COMPONENTS_CHECKBOX } },
           { title: 'Switch', route: { name: Routes.FORM_COMPONENTS_SWITCH } },
           { title: 'Radio', route: { name: Routes.FORM_COMPONENTS_RADIO } },
+          { title: 'File uploader', route: { name: Routes.FORM_COMPONENTS_FILE_UPLOADER } },
         ],
       },
     ],
