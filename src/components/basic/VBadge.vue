@@ -56,15 +56,15 @@ const displayedValue = computed<string>(() => (props.value >= props.maxValue ? `
 @import "@/scss/mixins/typography";
 
 $small-size: 'small', // $key
-  0px, // $padding
-  8px, // $border-radius
-  10px, // $size
-  10px; // font-size
+0px, // $padding
+8px, // $border-radius
+10px, // $size
+10px; // font-size
 $normal-size: 'normal', // $key
-  6px, // $padding
-  10px, // $border-radius
-  20px, // $size
-  12px; // font-size
+6px, // $padding
+10px, // $border-radius
+20px, // $size
+12px; // font-size
 
 .root {
   --badge-color: v-bind(badgeColor);
@@ -76,7 +76,6 @@ $normal-size: 'normal', // $key
 .size {
   @each $key, $padding, $border-radius, $size, $font-size in $small-size, $normal-size {
     $divider: 1.5;
-    $dividerHasHidden: $divider * 2;
 
     &-#{$key} .badge {
       border-radius: $border-radius;
@@ -91,22 +90,12 @@ $normal-size: 'normal', // $key
         bottom: calc(100% - $size / $divider);
         right: calc(100% - $size / $divider);
       }
-
-      &.hasHidden .badge {
-        bottom: calc(100% - $size / $dividerHasHidden);
-        right: calc(100% - $size / $dividerHasHidden);
-      }
     }
 
     &-#{$key}.position-right-top {
       .badge {
         bottom: calc(100% - $size / $divider);
         left: calc(100% - $size / $divider);
-      }
-
-      &.hasHidden .badge {
-        bottom: calc(100% - $size / $dividerHasHidden);
-        left: calc(100% - $size / $dividerHasHidden);
       }
     }
 
@@ -115,22 +104,12 @@ $normal-size: 'normal', // $key
         top: calc(100% - $size / $divider);
         right: calc(100% - $size / $divider);
       }
-
-      &.hasHidden .badge {
-        top: calc(100% - $size / $dividerHasHidden);
-        right: calc(100% - $size / $dividerHasHidden);
-      }
     }
 
     &-#{$key}.position-right-bottom {
       .badge {
         top: calc(100% - $size / $divider);
         left: calc(100% - $size / $divider);
-      }
-
-      &.hasHidden .badge {
-        top: calc(100% - $size / $dividerHasHidden);
-        left: calc(100% - $size / $dividerHasHidden);
       }
     }
   }
@@ -146,19 +125,13 @@ $normal-size: 'normal', // $key
   align-items: center;
   color: var(--color-button-text);
   transition: width 0.1s var(--transition-timing-func),
-    height 0.1s var(--transition-timing-func),
-    min-width 0.1s var(--transition-timing-func),
-    bottom 0.1s var(--transition-timing-func),
-    top 0.1s var(--transition-timing-func),
-    left 0.1s var(--transition-timing-func),
-    right 0.1s var(--transition-timing-func);
+  height 0.1s var(--transition-timing-func),
+  min-width 0.1s var(--transition-timing-func),
+  transform 0.1s var(--transition-timing-func);
+  transform: scale(1);
 
   .hasHidden & {
-    padding: 0;
-    overflow: hidden;
-    min-width: 0;
-    width: 0;
-    height: 0;
+    transform: scale(0);
   }
 }
 
