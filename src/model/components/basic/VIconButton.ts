@@ -6,11 +6,11 @@ export enum IconButtonSize {
   LARGE = 'large',
 }
 
-export enum IconButtonVariant{
+export enum IconButtonVariant {
   FILLED = 'filled',
   LIGHT = 'light',
   TRANSPARENT = 'transparent',
 }
 
-export const IconButtonMapColor: {[index: string]: string} = ButtonMapColor;
-export const IconButtonMapColorLight: {[index: string]: string} = ButtonMapColorHover;
+export const IconButtonMapColor: { [index: string]: string } = ButtonMapColor;
+export const IconButtonMapColorLight: { [index: string]: string } = ButtonMapColorHover;

@@ -15,6 +15,7 @@ export const Routes = {
   COMPONENTS_ACCORDION: 'components/accordion',
   COMPONENTS_TABLE: 'components/table',
   COMPONENTS_BADGE: 'components/badge',
+  COMPONENTS_PAGINATION: 'components/pagination',
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
@@ -23,6 +24,7 @@ export const Routes = {
   FORM_COMPONENTS_SWITCH: 'form-components/switch',
   FORM_COMPONENTS_SELECT: 'form-components/select',
   FORM_COMPONENTS_RADIO: 'form-components/radio',
+  FORM_COMPONENTS_FILE_UPLOADER: 'form-components/file-uploader',
 
   TYPOGRAPHY: 'typography',
   TYPOGRAPHY_HEADERS: 'typography/headers',
@@ -90,6 +92,10 @@ export default function createRouter() {
           path: `${BASE}/${Routes.COMPONENTS_BADGE}`,
           name: Routes.COMPONENTS_BADGE,
           component: () => import('@/views/protected/components/ComponentsBadgePage.vue'),
+        }, {
+          path: `${BASE}/${Routes.COMPONENTS_PAGINATION}`,
+          name: Routes.COMPONENTS_PAGINATION,
+          component: () => import('@/views/protected/components/ComponentsPaginationPage.vue'),
         }],
       }, {
         path: `${BASE}/${Routes.TYPOGRAPHY}`,
@@ -134,6 +140,10 @@ export default function createRouter() {
           path: `${BASE}/${Routes.FORM_COMPONENTS_TEXTAREA}`,
           name: Routes.FORM_COMPONENTS_TEXTAREA,
           component: () => import('@/views/protected/form-components/FormComponentsTextareaPage.vue'),
+        }, {
+          path: `${BASE}/${Routes.FORM_COMPONENTS_FILE_UPLOADER}`,
+          name: Routes.FORM_COMPONENTS_FILE_UPLOADER,
+          component: () => import('@/views/protected/form-components/FormComponentsFileUploaderPage.vue'),
         }],
       }],
     }, {
