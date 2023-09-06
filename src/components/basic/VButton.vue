@@ -129,6 +129,7 @@ $sizes: (
   &-contained {
     background-color: var(--color-button);
     color: var(--color-button-text);
+    border: 1px solid var(--color-button);
     box-shadow: 0 4px 8px -4px var(--color-button);
     transition: box-shadow var(--transition-duration) var(--transition-timing-func),
     opacity .25s;
