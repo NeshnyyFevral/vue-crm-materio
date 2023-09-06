@@ -56,15 +56,15 @@ const displayedValue = computed<string>(() => (props.value >= props.maxValue ? `
 @import "@/scss/mixins/typography";
 
 $small-size: 'small', // $key
-0px, // $padding
-8px, // $border-radius
-10px, // $size
-10px; // font-size
+  0px, // $padding
+  8px, // $border-radius
+  10px, // $size
+  10px; // font-size
 $normal-size: 'normal', // $key
-6px, // $padding
-10px, // $border-radius
-20px, // $size
-12px; // font-size
+  6px, // $padding
+  10px, // $border-radius
+  20px, // $size
+  12px; // font-size
 
 .root {
   --badge-color: v-bind(badgeColor);
@@ -125,9 +125,9 @@ $normal-size: 'normal', // $key
   align-items: center;
   color: var(--color-button-text);
   transition: width 0.1s var(--transition-timing-func),
-  height 0.1s var(--transition-timing-func),
-  min-width 0.1s var(--transition-timing-func),
-  transform 0.1s var(--transition-timing-func);
+    height 0.1s var(--transition-timing-func),
+    min-width 0.1s var(--transition-timing-func),
+    transform 0.1s var(--transition-timing-func);
   transform: scale(1);
 
   .hasHidden & {

@@ -85,6 +85,11 @@ watchEffect(() => {
 @import "@/scss/mixins/typography";
 @import "@/scss/mixins/ripple";
 
+$position-left: 'left', row-reverse, 'margin-right', 9px;
+$position-top: 'top', column-reverse, 'margin-bottom', 5px;
+$position-bottom: 'bottom', column, 'margin-top', 5px;
+$position-right: 'right', row, margin-left, 9px;
+
 $sizes: (
     small: 11px,
     normal: 14px,
@@ -122,35 +127,14 @@ $sizes: (
 }
 
 .labelPlace {
-  &-left {
-    flex-direction: row-reverse;
+  @each $key, $fl-dir, $offset-rule, $offset in
+      $position-left, $position-bottom, $position-right, $position-top {
+    &-#{$key} {
+      flex-direction: $fl-dir;
 
-    & .label {
-      margin-right: 9px;
-    }
-  }
-
-  &-top {
-    flex-direction: column-reverse;
-
-    & .label {
-      margin-bottom: 5px;
-    }
-  }
-
-  &-bottom {
-    flex-direction: column;
-
-    & .label {
-      margin-top: 5px;
-    }
-  }
-
-  &-right {
-    flex-direction: row;
-
-    & .label {
-      margin-left: 9px;
+      & .label {
+        #{$offset-rule}: $offset;
+      }
     }
   }
 }
