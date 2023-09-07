@@ -70,7 +70,7 @@
 
     <VPreviewComponentCard
       title="Basic menu"
-      desc="lorem ipsum"
+      desc="You can also use VMenuSplitter in VMenu to split in logical blocks."
     >
       <div>
         <VButton
