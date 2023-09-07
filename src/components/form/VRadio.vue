@@ -119,6 +119,12 @@ $sizes: (
         var(--transition-duration)
         var(--transition-timing-func);
 
+      &::after {
+        transform: scale(0);
+
+        transition: transform var(--transition-duration) var(--transition-timing-func)git pull;
+      }
+
       &::before {
         content: '';
         position: absolute;
@@ -150,14 +156,13 @@ $sizes: (
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         width: calc($size - $offset-cycle);
         height: calc($size - $offset-cycle);
         border-radius: 50%;
         background-color: var(--radio-color);
 
         transition: background-color var(--transition-duration) var(--transition-timing-func);
-        animation: appear 0.15s;
+        transform: translate(-50%, -50%) scale(1);
         transform-origin: center;
       }
 
