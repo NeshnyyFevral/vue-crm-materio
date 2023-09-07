@@ -52,7 +52,7 @@
         :key="variant"
         v-model="roundedPage"
         :variant="PaginationVariant[variant]"
-        :count="10"
+        :count="15"
         rounded
       />
     </VPreviewComponentCard>
