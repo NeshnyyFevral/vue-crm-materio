@@ -1,6 +1,6 @@
 <template>
   <div
-    v-click-outside="clickOutside"
+    ref="rootRef"
     :class="[
       $style.root,
       hasOpened && $style.hasOpened,
@@ -55,6 +55,8 @@
 import {
   computed,
   nextTick,
+  onBeforeUnmount,
+  onMounted,
   ref,
   watch,
   watchEffect,
@@ -71,6 +73,7 @@ import {
   SelectVariant,
 } from '@/model/components/form/VSelect';
 import { TextFieldSize, TextFieldVariant } from '@/model/components/form/VTextField';
+import { initClickOutside } from '@/model/tools/ClickOutside';
 
 interface PropsType {
   modelValue: string | string[];
@@ -110,8 +113,7 @@ const props = withDefaults(defineProps<PropsType>(), {
 });
 const emits = defineEmits<EmitsType>();
 
-const SEPARATOR = ',';
-
+const rootRef = ref<HTMLDivElement | null>(null);
 const optionsRef = ref<HTMLDivElement | null>(null);
 const selectValue = ref<string>('');
 const hasOpened = ref<boolean>(false);
@@ -126,7 +128,6 @@ const displayedOptions = computed<SelectOptions<any>[]>(
 const selectHandler = (opt: SelectOptions<any>, e: MouseEvent) => {
   if (props.multiply) {
     if (opt.name === '') {
-      console.log(1);
       selectValue.value = '';
       emits('update:modelValue', []);
       return;
@@ -148,11 +149,17 @@ const selectHandler = (opt: SelectOptions<any>, e: MouseEvent) => {
   }
 };
 
-const clickOutside = (value: boolean) => {
-  if (value) {
-    hasOpened.value = false;
-  }
+const clickOutside = () => {
+  hasOpened.value = false;
 };
+
+onMounted(() => {
+  initClickOutside(rootRef.value, clickOutside).addClickOutside();
+});
+
+onBeforeUnmount(() => {
+  initClickOutside(rootRef.value, clickOutside).removeClickOutside();
+});
 
 watchEffect(() => {
   if (props.multiply) {
