@@ -89,7 +89,7 @@ defineProps<PropsType>();
     width: 10px;
     height: 10px;
     content: '';
-    border: 1px solid currentColor;
+    border: 2px solid currentColor;
     border-radius: 50%;
     transform: translateY(-50%);
   }
