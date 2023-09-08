@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useToast } from 'vue-toastification';
 
 interface PropsType {
   title?: string;
@@ -52,6 +53,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   maxCount: 5,
 });
 const emits = defineEmits<EmitsType>();
+const toast = useToast();
 
 const inputRef = ref<HTMLInputElement | null>(null);
 
@@ -61,7 +63,7 @@ const handleFiles = (files: FileList) => {
   const invalidFileNames: string[] = [];
 
   if (filesArr.length > props.maxCount) {
-    alert(`Max ${props.maxCount} files to upload!`);
+    toast.error(`Max ${props.maxCount} files to upload!`);
     return;
   }
 

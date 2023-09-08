@@ -1,7 +1,10 @@
+import 'vue-toastification/dist/index.css';
+
 import type { Pinia } from 'pinia';
 import { createPinia as _createPinia } from 'pinia';
 import { createApp as _createApp } from 'vue';
 import type { Router } from 'vue-router';
+import Toast from 'vue-toastification';
 
 import App from '@/App.vue';
 import appStorage from '@/model/tools/StorageTools';
@@ -18,5 +21,6 @@ export default function createApp() {
     app,
     pinia,
     router,
+    Toast,
   };
 }

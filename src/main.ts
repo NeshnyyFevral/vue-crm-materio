@@ -8,6 +8,7 @@ const {
   app,
   pinia,
   router,
+  Toast,
 } = createApp();
 
 app
@@ -15,6 +16,7 @@ app
   .directive('click-outside', clickOutside)
   .use(pinia)
   .use(router)
+  .use(Toast)
   .mount('#app');
 
 export { router };
