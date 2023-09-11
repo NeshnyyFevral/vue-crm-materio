@@ -201,7 +201,7 @@ onBeforeMount(() => {
 }
 
 .mobileSidebar {
-  display: none !important;
+  display: none;
   fill: var(--color-text);
 
   @media screen and (max-width: 1405px) {
