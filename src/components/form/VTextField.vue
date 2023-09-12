@@ -182,7 +182,7 @@ watchEffect(() => {
 
 $sizes: (
     small: 8.5px 14px,
-    normal: 12.5px 14px,
+    normal: 10.5px 14px,
 );
 
 .root {
@@ -232,7 +232,7 @@ $sizes: (
       padding-right: 0;
       outline: none;
       border: none;
-      border-bottom: 1px solid var(--color-text-input);
+      border-bottom: 1px solid var(--color-border);
     }
 
     &::after {
@@ -263,7 +263,7 @@ $sizes: (
 
   &-outlined {
     .input {
-      border: 1px solid var(--color-text-input);
+      border: 1px solid var(--color-border);
       border-radius: 5px;
     }
   }
@@ -272,9 +272,10 @@ $sizes: (
 .label {
   @include subtitle2;
 
+  font-size: 12px;
   font-weight: 400;
   position: absolute;
-  left: 15px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%) scale(1.2);
   background-color: var(--color-card);
