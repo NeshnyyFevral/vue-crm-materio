@@ -2,25 +2,27 @@
   <VPreviewComponentPage>
     <VPreviewComponentCard title="Basic menu">
       <div>
-        <VButton
-          :variant="ButtonVariant.OUTLINED"
-          max-width
-          @click="hasBasicOpened = !hasBasicOpened"
-        >
-          Open menu
-        </VButton>
         <VMenu v-model="hasBasicOpened">
+          <template #body>
+            <VButton
+              :variant="ButtonVariant.OUTLINED"
+              max-width
+            >
+              Open menu
+            </VButton>
+          </template>
+
           <VMenuItem
             name="Menu"
-            @click-elem="clickHandlerBasic"
+            @click-elem="clickHandler"
           />
           <VMenuItem
             name="Account info"
-            @click-elem="clickHandlerBasic"
+            @click-elem="clickHandler"
           />
           <VMenuItem
             name="Logout"
-            @click-elem="clickHandlerBasic"
+            @click-elem="clickHandler"
           />
         </VMenu>
       </div>
@@ -32,37 +34,32 @@
        a picture or icon, you can also add any other small text or even style it somehow"
     >
       <div>
-        <VButton
-          :variant="ButtonVariant.OUTLINED"
-          max-width
-          @click="hasCustomOpened = !hasCustomOpened"
-        >
-          Open custom menu
-        </VButton>
         <VMenu v-model="hasCustomOpened">
+          <template #body>
+            <VButton
+              :variant="ButtonVariant.OUTLINED"
+              max-width
+            >
+              Open custom menu
+            </VButton>
+          </template>
           <VMenuItem
             name="Send e-mail"
-            @click-elem="clickHandlerCustom"
+            @click-elem="clickHandler"
           >
-            <template #prefix>
-              <SendEmailIcon />
-            </template>
+            <SendEmailIcon />
           </VMenuItem>
           <VMenuItem
             name="Drafts"
-            @click-elem="clickHandlerCustom"
+            @click-elem="clickHandler"
           >
-            <template #prefix>
-              <DraftsIcon />
-            </template>
+            <DraftsIcon />
           </VMenuItem>
           <VMenuItem
             name="Inbox"
-            @click-elem="clickHandlerCustom"
+            @click-elem="clickHandler"
           >
-            <template #prefix>
-              <InboxIcon />
-            </template>
+            <InboxIcon />
           </VMenuItem>
         </VMenu>
       </div>
@@ -73,38 +70,75 @@
       desc="You can also use VMenuSplitter in VMenu to split in logical blocks."
     >
       <div>
-        <VButton
-          :variant="ButtonVariant.OUTLINED"
-          max-width
-          @click="hasCustomSplitter = !hasCustomSplitter"
-        >
-          Open menu with splitter
-        </VButton>
-        <VMenu v-model="hasCustomSplitter">
+        <VMenu v-model="hasCustomSplitterOpened">
+          <template #body>
+            <VButton
+              :variant="ButtonVariant.OUTLINED"
+              max-width
+            >
+              Open menu with splitter
+            </VButton>
+          </template>
           <VMenuItem
             name="Menu"
-            @click-elem="clickHandlerSplitter"
+            @click-elem="clickHandler"
           />
           <VMenuItem
             name="Account info"
-            @click-elem="clickHandlerSplitter"
+            @click-elem="clickHandler"
           />
           <VMenuItem
             name="Logout"
-            @click-elem="clickHandlerSplitter"
+            @click-elem="clickHandler"
           />
           <VMenuSlitter />
           <VMenuItem
             name="Menu №2"
-            @click-elem="clickHandlerSplitter"
+            @click-elem="clickHandler"
           />
           <VMenuItem
             name="Account info №2"
-            @click-elem="clickHandlerSplitter"
+            @click-elem="clickHandler"
           />
           <VMenuItem
             name="Logout №2"
-            @click-elem="clickHandlerSplitter"
+            @click-elem="clickHandler"
+          />
+        </VMenu>
+      </div>
+    </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Menu positions"
+      desc="Use position={'top-right' | 'top-left' | 'bottom-left' | 'bottom-right'} prop with <VMenu> component for different positioned menu."
+    >
+      <div
+        v-for="pos in Object.keys(MenuPosition)"
+        :key="pos"
+      >
+        <VMenu
+          v-model="hasPositionOpened[MenuPosition[pos]]"
+          :position="MenuPosition[pos]"
+        >
+          <template #body>
+            <VButton
+              :variant="ButtonVariant.OUTLINED"
+              max-width
+            >
+              {{ MenuPosition[pos] }}
+            </VButton>
+          </template>
+          <VMenuItem
+            name="Menu"
+            @click-elem="clickHandler"
+          />
+          <VMenuItem
+            name="Account info"
+            @click-elem="clickHandler"
+          />
+          <VMenuItem
+            name="Logout"
+            @click-elem="clickHandler"
           />
         </VMenu>
       </div>
@@ -124,24 +158,21 @@ import VMenuSlitter from '@/components/basic/VMenuSlitter.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { ButtonVariant } from '@/model/components/basic/VButton';
+import { MenuPosition } from '@/model/components/basic/VMenu';
 
 const hasBasicOpened = ref<boolean>(false);
 const hasCustomOpened = ref<boolean>(false);
-const hasCustomSplitter = ref<boolean>(false);
+const hasCustomSplitterOpened = ref<boolean>(false);
 
-const clickHandlerBasic = (name :string) => {
-  console.log(name);
-  hasBasicOpened.value = false;
-};
+const hasPositionOpened = ref({
+  [MenuPosition.TOP_LEFT]: false,
+  [MenuPosition.TOP_RIGHT]: false,
+  [MenuPosition.BOTTOM_RIGHT]: false,
+  [MenuPosition.BOTTOM_LEFT]: false,
+});
 
-const clickHandlerCustom = (name :string) => {
+const clickHandler = (name :string) => {
   console.log(name);
-  hasCustomOpened.value = false;
-};
-
-const clickHandlerSplitter = (name :string) => {
-  console.log(name);
-  hasCustomSplitter.value = false;
 };
 </script>
 

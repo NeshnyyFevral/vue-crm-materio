@@ -76,6 +76,7 @@ $sizes: (
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  user-select: none;
 
   path {
     fill: var(--color-button-text);

@@ -3,9 +3,13 @@
     ref="navRef"
     :class="[
       $style.root,
+      $style[`position-${props.position}`],
       modelValue && $style.hasOpened
     ]"
+    @click="clickHandler"
   >
+    <slot name="body" />
+
     <div :class="$style.container">
       <slot />
     </div>
@@ -18,22 +22,35 @@ import {
   onBeforeUnmount,
   onMounted,
   ref,
-  watch,
 } from 'vue';
 
+import { MenuPosition } from '@/model/components/basic/VMenu';
 import { initClickOutside } from '@/model/tools/ClickOutside';
 
 interface PropsType {
   modelValue: boolean;
+
+  position?: MenuPosition;
+  width?: number;
 }
 
 interface EmitsType {
   (e: 'update:modelValue', value: boolean): void;
 }
 
-const props = defineProps<PropsType>();
+const props = withDefaults(defineProps<PropsType>(), {
+  position: MenuPosition.BOTTOM_RIGHT,
+  width: undefined,
+});
 const emits = defineEmits<EmitsType>();
+
 const navRef = ref<HTMLDivElement | null>(null);
+
+const menuWidth = computed(() => (props.width ? `${props.width}px` : 'auto'));
+
+const clickHandler = async () => {
+  emits('update:modelValue', !props.modelValue);
+};
 
 const clickOutside = () => {
   emits('update:modelValue', false);
@@ -53,34 +70,71 @@ onBeforeUnmount(() => {
 @import "@/scss/mixins/scroll";
 
 .root {
-  width: 100%;
+  --menu-width: v-bind(menuWidth);
+
+  cursor: pointer;
   display: inline-block;
-  margin-top: 10px;
   position: relative;
 }
 
 .container {
   @include scroll-style;
 
-  border-radius: 6px;
   position: absolute;
+  padding: 5px 0;
+  width:  var(--menu-width);
+  max-height: 500px;
+  border-radius: 6px;
   border: 1px solid var(--color-border);
+  background-color: var(--color-card);
   box-shadow: var(--shadow-switch);
   transform: scale(0);
   transform-origin: 0 0;
   opacity: 0;
-  background-color: var(--color-card);
-  padding: 5px 0;
-  max-height: 500px;
   overflow-y: auto;
+  z-index: 99;
 
-  transition: transform var(--transition-duration) var(--transition-timing-func),
-    opacity var(--transition-duration) var(--transition-timing-func),
-    height var(--transition-duration) var(--transition-timing-func);
+  transition: transform var(--transition-duration) 0.15s var(--transition-timing-func),
+    opacity var(--transition-duration) 0.15s var(--transition-timing-func),
+    height var(--transition-duration) 0.15s var(--transition-timing-func);
 
   .hasOpened & {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+.position {
+  &-top-left {
+    .container {
+      transform-origin: 0 100%;
+      bottom: calc(100% + 10px);
+      left: 0;
+    }
+  }
+
+  &-top-right {
+    .container {
+      transform-origin: 100% 100%;
+      bottom: calc(100% + 10px);
+      right: 0;
+    }
+  }
+
+  &-bottom-left {
+    .container {
+      transform-origin: 0 0;
+      top: calc(100% + 10px);
+      left: 0;
+    }
+  }
+
+  &-bottom-right {
+    .container {
+      transform-origin: 100% 0;
+      top: calc(100% + 10px);
+      right: 0;
+    }
   }
 }
 </style>

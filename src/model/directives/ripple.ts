@@ -28,8 +28,6 @@ export default {
 
       this.append(circle);
 
-      ev.stopPropagation();
-
       setTimeout(() => {
         circle.parentNode?.removeChild(circle);
       }, 1000);
