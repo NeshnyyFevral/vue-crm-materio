@@ -4,7 +4,7 @@
     :class="$style.root"
     @click="clickHandler"
   >
-    <slot name="prefix" />
+    <slot />
 
     <span :class="$style.text">{{ props.name }}</span>
   </button>
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 interface PropsType {
-  name: string;
+  name?: string;
 }
 
 interface EmitsType {
@@ -20,11 +20,13 @@ interface EmitsType {
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
-  name: '',
+  name: undefined,
 });
 const emits = defineEmits<EmitsType>();
 
 const clickHandler = () => {
+  if (props.name === undefined) return;
+
   emits('clickElem', props.name);
 };
 </script>
@@ -52,6 +54,11 @@ const clickHandler = () => {
 
   &:hover {
     background: var(--color-card-hover);
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
   }
 }
 </style>

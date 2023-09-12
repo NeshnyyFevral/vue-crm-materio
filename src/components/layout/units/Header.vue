@@ -36,20 +36,81 @@
         <NotifyIcon />
       </VIconButton>
 
-      <VBadge
-        :variant="BadgeVariant.DOT"
-        :size="BadgeSize.SMALL"
-        :value="1"
-        :position="BadgePosition.RIGHT_BOTTOM"
-        :color="GlobalColors.SUCCESS"
+      <VMenu
+        v-model="hasUserMenuOpened"
+        :width="200"
       >
-        <VAvatar>
-          <img
-            src="@/assets/avatars/1.png"
-            alt="avatar"
+        <template #body>
+          <VBadge
+            :variant="BadgeVariant.DOT"
+            :size="BadgeSize.SMALL"
+            :value="1"
+            :position="BadgePosition.RIGHT_BOTTOM"
+            :color="GlobalColors.SUCCESS"
           >
-        </VAvatar>
-      </VBadge>
+            <VAvatar>
+              <img
+                src="@/assets/avatars/1.png"
+                alt="avatar"
+              >
+            </VAvatar>
+          </VBadge>
+        </template>
+
+        <VMenuItem>
+          <div :class="$style.menuUser">
+            <VBadge
+              :variant="BadgeVariant.DOT"
+              :size="BadgeSize.SMALL"
+              :value="1"
+              :position="BadgePosition.RIGHT_BOTTOM"
+              :color="GlobalColors.SUCCESS"
+            >
+              <VAvatar>
+                <img
+                  src="@/assets/avatars/1.png"
+                  alt="avatar"
+                >
+              </VAvatar>
+            </VBadge>
+
+            <span :class="$style.menuText">
+              <h5 :class="$style.menuUserName">Jhon Doe</h5>
+              <p :class="$style.menuUserRole">Admin</p>
+            </span>
+          </div>
+        </VMenuItem>
+
+        <VMenuSlitter />
+
+        <VMenuItem name="Profile">
+          <ProfileIcon />
+        </VMenuItem>
+
+        <VMenuItem name="Inbox">
+          <InboxIcon />
+        </VMenuItem>
+
+        <VMenuItem name="Chat">
+          <ChatIcon />
+        </VMenuItem>
+
+        <VMenuSlitter />
+
+        <VMenuItem name="Settings">
+          <SettingsIcon />
+        </VMenuItem>
+
+        <VMenuItem name="FAQ">
+          <FAQIcon />
+        </VMenuItem>
+
+        <VMenuSlitter />
+
+        <VMenuItem name="Logout">
+          <LogoutIcon />
+        </VMenuItem>
+      </VMenu>
     </div>
   </header>
 </template>
@@ -58,7 +119,6 @@
 import {
   computed,
   onBeforeMount,
-  onMounted,
   ref,
   watch,
 } from 'vue';
@@ -66,10 +126,19 @@ import { useRouter } from 'vue-router';
 
 import NotifyIcon from '@/assets/icons/header/notification.svg';
 import SearchIcon from '@/assets/icons/header/search.svg';
+import ChatIcon from '@/assets/icons/menu/chat.svg';
+import FAQIcon from '@/assets/icons/menu/faq.svg';
+import InboxIcon from '@/assets/icons/menu/inbox.svg';
+import LogoutIcon from '@/assets/icons/menu/logout.svg';
+import ProfileIcon from '@/assets/icons/menu/profile.svg';
+import SettingsIcon from '@/assets/icons/menu/settings.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VBadge from '@/components/basic/VBadge.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
+import VMenu from '@/components/basic/VMenu.vue';
+import VMenuItem from '@/components/basic/VMenuItem.vue';
+import VMenuSlitter from '@/components/basic/VMenuSlitter.vue';
 import VSwitch from '@/components/form/VSwitch.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
@@ -95,6 +164,7 @@ const themeStore = useThemeStore();
 
 const props = defineProps<PropsType>();
 const emits = defineEmits<EmitsType>();
+const hasUserMenuOpened = ref<boolean>(false);
 
 const themeValue = ref<boolean>(false);
 const displayedThemeValue = computed<'Dark' | 'Light'>(() => (themeValue.value ? 'Dark' : 'Light'));
@@ -117,6 +187,8 @@ onBeforeMount(() => {
 </script>
 
 <style module lang="scss">
+@import "@/scss/mixins/typography";
+
 .root {
   width: calc(100% - 30px);
   position: fixed;
@@ -198,6 +270,29 @@ onBeforeMount(() => {
   background-color: var(--color-header);
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 8px -4px rgb(94 86 105 / 42%);
+}
+
+.menu {
+  &User {
+    display: flex;
+    align-items: center;
+  }
+
+  &Text {
+    margin-left: 15px;
+  }
+
+  &UserName {
+    @include subtitle1;
+
+    font-weight: 600;
+  }
+
+  &UserRole {
+    @include body2;
+
+    opacity: 0.7;
+  }
 }
 
 .mobileSidebar {
