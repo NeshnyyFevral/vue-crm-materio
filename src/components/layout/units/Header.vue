@@ -296,12 +296,12 @@ onBeforeMount(() => {
 }
 
 .mobileSidebar {
-  display: none;
+  display: none !important;
   fill: var(--color-text);
 
   @media screen and (max-width: 1405px) {
     & {
-      display: flex;
+      display: flex !important;
     }
   }
 }
