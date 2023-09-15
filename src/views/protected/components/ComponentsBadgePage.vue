@@ -40,7 +40,7 @@
 
     <VPreviewComponentCard
       title="Badge positions"
-      desc="Use position={'right-top' | 'right-bottom' | 'left-bottom' | 'left-top'} prop with <VBadge> component for different positioned badge."
+      desc="Use position={'right-top' | 'right-bottom' | 'left-bottom' | 'left-top'} prop with <VBadge> component   for different positioned badge."
     >
       <VBadge
         v-for="position in Object.keys(BadgePosition)"

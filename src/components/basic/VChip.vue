@@ -63,7 +63,7 @@ const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
 @import '@/scss/mixins/mixins';
 
 .root {
-  @include body2;
+  @include subtitle2;
 
   --color-chip: v-bind(chipColor);
   --color-chip-hover: v-bind(chipColorHover);
@@ -71,6 +71,7 @@ const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
 
   display: flex;
   align-items: center;
+  justify-content: center;
   border: 1px solid var(--color-chip);
   border-radius: 16px;
   background-color: var(--color-chip);
