@@ -25,9 +25,12 @@
         @focusout="hasFocused = false"
       >
     </span>
-    <span :class="$style.label">
+    <VText
+      variant="body2"
+      :class="$style.label"
+    >
       <slot />
-    </span>
+    </VText>
   </label>
 </template>
 
@@ -38,6 +41,7 @@ import {
   watchEffect,
 } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   SwitchLabelPlacement,
@@ -82,7 +86,6 @@ watchEffect(() => {
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
 @import "@/scss/mixins/ripple";
 
 $position-left: 'left', row-reverse, 'margin-right', 9px;
@@ -207,9 +210,5 @@ $sizes: (
   width: 0;
   height: 0;
   opacity: 0;
-}
-
-.label {
-  @include body2;
 }
 </style>

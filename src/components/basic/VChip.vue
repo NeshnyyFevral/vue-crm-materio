@@ -14,7 +14,9 @@
     >
       <slot name="iconPrepend" />
     </div>
-    <slot />
+    <VText variant="body2">
+      <slot />
+    </VText>
     <div
       v-if="isVisibleAppend"
       :class="$style.append"
@@ -27,6 +29,7 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   ChipMapColor,
@@ -63,19 +66,18 @@ const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
 @import '@/scss/mixins/mixins';
 
 .root {
-  @include subtitle2;
-
   --color-chip: v-bind(chipColor);
   --color-chip-hover: v-bind(chipColorHover);
   --color-chip-light: v-bind(chipColorLight);
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--color-chip);
   border-radius: 16px;
   background-color: var(--color-chip);
   color: var(--color-button-text);
+  white-space: nowrap;
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
     color var(--transition-duration) var(--transition-timing-func),

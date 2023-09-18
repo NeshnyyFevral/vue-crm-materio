@@ -29,9 +29,12 @@
         :class="$style.icon"
       />
     </span>
-    <span :class="$style.label">
+    <VText
+      variant="body2"
+      :class="$style.label"
+    >
       <slot />
-    </span>
+    </VText>
   </label>
 </template>
 
@@ -43,6 +46,7 @@ import {
 } from 'vue';
 
 import SuccessIcon from '@/assets/icons/checkbox/success.svg';
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   CheckboxLabelPlacement,
@@ -85,7 +89,6 @@ watchEffect(() => {
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
 @import "@/scss/mixins/ripple";
 
 $position-left: 'left', row-reverse, 'margin-right', 9px;
@@ -175,10 +178,6 @@ $sizes: (
   width: 0;
   height: 0;
   opacity: 0;
-}
-
-.label {
-  @include body2;
 }
 
 .icon {

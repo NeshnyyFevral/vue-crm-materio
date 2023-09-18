@@ -31,7 +31,9 @@
         <slot name="iconPrepend" />
       </div>
 
-      <slot />
+      <VText variant="button">
+        <slot />
+      </VText>
 
       <div
         v-if="isVisibleAppend"
@@ -52,6 +54,7 @@ import {
 } from 'vue';
 
 import VLoader from '@/components/basic/VLoader.vue';
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   ButtonMapColor,
@@ -107,7 +110,6 @@ $sizes: (
 );
 
 .root {
-  @include button;
   @include ripple-block;
 
   --color-button: v-bind(buttonColor);

@@ -35,17 +35,18 @@
       ref="optionsRef"
       :class="$style.options"
     >
-      <div
+      <VText
         v-for="opt in displayedOptions"
         :key="opt"
         :class="[
           $style.option,
           selectValue.split(', ').includes(opt.name) && $style['option-active']
         ]"
+        variant="subtitle1"
         @click="selectHandler(opt, $event)"
       >
         {{ opt.name }}
-      </div>
+      </VText>
     </div>
   </div>
 </template>
@@ -63,6 +64,7 @@ import {
 } from 'vue';
 
 import ArrowIcon from '@/assets/icons/chevron-down.svg';
+import VText from '@/components/basic/VText.vue';
 import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
@@ -232,8 +234,6 @@ watch(() => hasOpened.value, async () => {
 }
 
 .option {
-  @include subtitle1;
-
   min-height: 38px;
   padding: 5px 10px;
   transition: background-color var(--transition-duration) var(--transition-timing-func);

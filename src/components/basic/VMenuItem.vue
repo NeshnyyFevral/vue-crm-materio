@@ -6,11 +6,15 @@
   >
     <slot />
 
-    <span :class="$style.text">{{ props.name }}</span>
+    <VText variant="subtitle1">
+      <span :class="$style.text">{{ props.name }}</span>
+    </VText>
   </button>
 </template>
 
 <script setup lang="ts">
+import VText from '@/components/basic/VText.vue';
+
 interface PropsType {
   name?: string;
 }
@@ -35,7 +39,6 @@ const clickHandler = () => {
 @import "@/scss/mixins/mixins";
 
 .root {
-  @include subtitle1;
   @include ripple-block;
 
   display: grid;

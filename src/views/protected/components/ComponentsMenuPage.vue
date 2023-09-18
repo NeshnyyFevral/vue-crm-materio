@@ -91,7 +91,7 @@
             name="Logout"
             @click-elem="clickHandler"
           />
-          <VMenuSlitter />
+          <VMenuSplitter />
           <VMenuItem
             name="Menu №2"
             @click-elem="clickHandler"
@@ -154,7 +154,7 @@ import SendEmailIcon from '@/assets/icons/menu/send-email.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
-import VMenuSlitter from '@/components/basic/VMenuSlitter.vue';
+import VMenuSplitter from '@/components/basic/VMenuSplitter.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { ButtonVariant } from '@/model/components/basic/VButton';

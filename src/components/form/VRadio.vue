@@ -23,7 +23,12 @@
         @change="changeHandler"
       >
 
-      <span :class="$style.label">{{ label }}</span>
+      <VText
+        variant="subtitle2"
+        :class="$style.label"
+      >
+        {{ label }}
+      </VText>
     </div>
   </label>
 </template>
@@ -31,6 +36,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   RadioLabelPlacement,
@@ -76,8 +82,6 @@ const changeHandler = async (e: InputEvent) => {
 </script>
 
 <style module lang="scss">
-@import '@/scss/mixins/typography';
-
 $offset-cycle: 8px;
 $sizes: (
   small: 12px,
@@ -184,10 +188,6 @@ $sizes: (
 .input {
   width: 0;
   height: 0;
-}
-
-.label {
-  @include subtitle2;
 }
 
 .labelPlace {

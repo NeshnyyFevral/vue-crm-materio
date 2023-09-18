@@ -23,12 +23,13 @@
       <slot name="prefix" />
     </div>
 
-    <p
+    <VText
       :class="$style.label"
+      variant="subtitle2"
       @click="clickLabel"
     >
       {{ props.label }}
-    </p>
+    </VText>
 
     <input
       v-if="!multiline"
@@ -58,9 +59,12 @@
       @focus="hasFocused = true"
       @focusout="hasFocused = false"
     />
-    <p :class="$style.helpText">
+    <VText
+      variant="body2"
+      :class="$style.helpText"
+    >
       {{ props.helpText }}
-    </p>
+    </VText>
 
     <div
       v-if="hasExistSuffix"
@@ -82,6 +86,7 @@ import {
   watchEffect,
 } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   TextFieldMapColor,
@@ -270,8 +275,6 @@ $sizes: (
 }
 
 .label {
-  @include subtitle2;
-
   font-size: 12px;
   font-weight: 400;
   position: absolute;
@@ -337,8 +340,6 @@ $sizes: (
 }
 
 .helpText {
-  @include body2;
-
   position: absolute;
   color: var(--color-default-500);
   top: calc(100%);

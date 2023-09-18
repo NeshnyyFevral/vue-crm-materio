@@ -9,20 +9,22 @@
       <slot />
     </div>
 
-    <div
+    <VText
       :class="[
         $style.tooltip,
         $style[`position-${position}`]
       ]"
+      variant="body2"
     >
       {{ title }}
-    </div>
+    </VText>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import { TooltipMapColor, TooltipPosition } from '@/model/components/basic/VTooltip';
 
@@ -41,8 +43,6 @@ const tooltipColor = computed(() => TooltipMapColor[props.color]);
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
-
 $top: 'top', // $key
   'left', // $centered-prop
   translateX(-50%), // $centered-value
@@ -82,8 +82,6 @@ $bottom: 'bottom', // $key
 }
 
 .tooltip {
-  @include body2;
-
   position: absolute;
   padding: 2px 5px 3px;
   background-color: var(--tooptip-color);

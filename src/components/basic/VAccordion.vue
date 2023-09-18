@@ -9,9 +9,9 @@
     <div
       :class="$style.visible"
     >
-      <h6 :class="$style.title">
+      <VTitle variant="heading6">
         {{ props.title }}
-      </h6>
+      </VTitle>
 
       <div :class="$style.icon">
         <div />
@@ -33,6 +33,8 @@ import {
   ref,
   watch,
 } from 'vue';
+
+import VTitle from '@/components/basic/VTitle.vue';
 
 interface PropsType {
   name?: string;
@@ -73,8 +75,6 @@ watch(() => props.name, () => {
 </script>
 
 <style module lang="scss">
-@import '@/scss/mixins/mixins';
-
 .root {
   padding: 10px 25px;
   background-color: var(--color-card);
@@ -104,10 +104,6 @@ watch(() => props.name, () => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.title {
-  @include heading6;
 }
 
 .icon {

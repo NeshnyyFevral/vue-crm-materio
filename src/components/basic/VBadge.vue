@@ -9,9 +9,12 @@
       value <= 0 && $style.hasHidden
     ]"
   >
-    <div :class="$style.badge">
+    <VText
+      variant="caption"
+      :class="$style.badge"
+    >
       <span v-if="variant !== BadgeVariant.DOT">{{ displayedValue }}</span>
-    </div>
+    </VText>
 
     <slot />
   </div>
@@ -20,6 +23,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
   BadgeMapColor,
@@ -53,8 +57,6 @@ const displayedValue = computed<string>(() => (props.value >= props.maxValue ? `
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
-
 $small-size: 'small', // $key
   0px, // $padding
   8px, // $border-radius
@@ -116,8 +118,6 @@ $normal-size: 'normal', // $key
 }
 
 .badge {
-  @include caption;
-
   position: absolute;
   background-color: var(--badge-color);
   display: flex;

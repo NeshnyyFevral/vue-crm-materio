@@ -81,7 +81,7 @@
           </div>
         </VMenuItem>
 
-        <VMenuSlitter />
+        <VMenuSplitter />
 
         <VMenuItem name="Profile">
           <ProfileIcon />
@@ -95,7 +95,7 @@
           <ChatIcon />
         </VMenuItem>
 
-        <VMenuSlitter />
+        <VMenuSplitter />
 
         <VMenuItem name="Settings">
           <SettingsIcon />
@@ -105,7 +105,7 @@
           <FAQIcon />
         </VMenuItem>
 
-        <VMenuSlitter />
+        <VMenuSplitter />
 
         <VMenuItem name="Logout">
           <LogoutIcon />
@@ -138,7 +138,7 @@ import VBadge from '@/components/basic/VBadge.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
-import VMenuSlitter from '@/components/basic/VMenuSlitter.vue';
+import VMenuSplitter from '@/components/basic/VMenuSplitter.vue';
 import VSwitch from '@/components/form/VSwitch.vue';
 import { GlobalColors } from '@/model/Colors';
 import {
