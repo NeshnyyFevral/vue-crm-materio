@@ -1,4 +1,4 @@
-import { ButtonMapColor, ButtonMapColorHover } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum IconButtonSize {
   SMALL = 'small',
@@ -12,5 +12,5 @@ export enum IconButtonVariant {
   TRANSPARENT = 'transparent',
 }
 
-export const IconButtonMapColor: { [index: string]: string } = ButtonMapColor;
-export const IconButtonMapColorLight: { [index: string]: string } = ButtonMapColorHover;
+export const IconButtonMapColor: { [index: string]: string } = GlobalColorMap['700'];
+export const IconButtonMapColorLight: { [index: string]: string } = GlobalColorMap['200'];

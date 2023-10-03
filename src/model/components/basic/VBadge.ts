@@ -1,5 +1,4 @@
-import { ButtonMapColor, ButtonMapColorHover } from '@/model/components/basic/VButton';
-import { ChipMapColorLight } from '@/model/components/basic/VChip';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum BadgePosition {
   RIGHT_TOP = 'right-top',
@@ -19,5 +18,5 @@ export enum BadgeSize {
   NORMAL = 'normal',
 }
 
-export const BadgeMapColor: { [index: string]: string } = ButtonMapColor;
-export const BadgeMapColorLight: { [index: string]: string } = ButtonMapColorHover;
+export const BadgeMapColor: { [index: string]: string } = GlobalColorMap['700'];
+export const BadgeMapColorLight: { [index: string]: string } = GlobalColorMap['200'];

@@ -1,4 +1,4 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export interface CustomInputEvent {
   name: string;
@@ -22,4 +22,4 @@ export enum TextFieldSize {
   NORMAL = 'normal',
 }
 
-export const TextFieldMapColor: { [index: string]: string } = ButtonMapColor;
+export const TextFieldMapColor: { [index: string]: string } = GlobalColorMap['700'];

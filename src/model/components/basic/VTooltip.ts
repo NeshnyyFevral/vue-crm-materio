@@ -1,4 +1,4 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum TooltipPosition {
   TOP_START = 'top-start',
@@ -18,4 +18,4 @@ export enum TooltipPosition {
   LEFT_END = 'left-end',
 }
 
-export const TooltipMapColor: { [index: string]: string } = ButtonMapColor;
+export const TooltipMapColor: { [index: string]: string } = GlobalColorMap['700'];

@@ -1,5 +1,4 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
-import { ChipMapColorHover } from '@/model/components/basic/VChip';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum SwitchSize {
   SMALL = 'small',
@@ -13,5 +12,5 @@ export enum SwitchLabelPlacement {
   BOTTOM = 'bottom',
 }
 
-export const SwitchMapColor: { [index: string]: string } = ButtonMapColor;
-export const SwitchMapColorLight: { [index: string]: string } = ChipMapColorHover;
+export const SwitchMapColor: { [index: string]: string } = GlobalColorMap['700'];
+export const SwitchMapColorLight: { [index: string]: string } = GlobalColorMap['200'];

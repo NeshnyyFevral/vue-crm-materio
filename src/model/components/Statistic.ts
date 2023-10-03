@@ -1,8 +1,8 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export const enum StatisticType {
   UP = 'up',
   DOWN = 'down',
 }
 
-export const StatisticMapColor: { [index: string]: string } = ButtonMapColor;
+export const StatisticMapColor: { [index: string]: string } = GlobalColorMap['700'];

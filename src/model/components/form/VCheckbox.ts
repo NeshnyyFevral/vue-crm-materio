@@ -1,4 +1,4 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum CheckboxSize {
   SMALL = 'small',
@@ -12,4 +12,4 @@ export enum CheckboxLabelPlacement {
   BOTTOM = 'bottom',
 }
 
-export const CheckboxMapColor: { [index: string]: string } = ButtonMapColor;
+export const CheckboxMapColor: { [index: string]: string } = GlobalColorMap['700'];

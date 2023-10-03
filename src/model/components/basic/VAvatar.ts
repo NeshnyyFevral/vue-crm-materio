@@ -1,4 +1,4 @@
-import { ButtonMapColor, ButtonMapColorHover } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum AvatarSize {
   SMALL = 'small',
@@ -12,5 +12,5 @@ export enum AvatarVariant {
   SQUARE = 'square',
 }
 
-export const AvatarMapColor: { [index: string]: string } = ButtonMapColor;
-export const AvatarMapColorLight: { [index: string]: string } = ButtonMapColorHover;
+export const AvatarMapColor: { [index: string]: string } = GlobalColorMap['700'];
+export const AvatarMapColorLight: { [index: string]: string } = GlobalColorMap['200'];

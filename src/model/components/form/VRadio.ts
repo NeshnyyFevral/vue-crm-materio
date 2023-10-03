@@ -1,4 +1,4 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
+import { GlobalColorMap } from '@/model/Colors';
 
 export enum RadioSize {
   SMALL = 'small',
@@ -13,4 +13,4 @@ export enum RadioLabelPlacement {
   BOTTOM = 'bottom',
 }
 
-export const RadioMapColor: { [index: string]: string } = ButtonMapColor;
+export const RadioMapColor: { [index: string]: string } = GlobalColorMap['700'];
