@@ -42,13 +42,8 @@ import {
 } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
-import {
-  SwitchLabelPlacement,
-  SwitchMapColor,
-  SwitchMapColorLight,
-  SwitchSize,
-} from '@/model/components/form/VSwitch';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { SwitchLabelPlacement, SwitchSize } from '@/model/components/form/VSwitch';
 
 interface PropsType {
   modelValue: boolean;
@@ -73,8 +68,8 @@ const emits = defineEmits<EmitsType>();
 const switchValue = ref<boolean>(false);
 const hasFocused = ref<boolean>(false);
 
-const switchColor = computed(() => SwitchMapColor[props.color]);
-const switchColorLight = computed(() => SwitchMapColorLight[props.color]);
+const switchColor = computed(() => GlobalColorMap['700'][props.color]);
+const switchColorLight = computed(() => GlobalColorMap['200'][props.color]);
 
 const changeHandler = (e: InputEvent) => {
   emits('update:modelValue', (e.target as HTMLInputElement).checked);

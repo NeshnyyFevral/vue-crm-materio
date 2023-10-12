@@ -8,10 +8,12 @@
 import { computed } from 'vue';
 
 interface PropsType {
-  ml?: number;
-  mt?: number;
-  mr?: number;
-  mb?: number;
+  ml?: number | 'auto';
+  mt?: number | 'auto';
+  mr?: number | 'auto';
+  mb?: number | 'auto';
+  maxWidth?: number;
+  width?: number;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -19,12 +21,16 @@ const props = withDefaults(defineProps<PropsType>(), {
   mt: 0,
   mr: 0,
   mb: 0,
+  maxWidth: undefined,
+  width: undefined,
 });
 
-const ML = computed(() => `${props.ml}px`);
-const MR = computed(() => `${props.mr}px`);
-const MT = computed(() => `${props.mt}px`);
-const MB = computed(() => `${props.mb}px`);
+const ML = computed(() => (props.ml === 'auto' ? props.ml : `${props.ml}px`));
+const MR = computed(() => (props.mr === 'auto' ? props.mr : `${props.mr}px`));
+const MT = computed(() => (props.mt === 'auto' ? props.mt : `${props.mt}px`));
+const MB = computed(() => (props.mb === 'auto' ? props.mb : `${props.mb}px`));
+const maxWidth = computed(() => `${props.maxWidth}px`);
+const width = computed(() => `${props.width}px`);
 </script>
 
 <style module lang="scss">
@@ -33,10 +39,14 @@ const MB = computed(() => `${props.mb}px`);
   --margin-right: v-bind(MR);
   --margin-top: v-bind(MT);
   --margin-bottom: v-bind(MB);
+  --max-width: v-bind(maxWidth);
+  --width: v-bind(width);
 
   margin: var(--margin-top)
-  var(--margin-right)
-  var(--margin-bottom)
-  var(--margin-left);
+    var(--margin-right)
+    var(--margin-bottom)
+    var(--margin-left);
+  max-width: var(--max-width);
+  width: var(--width);
 }
 </style>

@@ -47,12 +47,8 @@ import {
 
 import SuccessIcon from '@/assets/icons/checkbox/success.svg';
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
-import {
-  CheckboxLabelPlacement,
-  CheckboxMapColor,
-  CheckboxSize,
-} from '@/model/components/form/VCheckbox';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { CheckboxLabelPlacement, CheckboxSize } from '@/model/components/form/VCheckbox';
 
 interface PropsType {
   modelValue: boolean;
@@ -77,7 +73,7 @@ const emits = defineEmits<EmitsType>();
 const checkboxValue = ref<boolean>(false);
 const hasFocused = ref<boolean>(false);
 
-const checkboxColor = computed(() => CheckboxMapColor[props.color]);
+const checkboxColor = computed(() => GlobalColorMap['700'][props.color]);
 
 const changeHandler = (e: InputEvent) => {
   emits('update:modelValue', (e.target as HTMLInputElement).checked);

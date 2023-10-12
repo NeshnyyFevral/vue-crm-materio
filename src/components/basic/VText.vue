@@ -26,14 +26,17 @@ type TextType = 'body1'
 interface PropsType {
   variant: TextType;
   fontWeight?: '400' | '500' | '600' | '700';
+  color?: string;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   variant: 'body1',
   fontWeight: undefined,
+  color: undefined,
 });
 
 const fontWeight = computed(() => props.fontWeight || undefined);
+const color = computed(() => props.color);
 </script>
 
 <style module lang="scss">
@@ -41,6 +44,9 @@ const fontWeight = computed(() => props.fontWeight || undefined);
 
 .root {
   --font-weight: v-bind(fontWeight);
+  --text-color: v-bind(color);
+
+  color: var(--text-color);
 
   &.text-body1 { @include body1; }
   &.text-body2 { @include body2; }

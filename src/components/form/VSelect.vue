@@ -66,11 +66,9 @@ import {
 import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import VText from '@/components/basic/VText.vue';
 import VTextField from '@/components/form/VTextField.vue';
-import { GlobalColors } from '@/model/Colors';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import {
   type SelectOptions,
-  SelectMapColorActive,
-  SelectMapColorActiveHover,
   SelectSize,
   SelectVariant,
 } from '@/model/components/form/VSelect';
@@ -121,8 +119,8 @@ const selectValue = ref<string>('');
 const hasOpened = ref<boolean>(false);
 const hasNoSpaced = ref<boolean>(false);
 
-const colorOptionActive = computed(() => SelectMapColorActive[props.color]);
-const colorOptionActiveHover = computed(() => SelectMapColorActiveHover[props.color]);
+const colorOptionActive = computed(() => GlobalColorMap['200'][props.color]);
+const colorOptionActiveHover = computed(() => GlobalColorMap['300'][props.color]);
 const displayedOptions = computed<SelectOptions<any>[]>(
   () => [{ name: '', value: '' }, ...props.options],
 );

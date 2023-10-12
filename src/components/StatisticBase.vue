@@ -12,30 +12,30 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
-import { StatisticMapColor, StatisticType } from '@/model/components/Statistic';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { StatisticBasicType } from '@/model/components/StatisticBasic';
 
 interface PropsType {
   modify?: number;
-  type?: StatisticType;
+  type?: StatisticBasicType;
   suffix?: string;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   modify: 0,
-  type: StatisticType.UP,
+  type: StatisticBasicType.UP,
   suffix: '%',
 });
 
 const displayModify = computed<string>(() => {
-  const prefix = props.type === StatisticType.UP ? '+' : '-';
+  const prefix = props.type === StatisticBasicType.UP ? '+' : '-';
 
   return prefix + props.modify + props.suffix;
 });
 
 const colorStatistic = computed(() => {
-  const color = (props.type === StatisticType.UP ? GlobalColors.SUCCESS : GlobalColors.ERROR);
-  return StatisticMapColor[color];
+  const color = (props.type === StatisticBasicType.UP ? GlobalColors.SUCCESS : GlobalColors.ERROR);
+  return GlobalColorMap['700'][color];
 });
 </script>
 

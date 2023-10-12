@@ -30,14 +30,8 @@
 import { computed, useSlots } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
-import {
-  ChipMapColor,
-  ChipMapColorHover,
-  ChipMapColorLight,
-  ChipSize,
-  ChipVariant,
-} from '@/model/components/basic/VChip';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 
 interface PropsType {
   variant?: ChipVariant;
@@ -57,9 +51,9 @@ const slots = useSlots();
 
 const isVisiblePrepend = computed<boolean>(() => !!slots.iconPrepend);
 const isVisibleAppend = computed<boolean>(() => !!slots.iconAppend);
-const chipColor = computed<string>(() => ChipMapColor[props.color]);
-const chipColorHover = computed<string>(() => ChipMapColorHover[props.color]);
-const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
+const chipColor = computed<string>(() => GlobalColorMap['700'][props.color]);
+const chipColorHover = computed<string>(() => GlobalColorMap['400'][props.color]);
+const chipColorLight = computed<string>(() => GlobalColorMap['100'][props.color]);
 </script>
 
 <style module lang="scss">

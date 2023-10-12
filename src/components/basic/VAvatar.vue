@@ -19,13 +19,8 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
-import {
-  AvatarMapColor,
-  AvatarMapColorLight,
-  AvatarSize,
-  AvatarVariant,
-} from '@/model/components/basic/VAvatar';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
 
 interface PropsType {
   size?: AvatarSize;
@@ -54,8 +49,8 @@ const letterFormatting = computed<string>(() => {
   if (length === 1) return name[0][0].toUpperCase();
   return 'N';
 });
-const avatarColor = computed<string>(() => AvatarMapColor[props.color]);
-const avatarColorLight = computed<string>(() => AvatarMapColorLight[props.color]);
+const avatarColor = computed<string>(() => GlobalColorMap['700'][props.color]);
+const avatarColorLight = computed<string>(() => GlobalColorMap['200'][props.color]);
 </script>
 
 <style module lang="scss">

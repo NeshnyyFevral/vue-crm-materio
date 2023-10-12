@@ -87,9 +87,8 @@ import {
 } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import {
-  TextFieldMapColor,
   TextFieldSize,
   TextFieldType,
   TextFieldVariant,
@@ -152,7 +151,7 @@ const hasFocused = ref<boolean>(false);
 
 const hasFilled = computed(() => !!inputValue.value || !!props.placeholder);
 const isError = computed(() => props.error);
-const textFieldColor = computed(() => (isError.value ? TextFieldMapColor.error : TextFieldMapColor[props.color]));
+const textFieldColor = computed(() => (isError.value ? GlobalColorMap['700'].error : GlobalColorMap['700'][props.color]));
 const hasExistPrefix = computed(() => !!slots.prefix);
 const hasExistSuffix = computed(() => !!slots.suffix);
 

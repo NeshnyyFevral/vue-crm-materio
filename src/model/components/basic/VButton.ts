@@ -1,5 +1,3 @@
-import { GlobalColorMap } from '@/model/Colors';
-
 export enum ButtonVariant {
   CONTAINED = 'contained',
   OUTLINED = 'outlined',
@@ -11,7 +9,3 @@ export enum ButtonSize {
   MEDIUM = 'medium',
   LARGE = 'large',
 }
-
-export const ButtonMapColor: { [index: string]: string } = GlobalColorMap['700'];
-
-export const ButtonMapColorHover: { [index: string]: string } = GlobalColorMap['200'];

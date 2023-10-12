@@ -12,18 +12,18 @@ export enum GlobalColors {
 type ColorLevel = '700' | '600' | '500' | '400' | '300' | '200' | '100';
 
 export interface GlobalColorMapInterface {
-  100: {[index: string]: string};
-  200: {[index: string]: string};
-  300: {[index: string]: string};
-  400: {[index: string]: string};
-  500: {[index: string]: string};
-  600: {[index: string]: string};
-  700: {[index: string]: string};
+  100: Record<GlobalColors, string>;
+  200: Record<GlobalColors, string>;
+  300: Record<GlobalColors, string>;
+  400: Record<GlobalColors, string>;
+  500: Record<GlobalColors, string>;
+  600: Record<GlobalColors, string>;
+  700: Record<GlobalColors, string>;
 }
 
 const generateCssVarName = (variant: GlobalColors, level: ColorLevel) => `--color-${variant}-${level}`;
 
-const getColorValue = (variant: GlobalColors, level: ColorLevel) => getCssVarValue(generateCssVarName(variant, level));
+export const getColorValue = (variant: GlobalColors, level: ColorLevel) => getCssVarValue(generateCssVarName(variant, level));
 
 const getGlobalColorMap = (): GlobalColorMapInterface => {
   const levels: ColorLevel[] = ['100', '200', '300', '400', '500', '600', '700'];
@@ -42,5 +42,4 @@ const getGlobalColorMap = (): GlobalColorMapInterface => {
 
   return map;
 };
-
 export const GlobalColorMap: GlobalColorMapInterface = getGlobalColorMap();

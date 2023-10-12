@@ -1,5 +1,3 @@
-import { GlobalColorMap } from '@/model/Colors';
-
 export interface CustomInputEvent {
   name: string;
   value: string;
@@ -21,5 +19,3 @@ export enum TextFieldSize {
   SMALL = 'small',
   NORMAL = 'normal',
 }
-
-export const TextFieldMapColor: { [index: string]: string } = GlobalColorMap['700'];

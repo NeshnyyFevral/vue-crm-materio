@@ -55,13 +55,8 @@ import {
 
 import VLoader from '@/components/basic/VLoader.vue';
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
-import {
-  ButtonMapColor,
-  ButtonMapColorHover,
-  ButtonSize,
-  ButtonVariant,
-} from '@/model/components/basic/VButton';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 
 interface PropsType {
   variant?: ButtonVariant;
@@ -87,10 +82,10 @@ let contentHeight = 0;
 
 const isVisiblePrepend = computed<boolean>(() => !!slots.iconPrepend);
 const isVisibleAppend = computed<boolean>(() => !!slots.iconAppend);
-const buttonColor = computed<string>(() => ButtonMapColor[props.color]);
-const buttonColorHover = computed<string>(() => ButtonMapColorHover[props.color]);
-const buttonColorDisabledText = computed<string>(() => ButtonMapColor.default);
-const buttonColorDisabled = computed<string>(() => ButtonMapColorHover.default);
+const buttonColor = computed<string>(() => GlobalColorMap['700'][props.color]);
+const buttonColorHover = computed<string>(() => GlobalColorMap['200'][props.color]);
+const buttonColorDisabledText = computed<string>(() => GlobalColorMap['700'].default);
+const buttonColorDisabled = computed<string>(() => GlobalColorMap['200'].default);
 
 onMounted(() => {
   contentWidth = content.value?.getBoundingClientRect().width || 0;

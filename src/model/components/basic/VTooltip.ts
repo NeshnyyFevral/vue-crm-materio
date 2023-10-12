@@ -1,5 +1,3 @@
-import { GlobalColorMap } from '@/model/Colors';
-
 export enum TooltipPosition {
   TOP_START = 'top-start',
   TOP = 'top',
@@ -17,5 +15,3 @@ export enum TooltipPosition {
   LEFT = 'left',
   LEFT_END = 'left-end',
 }
-
-export const TooltipMapColor: { [index: string]: string } = GlobalColorMap['700'];

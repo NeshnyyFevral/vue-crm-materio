@@ -37,12 +37,8 @@
 import { computed, ref } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
-import {
-  RadioLabelPlacement,
-  RadioMapColor,
-  RadioSize,
-} from '@/model/components/form/VRadio';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { RadioLabelPlacement, RadioSize } from '@/model/components/form/VRadio';
 
 interface PropsType {
   modelValue: string;
@@ -73,7 +69,7 @@ const emits = defineEmits<EmitsType>();
 
 const radioValue = ref<string>('');
 
-const radioColor = computed(() => RadioMapColor[props.color]);
+const radioColor = computed(() => GlobalColorMap['700'][props.color]);
 const hasChecked = computed(() => props.value === props.modelValue);
 
 const changeHandler = async (e: InputEvent) => {

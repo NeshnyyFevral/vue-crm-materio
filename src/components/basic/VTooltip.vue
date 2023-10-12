@@ -25,8 +25,8 @@
 import { computed } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
-import { TooltipMapColor, TooltipPosition } from '@/model/components/basic/VTooltip';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { TooltipPosition } from '@/model/components/basic/VTooltip';
 
 interface PropsType {
   title: string;
@@ -39,7 +39,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   position: TooltipPosition.RIGHT,
 });
 
-const tooltipColor = computed(() => TooltipMapColor[props.color]);
+const tooltipColor = computed(() => GlobalColorMap['700'][props.color]);
 </script>
 
 <style module lang="scss">

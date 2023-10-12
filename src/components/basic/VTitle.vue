@@ -23,10 +23,12 @@ type TitleType = 'heading1'
 
 interface PropsType {
   variant: TitleType;
+  color?: string;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   variant: 'heading1',
+  color: undefined,
 });
 
 const tagName = computed<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'>(() => {
@@ -40,12 +42,18 @@ const tagName = computed<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'>(() => 
   default: return 'div';
   }
 });
+
+const color = computed(() => props.color);
 </script>
 
 <style module lang="scss">
 @import "@/scss/mixins/typography";
 
 .root {
+  --text-color: v-bind(color);
+
+  color: var(--text-color);
+
   &.heading-h1 { @include heading1; }
   &.heading-h2 { @include heading2; }
   &.heading-h3 { @include heading3; }

@@ -24,10 +24,8 @@
 import { computed } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { GlobalColors } from '@/model/Colors';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import {
-  BadgeMapColor,
-  BadgeMapColorLight,
   BadgePosition,
   BadgeSize,
   BadgeVariant,
@@ -51,8 +49,8 @@ const props = withDefaults(defineProps<PropsType>(), {
   maxValue: 9999,
 });
 
-const badgeColor = computed(() => BadgeMapColor[props.color]);
-const badgeColorLight = computed(() => BadgeMapColorLight[props.color]);
+const badgeColor = computed(() => GlobalColorMap['700'][props.color]);
+const badgeColorLight = computed(() => GlobalColorMap['200'][props.color]);
 const displayedValue = computed<string>(() => (props.value >= props.maxValue ? `${props.maxValue}+` : `${props.value}`));
 </script>
 
