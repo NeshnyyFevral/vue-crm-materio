@@ -165,6 +165,7 @@ $height: 292px;
   cursor: pointer;
   display: flex;
   align-items: center;
+  user-select: none;
 
   &::before {
     content: '';
