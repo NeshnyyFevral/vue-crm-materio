@@ -87,16 +87,14 @@
     >
       <VCard>
         <VOffset>
-          <VTitle
-            variant="heading6"
-          >
+          <VTitle variant="heading6">
             Transactions
           </VTitle>
         </VOffset>
 
         <VOffset :mb="20">
           <VText variant="body2">
-            Total 48.5% growth 😎 this month
+            Total Sales
           </VText>
         </VOffset>
 
@@ -129,6 +127,60 @@
         </VOffset>
       </VCard>
     </VOffset>
+
+    <VOffset
+      :ml="20"
+      :mt="20"
+      :class="$style.totalSales"
+    >
+      <VCard>
+        <VOffset>
+          <VText
+            font-weight="600"
+            variant="subtitle1"
+          >
+            Total Sales
+          </VText>
+        </VOffset>
+
+        <VOffset :mb="20">
+          <VTitle
+            :color="GlobalColorMap['500'].default"
+            variant="heading6"
+          >
+            $21,845
+          </VTitle>
+        </VOffset>
+
+        <VOffset
+          :mt="-40"
+          :ml="-15"
+        >
+          <TotalSalesChart />
+        </VOffset>
+      </VCard>
+    </VOffset>
+
+    <VOffset
+      :ml="20"
+      :mt="20"
+      :class="$style.totalSales"
+    >
+      <VCard>
+        <VOffset>
+          <VText
+            font-weight="600"
+            variant="subtitle1"
+          >
+            Revenue Report
+          </VText>
+        </VOffset>
+
+        <VOffset>
+          <RevenueReport />
+        </VOffset>
+      </VCard>
+    </VOffset>
   </div>
 </template>
 
@@ -142,9 +194,11 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
+import RevenueReport from '@/components/RevenueReport.vue';
 import StatisticBase from '@/components/StatisticBase.vue';
 import StatisticIcon from '@/components/StatisticIcon.vue';
-import { GlobalColors } from '@/model/Colors';
+import TotalSalesChart from '@/components/TotalSalesChart.vue';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 import { FlexJustify } from '@/model/components/basic/VFlex';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
@@ -168,6 +222,13 @@ import { StatisticBasicType } from '@/model/components/StatisticBasic';
 .transactions {
   width: calc(50% - 60px);
   display: flex;
+}
+
+.totalSales {
+  width: 25%;
+  max-height: 375px;
+  min-height: 375px;
+  height: 375px;
 }
 
 .image {

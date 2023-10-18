@@ -9,8 +9,10 @@
     "lint": "eslint src/**/*.vue"
   },
   "dependencies": {
+    "chart.js": "^3.9.1",
     "pinia": "^2.0.16",
     "vue": "^3.2.37",
+    "vue-chart-3": "^3.1.8",
     "vue-router": "^4.1.2",
     "vue-toastification": "^2.0.0-rc.5"
   },

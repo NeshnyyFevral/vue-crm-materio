@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { GlobalColorMap } from '@/model/Colors';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
 
 interface PropsType {
@@ -33,10 +33,12 @@ const displayModify = computed<string>(() => {
   return prefix + props.modify + props.suffix;
 });
 
-const colorStatistic = computed(() => {
-  const color = (props.type === StatisticBasicType.UP ? GlobalColors.SUCCESS : GlobalColors.ERROR);
-  return GlobalColorMap['700'][color];
-});
+const colorStatistic = computed(
+  () => (props.type === StatisticBasicType.UP
+    ? GlobalColorMap['700'].success
+    : GlobalColorMap['700'].error
+  ),
+);
 </script>
 
 <style module lang="scss">

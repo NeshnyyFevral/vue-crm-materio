@@ -18,5 +18,16 @@
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
     bpx-shadow var(--transition-duration) var(--transition-timing-func);
+  animation: opp var(--transition-timing-func) var(--transition-duration);
+}
+
+@keyframes opp {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 </style>
