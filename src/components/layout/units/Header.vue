@@ -91,7 +91,7 @@
           </VFlex>
         </VMenuItem>
 
-        <VMenuSplitter />
+        <VSplitter />
 
         <VMenuItem name="Profile">
           <ProfileIcon />
@@ -105,7 +105,7 @@
           <ChatIcon />
         </VMenuItem>
 
-        <VMenuSplitter />
+        <VSplitter />
 
         <VMenuItem name="Settings">
           <SettingsIcon />
@@ -115,7 +115,7 @@
           <FAQIcon />
         </VMenuItem>
 
-        <VMenuSplitter />
+        <VSplitter />
 
         <VMenuItem name="Logout">
           <LogoutIcon />
@@ -149,8 +149,8 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
-import VMenuSplitter from '@/components/basic/VMenuSplitter.vue';
 import VOffset from '@/components/basic/VOffset.vue';
+import VSplitter from '@/components/basic/VSplitter.vue';
 import VText from '@/components/basic/VText.vue';
 import VSwitch from '@/components/form/VSwitch.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';

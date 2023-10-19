@@ -3,7 +3,6 @@
     :class="[
       $style.root,
       $style[`text-${props.variant}`],
-      fontWeight && $style.fontWeight,
     ]"
   >
     <component :is="'p'">
@@ -14,6 +13,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+
+import { VTextTextAlign } from '@/model/components/basic/VText';
 
 type TextType = 'body1'
     | 'body2'
@@ -27,16 +28,19 @@ interface PropsType {
   variant: TextType;
   fontWeight?: '400' | '500' | '600' | '700';
   color?: string;
+  align?: VTextTextAlign;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   variant: 'body1',
   fontWeight: undefined,
   color: undefined,
+  align: VTextTextAlign.START,
 });
 
-const fontWeight = computed(() => props.fontWeight || undefined);
+const fontWeight = computed(() => props.fontWeight);
 const color = computed(() => props.color);
+const textAlign = computed(() => props.align);
 </script>
 
 <style module lang="scss">
@@ -45,6 +49,7 @@ const color = computed(() => props.color);
 .root {
   --font-weight: v-bind(fontWeight);
   --text-color: v-bind(color);
+  --text-align: v-bind(textAlign);
 
   color: var(--text-color);
 
@@ -56,8 +61,9 @@ const color = computed(() => props.color);
   &.text-subtitle1 { @include subtitle1; }
   &.text-subtitle2 { @include subtitle2; }
 
-  &.fontWeight p {
+  & p {
     font-weight: var(--font-weight);
+    text-align: var(--text-align);
   }
 }
 </style>

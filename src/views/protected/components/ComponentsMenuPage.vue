@@ -67,7 +67,7 @@
 
     <VPreviewComponentCard
       title="Basic menu"
-      desc="You can also use VMenuSplitter in VMenu to split in logical blocks."
+      desc="You can also use VSplitter in VMenu to split in logical blocks."
     >
       <div>
         <VMenu v-model="hasCustomSplitterOpened">
@@ -91,7 +91,7 @@
             name="Logout"
             @click-elem="clickHandler"
           />
-          <VMenuSplitter />
+          <VSplitter />
           <VMenuItem
             name="Menu №2"
             @click-elem="clickHandler"
@@ -154,9 +154,9 @@ import SendEmailIcon from '@/assets/icons/menu/send-email.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
-import VMenuSplitter from '@/components/basic/VMenuSplitter.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
+import VSplitter from '@/components/basic/VSplitter.vue';
 import { ButtonVariant } from '@/model/components/basic/VButton';
 import { MenuPosition } from '@/model/components/basic/VMenu';
 

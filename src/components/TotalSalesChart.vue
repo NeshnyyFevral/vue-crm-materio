@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line import/no-unresolved
 import { Chart, registerables } from 'chart.js';
 import { ref } from 'vue';
 import { LineChart } from 'vue-chart-3';

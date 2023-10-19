@@ -164,7 +164,7 @@
     <VOffset
       :ml="20"
       :mt="20"
-      :class="$style.totalSales"
+      :class="$style.revenueReport"
     >
       <VCard>
         <VOffset>
@@ -178,6 +178,27 @@
 
         <VOffset>
           <RevenueReport />
+        </VOffset>
+      </VCard>
+    </VOffset>
+
+    <VOffset
+      :ml="20"
+      :mt="20"
+      :class="$style.salesOverview"
+    >
+      <VCard :style="{ height: `375px` }">
+        <VOffset>
+          <VText
+            font-weight="600"
+            variant="subtitle1"
+          >
+            Sales Overview
+          </VText>
+        </VOffset>
+
+        <VOffset>
+          <SalesOverviewDoughnut />
         </VOffset>
       </VCard>
     </VOffset>
@@ -195,6 +216,7 @@ import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import RevenueReport from '@/components/RevenueReport.vue';
+import SalesOverviewDoughnut from '@/components/SalesOverviewDoughnut.vue';
 import StatisticBase from '@/components/StatisticBase.vue';
 import StatisticIcon from '@/components/StatisticIcon.vue';
 import TotalSalesChart from '@/components/TotalSalesChart.vue';
@@ -224,10 +246,14 @@ import { StatisticBasicType } from '@/model/components/StatisticBasic';
   display: flex;
 }
 
-.totalSales {
+.totalSales,
+.revenueReport {
   width: 25%;
-  max-height: 375px;
-  min-height: 375px;
+  height: 375px;
+}
+
+.salesOverview {
+  width: calc(50% - 60px);
   height: 375px;
 }
 

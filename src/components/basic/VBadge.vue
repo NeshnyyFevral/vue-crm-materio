@@ -58,8 +58,8 @@ const displayedValue = computed<string>(() => (props.value >= props.maxValue ? `
 $small-size: 'small', // $key
   0px, // $padding
   8px, // $border-radius
-  10px, // $size
-  10px; // font-size
+  11px, // $size
+  9px; // font-size
 $normal-size: 'normal', // $key
   6px, // $padding
   10px, // $border-radius
@@ -75,7 +75,7 @@ $normal-size: 'normal', // $key
 
 .size {
   @each $key, $padding, $border-radius, $size, $font-size in $small-size, $normal-size {
-    $divider: 1.5;
+    $divider: 1.15;
 
     &-#{$key} .badge {
       border-radius: $border-radius;
@@ -121,6 +121,7 @@ $normal-size: 'normal', // $key
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid var(--color-card);
   color: var(--color-button-text);
   transition: width 0.1s var(--transition-timing-func),
     height 0.1s var(--transition-timing-func),
