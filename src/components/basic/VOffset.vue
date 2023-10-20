@@ -12,8 +12,8 @@ interface PropsType {
   mt?: number | 'auto';
   mr?: number | 'auto';
   mb?: number | 'auto';
-  maxWidth?: number;
-  width?: number;
+  maxWidth?: string;
+  width?: string;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -29,8 +29,8 @@ const ML = computed(() => (props.ml === 'auto' ? props.ml : `${props.ml}px`));
 const MR = computed(() => (props.mr === 'auto' ? props.mr : `${props.mr}px`));
 const MT = computed(() => (props.mt === 'auto' ? props.mt : `${props.mt}px`));
 const MB = computed(() => (props.mb === 'auto' ? props.mb : `${props.mb}px`));
-const maxWidth = computed(() => `${props.maxWidth}px`);
-const width = computed(() => `${props.width}px`);
+const maxWidth = computed(() => props.maxWidth);
+const width = computed(() => props.width);
 </script>
 
 <style module lang="scss">

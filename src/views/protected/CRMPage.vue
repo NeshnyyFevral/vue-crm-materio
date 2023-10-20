@@ -1,233 +1,81 @@
 <template>
   <div :class="$style.root">
     <VOffset
+      v-for="component in components"
+      :key="component.id"
       :ml="20"
       :mt="20"
-      :class="$style.stats"
+      :class="$style[component.class]"
     >
-      <VCard>
-        <div>
-          <VOffset :mb="25">
-            <VText
-              font-weight="600"
-              variant="subtitle1"
-            >
-              Ratings
-            </VText>
-          </VOffset>
-
-          <VOffset :mb="5">
-            <StatisticBase :modify="38">
-              13.7k
-            </StatisticBase>
-          </VOffset>
-
-          <VChip
-            :size="ChipSize.SMALL"
-            :variant="ChipVariant.LIGHT"
-          >
-            Year of 2022
-          </VChip>
-        </div>
-
-        <img
-          src="../../assets/images/CRM/girl.png"
-          alt="girl"
-          :class="$style.image"
-        >
-      </VCard>
-    </VOffset>
-
-    <VOffset
-      :ml="20"
-      :mt="20"
-      :class="$style.stats"
-    >
-      <VCard>
-        <div>
-          <VOffset :mb="25">
-            <VText
-              font-weight="600"
-              variant="subtitle1"
-            >
-              Sessions
-            </VText>
-          </VOffset>
-
-          <VOffset :mb="5">
-            <StatisticBase
-              :type="StatisticBasicType.DOWN"
-              :modify="22"
-            >
-              24.5k
-            </StatisticBase>
-          </VOffset>
-
-          <VChip
-            :size="ChipSize.SMALL"
-            :variant="ChipVariant.LIGHT"
-            :color="GlobalColors.DEFAULT"
-          >
-            Last Week
-          </VChip>
-        </div>
-
-        <img
-          src="../../assets/images/CRM/boy.png"
-          alt="boy"
-          :class="$style.image"
-        >
-      </VCard>
-    </VOffset>
-
-    <VOffset
-      :ml="20"
-      :mt="20"
-      :class="$style.transactions"
-    >
-      <VCard>
-        <VOffset>
-          <VTitle variant="heading6">
-            Transactions
-          </VTitle>
-        </VOffset>
-
-        <VOffset :mb="20">
-          <VText variant="body2">
-            Total Sales
-          </VText>
-        </VOffset>
-
-        <VOffset
-          :max-width="450"
-          :mb="10"
-        >
-          <VFlex :justify-content="FlexJustify.SPACE_BETWEEN">
-            <StatisticIcon
-              title="Customers"
-              value="12.5k"
-              :icon="SalesIcon"
-              :color="GlobalColors.PRIMARY"
-            />
-
-            <StatisticIcon
-              title="Sales"
-              value="245k"
-              :icon="CustomersIcon"
-              :color="GlobalColors.SUCCESS"
-            />
-
-            <StatisticIcon
-              title="Products"
-              value="1.54k"
-              :icon="ProductIcon"
-              :color="GlobalColors.WARNING"
-            />
-          </VFlex>
-        </VOffset>
-      </VCard>
-    </VOffset>
-
-    <VOffset
-      :ml="20"
-      :mt="20"
-      :class="$style.totalSales"
-    >
-      <VCard>
-        <VOffset>
-          <VText
-            font-weight="600"
-            variant="subtitle1"
-          >
-            Total Sales
-          </VText>
-        </VOffset>
-
-        <VOffset :mb="20">
-          <VTitle
-            :color="GlobalColorMap['500'].default"
-            variant="heading6"
-          >
-            $21,845
-          </VTitle>
-        </VOffset>
-
-        <VOffset
-          :mt="-40"
-          :ml="-15"
-        >
-          <TotalSalesChart />
-        </VOffset>
-      </VCard>
-    </VOffset>
-
-    <VOffset
-      :ml="20"
-      :mt="20"
-      :class="$style.revenueReport"
-    >
-      <VCard>
-        <VOffset>
-          <VText
-            font-weight="600"
-            variant="subtitle1"
-          >
-            Revenue Report
-          </VText>
-        </VOffset>
-
-        <VOffset>
-          <RevenueReport />
-        </VOffset>
-      </VCard>
-    </VOffset>
-
-    <VOffset
-      :ml="20"
-      :mt="20"
-      :class="$style.salesOverview"
-    >
-      <VCard :style="{ height: `375px` }">
-        <VOffset>
-          <VText
-            font-weight="600"
-            variant="subtitle1"
-          >
-            Sales Overview
-          </VText>
-        </VOffset>
-
-        <VOffset>
-          <SalesOverviewDoughnut />
-        </VOffset>
-      </VCard>
+      <component :is="component.component" />
     </VOffset>
   </div>
 </template>
 
 <script setup lang="ts">
-import SalesIcon from '@/assets/icons/CRM/ligthning.svg';
-import CustomersIcon from '@/assets/icons/CRM/people.svg';
-import ProductIcon from '@/assets/icons/CRM/product.svg';
-import VCard from '@/components/basic/VCard.vue';
-import VChip from '@/components/basic/VChip.vue';
-import VFlex from '@/components/basic/VFlex.vue';
+import { type Component, markRaw } from 'vue';
+
 import VOffset from '@/components/basic/VOffset.vue';
-import VText from '@/components/basic/VText.vue';
-import VTitle from '@/components/basic/VTitle.vue';
-import RevenueReport from '@/components/RevenueReport.vue';
-import SalesOverviewDoughnut from '@/components/SalesOverviewDoughnut.vue';
-import StatisticBase from '@/components/StatisticBase.vue';
-import StatisticIcon from '@/components/StatisticIcon.vue';
-import TotalSalesChart from '@/components/TotalSalesChart.vue';
-import { GlobalColorMap, GlobalColors } from '@/model/Colors';
-import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
-import { FlexJustify } from '@/model/components/basic/VFlex';
-import { StatisticBasicType } from '@/model/components/StatisticBasic';
+import CrmActivityTimeline from '@/components/CRM/CrmActivityTimeline.vue';
+import CrmJoinGrowthAndProject from '@/components/CRM/CrmJoinGrowthAndProject.vue';
+import CrmRatings from '@/components/CRM/CrmRatings.vue';
+import CrmRevenueReport from '@/components/CRM/CrmRevenueReport.vue';
+import CrmSalesOverview from '@/components/CRM/CrmSalesOverview.vue';
+import CrmSessions from '@/components/CRM/CrmSessions.vue';
+import CrmTotalSessions from '@/components/CRM/CrmTotalSessions.vue';
+import CrmTransactions from '@/components/CRM/CrmTransactions.vue';
+import CrmWeeklySales from '@/components/CRM/CrmWeeklySales.vue';
+
+interface ComponentsData {
+  id: string;
+  component: Component;
+  class: string;
+}
+
+const components = markRaw<ComponentsData[]>([
+  {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmRatings,
+    class: 'stats',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmSessions,
+    class: 'stats',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmTransactions,
+    class: 'transactions',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmTotalSessions,
+    class: 'totalSales',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmRevenueReport,
+    class: 'revenueReport',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmSalesOverview,
+    class: 'salesOverview',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmActivityTimeline,
+    class: 'activity',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmWeeklySales,
+    class: 'weeklySales',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmJoinGrowthAndProject,
+    class: 'joinGrowthProject',
+  },
+]);
 </script>
 
 <style module lang="scss">
-@import '@/scss/mixins/typography';
+$heightCard: 375px;
+$offsetCard: 60px;
 
 .root {
   display: flex;
@@ -242,27 +90,33 @@ import { StatisticBasicType } from '@/model/components/StatisticBasic';
 }
 
 .transactions {
-  width: calc(50% - 60px);
+  width: calc(50% - $offsetCard);
   display: flex;
 }
 
 .totalSales,
 .revenueReport {
   width: 25%;
-  height: 375px;
+  height: $heightCard;
 }
 
 .salesOverview {
-  width: calc(50% - 60px);
-  height: 375px;
+  width: calc(50% - $offsetCard);
+  height: $heightCard;
 }
 
-.image {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 20px;
-  height: 175px;
-  width: auto;
+.activity {
+  height: $heightCard;
+  width: 50%;
+}
+
+.weeklySales {
+  height: $heightCard;
+  width: 30%;
+}
+
+.joinGrowthProject {
+  width: calc(20% - $offsetCard);
+  height: $heightCard;
 }
 </style>

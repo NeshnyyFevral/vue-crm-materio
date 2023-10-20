@@ -11,7 +11,7 @@
         <component :is="props.icon" />
       </div>
     </VOffset>
-    <VOffset>
+    <VFlex :direction="!props.reverse ? FlexDirection.COLUMN : FlexDirection.COLUMN_REVERSE">
       <VOffset :mb="5">
         <VText
           :color="getColorValue(GlobalColors.DEFAULT, '500')"
@@ -22,11 +22,11 @@
       </VOffset>
       <VTitle
         font-weight="600"
-        variant="heading5"
+        variant="heading6"
       >
         {{ props.value }}
       </VTitle>
-    </VOffset>
+    </VFlex>
   </VFlex>
 </template>
 
@@ -42,7 +42,7 @@ import {
   GlobalColorMap,
   GlobalColors,
 } from '@/model/Colors';
-import { FlexAlign } from '@/model/components/basic/VFlex';
+import { FlexAlign, FlexDirection } from '@/model/components/basic/VFlex';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
 
 interface PropsType {
@@ -51,6 +51,7 @@ interface PropsType {
   icon?: any;
   color?: GlobalColors;
   variant?: StatisticIconVariant;
+  reverse?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -59,6 +60,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   icon: null,
   color: GlobalColors.PRIMARY,
   variant: StatisticIconVariant.DEFAULT,
+  reverse: false,
 });
 
 const color = computed(() => GlobalColorMap['700'][props.color]);

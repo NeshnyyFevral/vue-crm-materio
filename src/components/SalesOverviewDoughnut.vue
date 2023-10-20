@@ -22,6 +22,7 @@
         <VText
           font-weight="600"
           :align="VTextTextAlign.CENTER"
+          variant="body2"
         >
           {{ hoveredElementIndex.value }}
         </VText>

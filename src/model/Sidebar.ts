@@ -98,6 +98,7 @@ export default [
           { title: 'Menu', route: { name: Routes.COMPONENTS_MENU } },
           { title: 'Pagination', route: { name: Routes.COMPONENTS_PAGINATION } },
           { title: 'Table', route: { name: Routes.COMPONENTS_TABLE } },
+          { title: 'Timeline', route: { name: Routes.COMPONENTS_TIMELINE } },
           { title: 'Tooltip', route: { name: Routes.COMPONENTS_TOOLTIP } },
         ],
       },
