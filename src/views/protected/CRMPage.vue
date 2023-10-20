@@ -107,16 +107,16 @@ $offsetCard: 60px;
 
 .activity {
   height: $heightCard;
-  width: 50%;
+  width: calc(50% + $offsetCard / 3);
 }
 
 .weeklySales {
   height: $heightCard;
-  width: 30%;
+  width: calc(30% - $offsetCard);
 }
 
 .joinGrowthProject {
-  width: calc(20% - $offsetCard);
+  width: calc(20% - $offsetCard / 3);
   height: $heightCard;
 }
 </style>

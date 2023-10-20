@@ -2,7 +2,7 @@
   <VCard>
     <VOffset>
       <VTitle variant="heading6">
-        42.5k
+        lorem
       </VTitle>
     </VOffset>
   </VCard>

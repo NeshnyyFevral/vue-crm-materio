@@ -21,8 +21,8 @@
         <WeeklySalesChart />
       </VOffset>
 
-      <VFlex :justify-content="FlexJustify.CENTER">
-        <VOffset :mr="20">
+      <VFlex :justify-content="FlexJustify.SPACE_AROUND">
+        <VOffset>
           <StatisticIcon
             reverse
             title="Sales"

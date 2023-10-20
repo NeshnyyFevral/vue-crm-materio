@@ -6,14 +6,12 @@
   >
     <VOffset
       width="100%"
-      :ml="20"
     >
       <CrmTotalGrowth />
     </VOffset>
 
     <VOffset
       width="100%"
-      :ml="20"
       :mt="20"
     >
       <CrmNewProject />

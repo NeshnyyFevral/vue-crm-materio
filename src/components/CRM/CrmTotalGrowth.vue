@@ -69,8 +69,6 @@ const options = ref({
       grid: {
         display: false,
       },
-      suggestedMin: -20000,
-      suggestedMax: 20000,
       ticks: {
         callback(value: any) {
           return '';
@@ -86,9 +84,9 @@ const randomData = (num: number) => {
   for (let i = 0; i < num; i += 1) {
     cur = arr[i - 1] ?? 0;
     if (Math.floor(Math.random() * (1 + 1))) {
-      arr[i] = cur + getRandom(500, 5000);
+      arr[i] = cur + getRandom(4000, 5000);
     } else {
-      arr[i] = cur - getRandom(500, 5000);
+      arr[i] = cur - getRandom(4000, 5000);
     }
   }
   return arr;
