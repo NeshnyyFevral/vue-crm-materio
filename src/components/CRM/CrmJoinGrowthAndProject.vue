@@ -5,12 +5,14 @@
     :class="$style.root"
   >
     <VOffset
+      :height="`${375 / 2 - 20}px`"
       width="100%"
     >
       <CrmTotalGrowth />
     </VOffset>
 
     <VOffset
+      :height="`${375 / 2}px`"
       width="100%"
       :mt="20"
     >

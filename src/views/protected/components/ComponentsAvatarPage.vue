@@ -72,7 +72,7 @@
 
     <VPreviewComponentCard
       title="Avatar light style"
-      desc="Use prop «light» to lighten the background background."
+      desc="Use prop «light» to lighten the background."
     >
       <VAvatar>
         <NotiIcon />
@@ -92,6 +92,19 @@
       >
         <DiskIcon />
       </VAvatar>
+    </VPreviewComponentCard>
+
+    <VPreviewComponentCard
+      title="Avatar outlined"
+      desc="Use prop «outline» to transparent the background and add border."
+    >
+      <VAvatar
+        v-for="variant in Object.keys(AvatarVariant)"
+        :key="variant"
+        :variant="AvatarVariant[variant]"
+        letter="Jhon Snow"
+        outlined
+      />
     </VPreviewComponentCard>
   </VPreviewComponentPage>
 </template>

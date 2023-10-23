@@ -1,30 +1,38 @@
 <template>
   <div :class="$style.root">
-    <h5 :class="$style.value">
+    <VTitle :variant="props.variant">
       <slot />
-    </h5>
-    <p :class="$style.modify">
+    </VTitle>
+    <VText
+      :color="colorStatistic"
+      variant="caption"
+    >
       {{ displayModify }}
-    </p>
+    </VText>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import VText from '@/components/basic/VText.vue';
+import VTitle from '@/components/basic/VTitle.vue';
 import { GlobalColorMap } from '@/model/Colors';
+import type { TitleVariant } from '@/model/components/basic/VTitle';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
 
 interface PropsType {
   modify?: number;
   type?: StatisticBasicType;
   suffix?: string;
+  variant?: TitleVariant;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   modify: 0,
   type: StatisticBasicType.UP,
   suffix: '%',
+  variant: 'heading5',
 });
 
 const displayModify = computed<string>(() => {

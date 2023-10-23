@@ -10,6 +10,7 @@
 <style module lang="scss">
 .root {
   width: 100%;
+  height: 100%;
   padding: 20px;
   background-color: var(--color-card);
   box-shadow: var(--shadow-card);

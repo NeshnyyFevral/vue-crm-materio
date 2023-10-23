@@ -17,7 +17,10 @@
         </VText>
       </VOffset>
 
-      <VOffset :mb="25">
+      <VOffset
+        :ml="-30"
+        :mb="25"
+      >
         <WeeklySalesChart />
       </VOffset>
 

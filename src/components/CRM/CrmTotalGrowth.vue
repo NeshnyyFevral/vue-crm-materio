@@ -5,7 +5,7 @@
         42.5k
       </VTitle>
 
-      <VOffset>
+      <VOffset :ml="-27">
         <TotalSalesChart
           :options="options"
           :data="data"
@@ -84,15 +84,15 @@ const randomData = (num: number) => {
   for (let i = 0; i < num; i += 1) {
     cur = arr[i - 1] ?? 0;
     if (Math.floor(Math.random() * (1 + 1))) {
-      arr[i] = cur + getRandom(4000, 5000);
+      arr[i] = cur + getRandom(1, 5000);
     } else {
-      arr[i] = cur - getRandom(4000, 5000);
+      arr[i] = cur - getRandom(1, 5000);
     }
   }
   return arr;
 };
 
-const COUNT_LABELS = 30;
+const COUNT_LABELS = 20;
 const labels = computed(() => Array(COUNT_LABELS).fill(''));
 
 const data = {

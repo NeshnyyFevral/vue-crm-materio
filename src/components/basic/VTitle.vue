@@ -14,15 +14,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-type TitleType = 'heading1'
-  | 'heading2'
-  | 'heading3'
-  | 'heading4'
-  | 'heading5'
-  | 'heading6';
+import type { TitleVariant } from '@/model/components/basic/VTitle';
 
 interface PropsType {
-  variant: TitleType;
+  variant: TitleVariant;
   color?: string;
 }
 

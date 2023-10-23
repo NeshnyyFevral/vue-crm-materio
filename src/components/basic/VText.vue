@@ -3,6 +3,7 @@
     :class="[
       $style.root,
       $style[`text-${props.variant}`],
+      link && $style.link
     ]"
   >
     <component :is="'p'">
@@ -14,21 +15,14 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { VTextTextAlign } from '@/model/components/basic/VText';
-
-type TextType = 'body1'
-    | 'body2'
-    | 'button'
-    | 'caption'
-    | 'overline'
-    | 'subtitle1'
-    | 'subtitle2';
+import { type TextVariant, VTextTextAlign } from '@/model/components/basic/VText';
 
 interface PropsType {
-  variant: TextType;
+  variant: TextVariant;
   fontWeight?: '400' | '500' | '600' | '700';
   color?: string;
   align?: VTextTextAlign;
+  link?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -36,6 +30,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   fontWeight: undefined,
   color: undefined,
   align: VTextTextAlign.START,
+  link: false,
 });
 
 const fontWeight = computed(() => props.fontWeight);
@@ -64,6 +59,11 @@ const textAlign = computed(() => props.align);
   & p {
     font-weight: var(--font-weight);
     text-align: var(--text-align);
+  }
+
+  &.link {
+    cursor: pointer;
+    user-select: none;
   }
 }
 </style>

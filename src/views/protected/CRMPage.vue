@@ -18,12 +18,15 @@ import { type Component, markRaw } from 'vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import CrmActivityTimeline from '@/components/CRM/CrmActivityTimeline.vue';
 import CrmJoinGrowthAndProject from '@/components/CRM/CrmJoinGrowthAndProject.vue';
+import CrmMeeting from '@/components/CRM/CrmMeeting.vue';
+import CrmPlains from '@/components/CRM/CrmPlains.vue';
 import CrmRatings from '@/components/CRM/CrmRatings.vue';
 import CrmRevenueReport from '@/components/CRM/CrmRevenueReport.vue';
 import CrmSalesOverview from '@/components/CRM/CrmSalesOverview.vue';
 import CrmSessions from '@/components/CRM/CrmSessions.vue';
 import CrmTotalSessions from '@/components/CRM/CrmTotalSessions.vue';
 import CrmTransactions from '@/components/CRM/CrmTransactions.vue';
+import CrmUpgrade from '@/components/CRM/CrmUpgrade.vue';
 import CrmWeeklySales from '@/components/CRM/CrmWeeklySales.vue';
 
 interface ComponentsData {
@@ -69,6 +72,18 @@ const components = markRaw<ComponentsData[]>([
     id: Math.random().toString(16).substring(3, 8),
     component: CrmJoinGrowthAndProject,
     class: 'joinGrowthProject',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmUpgrade,
+    class: 'upgrade',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmMeeting,
+    class: 'meeting',
+  }, {
+    id: Math.random().toString(16).substring(3, 8),
+    component: CrmPlains,
+    class: 'plains',
   },
 ]);
 </script>
@@ -112,11 +127,26 @@ $offsetCard: 60px;
 
 .weeklySales {
   height: $heightCard;
-  width: calc(30% - $offsetCard);
+  width: calc(35% - $offsetCard);
 }
 
 .joinGrowthProject {
-  width: calc(20% - $offsetCard / 3);
+  width: calc(15% - $offsetCard / 3);
+  height: $heightCard;
+}
+
+.upgrade {
+  width: calc(33.333%);
+  height: $heightCard;
+}
+
+.meeting {
+  width: calc(33.333% - 60px);
+  height: $heightCard;
+}
+
+.plains {
+  width: calc(33.333%);
   height: $heightCard;
 }
 </style>
