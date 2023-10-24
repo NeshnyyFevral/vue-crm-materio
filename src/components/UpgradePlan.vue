@@ -109,6 +109,11 @@ const color = computed(() => GlobalColorMap['100'][props.color]);
   padding: 10px;
   border-radius: 5px;
   width: 100%;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .price {

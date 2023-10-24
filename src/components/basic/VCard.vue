@@ -1,10 +1,22 @@
 <template>
-  <div :class="$style.root">
+  <div
+    :class="[
+      $style.root,
+      overflowHidden && $style.hidden
+    ]"
+  >
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
+interface PropsType {
+  overflowHidden: boolean;
+}
+
+const props = withDefaults(defineProps<PropsType>(), {
+  overflowHidden: false,
+});
 </script>
 
 <style module lang="scss">
@@ -20,6 +32,10 @@
   transition: background-color var(--transition-duration) var(--transition-timing-func),
     bpx-shadow var(--transition-duration) var(--transition-timing-func);
   animation: opp var(--transition-timing-func) var(--transition-duration);
+}
+
+.hidden {
+  overflow: hidden;
 }
 
 @keyframes opp {

@@ -25,7 +25,8 @@
 
     <VText
       :class="$style.label"
-      variant="subtitle2"
+      variant="caption"
+      font-weight="400"
       @click="clickLabel"
     >
       {{ props.label }}
@@ -60,6 +61,7 @@
       @focusout="hasFocused = false"
     />
     <VText
+      v-if="props.helpText"
       variant="body2"
       :class="$style.helpText"
     >
@@ -196,7 +198,6 @@ $sizes: (
 
   position: relative;
   display: flex;
-  margin-bottom: 10px;
 
   &.hasDisabled {
     opacity: 0.7;
@@ -274,8 +275,6 @@ $sizes: (
 }
 
 .label {
-  font-size: 12px;
-  font-weight: 400;
   position: absolute;
   left: 10px;
   top: 50%;
