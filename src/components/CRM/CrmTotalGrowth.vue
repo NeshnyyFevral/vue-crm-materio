@@ -9,7 +9,7 @@
         <TotalSalesChart
           :options="options"
           :data="data"
-          height="175px"
+          :height="175"
         />
       </VOffset>
 

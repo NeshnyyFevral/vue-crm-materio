@@ -50,7 +50,7 @@
       </CardCVC>
     </VOffset>
 
-    <VOffset>
+    <VOffset :mb="20">
       <CardCVC
         v-model="creditCard2"
         title="Credit card"
@@ -62,22 +62,64 @@
         >
       </CardCVC>
     </VOffset>
+
+    <VOffset :mb="20">
+      <RouterLink to="#">
+        <VText
+          :color="GlobalColorMap['700'].primary"
+          variant="caption"
+          font-weight="500"
+          link
+        >
+          Add Payment Method
+        </VText>
+      </RouterLink>
+    </VOffset>
+
+    <VOffset :mb="15">
+      <VTextField
+        v-model="email"
+        label="Email Address"
+        placeholder="John.doe@email.com"
+      />
+    </VOffset>
+
+    <VOffset>
+      <VButton
+        :size="ButtonSize.SMALL"
+        max-width
+      >
+        <VFlex :align="FlexAlign.CENTER">
+          <VOffset :mr="5">
+            Proceed to payment
+          </VOffset>
+          <i><ArrowRight /></i>
+        </VFlex>
+      </VButton>
+    </VOffset>
   </VCard>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import ArrowRight from '@/assets/icons/CRM/arrowRight.svg';
+import VButton from '@/components/basic/VButton.vue';
 import VCard from '@/components/basic/VCard.vue';
+import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import CardCVC from '@/components/CardCVC.vue';
+import VTextField from '@/components/form/VTextField.vue';
 import UpgradePlan from '@/components/UpgradePlan.vue';
 import { GlobalColorMap } from '@/model/Colors';
+import { ButtonSize } from '@/model/components/basic/VButton';
+import { FlexAlign } from '@/model/components/basic/VFlex';
 
 const creditCard1 = ref<string>('');
 const creditCard2 = ref<string>('');
+const email = ref<string>('');
 </script>
 
 <style module lang="scss"></style>

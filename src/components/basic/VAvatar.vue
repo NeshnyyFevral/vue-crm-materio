@@ -18,11 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  useSlots,
-  watchEffect,
-} from 'vue';
+import { computed, useSlots } from 'vue';
 
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
@@ -58,10 +54,6 @@ const letterFormatting = computed<string>(() => {
 });
 const avatarColor = computed<string>(() => GlobalColorMap['700'][props.color]);
 const avatarColorLight = computed<string>(() => GlobalColorMap['200'][props.color]);
-
-watchEffect(() => {
-  console.log(slots?.default);
-});
 </script>
 
 <style module lang="scss">

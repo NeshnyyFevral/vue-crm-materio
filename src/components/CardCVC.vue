@@ -50,7 +50,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import {
+  ref,
+  watch,
+  watchEffect,
+} from 'vue';
 
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
@@ -67,7 +71,7 @@ interface PropsType {
 }
 
 interface EmitsType {
-  (e: 'update: modelValue', v: string): void;
+  (e: 'update:modelValue', v: string): void;
 }
 
 const props = defineProps<PropsType>();
@@ -76,11 +80,14 @@ const emits = defineEmits<EmitsType>();
 const CVC = ref<string>('');
 
 const inputHandler = (e: string): void => {
-  console.log(e);
   if (e.length > 3) return;
 
   CVC.value = e.replace(/[^0-9]/g, '');
 };
+
+watch(() => CVC.value, () => {
+  emits('update:modelValue', CVC.value);
+});
 </script>
 
 <style module lang="scss">

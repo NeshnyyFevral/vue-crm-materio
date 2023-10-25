@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 interface PropsType {
-  overflowHidden: boolean;
+  overflowHidden?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {

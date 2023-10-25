@@ -27,14 +27,16 @@
             >
               {{ props.title }}
             </VText>
-            <VText
-              :color="GlobalColorMap['700'][props.color]"
-              variant="caption"
-              font-weight="500"
-              link
-            >
-              {{ props.desc }}
-            </VText>
+            <RouterLink to="#">
+              <VText
+                :color="GlobalColorMap['700'][props.color]"
+                variant="caption"
+                font-weight="500"
+                link
+              >
+                {{ props.desc }}
+              </VText>
+            </RouterLink>
           </VOffset>
         </VFlex>
       </VOffset>

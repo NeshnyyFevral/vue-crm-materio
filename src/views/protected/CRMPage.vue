@@ -137,7 +137,7 @@ $offsetCard: 60px;
 
 .upgrade {
   width: calc(33.333%);
-  height: $heightCard;
+  min-height: $heightCard;
 }
 
 .meeting {

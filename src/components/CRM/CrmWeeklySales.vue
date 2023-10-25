@@ -51,8 +51,8 @@
 </template>
 
 <script setup lang="ts">
-import ArrowUpIcon from '@/assets/icons/CRM/arrowUp.svg';
 import DollarIcon from '@/assets/icons/CRM/dollar.svg';
+import ArrowUpIcon from '@/assets/icons/CRM/lightningUp.svg';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';

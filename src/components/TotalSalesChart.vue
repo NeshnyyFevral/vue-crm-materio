@@ -3,7 +3,7 @@
     <LineChart
       :chart-data="props.data"
       :options="props.options"
-      :height="height ?? undefined"
+      :height="height"
     />
   </div>
 </template>
@@ -17,7 +17,7 @@ Chart.register(...registerables);
 interface PropsType {
   options: any;
   data: any;
-  height?: string;
+  height?: number;
 }
 
 const props = defineProps<PropsType>();
