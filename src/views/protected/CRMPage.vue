@@ -103,45 +103,81 @@ $offsetCard: 60px;
   width: 25%;
   display: flex;
   height: 80%;
+
+  @media screen and (max-width: 1100px) {
+    width: calc(50% - 20px);
+  }
 }
 
 .transactions {
   width: calc(50% - $offsetCard);
   display: flex;
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 }
 
 .totalSales,
 .revenueReport {
   width: 25%;
   height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: calc(50% - 20px);
+  }
 }
 
 .salesOverview {
   width: calc(50% - $offsetCard);
   height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 }
 
 .activity {
   height: $heightCard;
   width: calc(50% + $offsetCard / 3);
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 }
 
 .weeklySales {
   height: $heightCard;
   width: calc(35% - $offsetCard);
+
+  @media screen and (max-width: 1100px) {
+    width: calc(60% - 20px);
+  }
 }
 
 .joinGrowthProject {
   width: calc(15% - $offsetCard / 3);
   height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: calc(40% - 20px);
+  }
 }
 
 .upgrade,
 .plains {
   width: calc(33.333%);
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 }
 
 .meeting {
   width: calc(33.333% - 60px);
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 }
 </style>

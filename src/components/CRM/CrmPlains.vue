@@ -97,6 +97,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 import ClockIcon from '@/assets/icons/CRM/clock.svg';
 import PeopleIcon from '@/assets/icons/CRM/people.svg';
 import PlaceIcon from '@/assets/icons/CRM/place.svg';
@@ -177,6 +179,7 @@ const descriptions: Descriptions[] = [
   img {
     display: block;
     width: 100%;
+    object-fit: cover;
     max-height: 180px;
   }
 }

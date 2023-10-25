@@ -12,31 +12,34 @@
       </VText>
     </VOffset>
 
-    <VOffset
-      max-width="450px"
-      :mb="10"
-    >
+    <VOffset :mb="10">
       <VFlex :justify-content="FlexJustify.SPACE_BETWEEN">
-        <StatisticIcon
-          title="Customers"
-          value="12.5k"
-          :icon="SalesIcon"
-          :color="GlobalColors.PRIMARY"
-        />
+        <VOffset width="33%">
+          <StatisticIcon
+            title="Customers"
+            value="12.5k"
+            :icon="SalesIcon"
+            :color="GlobalColors.PRIMARY"
+          />
+        </VOffset>
 
-        <StatisticIcon
-          title="Sales"
-          value="245k"
-          :icon="CustomersIcon"
-          :color="GlobalColors.SUCCESS"
-        />
+        <VOffset width="33%">
+          <StatisticIcon
+            title="Sales"
+            value="245k"
+            :icon="CustomersIcon"
+            :color="GlobalColors.SUCCESS"
+          />
+        </VOffset>
 
-        <StatisticIcon
-          title="Products"
-          value="1.54k"
-          :icon="ProductIcon"
-          :color="GlobalColors.WARNING"
-        />
+        <VOffset width="33%">
+          <StatisticIcon
+            title="Products"
+            value="1.54k"
+            :icon="ProductIcon"
+            :color="GlobalColors.WARNING"
+          />
+        </VOffset>
       </VFlex>
     </VOffset>
   </VCard>
