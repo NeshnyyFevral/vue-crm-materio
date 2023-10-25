@@ -14,7 +14,10 @@
     >
       <slot name="iconPrepend" />
     </div>
-    <VText variant="body2">
+    <VText
+      font-weight="600"
+      variant="caption"
+    >
       <slot />
     </VText>
     <div
@@ -51,7 +54,7 @@ const slots = useSlots();
 
 const isVisiblePrepend = computed<boolean>(() => !!slots.iconPrepend);
 const isVisibleAppend = computed<boolean>(() => !!slots.iconAppend);
-const chipColor = computed<string>(() => GlobalColorMap['700'][props.color]);
+const chipColor = computed<string>(() => GlobalColorMap['600'][props.color]);
 const chipColorHover = computed<string>(() => GlobalColorMap['400'][props.color]);
 const chipColorLight = computed<string>(() => GlobalColorMap['100'][props.color]);
 </script>

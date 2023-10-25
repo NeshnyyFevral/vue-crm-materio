@@ -142,7 +142,7 @@ $offsetCard: 60px;
 
 .meeting {
   width: calc(33.333% - 60px);
-  height: $heightCard;
+  min-height: $heightCard;
 }
 
 .plains {
