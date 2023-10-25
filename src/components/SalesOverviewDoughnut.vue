@@ -101,6 +101,7 @@ import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { VTextTextAlign } from '@/model/components/basic/VText';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
 import { formatNumber } from '@/model/tools/NumberTools';
+import { getRandomString } from '@/model/tools/RandomTools';
 
 interface HoveredString {
   value: string;
@@ -158,7 +159,7 @@ const gridData = computed(() => {
 
   data.labels.forEach((e, i) => {
     gD.push({
-      id: Math.random().toString(16).substring(3, 8),
+      id: getRandomString(),
       title: e,
       color: data.datasets[0].backgroundColor[i],
       value: `$${formatNumber(`${data.datasets[0].data[i]}`)}`,

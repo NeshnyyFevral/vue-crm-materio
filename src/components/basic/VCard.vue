@@ -2,7 +2,8 @@
   <div
     :class="[
       $style.root,
-      overflowHidden && $style.hidden
+      overflowHidden && $style.hidden,
+      disabledTopBr && $style.disabledTopBr
     ]"
   >
     <slot />
@@ -12,6 +13,7 @@
 <script setup lang="ts">
 interface PropsType {
   overflowHidden?: boolean;
+  disabledTopBr?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -36,6 +38,11 @@ const props = withDefaults(defineProps<PropsType>(), {
 
 .hidden {
   overflow: hidden;
+}
+
+.disabledTopBr {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 @keyframes opp {

@@ -32,10 +32,10 @@
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VCard from '@/components/basic/VCard.vue';
 import VOffset from '@/components/basic/VOffset.vue';
-import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import UserMeeting from '@/components/UserMeeting.vue';
 import { GlobalColors } from '@/model/Colors';
+import { getRandomString } from '@/model/tools/RandomTools';
 
 interface Meetings {
   id: string;
@@ -48,42 +48,42 @@ interface Meetings {
 
 const meetingData: Meetings[] = [
   {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     title: 'Call with Woods',
     subject: 'Business',
     color: GlobalColors.PRIMARY,
     time: '21 Jul | 08:20-10:30',
     avatar: '1.png',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     title: 'Call with hilda',
     subject: 'Meditation',
     color: GlobalColors.SUCCESS,
     time: '24 Jul | 11:30-12:00',
     avatar: '2.png',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     title: 'Conference call',
     subject: 'Dinner',
     color: GlobalColors.ERROR,
     time: '28 Jul | 05:00-6:45',
     avatar: '3.png',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     title: 'Meeting with Mark',
     subject: 'Meetup',
     color: GlobalColors.DEFAULT,
     time: '03 Aug | 07:00-8:30',
     avatar: '4.png',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     title: 'Meeting in Oakland',
     subject: 'Business',
     color: GlobalColors.PRIMARY,
     time: '14 Aug | 04:15-05:30',
     avatar: '5.png',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     title: 'Meeting with Carl',
     subject: 'Party',
     color: GlobalColors.WARNING,
@@ -93,10 +93,8 @@ const meetingData: Meetings[] = [
 ];
 
 function getImageUrl(path: string) {
-  return new URL(
-    `${path}`,
-    import.meta.url,
-  ).href;
+  const baseUrl = new URL(import.meta.url);
+  return new URL(path, baseUrl).href;
 }
 </script>
 

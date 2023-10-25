@@ -28,6 +28,7 @@ import CrmTotalSessions from '@/components/CRM/CrmTotalSessions.vue';
 import CrmTransactions from '@/components/CRM/CrmTransactions.vue';
 import CrmUpgrade from '@/components/CRM/CrmUpgrade.vue';
 import CrmWeeklySales from '@/components/CRM/CrmWeeklySales.vue';
+import { getRandomString } from '@/model/tools/RandomTools';
 
 interface ComponentsData {
   id: string;
@@ -37,51 +38,51 @@ interface ComponentsData {
 
 const components = markRaw<ComponentsData[]>([
   {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmRatings,
     class: 'stats',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmSessions,
     class: 'stats',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmTransactions,
     class: 'transactions',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmTotalSessions,
     class: 'totalSales',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmRevenueReport,
     class: 'revenueReport',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmSalesOverview,
     class: 'salesOverview',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmActivityTimeline,
     class: 'activity',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmWeeklySales,
     class: 'weeklySales',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmJoinGrowthAndProject,
     class: 'joinGrowthProject',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmUpgrade,
     class: 'upgrade',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmMeeting,
     class: 'meeting',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmPlains,
     class: 'plains',
   },
@@ -135,18 +136,12 @@ $offsetCard: 60px;
   height: $heightCard;
 }
 
-.upgrade {
+.upgrade,
+.plains {
   width: calc(33.333%);
-  min-height: $heightCard;
 }
 
 .meeting {
   width: calc(33.333% - 60px);
-  min-height: $heightCard;
-}
-
-.plains {
-  width: calc(33.333%);
-  height: $heightCard;
 }
 </style>

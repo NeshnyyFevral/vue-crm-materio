@@ -9,7 +9,7 @@
       </VOffset>
 
       <VOffset>
-        <VOffset :mb="5.5">
+        <VOffset :mb="4.5">
           <VText
             font-weight="600"
             variant="body2"
