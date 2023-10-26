@@ -6,6 +6,7 @@
       $style[`size-${props.size}`],
       isVisibleLetter && $style.withLetter,
       light && $style.light,
+      outlined && $style.hasOutlined,
     ]"
   >
     <slot />
@@ -19,13 +20,8 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
-import {
-  AvatarMapColor,
-  AvatarMapColorLight,
-  AvatarSize,
-  AvatarVariant,
-} from '@/model/components/basic/VAvatar';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
 
 interface PropsType {
   size?: AvatarSize;
@@ -33,6 +29,7 @@ interface PropsType {
   letter?: string;
   color?: GlobalColors;
   light?: boolean;
+  outlined?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -41,6 +38,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   letter: 'Noname',
   color: GlobalColors.PRIMARY,
   light: false,
+  outline: false,
 });
 
 const slots = useSlots();
@@ -54,8 +52,8 @@ const letterFormatting = computed<string>(() => {
   if (length === 1) return name[0][0].toUpperCase();
   return 'N';
 });
-const avatarColor = computed<string>(() => AvatarMapColor[props.color]);
-const avatarColorLight = computed<string>(() => AvatarMapColorLight[props.color]);
+const avatarColor = computed<string>(() => GlobalColorMap['700'][props.color]);
+const avatarColorLight = computed<string>(() => GlobalColorMap['200'][props.color]);
 </script>
 
 <style module lang="scss">
@@ -70,13 +68,20 @@ $sizes: (
   --color-avatar: v-bind(avatarColor);
   --color-avatar-light: v-bind(avatarColorLight);
 
-  border-radius: $border-radius;
   background-color: var(--color-avatar);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   user-select: none;
+
+  &.variant-cycle {
+    border-radius: $border-radius;
+  }
+
+  &.variant-rounded {
+    border-radius: 7px;
+  }
 
   path {
     fill: var(--color-button-text);
@@ -94,12 +99,24 @@ $sizes: (
     border-radius: 5px;
   }
 
+  &.variant-square {
+    border-radius: 0;
+  }
+
   @each $key, $size in $sizes {
     &.size-#{$key} {
       width: $size;
       height: $size;
     }
   }
+}
+
+.hasOutlined {
+  background-color: transparent;
+  border: 1px solid var(--color-avatar);
+  color: var(--color-text);
+
+  transition: color var(--transition-duration) var(--transition-timing-func);
 }
 
 .light {
@@ -129,6 +146,10 @@ img {
 
   .variant-rounded & {
     border-radius: 5px;
+  }
+
+  .variant-square & {
+    border-radius: 0;
   }
 
   @each $key, $size in $sizes {

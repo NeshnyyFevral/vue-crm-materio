@@ -25,12 +25,8 @@ import { computed } from 'vue';
 import InfoIcon from '@/assets/icons/alert/info.svg';
 import SuccessIcon from '@/assets/icons/alert/success.svg';
 import WarningIcon from '@/assets/icons/alert/warning.svg';
-import { GlobalColors } from '@/model/Colors';
-import {
-  AlertMapColor,
-  AlertMapColorLight,
-  AlertVariant,
-} from '@/model/components/basic/VAlert';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { AlertVariant } from '@/model/components/basic/VAlert';
 
 interface PropsType {
   icon?: any;
@@ -43,8 +39,8 @@ const props = withDefaults(defineProps<PropsType>(), {
   variant: AlertVariant.LIGHT,
 });
 
-const alertColor = computed<string>(() => AlertMapColor[props.color]);
-const alertColorLight = computed<string>(() => AlertMapColorLight[props.color]);
+const alertColor = computed<string>(() => GlobalColorMap['700'][props.color]);
+const alertColorLight = computed<string>(() => GlobalColorMap['100'][props.color]);
 
 const getIconFromColor = (color: GlobalColors) => {
   switch (color) {

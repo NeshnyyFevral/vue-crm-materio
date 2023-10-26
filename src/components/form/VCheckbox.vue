@@ -29,9 +29,12 @@
         :class="$style.icon"
       />
     </span>
-    <span :class="$style.label">
+    <VText
+      variant="body2"
+      :class="$style.label"
+    >
       <slot />
-    </span>
+    </VText>
   </label>
 </template>
 
@@ -43,12 +46,9 @@ import {
 } from 'vue';
 
 import SuccessIcon from '@/assets/icons/checkbox/success.svg';
-import { GlobalColors } from '@/model/Colors';
-import {
-  CheckboxLabelPlacement,
-  CheckboxMapColor,
-  CheckboxSize,
-} from '@/model/components/form/VCheckbox';
+import VText from '@/components/basic/VText.vue';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { CheckboxLabelPlacement, CheckboxSize } from '@/model/components/form/VCheckbox';
 
 interface PropsType {
   modelValue: boolean;
@@ -73,7 +73,7 @@ const emits = defineEmits<EmitsType>();
 const checkboxValue = ref<boolean>(false);
 const hasFocused = ref<boolean>(false);
 
-const checkboxColor = computed(() => CheckboxMapColor[props.color]);
+const checkboxColor = computed(() => GlobalColorMap['700'][props.color]);
 
 const changeHandler = (e: InputEvent) => {
   emits('update:modelValue', (e.target as HTMLInputElement).checked);
@@ -85,7 +85,6 @@ watchEffect(() => {
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
 @import "@/scss/mixins/ripple";
 
 $position-left: 'left', row-reverse, 'margin-right', 9px;
@@ -175,10 +174,6 @@ $sizes: (
   width: 0;
   height: 0;
   opacity: 0;
-}
-
-.label {
-  @include body2;
 }
 
 .icon {

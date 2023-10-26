@@ -14,7 +14,12 @@
     >
       <slot name="iconPrepend" />
     </div>
-    <slot />
+    <VText
+      font-weight="600"
+      variant="caption"
+    >
+      <slot />
+    </VText>
     <div
       v-if="isVisibleAppend"
       :class="$style.append"
@@ -27,14 +32,9 @@
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
-import {
-  ChipMapColor,
-  ChipMapColorHover,
-  ChipMapColorLight,
-  ChipSize,
-  ChipVariant,
-} from '@/model/components/basic/VChip';
+import VText from '@/components/basic/VText.vue';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 
 interface PropsType {
   variant?: ChipVariant;
@@ -54,27 +54,27 @@ const slots = useSlots();
 
 const isVisiblePrepend = computed<boolean>(() => !!slots.iconPrepend);
 const isVisibleAppend = computed<boolean>(() => !!slots.iconAppend);
-const chipColor = computed<string>(() => ChipMapColor[props.color]);
-const chipColorHover = computed<string>(() => ChipMapColorHover[props.color]);
-const chipColorLight = computed<string>(() => ChipMapColorLight[props.color]);
+const chipColor = computed<string>(() => GlobalColorMap['600'][props.color]);
+const chipColorHover = computed<string>(() => GlobalColorMap['400'][props.color]);
+const chipColorLight = computed<string>(() => GlobalColorMap['100'][props.color]);
 </script>
 
 <style module lang="scss">
 @import '@/scss/mixins/mixins';
 
 .root {
-  @include body2;
-
   --color-chip: v-bind(chipColor);
   --color-chip-hover: v-bind(chipColorHover);
   --color-chip-light: v-bind(chipColorLight);
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   border: 1px solid var(--color-chip);
   border-radius: 16px;
   background-color: var(--color-chip);
   color: var(--color-button-text);
+  white-space: nowrap;
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
     color var(--transition-duration) var(--transition-timing-func),

@@ -157,5 +157,4 @@ const leftPos: TooltipPosition[] = [
     }
   }
 }
-
 </style>

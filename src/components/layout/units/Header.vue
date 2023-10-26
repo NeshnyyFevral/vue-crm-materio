@@ -13,12 +13,12 @@
       >
         <MenuIcon />
       </VIconButton>
-      <VIconButton
+      <!--      <VIconButton
         :class="$style.search"
         :variant="IconButtonVariant.TRANSPARENT"
       >
         <SearchIcon />
-      </VIconButton>
+      </VIconButton>-->
     </div>
     <div :class="$style.right">
       <VSwitch
@@ -58,7 +58,7 @@
         </template>
 
         <VMenuItem>
-          <div :class="$style.menuUser">
+          <VFlex :align="FlexAlign.CENTER">
             <VBadge
               :variant="BadgeVariant.DOT"
               :size="BadgeSize.SMALL"
@@ -74,14 +74,24 @@
               </VAvatar>
             </VBadge>
 
-            <span :class="$style.menuText">
-              <h5 :class="$style.menuUserName">Jhon Doe</h5>
-              <p :class="$style.menuUserRole">Admin</p>
-            </span>
-          </div>
+            <VOffset :ml="15">
+              <VText
+                variant="subtitle1"
+                font-weight="600"
+              >
+                Jhon Doe
+              </VText>
+              <VText
+                variant="body2"
+                :color="GlobalColorMap['600'].default"
+              >
+                Admin
+              </VText>
+            </VOffset>
+          </VFlex>
         </VMenuItem>
 
-        <VMenuSlitter />
+        <VSplitter />
 
         <VMenuItem name="Profile">
           <ProfileIcon />
@@ -95,7 +105,7 @@
           <ChatIcon />
         </VMenuItem>
 
-        <VMenuSlitter />
+        <VSplitter />
 
         <VMenuItem name="Settings">
           <SettingsIcon />
@@ -105,7 +115,7 @@
           <FAQIcon />
         </VMenuItem>
 
-        <VMenuSlitter />
+        <VSplitter />
 
         <VMenuItem name="Logout">
           <LogoutIcon />
@@ -135,17 +145,21 @@ import SettingsIcon from '@/assets/icons/menu/settings.svg';
 import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VBadge from '@/components/basic/VBadge.vue';
+import VFlex from '@/components/basic/VFlex.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
-import VMenuSlitter from '@/components/basic/VMenuSlitter.vue';
+import VOffset from '@/components/basic/VOffset.vue';
+import VSplitter from '@/components/basic/VSplitter.vue';
+import VText from '@/components/basic/VText.vue';
 import VSwitch from '@/components/form/VSwitch.vue';
-import { GlobalColors } from '@/model/Colors';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import {
   BadgePosition,
   BadgeSize,
   BadgeVariant,
 } from '@/model/components/basic/VBadge';
+import { FlexAlign } from '@/model/components/basic/VFlex';
 import { IconButtonVariant } from '@/model/components/basic/VIconButton';
 import appStorage from '@/model/tools/StorageTools';
 import { useThemeStore } from '@/stores/theme';
@@ -270,29 +284,6 @@ onBeforeMount(() => {
   background-color: var(--color-header);
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 8px -4px rgb(94 86 105 / 42%);
-}
-
-.menu {
-  &User {
-    display: flex;
-    align-items: center;
-  }
-
-  &Text {
-    margin-left: 15px;
-  }
-
-  &UserName {
-    @include subtitle1;
-
-    font-weight: 600;
-  }
-
-  &UserRole {
-    @include body2;
-
-    opacity: 0.7;
-  }
 }
 
 .mobileSidebar {

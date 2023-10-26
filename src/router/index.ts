@@ -18,6 +18,7 @@ export const Routes = {
   COMPONENTS_PAGINATION: 'components/pagination',
   COMPONENTS_MENU: 'components/menu',
   COMPONENTS_TOOLTIP: 'components/tooltip',
+  COMPONENTS_TIMELINE: 'components/timeline',
 
   FORM_COMPONENTS: 'form-components',
   FORM_COMPONENTS_TEXT_FIELD: 'form-components/text-field',
@@ -106,6 +107,10 @@ export default function createRouter() {
           path: `${BASE}/${Routes.COMPONENTS_TOOLTIP}`,
           name: Routes.COMPONENTS_TOOLTIP,
           component: () => import('@/views/protected/components/ComponentsTooltipPage.vue'),
+        }, {
+          path: `${BASE}/${Routes.COMPONENTS_TIMELINE}`,
+          name: Routes.COMPONENTS_TIMELINE,
+          component: () => import('@/views/protected/components/ComponentsTimelinePage.vue'),
         }],
       }, {
         path: `${BASE}/${Routes.TYPOGRAPHY}`,

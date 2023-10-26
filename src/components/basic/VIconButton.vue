@@ -16,13 +16,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
-import {
-  IconButtonMapColor,
-  IconButtonMapColorLight,
-  IconButtonSize,
-  IconButtonVariant,
-} from '@/model/components/basic/VIconButton';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { IconButtonSize, IconButtonVariant } from '@/model/components/basic/VIconButton';
 
 interface PropsType {
   size?: IconButtonSize;
@@ -39,8 +34,8 @@ const props = withDefaults(defineProps<PropsType>(), {
   rounded: false,
 });
 
-const iconButtonColor = computed(() => IconButtonMapColor[props.color]);
-const iconButtonColorLight = computed(() => IconButtonMapColorLight[props.color]);
+const iconButtonColor = computed(() => GlobalColorMap['700'][props.color]);
+const iconButtonColorLight = computed(() => GlobalColorMap['200'][props.color]);
 </script>
 
 <style module lang="scss">

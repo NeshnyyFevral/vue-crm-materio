@@ -23,12 +23,14 @@
       <slot name="prefix" />
     </div>
 
-    <p
+    <VText
       :class="$style.label"
+      variant="caption"
+      font-weight="400"
       @click="clickLabel"
     >
       {{ props.label }}
-    </p>
+    </VText>
 
     <input
       v-if="!multiline"
@@ -58,9 +60,13 @@
       @focus="hasFocused = true"
       @focusout="hasFocused = false"
     />
-    <p :class="$style.helpText">
+    <VText
+      v-if="props.helpText"
+      variant="body2"
+      :class="$style.helpText"
+    >
       {{ props.helpText }}
-    </p>
+    </VText>
 
     <div
       v-if="hasExistSuffix"
@@ -82,9 +88,9 @@ import {
   watchEffect,
 } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
+import VText from '@/components/basic/VText.vue';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import {
-  TextFieldMapColor,
   TextFieldSize,
   TextFieldType,
   TextFieldVariant,
@@ -147,7 +153,7 @@ const hasFocused = ref<boolean>(false);
 
 const hasFilled = computed(() => !!inputValue.value || !!props.placeholder);
 const isError = computed(() => props.error);
-const textFieldColor = computed(() => (isError.value ? TextFieldMapColor.error : TextFieldMapColor[props.color]));
+const textFieldColor = computed(() => (isError.value ? GlobalColorMap['700'].error : GlobalColorMap['700'][props.color]));
 const hasExistPrefix = computed(() => !!slots.prefix);
 const hasExistSuffix = computed(() => !!slots.suffix);
 
@@ -192,7 +198,6 @@ $sizes: (
 
   position: relative;
   display: flex;
-  margin-bottom: 10px;
 
   &.hasDisabled {
     opacity: 0.7;
@@ -270,10 +275,6 @@ $sizes: (
 }
 
 .label {
-  @include subtitle2;
-
-  font-size: 12px;
-  font-weight: 400;
   position: absolute;
   left: 10px;
   top: 50%;
@@ -337,8 +338,6 @@ $sizes: (
 }
 
 .helpText {
-  @include body2;
-
   position: absolute;
   color: var(--color-default-500);
   top: calc(100%);

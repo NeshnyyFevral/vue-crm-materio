@@ -9,15 +9,14 @@
   </footer>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style module lang="scss">
   .root {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 20px 0 10px;
+    margin: 40px 0 10px;
     color: var(--text-color);
   }
 

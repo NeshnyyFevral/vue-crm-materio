@@ -25,6 +25,8 @@
   --shadow-select-options: rgba(200, 200, 200, 0.2) 0 5px 5px -3px,
   rgba(200, 200, 200, 0.04) 0 5px 8px 2px,
   rgba(200, 200, 200, 0.04) 0 3px 12px 1px;
+
+  --shadow-card: rgba(19, 17, 32, 0.1) 0px 2px 10px 0px;
 }
 
 @mixin light {
@@ -54,6 +56,8 @@
   --shadow-select-options: rgba(58, 53, 65, 0.2) 0 5px 5px -3px,
   rgba(58, 53, 65, 0.14) 0 8px 10px 1px,
   rgba(58, 53, 65, 0.12) 0 3px 14px 2px;
+
+  --shadow-card: rgba(58, 53, 65, 0.1) 0px 2px 10px 0px;
 }
 
 @mixin theme-colors($light-theme: true) {

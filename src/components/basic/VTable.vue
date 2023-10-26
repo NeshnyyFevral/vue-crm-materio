@@ -79,12 +79,12 @@ onMounted(() => {
 </script>
 
 <style module lang="scss">
+@import '@/scss/mixins/typography';
+
 $sizes: (
   small: 5px,
   normal: 15px,
 );
-
-@import '@/scss/mixins/typography';
 
 .table {
   &.withKey {

@@ -9,9 +9,12 @@
       value <= 0 && $style.hasHidden
     ]"
   >
-    <div :class="$style.badge">
+    <VText
+      variant="caption"
+      :class="$style.badge"
+    >
       <span v-if="variant !== BadgeVariant.DOT">{{ displayedValue }}</span>
-    </div>
+    </VText>
 
     <slot />
   </div>
@@ -20,10 +23,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
+import VText from '@/components/basic/VText.vue';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import {
-  BadgeMapColor,
-  BadgeMapColorLight,
   BadgePosition,
   BadgeSize,
   BadgeVariant,
@@ -47,19 +49,17 @@ const props = withDefaults(defineProps<PropsType>(), {
   maxValue: 9999,
 });
 
-const badgeColor = computed(() => BadgeMapColor[props.color]);
-const badgeColorLight = computed(() => BadgeMapColorLight[props.color]);
+const badgeColor = computed(() => GlobalColorMap['700'][props.color]);
+const badgeColorLight = computed(() => GlobalColorMap['200'][props.color]);
 const displayedValue = computed<string>(() => (props.value >= props.maxValue ? `${props.maxValue}+` : `${props.value}`));
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
-
 $small-size: 'small', // $key
   0px, // $padding
   8px, // $border-radius
-  10px, // $size
-  10px; // font-size
+  11px, // $size
+  9px; // font-size
 $normal-size: 'normal', // $key
   6px, // $padding
   10px, // $border-radius
@@ -75,7 +75,7 @@ $normal-size: 'normal', // $key
 
 .size {
   @each $key, $padding, $border-radius, $size, $font-size in $small-size, $normal-size {
-    $divider: 1.5;
+    $divider: 1.15;
 
     &-#{$key} .badge {
       border-radius: $border-radius;
@@ -116,13 +116,12 @@ $normal-size: 'normal', // $key
 }
 
 .badge {
-  @include caption;
-
   position: absolute;
   background-color: var(--badge-color);
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid var(--color-card);
   color: var(--color-button-text);
   transition: width 0.1s var(--transition-timing-func),
     height 0.1s var(--transition-timing-func),

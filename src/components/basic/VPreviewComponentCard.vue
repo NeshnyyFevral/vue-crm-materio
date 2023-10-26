@@ -5,15 +5,24 @@
       transparent && $style.transparent
     ]"
   >
-    <h4 :class="$style.title">
-      {{ props.title }}
-    </h4>
-    <p
-      v-if="props.desc"
-      :class="$style.desc"
-    >
-      {{ props.desc }}
-    </p>
+    <VOffset :mb="10">
+      <VTitle
+        :class="$style.title"
+        variant="heading4"
+      >
+        {{ props.title }}
+      </VTitle>
+    </VOffset>
+
+    <VOffset :mb="15">
+      <VText
+        v-if="props.desc"
+        variant="subtitle2"
+      >
+        {{ props.desc }}
+      </VText>
+    </VOffset>
+
     <div
       :class="[
         $style.group,
@@ -28,6 +37,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import VOffset from '@/components/basic/VOffset.vue';
+import VText from '@/components/basic/VText.vue';
+import VTitle from '@/components/basic/VTitle.vue';
 import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard';
 
 interface PropsType {
@@ -50,8 +62,6 @@ const gapElement = computed(() => `${props.gap}px`);
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/mixins";
-
 .root {
   --gap-card: v-bind(gapElement);
 
@@ -72,16 +82,7 @@ const gapElement = computed(() => `${props.gap}px`);
 }
 
 .title {
-  @include heading4;
-
   color: var(--color-text);
-  margin-bottom: 10px;
-}
-
-.desc {
-  @include subtitle2;
-
-  margin-bottom: 15px;
 }
 
 .group {

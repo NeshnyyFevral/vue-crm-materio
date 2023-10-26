@@ -1,5 +1,3 @@
-import { ButtonMapColor } from '@/model/components/basic/VButton';
-
 export enum TooltipPosition {
   TOP_START = 'top-start',
   TOP = 'top',
@@ -17,5 +15,3 @@ export enum TooltipPosition {
   LEFT = 'left',
   LEFT_END = 'left-end',
 }
-
-export const TooltipMapColor: { [index: string]: string } = ButtonMapColor;

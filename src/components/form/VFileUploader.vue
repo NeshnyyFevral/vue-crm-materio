@@ -16,8 +16,16 @@
       >
 
       <div :class="$style.text">
-        <h5 :class="$style.header">{{ title }}</h5>
-        <p :class="$style.desc">{{ desc }}</p>
+        <VOffset :mb="10">
+          <VTitle variant="heading5">{{ title }}</VTitle>
+        </VOffset>
+
+        <VText
+          :class="$style.desc"
+          variant="subtitle1"
+        >
+          {{ desc }}
+        </VText>
       </div>
     </div>
   </label>
@@ -26,6 +34,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useToast } from 'vue-toastification';
+
+import VOffset from '@/components/basic/VOffset.vue';
+import VText from '@/components/basic/VText.vue';
+import VTitle from '@/components/basic/VTitle.vue';
 
 interface PropsType {
   title?: string;
@@ -130,15 +142,7 @@ const changeHandle = (e: Event) => {
 .text {
   margin-left: 20px;
 
-  & .header {
-    @include heading5;
-
-    margin-bottom: 10px;
-  }
-
   & .desc {
-    @include subtitle1;
-
     opacity: 0.7;
   }
 }

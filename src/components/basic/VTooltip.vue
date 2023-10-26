@@ -9,22 +9,24 @@
       <slot />
     </div>
 
-    <div
+    <VText
       :class="[
         $style.tooltip,
         $style[`position-${position}`]
       ]"
+      variant="body2"
     >
       {{ title }}
-    </div>
+    </VText>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { GlobalColors } from '@/model/Colors';
-import { TooltipMapColor, TooltipPosition } from '@/model/components/basic/VTooltip';
+import VText from '@/components/basic/VText.vue';
+import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { TooltipPosition } from '@/model/components/basic/VTooltip';
 
 interface PropsType {
   title: string;
@@ -37,12 +39,10 @@ const props = withDefaults(defineProps<PropsType>(), {
   position: TooltipPosition.RIGHT,
 });
 
-const tooltipColor = computed(() => TooltipMapColor[props.color]);
+const tooltipColor = computed(() => GlobalColorMap['700'][props.color]);
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
-
 $top: 'top', // $key
   'left', // $centered-prop
   translateX(-50%), // $centered-value
@@ -82,8 +82,6 @@ $bottom: 'bottom', // $key
 }
 
 .tooltip {
-  @include body2;
-
   position: absolute;
   padding: 2px 5px 3px;
   background-color: var(--tooptip-color);
