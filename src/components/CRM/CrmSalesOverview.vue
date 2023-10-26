@@ -1,5 +1,5 @@
 <template>
-  <VCard :style="{ height: `375px` }">
+  <VCard>
     <VOffset>
       <VText
         font-weight="600"

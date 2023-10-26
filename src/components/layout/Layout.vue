@@ -48,7 +48,7 @@ import Header from '@/components/layout/units/Header.vue';
 import Sidebar from '@/components/layout/units/sidebar/Sidebar.vue';
 
 const active = ref<boolean>(false);
-const openSidebar = ref<boolean>(true);
+const openSidebar = ref<boolean>(false);
 const activeSidebar = ref<boolean>(false);
 const wrapper = ref<HTMLDivElement | null>(null);
 const headerWidth = ref<number>(0);

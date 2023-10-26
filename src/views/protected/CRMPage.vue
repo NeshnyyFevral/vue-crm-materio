@@ -28,6 +28,7 @@ import CrmTotalSessions from '@/components/CRM/CrmTotalSessions.vue';
 import CrmTransactions from '@/components/CRM/CrmTransactions.vue';
 import CrmUpgrade from '@/components/CRM/CrmUpgrade.vue';
 import CrmWeeklySales from '@/components/CRM/CrmWeeklySales.vue';
+import { getRandomString } from '@/model/tools/RandomTools';
 
 interface ComponentsData {
   id: string;
@@ -37,51 +38,51 @@ interface ComponentsData {
 
 const components = markRaw<ComponentsData[]>([
   {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmRatings,
     class: 'stats',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmSessions,
     class: 'stats',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmTransactions,
     class: 'transactions',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmTotalSessions,
     class: 'totalSales',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmRevenueReport,
     class: 'revenueReport',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmSalesOverview,
     class: 'salesOverview',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmActivityTimeline,
     class: 'activity',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmWeeklySales,
     class: 'weeklySales',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmJoinGrowthAndProject,
     class: 'joinGrowthProject',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmUpgrade,
     class: 'upgrade',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmMeeting,
     class: 'meeting',
   }, {
-    id: Math.random().toString(16).substring(3, 8),
+    id: getRandomString(),
     component: CrmPlains,
     class: 'plains',
   },
@@ -102,51 +103,110 @@ $offsetCard: 60px;
   width: 25%;
   display: flex;
   height: 80%;
+
+  @media screen and (max-width: 1100px) {
+    width: calc(50% - 20px);
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .transactions {
   width: calc(50% - $offsetCard);
   display: flex;
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .totalSales,
 .revenueReport {
   width: 25%;
   height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: calc(50% - 20px);
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: calc(50% - 20px);
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .salesOverview {
   width: calc(50% - $offsetCard);
   height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .activity {
   height: $heightCard;
   width: calc(50% + $offsetCard / 3);
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .weeklySales {
   height: $heightCard;
   width: calc(35% - $offsetCard);
+
+  @media screen and (max-width: 1100px) {
+    width: calc(60% - 20px);
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .joinGrowthProject {
   width: calc(15% - $offsetCard / 3);
   height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: calc(40% - 20px);
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
-.upgrade {
+.upgrade,
+.plains {
   width: calc(33.333% - 20px);
-  min-height: $heightCard;
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .meeting {
   width: calc(33.333% - 20px);
-  min-height: $heightCard;
-}
 
-.plains {
-  width: calc(33.333% - 20px);
-  height: $heightCard;
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>

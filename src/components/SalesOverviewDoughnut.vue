@@ -3,6 +3,7 @@
     :justify-content="FlexJustify.SPACE_AROUND"
     :class="$style.root"
     :align="FlexAlign.CENTER"
+    :direction-change-trigger="breakpoint"
   >
     <VOffset
       :mt="30"
@@ -101,6 +102,8 @@ import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { VTextTextAlign } from '@/model/components/basic/VText';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
 import { formatNumber } from '@/model/tools/NumberTools';
+import { getRandomString } from '@/model/tools/RandomTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface HoveredString {
   value: string;
@@ -153,12 +156,15 @@ const data = {
   ],
 };
 
+const breakpoint = 500;
+const hasChange = useResizeTrigger(breakpoint);
+
 const gridData = computed(() => {
   const gD: GridItem[] = [];
 
   data.labels.forEach((e, i) => {
     gD.push({
-      id: Math.random().toString(16).substring(3, 8),
+      id: getRandomString(),
       title: e,
       color: data.datasets[0].backgroundColor[i],
       value: `$${formatNumber(`${data.datasets[0].data[i]}`)}`,

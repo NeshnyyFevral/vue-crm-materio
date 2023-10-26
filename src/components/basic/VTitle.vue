@@ -19,11 +19,13 @@ import type { TitleVariant } from '@/model/components/basic/VTitle';
 interface PropsType {
   variant: TitleVariant;
   color?: string;
+  fontWeight?: '400' | '500' | '600' | '700';
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   variant: 'heading1',
   color: undefined,
+  fontWeight: undefined,
 });
 
 const tagName = computed<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'>(() => {
@@ -38,14 +40,18 @@ const tagName = computed<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'>(() => 
   }
 });
 
+const fontWeight = computed(() => props.fontWeight);
 const color = computed(() => props.color);
 </script>
 
 <style module lang="scss">
 @import "@/scss/mixins/typography";
 
+$tags: h1, h2, h3, h4, h5, h6;
+
 .root {
   --text-color: v-bind(color);
+  --font-weight: v-bind(fontWeight);
 
   color: var(--text-color);
 
@@ -55,5 +61,11 @@ const color = computed(() => props.color);
   &.heading-h4 { @include heading4; }
   &.heading-h5 { @include heading5; }
   &.heading-h6 { @include heading6; }
+
+  @each $tag in $tags {
+    & #{$tag} {
+      font-weight: var(--font-weight);
+    }
+  }
 }
 </style>

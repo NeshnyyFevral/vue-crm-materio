@@ -13,12 +13,12 @@
       >
         <MenuIcon />
       </VIconButton>
-      <VIconButton
+      <!--      <VIconButton
         :class="$style.search"
         :variant="IconButtonVariant.TRANSPARENT"
       >
         <SearchIcon />
-      </VIconButton>
+      </VIconButton>-->
     </div>
     <div :class="$style.right">
       <VSwitch

@@ -24,7 +24,10 @@
         <WeeklySalesChart />
       </VOffset>
 
-      <VFlex :justify-content="FlexJustify.SPACE_AROUND">
+      <VFlex
+        :direction-change-trigger="breakpoint"
+        :justify-content="FlexJustify.SPACE_AROUND"
+      >
         <VOffset>
           <StatisticIcon
             reverse
@@ -63,4 +66,6 @@ import WeeklySalesChart from '@/components/WeeklySalesChart.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { FlexJustify } from '@/model/components/basic/VFlex';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
+
+const breakpoint = 550;
 </script>

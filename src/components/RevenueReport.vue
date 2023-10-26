@@ -61,7 +61,7 @@
 import { onBeforeMount, ref } from 'vue';
 
 import VText from '@/components/basic/VText.vue';
-import { getRandom } from '@/model/tools/RandomTools';
+import { getRandom, getRandomString } from '@/model/tools/RandomTools';
 
 const ITEMS_COUNT = 8;
 interface Option {
@@ -81,7 +81,7 @@ const getRandomOptions = (): Option[] => {
   const options: Option[] = [];
   for (let i = 0; i < ITEMS_COUNT; i += 1) {
     const item: Option = {
-      id: Math.random().toString(16).substring(3, 8),
+      id: getRandomString(),
       value: getRandom(10, 75),
       delay: i - 0.95 * i,
       opacity: 0,
