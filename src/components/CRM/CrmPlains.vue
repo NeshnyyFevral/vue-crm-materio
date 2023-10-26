@@ -47,6 +47,7 @@
         <VFlex
           :align="FlexAlign.CENTER"
           :justify-content="FlexJustify.SPACE_BETWEEN"
+          :direction-change-trigger="breakpoint"
         >
           <VOffset
             v-for="status in plainsStatuses"
@@ -113,6 +114,7 @@ import IconStatus from '@/components/IconStatus.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getRandomString } from '@/model/tools/RandomTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface Statuses {
   id: string;
@@ -127,6 +129,9 @@ interface Descriptions {
   primary: string;
   secondary: string;
 }
+
+const breakpoint = 370;
+const hasChanged = useResizeTrigger(breakpoint);
 
 const plainsStatuses: Statuses[] = [
   {

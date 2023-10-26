@@ -1,7 +1,8 @@
 <template>
   <VFlex
-    :align="FlexAlign.CENTER"
+    :align="hasChanged ? FlexAlign.START : FlexAlign.CENTER"
     :justify-content="FlexJustify.SPACE_BETWEEN"
+    :direction-change-trigger="breakpoint"
   >
     <VFlex
       :align="FlexAlign.CENTER"
@@ -36,7 +37,10 @@
       </VOffset>
     </VFlex>
 
-    <VOffset width="80px">
+    <VOffset
+      :width="hasChanged ? '100%' : '80px'"
+      :mt="hasChanged ? 20 : 0"
+    >
       <VTextField
         :model-value="CVC"
         label="CVC"
@@ -50,11 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  ref,
-  watch,
-  watchEffect,
-} from 'vue';
+import { ref, watch } from 'vue';
 
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
@@ -63,6 +63,7 @@ import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { TextFieldVariant } from '@/model/components/form/VTextField';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface PropsType {
   modelValue: string;
@@ -88,6 +89,9 @@ const inputHandler = (e: string): void => {
 watch(() => CVC.value, () => {
   emits('update:modelValue', CVC.value);
 });
+
+const breakpoint = 370;
+const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">

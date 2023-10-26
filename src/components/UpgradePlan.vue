@@ -1,10 +1,11 @@
 <template>
   <div :class="$style.root">
     <VFlex
-      :align="FlexAlign.CENTER"
+      :align="hasChanged ? FlexAlign.START : FlexAlign.CENTER"
       :justify-content="FlexJustify.SPACE_BETWEEN"
+      :direction-change-trigger="breakpoint"
     >
-      <VOffset>
+      <VOffset :mb="hasChanged ? 10 : 0">
         <VFlex>
           <VAvatar
             :color="GlobalColors[color] as GlobalColors"
@@ -81,6 +82,7 @@ import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AvatarVariant } from '@/model/components/basic/VAvatar';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { formatNumber } from '@/model/tools/NumberTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface PropsType {
   color?: GlobalColors;
@@ -101,6 +103,8 @@ const props = withDefaults(defineProps<PropsType>(), {
 });
 
 const color = computed(() => GlobalColorMap['100'][props.color]);
+const breakpoint = 370;
+const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">
