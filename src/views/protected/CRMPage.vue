@@ -136,17 +136,17 @@ $offsetCard: 60px;
 }
 
 .upgrade {
-  width: calc(33.333%);
+  width: calc(33.333% - 20px);
   min-height: $heightCard;
 }
 
 .meeting {
-  width: calc(33.333% - 60px);
+  width: calc(33.333% - 20px);
   min-height: $heightCard;
 }
 
 .plains {
-  width: calc(33.333%);
+  width: calc(33.333% - 20px);
   height: $heightCard;
 }
 </style>
