@@ -28,7 +28,7 @@
         price="5250"
       >
         <img
-          src="../../assets/images/CRM/briefcase.png"
+          src="../../../assets/images/CRM/briefcase.png"
           alt="case"
         >
       </UpgradePlan>
@@ -50,7 +50,7 @@
         desc="2566 xxxx xxxx 8908"
       >
         <img
-          src="../../assets/images/CRM/logo-MC.png"
+          src="../../../assets/images/CRM/logo-MC.png"
           alt="MC"
         >
       </CardCVC>
@@ -63,7 +63,7 @@
         desc="8990 xxxx xxxx 6852"
       >
         <img
-          src="../../assets/images/CRM/logo-another.png"
+          src="../../../assets/images/CRM/logo-another.png"
           alt="another"
         >
       </CardCVC>

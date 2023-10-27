@@ -25,7 +25,7 @@
     </div>
 
     <img
-      src="../../assets/images/CRM/girl.png"
+      src="../../../assets/images/CRM/girl.png"
       alt="girl"
       :class="$style.image"
     >

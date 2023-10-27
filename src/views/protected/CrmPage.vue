@@ -16,18 +16,18 @@
 import { type Component, markRaw } from 'vue';
 
 import VOffset from '@/components/basic/VOffset.vue';
-import CrmActivityTimeline from '@/components/CRM/CrmActivityTimeline.vue';
-import CrmJoinGrowthAndProject from '@/components/CRM/CrmJoinGrowthAndProject.vue';
-import CrmMeeting from '@/components/CRM/CrmMeeting.vue';
-import CrmPlains from '@/components/CRM/CrmPlains.vue';
-import CrmRatings from '@/components/CRM/CrmRatings.vue';
-import CrmRevenueReport from '@/components/CRM/CrmRevenueReport.vue';
-import CrmSalesOverview from '@/components/CRM/CrmSalesOverview.vue';
-import CrmSessions from '@/components/CRM/CrmSessions.vue';
-import CrmTotalSales from '@/components/CRM/CrmTotalSales.vue';
-import CrmTransactions from '@/components/CRM/CrmTransactions.vue';
-import CrmUpgrade from '@/components/CRM/CrmUpgrade.vue';
-import CrmWeeklySales from '@/components/CRM/CrmWeeklySales.vue';
+import CrmActivityTimeline from '@/components/dashboards/crm/CrmActivityTimeline.vue';
+import CrmJoinGrowthAndProject from '@/components/dashboards/crm/CrmJoinGrowthAndProject.vue';
+import CrmMeeting from '@/components/dashboards/crm/CrmMeeting.vue';
+import CrmPlains from '@/components/dashboards/crm/CrmPlains.vue';
+import CrmRatings from '@/components/dashboards/crm/CrmRatings.vue';
+import CrmRevenueReport from '@/components/dashboards/crm/CrmRevenueReport.vue';
+import CrmSalesOverview from '@/components/dashboards/crm/CrmSalesOverview.vue';
+import CrmSessions from '@/components/dashboards/crm/CrmSessions.vue';
+import CrmTotalSales from '@/components/dashboards/crm/CrmTotalSales.vue';
+import CrmTransactions from '@/components/dashboards/crm/CrmTransactions.vue';
+import CrmUpgrade from '@/components/dashboards/crm/CrmUpgrade.vue';
+import CrmWeeklySales from '@/components/dashboards/crm/CrmWeeklySales.vue';
 import { getRandomString } from '@/model/tools/RandomTools';
 
 interface ComponentsData {

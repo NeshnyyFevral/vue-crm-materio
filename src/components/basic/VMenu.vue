@@ -85,7 +85,6 @@ onBeforeUnmount(() => {
   width:  var(--menu-width);
   max-height: 500px;
   border-radius: 6px;
-  //border: 1px solid var(--color-border);
   background-color: var(--color-card);
   box-shadow: rgba(19, 17, 32, 0.2) 0px 5px 6px -3px,
     rgba(19, 17, 32, 0.14) 0px 9px 12px 1px,
@@ -96,9 +95,9 @@ onBeforeUnmount(() => {
   overflow-y: auto;
   z-index: 99;
 
-  transition: transform var(--transition-duration) 0.15s var(--transition-timing-func),
-    opacity var(--transition-duration) 0.15s var(--transition-timing-func),
-    height var(--transition-duration) 0.15s var(--transition-timing-func);
+   transition: transform var(--transition-duration) 0.01s var(--transition-timing-func),
+    opacity var(--transition-duration) 0.01s var(--transition-timing-func),
+    height var(--transition-duration) 0.01s var(--transition-timing-func);
 
   .hasOpened & {
     transform: scale(1);

@@ -21,7 +21,7 @@
 
         <VFlex :align="FlexAlign.CENTER">
           <img
-            src="../../assets/images/CRM/pdf.png"
+            src="../../../assets/images/CRM/pdf.png"
             alt="pdf-file"
             :class="$style.pdf"
           >
@@ -52,7 +52,7 @@
         <VFlex :align="FlexAlign.CENTER">
           <VAvatar :size="AvatarSize.SMALL">
             <img
-              src="../../assets/avatars/1.png"
+              src="../../../assets/avatars/1.png"
               alt="avatar"
             >
           </VAvatar>

@@ -24,8 +24,8 @@
 <script setup lang="ts">
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
-import CrmNewProject from '@/components/CRM/CrmNewProject.vue';
-import CrmTotalGrowth from '@/components/CRM/CrmTotalGrowth.vue';
+import CrmNewProject from '@/components/dashboards/crm/CrmNewProject.vue';
+import CrmTotalGrowth from '@/components/dashboards/crm/CrmTotalGrowth.vue';
 import { FlexAlign, FlexDirection } from '@/model/components/basic/VFlex';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 

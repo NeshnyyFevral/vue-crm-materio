@@ -2,7 +2,7 @@
   <div :class="$style.root">
     <VOffset :class="$style.image">
       <img
-        src="../../assets/images/CRM/workstation.png"
+        src="../../../assets/images/CRM/workstation.png"
         alt="workstation"
       >
     </VOffset>
@@ -131,7 +131,6 @@ interface Descriptions {
 }
 
 const breakpoint = 370;
-const hasChanged = useResizeTrigger(breakpoint);
 
 const plainsStatuses: Statuses[] = [
   {
