@@ -1,5 +1,11 @@
 <template>
   <VCard>
+    <template #menu>
+      <VMenuItem name="Add Cards" />
+      <VMenuItem name="Edit Cards" />
+      <VMenuItem name="Delete Cards" />
+    </template>
+
     <VOffset :mb="10">
       <VTitle variant="heading6">
         Upgrade Your Plan
@@ -107,6 +113,7 @@ import ArrowRight from '@/assets/icons/CRM/arrowRight.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
+import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';

@@ -1,5 +1,11 @@
 <template>
   <VCard>
+    <template #menu>
+      <VMenuItem name="Refresh" />
+      <VMenuItem name="Share" />
+      <VMenuItem name="Update" />
+    </template>
+
     <VOffset :mb="15">
       <VAvatar>
         <ChestIcon />
@@ -35,6 +41,7 @@
 import ChestIcon from '@/assets/icons/CRM/chest.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VCard from '@/components/basic/VCard.vue';
+import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import StatisticBase from '@/components/StatisticBase.vue';

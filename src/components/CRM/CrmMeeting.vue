@@ -1,5 +1,11 @@
 <template>
   <VCard>
+    <template #menu>
+      <VMenuItem name="Refresh" />
+      <VMenuItem name="Share" />
+      <VMenuItem name="Reschedule" />
+    </template>
+
     <VOffset :mb="10">
       <VTitle variant="heading6">
         Meeting Schedule
@@ -31,6 +37,7 @@
 <script setup lang="ts">
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VCard from '@/components/basic/VCard.vue';
+import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import UserMeeting from '@/components/UserMeeting.vue';
