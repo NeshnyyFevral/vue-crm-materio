@@ -1,5 +1,11 @@
 <template>
   <VCard>
+    <template #menu>
+      <VMenuItem name="Last 28 Days" />
+      <VMenuItem name="Last Month" />
+      <VMenuItem name="Last Year" />
+    </template>
+
     <VOffset>
       <VText
         font-weight="600"
@@ -34,6 +40,7 @@
 import { ref } from 'vue';
 
 import VCard from '@/components/basic/VCard.vue';
+import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';

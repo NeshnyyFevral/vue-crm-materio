@@ -7,10 +7,39 @@
     ]"
   >
     <slot />
+
+    <VOffset
+      v-if="isMenuSlot"
+      :class="$style.menu"
+    >
+      <VMenu v-model="menuHasOpened">
+        <template #body>
+          <VIconButton>
+            <MoreVertIcon />
+          </VIconButton>
+        </template>
+
+        <VText variant="body1">
+          <slot name="menu" />
+        </VText>
+      </VMenu>
+    </VOffset>
   </div>
 </template>
 
 <script setup lang="ts">
+import {
+  computed,
+  ref,
+  useSlots,
+} from 'vue';
+
+import MoreVertIcon from '@/assets/icons/more-vert.svg';
+import VIconButton from '@/components/basic/VIconButton.vue';
+import VMenu from '@/components/basic/VMenu.vue';
+import VOffset from '@/components/basic/VOffset.vue';
+import VText from '@/components/basic/VText.vue';
+
 interface PropsType {
   overflowHidden?: boolean;
   disabledTopBr?: boolean;
@@ -19,16 +48,21 @@ interface PropsType {
 const props = withDefaults(defineProps<PropsType>(), {
   overflowHidden: false,
 });
+
+const slots = useSlots();
+
+const menuHasOpened = ref<boolean>(false);
+const isMenuSlot = computed(() => !!slots?.menu);
 </script>
 
 <style module lang="scss">
 .root {
+  position: relative;
   width: 100%;
   height: 100%;
   padding: 20px;
   background-color: var(--color-card);
   box-shadow: var(--shadow-card);
-  position: relative;
   border-radius: 12px;
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
@@ -43,6 +77,16 @@ const props = withDefaults(defineProps<PropsType>(), {
 .disabledTopBr {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.menu {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  svg path {
+    fill: var(--color-text);
+  }
 }
 
 @keyframes opp {

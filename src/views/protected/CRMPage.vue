@@ -24,7 +24,7 @@ import CrmRatings from '@/components/CRM/CrmRatings.vue';
 import CrmRevenueReport from '@/components/CRM/CrmRevenueReport.vue';
 import CrmSalesOverview from '@/components/CRM/CrmSalesOverview.vue';
 import CrmSessions from '@/components/CRM/CrmSessions.vue';
-import CrmTotalSessions from '@/components/CRM/CrmTotalSessions.vue';
+import CrmTotalSales from '@/components/CRM/CrmTotalSales.vue';
 import CrmTransactions from '@/components/CRM/CrmTransactions.vue';
 import CrmUpgrade from '@/components/CRM/CrmUpgrade.vue';
 import CrmWeeklySales from '@/components/CRM/CrmWeeklySales.vue';
@@ -51,7 +51,7 @@ const components = markRaw<ComponentsData[]>([
     class: 'transactions',
   }, {
     id: getRandomString(),
-    component: CrmTotalSessions,
+    component: CrmTotalSales,
     class: 'totalSales',
   }, {
     id: getRandomString(),

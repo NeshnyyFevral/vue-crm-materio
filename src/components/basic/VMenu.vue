@@ -85,9 +85,11 @@ onBeforeUnmount(() => {
   width:  var(--menu-width);
   max-height: 500px;
   border-radius: 6px;
-  border: 1px solid var(--color-border);
+  //border: 1px solid var(--color-border);
   background-color: var(--color-card);
-  box-shadow: var(--shadow-switch);
+  box-shadow: rgba(19, 17, 32, 0.2) 0px 5px 6px -3px,
+    rgba(19, 17, 32, 0.14) 0px 9px 12px 1px,
+    rgba(19, 17, 32, 0.12) 0px 3px 16px 2px;
   transform: scale(0);
   transform-origin: 0 0;
   opacity: 0;

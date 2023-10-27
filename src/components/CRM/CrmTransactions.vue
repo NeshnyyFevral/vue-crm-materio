@@ -1,5 +1,11 @@
 <template>
   <VCard>
+    <template #menu>
+      <VMenuItem name="Refresh" />
+      <VMenuItem name="Share" />
+      <VMenuItem name="Update" />
+    </template>
+
     <VOffset>
       <VTitle variant="heading6">
         Transactions
@@ -54,6 +60,7 @@ import CustomersIcon from '@/assets/icons/CRM/people.svg';
 import ProductIcon from '@/assets/icons/CRM/product.svg';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
+import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
