@@ -40,9 +40,9 @@ import VCard from '@/components/basic/VCard.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import UserMeeting from '@/components/UserMeeting.vue';
+import UserMeeting from '@/components/dashboards/UserMeeting.vue';
 import { GlobalColors } from '@/model/Colors';
-import { getRandomString } from '@/model/tools/RandomTools';
+import { getRandomId } from '@/model/tools/RandomTools';
 
 interface Meetings {
   id: string;
@@ -55,42 +55,42 @@ interface Meetings {
 
 const meetingData: Meetings[] = [
   {
-    id: getRandomString(),
+    id: getRandomId(),
     title: 'Call with Woods',
     subject: 'Business',
     color: GlobalColors.PRIMARY,
     time: '21 Jul | 08:20-10:30',
     avatar: '1.png',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     title: 'Call with hilda',
     subject: 'Meditation',
     color: GlobalColors.SUCCESS,
     time: '24 Jul | 11:30-12:00',
     avatar: '2.png',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     title: 'Conference call',
     subject: 'Dinner',
     color: GlobalColors.ERROR,
     time: '28 Jul | 05:00-6:45',
     avatar: '3.png',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     title: 'Meeting with Mark',
     subject: 'Meetup',
     color: GlobalColors.DEFAULT,
     time: '03 Aug | 07:00-8:30',
     avatar: '4.png',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     title: 'Meeting in Oakland',
     subject: 'Business',
     color: GlobalColors.PRIMARY,
     time: '14 Aug | 04:15-05:30',
     avatar: '5.png',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     title: 'Meeting with Carl',
     subject: 'Party',
     color: GlobalColors.WARNING,

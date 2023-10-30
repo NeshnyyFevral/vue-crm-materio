@@ -66,7 +66,7 @@
               </VOffset>
 
               <VText
-                :color="GlobalColorMap['500'].default"
+                :color="GlobalColorMap['400'].default"
                 variant="body2"
               >
                 {{ item.title }}
@@ -91,18 +91,18 @@ import { Chart, registerables } from 'chart.js';
 import { computed, ref } from 'vue';
 import { DoughnutChart } from 'vue-chart-3';
 
-import DollarIcon from '@/assets/icons/CRM/dollar.svg';
+import DollarIcon from '@/assets/icons/dashboards/dollar.svg';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VSplitter from '@/components/basic/VSplitter.vue';
 import VText from '@/components/basic/VText.vue';
-import StatisticIcon from '@/components/StatisticIcon.vue';
+import StatisticIcon from '@/components/dashboards/StatisticIcon.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { VTextTextAlign } from '@/model/components/basic/VText';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
 import { formatNumber } from '@/model/tools/NumberTools';
-import { getRandomString } from '@/model/tools/RandomTools';
+import { getRandomId } from '@/model/tools/RandomTools';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface HoveredString {
@@ -164,7 +164,7 @@ const gridData = computed(() => {
 
   data.labels.forEach((e, i) => {
     gD.push({
-      id: getRandomString(),
+      id: getRandomId(),
       title: e,
       color: data.datasets[0].backgroundColor[i],
       value: `$${formatNumber(`${data.datasets[0].data[i]}`)}`,

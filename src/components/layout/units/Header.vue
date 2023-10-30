@@ -83,7 +83,7 @@
               </VText>
               <VText
                 variant="body2"
-                :color="GlobalColorMap['600'].default"
+                :color="GlobalColorMap['400'].default"
               >
                 Admin
               </VText>
@@ -216,6 +216,10 @@ onBeforeMount(() => {
   transition: padding var(--transition-duration) var(--transition-timing-func),
     background-color var(--transition-duration) var(--transition-timing-func),
     width var(--transition-duration) var(--transition-timing-func);
+
+  svg path {
+    fill: var(--color-default-400)
+  }
 }
 
 .left,

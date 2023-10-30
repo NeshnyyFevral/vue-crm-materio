@@ -1,21 +1,31 @@
 <template>
   <VCard>
     <template #menu>
-      <VMenuItem name="Refresh" />
-      <VMenuItem name="Share" />
-      <VMenuItem name="Update" />
+      <VMenuItem name="Last 28 Days" />
+      <VMenuItem name="Last Month" />
+      <VMenuItem name="Last Year" />
     </template>
 
-    <VOffset>
+    <VOffset :mb="10">
       <VTitle variant="heading6">
         Transactions
       </VTitle>
     </VOffset>
 
-    <VOffset :mb="20">
-      <VText variant="body2">
-        Total Sales
-      </VText>
+    <VOffset :mb="22">
+      <VFlex>
+        <VOffset :mr="5">
+          <VText
+            variant="body2"
+            font-weight="600"
+          >
+            Total 48.5% growth
+          </VText>
+        </VOffset>
+        <VText variant="body2">
+          😎 this month
+        </VText>
+      </VFlex>
     </VOffset>
 
     <VOffset :mb="10">
@@ -41,6 +51,7 @@
 </template>
 
 <script setup lang="ts">
+import DollarIcon from '@/assets/icons/dashboards/dollar.svg';
 import SalesIcon from '@/assets/icons/dashboards/lightningUp.svg';
 import CustomersIcon from '@/assets/icons/dashboards/people.svg';
 import ProductIcon from '@/assets/icons/dashboards/product.svg';
@@ -53,7 +64,7 @@ import VTitle from '@/components/basic/VTitle.vue';
 import StatisticIcon from '@/components/dashboards/StatisticIcon.vue';
 import { GlobalColors } from '@/model/Colors';
 import { FlexJustify } from '@/model/components/basic/VFlex';
-import type { Transactions } from '@/model/dashboards/Transactions';
+import { type Transactions } from '@/model/dashboards/Transactions';
 import { getRandomId } from '@/model/tools/RandomTools';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
@@ -63,14 +74,14 @@ const hasChange = useResizeTrigger(breakpoint);
 const transactions: Transactions[] = [
   {
     id: getRandomId(),
-    title: 'Customers',
-    value: '12.5k',
+    title: 'Sales',
+    value: '245k',
     icon: SalesIcon,
     color: GlobalColors.PRIMARY,
   }, {
     id: getRandomId(),
-    title: 'Sales',
-    value: '245k',
+    title: 'Customers',
+    value: '12.5k',
     icon: CustomersIcon,
     color: GlobalColors.SUCCESS,
   }, {
@@ -79,6 +90,16 @@ const transactions: Transactions[] = [
     value: '1.54k',
     icon: ProductIcon,
     color: GlobalColors.WARNING,
+  }, {
+    id: getRandomId(),
+    title: 'Revenue',
+    value: '$88k',
+    icon: DollarIcon,
+    color: GlobalColors.INFO,
   },
 ];
 </script>
+
+<style module lang="scss">
+.root {}
+</style>

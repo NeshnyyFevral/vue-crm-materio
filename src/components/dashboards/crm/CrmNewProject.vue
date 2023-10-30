@@ -38,13 +38,13 @@
 </template>
 
 <script setup lang="ts">
-import ChestIcon from '@/assets/icons/CRM/chest.svg';
+import ChestIcon from '@/assets/icons/dashboards/CRM/chest.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VCard from '@/components/basic/VCard.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
-import StatisticBase from '@/components/StatisticBase.vue';
+import StatisticBase from '@/components/dashboards/StatisticBase.vue';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
 </script>
 

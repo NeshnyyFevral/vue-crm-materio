@@ -37,7 +37,7 @@ import VCard from '@/components/basic/VCard.vue';
 import VChip from '@/components/basic/VChip.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
-import StatisticBase from '@/components/StatisticBase.vue';
+import StatisticBase from '@/components/dashboards/StatisticBase.vue';
 import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 </script>
 

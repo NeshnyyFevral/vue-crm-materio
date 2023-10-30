@@ -33,7 +33,7 @@ import VCard from '@/components/basic/VCard.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import TotalSalesChart from '@/components/TotalSalesChart.vue';
+import TotalSalesChart from '@/components/dashboards/TotalSalesChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { VTextTextAlign } from '@/model/components/basic/VText';
 import { getRandom } from '@/model/tools/RandomTools';

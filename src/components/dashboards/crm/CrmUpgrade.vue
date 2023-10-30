@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import ArrowRight from '@/assets/icons/CRM/arrowRight.svg';
+import ArrowRight from '@/assets/icons/dashboards/CRM/arrowRight.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
@@ -117,9 +117,9 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import CardCVC from '@/components/CardCVC.vue';
+import CardCVC from '@/components/dashboards/CardCVC.vue';
+import UpgradePlan from '@/components/dashboards/UpgradePlan.vue';
 import VTextField from '@/components/form/VTextField.vue';
-import UpgradePlan from '@/components/UpgradePlan.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { ButtonSize } from '@/model/components/basic/VButton';
 import { FlexAlign } from '@/model/components/basic/VFlex';

@@ -50,23 +50,9 @@ const colorStatistic = computed(
 </script>
 
 <style module lang="scss">
-@import "@/scss/mixins/typography";
-
 .root {
-  --statistic-color: v-bind(colorStatistic);
-
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-}
-
-.value {
-  @include heading5;
-}
-
-.modify {
-  @include caption;
-
-  color: var(--statistic-color);
 }
 </style>

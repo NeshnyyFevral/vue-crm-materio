@@ -32,7 +32,7 @@ export default [
         icon: DashboardsIcon,
         list: [
           { title: 'CRM', route: { name: Routes.CRM } },
-          { title: 'Analytics', route: Routes.ANALYTICS },
+          { title: 'Analytics', route: { name: Routes.ANALYTICS } },
           /* { title: 'eCommerce', route: {} }, */
         ],
       },

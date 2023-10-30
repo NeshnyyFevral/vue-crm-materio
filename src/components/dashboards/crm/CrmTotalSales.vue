@@ -17,7 +17,7 @@
 
     <VOffset :mb="20">
       <VTitle
-        :color="GlobalColorMap['500'].default"
+        :color="GlobalColorMap['400'].default"
         variant="heading6"
       >
         $21,845
@@ -44,7 +44,7 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import TotalSalesChart from '@/components/TotalSalesChart.vue';
+import TotalSalesChart from '@/components/dashboards/TotalSalesChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { getRandom } from '@/model/tools/RandomTools';
 

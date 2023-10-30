@@ -14,7 +14,7 @@
     <VFlex :direction="!props.reverse ? FlexDirection.COLUMN : FlexDirection.COLUMN_REVERSE">
       <VOffset :mb="5">
         <VText
-          :color="getColorValue(GlobalColors.DEFAULT, '500')"
+          :color="GlobalColorMap['400'].default"
           variant="caption"
         >
           {{ props.title }}

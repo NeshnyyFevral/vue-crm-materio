@@ -24,7 +24,7 @@
           </VOffset>
           <VText
             variant="caption"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             {{ props.time }}
           </VText>
@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import CalendarIcon from '@/assets/icons/CRM/calendar.svg';
+import CalendarIcon from '@/assets/icons/dashboards/CRM/calendar.svg';
 import VChip from '@/components/basic/VChip.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';

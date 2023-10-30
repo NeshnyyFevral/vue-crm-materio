@@ -14,7 +14,7 @@
       >
         <VText
           variant="body2"
-          :color="GlobalColorMap['500'].default"
+          :color="GlobalColorMap['400'].default"
         >
           Invoices have been paid to the company.
         </VText>
@@ -30,7 +30,7 @@
             <VText
               variant="caption"
               font-weight="600"
-              :color="GlobalColorMap['500'].default"
+              :color="GlobalColorMap['400'].default"
             >
               bookingCard.pdf
             </VText>
@@ -44,7 +44,7 @@
       >
         <VText
           variant="body2"
-          :color="GlobalColorMap['500'].default"
+          :color="GlobalColorMap['400'].default"
         >
           Invoices have been paid to the company.
         </VText>
@@ -74,7 +74,7 @@
       >
         <VText
           variant="body2"
-          :color="GlobalColorMap['500'].default"
+          :color="GlobalColorMap['400'].default"
         >
           Invoices have been paid to the company.
         </VText>

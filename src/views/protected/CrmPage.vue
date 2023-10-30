@@ -28,7 +28,7 @@ import CrmTotalSales from '@/components/dashboards/crm/CrmTotalSales.vue';
 import CrmTransactions from '@/components/dashboards/crm/CrmTransactions.vue';
 import CrmUpgrade from '@/components/dashboards/crm/CrmUpgrade.vue';
 import CrmWeeklySales from '@/components/dashboards/crm/CrmWeeklySales.vue';
-import { getRandomString } from '@/model/tools/RandomTools';
+import { getRandomId } from '@/model/tools/RandomTools';
 
 interface ComponentsData {
   id: string;
@@ -38,51 +38,51 @@ interface ComponentsData {
 
 const components = markRaw<ComponentsData[]>([
   {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmRatings,
     class: 'stats',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmSessions,
     class: 'stats',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmTransactions,
     class: 'transactions',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmTotalSales,
     class: 'totalSales',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmRevenueReport,
     class: 'revenueReport',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmSalesOverview,
     class: 'salesOverview',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmActivityTimeline,
     class: 'activity',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmWeeklySales,
     class: 'weeklySales',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmJoinGrowthAndProject,
     class: 'joinGrowthProject',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmUpgrade,
     class: 'upgrade',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmMeeting,
     class: 'meeting',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     component: CrmPlains,
     class: 'plains',
   },

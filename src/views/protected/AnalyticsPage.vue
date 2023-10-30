@@ -17,7 +17,9 @@ import { type Component, markRaw } from 'vue';
 
 import VOffset from '@/components/basic/VOffset.vue';
 import AnalyticsCongratulations from '@/components/dashboards/analytics/AnalyticsCongratulations.vue';
-import { getRandomString } from '@/model/tools/RandomTools';
+import AnalyticsTransactions from '@/components/dashboards/analytics/AnalyticsTransactions.vue';
+import AnalyticsWeeklyOverview from '@/components/dashboards/analytics/AnalyticsWeeklyOverview.vue';
+import { getRandomId } from '@/model/tools/RandomTools';
 
 interface ComponentsData {
   id: string;
@@ -27,9 +29,17 @@ interface ComponentsData {
 
 const components = markRaw<ComponentsData[]>([
   {
-    id: getRandomString(),
+    id: getRandomId(),
     component: AnalyticsCongratulations,
-    class: 'stats',
+    class: 'congratulations',
+  }, {
+    id: getRandomId(),
+    component: AnalyticsTransactions,
+    class: 'transactions',
+  }, {
+    id: getRandomId(),
+    component: AnalyticsWeeklyOverview,
+    class: 'weekly',
   },
 ]);
 </script>
@@ -44,18 +54,13 @@ $offsetCard: 60px;
   align-items: flex-end;
 }
 
-.stats {
-  width: 25%;
-  display: flex;
-  height: 80%;
-
-  @media screen and (max-width: 1100px) {
-    width: calc(50% - 20px);
-  }
-
-  @media screen and (max-width: 550px) {
-    width: 100%;
-    height: auto;
-  }
+.congratulations,
+.weekly {
+  width: 33%;
 }
+
+.transactions {
+  width: calc(67% - $offsetCard);
+}
+
 </style>

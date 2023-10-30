@@ -54,6 +54,8 @@ const maxHeight = computed(() => props.maxHeight);
   --min-height: v-bind(minHeight);
   --max-height: v-bind(maxHeight);
 
+  line-height: 0.7;
+
   margin: var(--margin-top)
     var(--margin-right)
     var(--margin-bottom)

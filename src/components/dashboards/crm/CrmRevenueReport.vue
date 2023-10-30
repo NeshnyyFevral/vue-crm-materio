@@ -26,5 +26,5 @@ import VCard from '@/components/basic/VCard.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
-import RevenueReport from '@/components/RevenueReport.vue';
+import RevenueReport from '@/components/dashboards/RevenueReport.vue';
 </script>

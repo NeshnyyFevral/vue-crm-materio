@@ -98,22 +98,22 @@
 </template>
 
 <script setup lang="ts">
-import ClockIcon from '@/assets/icons/CRM/clock.svg';
-import PeopleIcon from '@/assets/icons/CRM/people.svg';
-import PlaceIcon from '@/assets/icons/CRM/place.svg';
-import StarIcon from '@/assets/icons/CRM/star.svg';
-import SuccessIcon from '@/assets/icons/CRM/success.svg';
+import ClockIcon from '@/assets/icons/dashboards/CRM/clock.svg';
+import PlaceIcon from '@/assets/icons/dashboards/CRM/place.svg';
+import StarIcon from '@/assets/icons/dashboards/CRM/star.svg';
+import SuccessIcon from '@/assets/icons/dashboards/CRM/success.svg';
+import PeopleIcon from '@/assets/icons/dashboards/people.svg';
 import MoreIcon from '@/assets/icons/more.svg';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VSplitter from '@/components/basic/VSplitter.vue';
 import VText from '@/components/basic/VText.vue';
-import CalendarItem from '@/components/CalendarItem.vue';
-import IconStatus from '@/components/IconStatus.vue';
+import CalendarItem from '@/components/dashboards/CalendarItem.vue';
+import IconStatus from '@/components/dashboards/IconStatus.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
-import { getRandomString } from '@/model/tools/RandomTools';
+import { getRandomId } from '@/model/tools/RandomTools';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface Statuses {
@@ -134,22 +134,22 @@ const breakpoint = 370;
 
 const plainsStatuses: Statuses[] = [
   {
-    id: getRandomString(),
+    id: getRandomId(),
     icon: StarIcon,
     title: 'Interested',
     active: false,
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     icon: SuccessIcon,
     title: 'Joined',
     active: false,
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     icon: PeopleIcon,
     title: 'Invited',
     active: true,
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     icon: MoreIcon,
     title: 'More',
     active: false,
@@ -158,12 +158,12 @@ const plainsStatuses: Statuses[] = [
 
 const descriptions: Descriptions[] = [
   {
-    id: getRandomString(),
+    id: getRandomId(),
     icon: ClockIcon,
     primary: 'Tuesday, 24 january, 10:20 - 12:30',
     secondary: 'After 1 Week',
   }, {
-    id: getRandomString(),
+    id: getRandomId(),
     icon: PlaceIcon,
     primary: 'The Rochard NYC',
     secondary: '1305 Lexington Ave, New York',
