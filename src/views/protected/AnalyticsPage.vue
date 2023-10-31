@@ -17,6 +17,7 @@ import { type Component, markRaw } from 'vue';
 
 import VOffset from '@/components/basic/VOffset.vue';
 import AnalyticsCongratulations from '@/components/dashboards/analytics/AnalyticsCongratulations.vue';
+import AnalyticsTotalEarning from '@/components/dashboards/analytics/AnalyticsTotalEarning.vue';
 import AnalyticsTransactions from '@/components/dashboards/analytics/AnalyticsTransactions.vue';
 import AnalyticsWeeklyOverview from '@/components/dashboards/analytics/AnalyticsWeeklyOverview.vue';
 import { getRandomId } from '@/model/tools/RandomTools';
@@ -40,6 +41,10 @@ const components = markRaw<ComponentsData[]>([
     id: getRandomId(),
     component: AnalyticsWeeklyOverview,
     class: 'weekly',
+  }, {
+    id: getRandomId(),
+    component: AnalyticsTotalEarning,
+    class: 'earning',
   },
 ]);
 </script>
@@ -61,6 +66,10 @@ $offsetCard: 60px;
 
 .transactions {
   width: calc(67% - $offsetCard);
+}
+
+.earning {
+  width: calc(33%);
 }
 
 </style>

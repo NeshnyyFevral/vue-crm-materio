@@ -43,6 +43,7 @@ import VTitle from '@/components/basic/VTitle.vue';
 import UserMeeting from '@/components/dashboards/UserMeeting.vue';
 import { GlobalColors } from '@/model/Colors';
 import { getRandomId } from '@/model/tools/RandomTools';
+import { getImageUrl } from '@/model/tools/UrlTools';
 
 interface Meetings {
   id: string;
@@ -98,11 +99,6 @@ const meetingData: Meetings[] = [
     avatar: '6.png',
   },
 ];
-
-function getImageUrl(path: string) {
-  const baseUrl = new URL(import.meta.url);
-  return new URL(path, baseUrl).href;
-}
 </script>
 
 <style module lang="scss">

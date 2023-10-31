@@ -11,11 +11,20 @@
       </VOffset>
 
       <VOffset :mb="5">
-        <StatisticBase
-          :type="StatisticBasicType.DOWN"
-          :modify="22"
-        >
-          24.5k
+        <StatisticBase :type="StatisticBasicType.DOWN">
+          <template #value>
+            <VTitle variant="heading6">
+              24.5k
+            </VTitle>
+          </template>
+          <template #suffix="{ prefix, color }">
+            <VText
+              :color="color"
+              variant="caption"
+            >
+              {{ prefix }}22%
+            </VText>
+          </template>
         </StatisticBase>
       </VOffset>
 
@@ -41,6 +50,7 @@ import VCard from '@/components/basic/VCard.vue';
 import VChip from '@/components/basic/VChip.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
+import VTitle from '@/components/basic/VTitle.vue';
 import StatisticBase from '@/components/dashboards/StatisticBase.vue';
 import { GlobalColors } from '@/model/Colors';
 import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';

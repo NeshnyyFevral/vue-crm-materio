@@ -135,7 +135,6 @@ import {
 import { useRouter } from 'vue-router';
 
 import NotifyIcon from '@/assets/icons/header/notification.svg';
-import SearchIcon from '@/assets/icons/header/search.svg';
 import ChatIcon from '@/assets/icons/menu/chat.svg';
 import FAQIcon from '@/assets/icons/menu/faq.svg';
 import InboxIcon from '@/assets/icons/menu/inbox.svg';
@@ -173,7 +172,6 @@ interface EmitsType {
   (e: 'switchSidebar'): void;
 }
 
-const router = useRouter();
 const themeStore = useThemeStore();
 
 const props = defineProps<PropsType>();

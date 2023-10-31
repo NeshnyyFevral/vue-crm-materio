@@ -25,7 +25,7 @@ import {
 } from 'vue';
 
 import { MenuPosition } from '@/model/components/basic/VMenu';
-import { initClickOutside } from '@/model/tools/ClickOutside';
+import { initClickOutside } from '@/model/tools/ClickOutsideTools';
 
 interface PropsType {
   modelValue: boolean;

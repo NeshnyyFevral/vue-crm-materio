@@ -1,45 +1,47 @@
 <template>
-  <div :class="$style.root">
-    <VTitle :variant="props.variant">
-      <slot />
-    </VTitle>
-    <VText
-      :color="colorStatistic"
-      variant="caption"
+  <VFlex
+    :align="flexAlign"
+    :class="$style.root"
+  >
+    <slot name="value" />
+    <VOffset
+      v-if="props.icon"
+      :class="[
+        $style.arrow,
+        type === StatisticBasicType.DOWN && $style.reverse,
+      ]"
     >
-      {{ displayModify }}
-    </VText>
-  </div>
+      <component :is="props.icon" />
+    </VOffset>
+    <slot
+      name="suffix"
+      :prefix="prefix"
+      :color="colorStatistic"
+    />
+  </VFlex>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import VText from '@/components/basic/VText.vue';
-import VTitle from '@/components/basic/VTitle.vue';
+import VFlex from '@/components/basic/VFlex.vue';
+import VOffset from '@/components/basic/VOffset.vue';
 import { GlobalColorMap } from '@/model/Colors';
-import type { TitleVariant } from '@/model/components/basic/VTitle';
+import { FlexAlign } from '@/model/components/basic/VFlex';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
 
 interface PropsType {
-  modify?: number;
   type?: StatisticBasicType;
-  suffix?: string;
-  variant?: TitleVariant;
+  icon?: any;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
-  modify: 0,
   type: StatisticBasicType.UP,
-  suffix: '%',
-  variant: 'heading5',
+  icon: undefined,
 });
 
-const displayModify = computed<string>(() => {
-  const prefix = props.type === StatisticBasicType.UP ? '+' : '-';
-
-  return prefix + props.modify + props.suffix;
-});
+const flexAlign = computed(() => (props.icon ? FlexAlign.CENTER : FlexAlign.START));
+const prefix = computed(() => (props.type === StatisticBasicType.UP ? '+' : '-'));
 
 const colorStatistic = computed(
   () => (props.type === StatisticBasicType.UP
@@ -51,8 +53,23 @@ const colorStatistic = computed(
 
 <style module lang="scss">
 .root {
-  display: flex;
-  align-items: flex-start;
+  --color-statistic: v-bind(colorStatistic);
+
   flex-wrap: wrap;
+}
+
+.arrow {
+  svg {
+    width: 30px;
+    height: 30px;
+
+    path {
+      fill: var(--color-statistic);
+    }
+  }
+
+  &.reverse {
+    transform: rotateX(180deg);
+  }
 }
 </style>
