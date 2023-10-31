@@ -53,8 +53,15 @@ $height: 5px;
 
 .front {
   background-color: var(--color-front-progress);
-  width: var(--width-progress);
   height: $height;
+  width: var(--width-progress);
   z-index: 3;
+  animation: load var(--transition-duration) var(--transition-timing-func);
+}
+
+@keyframes load {
+  from {
+    width: 0;
+  }
 }
 </style>
