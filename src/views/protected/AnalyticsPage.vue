@@ -19,6 +19,7 @@ import VOffset from '@/components/basic/VOffset.vue';
 import AnalyticsCongratulations from '@/components/dashboards/analytics/AnalyticsCongratulations.vue';
 import AnalyticsJoinProfProj from '@/components/dashboards/analytics/AnalyticsJoinProfProj.vue';
 import AnalyticsJoinProfSess from '@/components/dashboards/analytics/AnalyticsJoinProfSess.vue';
+import AnalyticsPerformance from '@/components/dashboards/analytics/AnalyticsPerformance.vue';
 import AnalyticsTotalEarning from '@/components/dashboards/analytics/AnalyticsTotalEarning.vue';
 import AnalyticsTransactions from '@/components/dashboards/analytics/AnalyticsTransactions.vue';
 import AnalyticsWeeklyOverview from '@/components/dashboards/analytics/AnalyticsWeeklyOverview.vue';
@@ -55,6 +56,10 @@ const components = markRaw<ComponentsData[]>([
     id: getRandomId(),
     component: AnalyticsJoinProfSess,
     class: 'join',
+  }, {
+    id: getRandomId(),
+    component: AnalyticsPerformance,
+    class: 'performance',
   },
 ]);
 </script>
@@ -70,7 +75,8 @@ $offsetCard: 60px;
 }
 
 .congratulations,
-.weekly {
+.weekly,
+.performance {
   width: 33%;
 }
 
