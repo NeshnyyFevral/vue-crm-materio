@@ -106,7 +106,7 @@ const options = ref({
         display: false,
       },
       ticks: {
-        callback(value: any) {
+        callback() {
           return '';
         },
       },

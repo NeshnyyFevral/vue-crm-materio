@@ -1,51 +1,44 @@
 <template>
   <VCard>
-    <template #menu>
-      <VMenuItem name="Last 28 Days" />
-      <VMenuItem name="Last Month" />
-      <VMenuItem name="Last Year" />
-    </template>
-
     <VOffset>
-      <VText
-        font-weight="600"
-        variant="subtitle1"
-      >
-        Total Sales
-      </VText>
-    </VOffset>
-
-    <VOffset :mb="20">
-      <VTitle
-        :color="GlobalColorMap['400'].default"
-        variant="heading6"
-      >
-        $21,845
+      <VTitle variant="heading6">
+        $86.4k
       </VTitle>
-    </VOffset>
 
-    <VOffset
-      :mt="-40"
-      :ml="-15"
-    >
-      <TotalSalesChart
-        :options="options"
-        :data="data"
-      />
+      <VOffset
+        :ml="-27"
+        :mt="-30"
+      >
+        <TotalSalesChart
+          :options="options"
+          :data="data"
+          :height="300"
+        />
+      </VOffset>
+
+      <VOffset :mt="-20">
+        <VText
+          font-weight="600"
+          variant="body2"
+          :align="VTextTextAlign.CENTER"
+        >
+          Total Profit
+        </VText>
+      </VOffset>
     </VOffset>
   </VCard>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 
 import VCard from '@/components/basic/VCard.vue';
-import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import TotalSalesChart from '@/components/dashboards/TotalSalesChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
+import { VTextTextAlign } from '@/model/components/basic/VText';
 import { getRandom } from '@/model/tools/RandomTools';
 
 const options = ref({
@@ -79,8 +72,6 @@ const options = ref({
       grid: {
         display: false,
       },
-      suggestedMin: -20000,
-      suggestedMax: 20000,
       ticks: {
         callback() {
           return '';
@@ -96,34 +87,29 @@ const randomData = (num: number) => {
   for (let i = 0; i < num; i += 1) {
     cur = arr[i - 1] ?? 0;
     if (Math.floor(Math.random() * (1 + 1))) {
-      arr[i] = cur + getRandom(500, 5000);
+      arr[i] = cur + getRandom(2500, 5000);
     } else {
-      arr[i] = cur - getRandom(500, 5000);
+      arr[i] = cur - getRandom(1000, 2000);
     }
   }
   return arr;
 };
 
+const COUNT_LABELS = 20;
+const labels = computed(() => Array(COUNT_LABELS).fill(''));
+
 const data = {
-  labels: [
-    'Jan', '', '',
-    'Feb', '', '',
-    'Mar', '', '',
-    'Apr', '', '',
-    'May', '', '',
-    'Jun', '', '',
-    'Jul', '', '',
-    'Aug', '', '',
-    'Sep', '', '',
-    'Oct', '', '',
-  ],
+  labels: labels.value,
   datasets: [
     {
       data: randomData(8 * 5),
-      borderColor: GlobalColorMap['700'].success,
-      backgroundColor: GlobalColorMap['700'].success,
-      tension: 0.6,
+      borderColor: GlobalColorMap['700'].primary,
+      backgroundColor: GlobalColorMap['700'].primary,
     },
   ],
 };
 </script>
+
+<style module lang="scss">
+.root {}
+</style>

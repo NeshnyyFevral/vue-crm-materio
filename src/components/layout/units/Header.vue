@@ -216,7 +216,7 @@ onBeforeMount(() => {
     width var(--transition-duration) var(--transition-timing-func);
 
   svg path {
-    fill: var(--color-default-400)
+    fill: var(--color-default-600)
   }
 }
 

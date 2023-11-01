@@ -16,17 +16,27 @@
       width="100%"
       :mt="20"
     >
-      <CrmNewProject />
+      <DashboardCardInfoV1
+        title="New Project"
+        :icon="ChestIcon"
+        suffix="18%"
+        :type="StatisticBasicType.DOWN"
+        value="862"
+        desc="Yearly Project"
+        :menu-items="['Refresh', 'Share', 'Update']"
+      />
     </VOffset>
   </VFlex>
 </template>
 
 <script setup lang="ts">
+import ChestIcon from '@/assets/icons/dashboards/CRM/chest.svg';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
-import CrmNewProject from '@/components/dashboards/crm/CrmNewProject.vue';
 import CrmTotalGrowth from '@/components/dashboards/crm/CrmTotalGrowth.vue';
+import DashboardCardInfoV1 from '@/components/dashboards/DashboardCardInfoV1.vue';
 import { FlexAlign, FlexDirection } from '@/model/components/basic/VFlex';
+import { StatisticBasicType } from '@/model/components/StatisticBasic';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 const breakpoint = 550;

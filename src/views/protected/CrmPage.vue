@@ -17,7 +17,7 @@ import { type Component, markRaw } from 'vue';
 
 import VOffset from '@/components/basic/VOffset.vue';
 import CrmActivityTimeline from '@/components/dashboards/crm/CrmActivityTimeline.vue';
-import CrmJoinGrowthAndProject from '@/components/dashboards/crm/CrmJoinGrowthAndProject.vue';
+import CrmJoinGrowthProj from '@/components/dashboards/crm/CrmJoinGrowthProj.vue';
 import CrmMeeting from '@/components/dashboards/crm/CrmMeeting.vue';
 import CrmPlains from '@/components/dashboards/crm/CrmPlains.vue';
 import CrmRatings from '@/components/dashboards/crm/CrmRatings.vue';
@@ -71,7 +71,7 @@ const components = markRaw<ComponentsData[]>([
     class: 'weeklySales',
   }, {
     id: getRandomId(),
-    component: CrmJoinGrowthAndProject,
+    component: CrmJoinGrowthProj,
     class: 'joinGrowthProject',
   }, {
     id: getRandomId(),

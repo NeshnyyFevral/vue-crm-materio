@@ -5,11 +5,14 @@
         42.5k
       </VTitle>
 
-      <VOffset :ml="-27">
+      <VOffset
+        :ml="-27"
+        :mt="-30"
+      >
         <TotalSalesChart
           :options="options"
           :data="data"
-          :height="175"
+          :height="300"
         />
       </VOffset>
 
@@ -70,7 +73,7 @@ const options = ref({
         display: false,
       },
       ticks: {
-        callback(value: any) {
+        callback() {
           return '';
         },
       },
@@ -84,9 +87,9 @@ const randomData = (num: number) => {
   for (let i = 0; i < num; i += 1) {
     cur = arr[i - 1] ?? 0;
     if (Math.floor(Math.random() * (1 + 1))) {
-      arr[i] = cur + getRandom(1, 5000);
+      arr[i] = cur + getRandom(2500, 5000);
     } else {
-      arr[i] = cur - getRandom(1, 5000);
+      arr[i] = cur - getRandom(1000, 2000);
     }
   }
   return arr;

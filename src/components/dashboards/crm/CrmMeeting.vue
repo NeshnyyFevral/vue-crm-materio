@@ -25,7 +25,7 @@
       >
         <VAvatar>
           <img
-            :src="getImageUrl(`../../../assets/images/CRM/meetings/${meeting.avatar}`)"
+            :src="getImageUrl(`../../assets/images/CRM/meetings/${meeting.avatar}`)"
             :alt="`avatar-${meeting.avatar}`"
           >
         </VAvatar>
