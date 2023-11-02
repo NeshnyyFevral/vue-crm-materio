@@ -4,10 +4,7 @@
     :justify-content="FlexJustify.SPACE_BETWEEN"
     :direction-change-trigger="breakpoint"
   >
-    <VFlex
-      :align="FlexAlign.CENTER"
-      :class="$style.root"
-    >
+    <VFlex :align="FlexAlign.CENTER">
       <VOffset
         :mt="5"
         :mr="10"
@@ -95,8 +92,6 @@ const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">
-.root {}
-
 .image img {
   width: 42px;
   height: 30px;

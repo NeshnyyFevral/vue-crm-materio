@@ -48,7 +48,7 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import TransactionItem from '@/components/dashboards/TransactionItem.vue';
+import TransactionItem from '@/components/dashboards/analytics/units/TransactionItem.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import type { TransactionDepositWithdraw } from '@/model/dashboards/Transactions';

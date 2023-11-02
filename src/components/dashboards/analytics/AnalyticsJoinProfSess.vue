@@ -2,7 +2,6 @@
   <VFlex
     :direction="FlexDirection.COLUMN"
     :align="FlexAlign.CENTER"
-    :class="$style.root"
   >
     <VOffset
       :height="hasChange ? 'auto' : `${390 / 2 - 20}px`"
@@ -44,7 +43,3 @@ import { useResizeTrigger } from '@/model/tools/ResizeTools';
 const breakpoint = 550;
 const hasChange = useResizeTrigger(breakpoint);
 </script>
-
-<style module lang="scss">
-.root {}
-</style>

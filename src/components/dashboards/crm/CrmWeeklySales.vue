@@ -24,7 +24,7 @@
       </VOffset>
 
       <VOffset :mb="25">
-        <WeeklySalesChart
+        <BarChart
           :options="options"
           :data="data"
         />
@@ -70,8 +70,8 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
+import BarChart from '@/components/dashboards/BarChart.vue';
 import StatisticIcon from '@/components/dashboards/StatisticIcon.vue';
-import WeeklySalesChart from '@/components/dashboards/WeeklySalesChart.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { FlexJustify } from '@/model/components/basic/VFlex';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';

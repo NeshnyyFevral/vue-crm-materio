@@ -71,8 +71,8 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
+import TotalEarning from '@/components/dashboards/analytics/units/TotalEarning.vue';
 import StatisticBase from '@/components/dashboards/StatisticBase.vue';
-import TotalEarning from '@/components/dashboards/TotalEarning.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { getRandomId } from '@/model/tools/RandomTools';
 import { getImageUrl } from '@/model/tools/UrlTools';
@@ -115,7 +115,3 @@ const earningData: Earning[] = [
   },
 ];
 </script>
-
-<style scoped lang="scss">
-.root {}
-</style>

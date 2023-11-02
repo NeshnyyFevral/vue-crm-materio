@@ -13,7 +13,7 @@
     </VOffset>
 
     <VOffset :mb="20">
-      <WeeklySalesChart
+      <BarChart
         :options="options"
         :data="data"
       />
@@ -59,7 +59,7 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import WeeklySalesChart from '@/components/dashboards/WeeklySalesChart.vue';
+import BarChart from '@/components/dashboards/BarChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import { getRandom } from '@/model/tools/RandomTools';
@@ -132,7 +132,3 @@ const data = {
   ],
 };
 </script>
-
-<style module lang="scss">
-
-</style>

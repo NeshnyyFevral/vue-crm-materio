@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <VOffset>
     <VOffset :class="$style.image">
       <img
         src="../../../assets/images/CRM/workstation.png"
@@ -94,7 +94,7 @@
         </VOffset>
       </VOffset>
     </VCard>
-  </div>
+  </VOffset>
 </template>
 
 <script setup lang="ts">
@@ -109,8 +109,8 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VSplitter from '@/components/basic/VSplitter.vue';
 import VText from '@/components/basic/VText.vue';
-import CalendarItem from '@/components/dashboards/CalendarItem.vue';
-import IconStatus from '@/components/dashboards/IconStatus.vue';
+import CalendarItem from '@/components/dashboards/crm/units/CalendarItem.vue';
+import IconStatus from '@/components/dashboards/crm/units/IconStatus.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getRandomId } from '@/model/tools/RandomTools';
@@ -172,8 +172,6 @@ const descriptions: Descriptions[] = [
 </script>
 
 <style module lang="scss">
-.root {}
-
 .image {
   width: 100%;
   height: auto;

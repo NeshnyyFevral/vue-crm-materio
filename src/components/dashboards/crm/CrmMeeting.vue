@@ -40,7 +40,7 @@ import VCard from '@/components/basic/VCard.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import UserMeeting from '@/components/dashboards/UserMeeting.vue';
+import UserMeeting from '@/components/dashboards/crm/units/UserMeeting.vue';
 import { GlobalColors } from '@/model/Colors';
 import { getRandomId } from '@/model/tools/RandomTools';
 import { getImageUrl } from '@/model/tools/UrlTools';
@@ -100,7 +100,3 @@ const meetingData: Meetings[] = [
   },
 ];
 </script>
-
-<style module lang="scss">
-// f
-</style>

@@ -1,11 +1,9 @@
 <template>
-  <div :class="$style.root">
-    <BarChart
-      :chart-data="props.data"
-      :options="props.options"
-      :height="175"
-    />
-  </div>
+  <BarChart
+    :chart-data="props.data"
+    :options="props.options"
+    :height="175"
+  />
 </template>
 
 <script setup lang="ts">
@@ -21,7 +19,3 @@ interface PropsType {
 
 const props = defineProps<PropsType>();
 </script>
-
-<style module lang="scss">
-.root {}
-</style>

@@ -1,7 +1,6 @@
 <template>
   <VFlex
     :justify-content="FlexJustify.SPACE_AROUND"
-    :class="$style.root"
     :align="FlexAlign.CENTER"
     :direction-change-trigger="breakpoint"
   >
@@ -197,8 +196,6 @@ const beforeEvent = (chart: any, event: any) => {
 </script>
 
 <style module lang="scss">
-.root {}
-
 .chart {
   position: relative;
 }

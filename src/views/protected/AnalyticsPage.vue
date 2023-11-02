@@ -21,6 +21,7 @@ import AnalyticsDepositWithdraw from '@/components/dashboards/analytics/Analytic
 import AnalyticsJoinProfProj from '@/components/dashboards/analytics/AnalyticsJoinProfProj.vue';
 import AnalyticsJoinProfSess from '@/components/dashboards/analytics/AnalyticsJoinProfSess.vue';
 import AnalyticsPerformance from '@/components/dashboards/analytics/AnalyticsPerformance.vue';
+import AnalyticsSalesByCounries from '@/components/dashboards/analytics/AnalyticsSalesByCounries.vue';
 import AnalyticsTotalEarning from '@/components/dashboards/analytics/AnalyticsTotalEarning.vue';
 import AnalyticsTransactions from '@/components/dashboards/analytics/AnalyticsTransactions.vue';
 import AnalyticsWeeklyOverview from '@/components/dashboards/analytics/AnalyticsWeeklyOverview.vue';
@@ -64,6 +65,10 @@ const components = markRaw<ComponentsData[]>([{
   id: getRandomId(),
   component: AnalyticsDepositWithdraw,
   class: 'depositWithdraw',
+}, {
+  id: getRandomId(),
+  component: AnalyticsSalesByCounries,
+  class: 'salesByCountries',
 },
 ]);
 </script>
@@ -80,7 +85,8 @@ $offsetCard: 60px;
 
 .congratulations,
 .weekly,
-.performance {
+.performance,
+.salesByCountries {
   width: 33%;
 }
 

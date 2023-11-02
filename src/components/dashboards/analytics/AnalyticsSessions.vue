@@ -1,5 +1,5 @@
 <template>
-  <VCard :class="$style.root">
+  <VCard>
     <VOffset :mb="10">
       <VTitle variant="heading6">
         2,856
@@ -91,7 +91,3 @@ onBeforeMount(() => {
   generateSessionData();
 });
 </script>
-
-<style module lang="scss">
-.root {}
-</style>

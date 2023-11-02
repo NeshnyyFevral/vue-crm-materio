@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <LineChart
-      :chart-data="props.data"
-      :options="props.options"
-      :height="height"
-    />
-  </div>
+  <LineChart
+    :chart-data="props.data"
+    :options="props.options"
+    :height="height"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -22,7 +20,3 @@ interface PropsType {
 
 const props = defineProps<PropsType>();
 </script>
-
-<style lang="scss">
-// f
-</style>

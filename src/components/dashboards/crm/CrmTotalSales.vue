@@ -28,7 +28,7 @@
       :mt="-40"
       :ml="-15"
     >
-      <TotalSalesChart
+      <LineChart
         :options="options"
         :data="data"
       />
@@ -44,7 +44,7 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import TotalSalesChart from '@/components/dashboards/TotalSalesChart.vue';
+import LineChart from '@/components/dashboards/LineChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { getRandom } from '@/model/tools/RandomTools';
 

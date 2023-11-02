@@ -26,5 +26,5 @@ import VCard from '@/components/basic/VCard.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
-import SalesOverviewDoughnut from '@/components/dashboards/SalesOverviewDoughnut.vue';
+import SalesOverviewDoughnut from '@/components/dashboards/crm/units/SalesOverviewDoughnut.vue';
 </script>

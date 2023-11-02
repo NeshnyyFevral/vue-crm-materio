@@ -117,8 +117,8 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import CardCVC from '@/components/dashboards/CardCVC.vue';
-import UpgradePlan from '@/components/dashboards/UpgradePlan.vue';
+import CardCVC from '@/components/dashboards/crm/units/CardCVC.vue';
+import UpgradePlan from '@/components/dashboards/crm/units/UpgradePlan.vue';
 import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { ButtonSize } from '@/model/components/basic/VButton';
@@ -128,5 +128,3 @@ const creditCard1 = ref<string>('');
 const creditCard2 = ref<string>('');
 const email = ref<string>('');
 </script>
-
-<style module lang="scss"></style>

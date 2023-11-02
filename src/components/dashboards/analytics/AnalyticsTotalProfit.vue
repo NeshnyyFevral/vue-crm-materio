@@ -9,7 +9,7 @@
         :ml="-27"
         :mt="-30"
       >
-        <TotalSalesChart
+        <LineChart
           :options="options"
           :data="data"
           :height="300"
@@ -36,7 +36,7 @@ import VCard from '@/components/basic/VCard.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
-import TotalSalesChart from '@/components/dashboards/TotalSalesChart.vue';
+import LineChart from '@/components/dashboards/LineChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { VTextTextAlign } from '@/model/components/basic/VText';
 import { getRandom } from '@/model/tools/RandomTools';
@@ -109,7 +109,3 @@ const data = {
   ],
 };
 </script>
-
-<style module lang="scss">
-.root {}
-</style>

@@ -79,12 +79,9 @@ const color = computed(() => (props.type === StatisticBasicType.UP
 </script>
 
 <style module lang="scss">
-.root {
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-
-  }
+.root img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 </style>

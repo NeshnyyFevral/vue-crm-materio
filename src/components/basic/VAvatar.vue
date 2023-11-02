@@ -49,7 +49,11 @@ const letterFormatting = computed<string>(() => {
   const { length } = name;
 
   if (length >= 2) return `${name[0][0]}${name[1][0]}`.toUpperCase();
-  if (length === 1) return name[0][0].toUpperCase();
+  if (length === 1) {
+    return name[0].length >= 2
+      ? `${name[0][0]}${name[0][1]}`.toUpperCase()
+      : `${name[0][0]}`.toUpperCase();
+  }
   return 'N';
 });
 const avatarColor = computed<string>(() => GlobalColorMap['700'][props.color]);

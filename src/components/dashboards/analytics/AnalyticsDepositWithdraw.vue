@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
-import TransactionBlock from '@/components/TransactionBlock.vue';
+import TransactionBlock from '@/components/dashboards/analytics/units/TransactionBlock.vue';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
 import { type TransactionDepositWithdraw } from '@/model/dashboards/Transactions';
