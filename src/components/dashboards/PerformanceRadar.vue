@@ -37,6 +37,13 @@ const options = ref({
     intersect: false,
   },
   radius: 0,
+  scales: {
+    r: {
+      ticks: {
+        display: false,
+      },
+    },
+  },
 });
 
 const incomeColor = computed(() => `${GlobalColorMap['700'].info}EE`);
@@ -60,17 +67,25 @@ const data = {
       pointBorderColor: incomeColor.value,
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: GlobalColorMap['700'].default,
-      data: [9.1, 8.5, 9.2, 8.5, 9.2, 8.9],
-    },
-    {
-      label: 'Net Worth',
+      data: [10, 7, 8, 6, 8, 7],
+    }, {
+      label: 'Net WorthV1',
       backgroundColor: netWorth.value,
       borderColor: netWorth.value,
       pointBackgroundColor: netWorth.value,
       pointBorderColor: netWorth.value,
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: GlobalColorMap['700'].default,
-      data: ['8.3', '8.2', '8.1', '8.7', '8.5', '8.4'],
+      data: [0, 8, 7, 8, 7, 8],
+    }, {
+      label: 'Net WorthV2',
+      backgroundColor: netWorth.value,
+      borderColor: netWorth.value,
+      pointBackgroundColor: netWorth.value,
+      pointBorderColor: netWorth.value,
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: GlobalColorMap['700'].default,
+      data: [8, 8, 0, 0, 0, 8],
     },
   ],
 };

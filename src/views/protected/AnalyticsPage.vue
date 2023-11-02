@@ -17,6 +17,7 @@ import { type Component, markRaw } from 'vue';
 
 import VOffset from '@/components/basic/VOffset.vue';
 import AnalyticsCongratulations from '@/components/dashboards/analytics/AnalyticsCongratulations.vue';
+import AnalyticsDepositWithdraw from '@/components/dashboards/analytics/AnalyticsDepositWithdraw.vue';
 import AnalyticsJoinProfProj from '@/components/dashboards/analytics/AnalyticsJoinProfProj.vue';
 import AnalyticsJoinProfSess from '@/components/dashboards/analytics/AnalyticsJoinProfSess.vue';
 import AnalyticsPerformance from '@/components/dashboards/analytics/AnalyticsPerformance.vue';
@@ -31,36 +32,39 @@ interface ComponentsData {
   class: string;
 }
 
-const components = markRaw<ComponentsData[]>([
-  {
-    id: getRandomId(),
-    component: AnalyticsCongratulations,
-    class: 'congratulations',
-  }, {
-    id: getRandomId(),
-    component: AnalyticsTransactions,
-    class: 'transactions',
-  }, {
-    id: getRandomId(),
-    component: AnalyticsWeeklyOverview,
-    class: 'weekly',
-  }, {
-    id: getRandomId(),
-    component: AnalyticsTotalEarning,
-    class: 'earning',
-  }, {
-    id: getRandomId(),
-    component: AnalyticsJoinProfProj,
-    class: 'join',
-  }, {
-    id: getRandomId(),
-    component: AnalyticsJoinProfSess,
-    class: 'join',
-  }, {
-    id: getRandomId(),
-    component: AnalyticsPerformance,
-    class: 'performance',
-  },
+const components = markRaw<ComponentsData[]>([{
+  id: getRandomId(),
+  component: AnalyticsCongratulations,
+  class: 'congratulations',
+}, {
+  id: getRandomId(),
+  component: AnalyticsTransactions,
+  class: 'transactions',
+}, {
+  id: getRandomId(),
+  component: AnalyticsWeeklyOverview,
+  class: 'weekly',
+}, {
+  id: getRandomId(),
+  component: AnalyticsTotalEarning,
+  class: 'earning',
+}, {
+  id: getRandomId(),
+  component: AnalyticsJoinProfProj,
+  class: 'join',
+}, {
+  id: getRandomId(),
+  component: AnalyticsJoinProfSess,
+  class: 'join',
+}, {
+  id: getRandomId(),
+  component: AnalyticsPerformance,
+  class: 'performance',
+}, {
+  id: getRandomId(),
+  component: AnalyticsDepositWithdraw,
+  class: 'depositWithdraw',
+},
 ]);
 </script>
 
@@ -90,5 +94,9 @@ $offsetCard: 60px;
 
 .join {
   width: calc(34% / 2  - $offsetCard * 2 / 3);
+}
+
+.depositWithdraw {
+  width: calc(67% - $offsetCard * 2 / 3);
 }
 </style>

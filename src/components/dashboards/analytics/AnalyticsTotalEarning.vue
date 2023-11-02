@@ -56,7 +56,7 @@
         :color="ear.color"
       >
         <img
-          :src="getImageUrl(`../../assets/images/analytics/${ear.imageSrc}`)"
+          :src="getImageUrl(`/assets/images/analytics/${ear.imageSrc}`)"
           alt=""
         >
       </TotalEarning>
