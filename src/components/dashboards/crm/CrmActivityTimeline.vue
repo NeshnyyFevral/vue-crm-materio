@@ -21,7 +21,7 @@
 
         <VFlex :align="FlexAlign.CENTER">
           <img
-            src="../../../assets/images/CRM/pdf.png"
+            src="../../../assets/images/crm/pdf.png"
             alt="pdf-file"
             :class="$style.pdf"
           >

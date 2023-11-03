@@ -26,7 +26,6 @@ interface PropsType {
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
-  variant: 'body1',
   fontWeight: undefined,
   color: undefined,
   align: VTextTextAlign.START,

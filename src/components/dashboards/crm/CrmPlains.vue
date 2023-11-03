@@ -2,7 +2,7 @@
   <VOffset>
     <VOffset :class="$style.image">
       <img
-        src="../../../assets/images/CRM/workstation.png"
+        src="../../../assets/images/crm/workstation.png"
         alt="workstation"
       >
     </VOffset>
@@ -98,10 +98,10 @@
 </template>
 
 <script setup lang="ts">
-import ClockIcon from '@/assets/icons/dashboards/CRM/clock.svg';
-import PlaceIcon from '@/assets/icons/dashboards/CRM/place.svg';
-import StarIcon from '@/assets/icons/dashboards/CRM/star.svg';
-import SuccessIcon from '@/assets/icons/dashboards/CRM/success.svg';
+import ClockIcon from '@/assets/icons/dashboards/crm/clock.svg';
+import PlaceIcon from '@/assets/icons/dashboards/crm/place.svg';
+import StarIcon from '@/assets/icons/dashboards/crm/star.svg';
+import SuccessIcon from '@/assets/icons/dashboards/crm/success.svg';
 import PeopleIcon from '@/assets/icons/dashboards/people.svg';
 import MoreIcon from '@/assets/icons/more.svg';
 import VCard from '@/components/basic/VCard.vue';

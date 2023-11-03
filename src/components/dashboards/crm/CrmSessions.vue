@@ -38,7 +38,7 @@
     </div>
 
     <img
-      src="../../../assets/images/CRM/boy.png"
+      src="../../../assets/images/crm/boy.png"
       alt="boy"
       :class="$style.image"
     >

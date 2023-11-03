@@ -8,7 +8,10 @@
     ]"
   >
     <thead>
-      <tr v-if="headCells.length">
+      <tr
+        v-if="headCells.length"
+        :class="$style.headItem"
+      >
         <th
           v-for="(t, i) in headCells"
           :key="`${t.label}_${i}`"
@@ -119,12 +122,18 @@ $sizes: (
 
 .item {
   border-top: 1px solid var(--color-border);
+  vertical-align: center;
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 
   & td {
     @include body2;
 
     color: var(--color-text);
     padding: map-get($sizes, normal);
+  }
+
+  &:hover {
+    background-color: var(--color-default-100);
   }
 }
 </style>

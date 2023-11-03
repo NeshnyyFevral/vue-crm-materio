@@ -18,7 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useSlots } from 'vue';
+import {
+  computed,
+  onMounted,
+  useSlots,
+} from 'vue';
 
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
@@ -43,7 +47,13 @@ const props = withDefaults(defineProps<PropsType>(), {
 
 const slots = useSlots();
 
-const isVisibleLetter = computed<boolean>(() => !slots?.default);
+const isVisibleLetter = computed<boolean>(() => {
+  if (slots.default && slots.default()[0].children === 'v-if') {
+    return true;
+  }
+
+  return !slots?.default;
+});
 const letterFormatting = computed<string>(() => {
   const name = props.letter.split(' ');
   const { length } = name;
@@ -57,13 +67,13 @@ const letterFormatting = computed<string>(() => {
   return 'N';
 });
 const avatarColor = computed<string>(() => GlobalColorMap['700'][props.color]);
-const avatarColorLight = computed<string>(() => GlobalColorMap['200'][props.color]);
+const avatarColorLight = computed<string>(() => GlobalColorMap['100'][props.color]);
 </script>
 
 <style module lang="scss">
 $border-radius: 50%;
 $sizes: (
-    small: 25px,
+    small: 30px,
     medium: 40px,
     large: 56px,
 );

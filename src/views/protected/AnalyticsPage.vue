@@ -24,6 +24,7 @@ import AnalyticsPerformance from '@/components/dashboards/analytics/AnalyticsPer
 import AnalyticsSalesByCounries from '@/components/dashboards/analytics/AnalyticsSalesByCounries.vue';
 import AnalyticsTotalEarning from '@/components/dashboards/analytics/AnalyticsTotalEarning.vue';
 import AnalyticsTransactions from '@/components/dashboards/analytics/AnalyticsTransactions.vue';
+import AnalyticsUserTable from '@/components/dashboards/analytics/AnalyticsUserTable.vue';
 import AnalyticsWeeklyOverview from '@/components/dashboards/analytics/AnalyticsWeeklyOverview.vue';
 import { getRandomId } from '@/model/tools/RandomTools';
 
@@ -69,6 +70,10 @@ const components = markRaw<ComponentsData[]>([{
   id: getRandomId(),
   component: AnalyticsSalesByCounries,
   class: 'salesByCountries',
+}, {
+  id: getRandomId(),
+  component: AnalyticsUserTable,
+  class: 'userTable',
 },
 ]);
 </script>
@@ -90,7 +95,9 @@ $offsetCard: 60px;
   width: 33%;
 }
 
-.transactions {
+.transactions,
+.depositWithdraw,
+.userTable {
   width: calc(67% - $offsetCard * 2 / 3);
 }
 
@@ -100,9 +107,5 @@ $offsetCard: 60px;
 
 .join {
   width: calc(34% / 2  - $offsetCard * 2 / 3);
-}
-
-.depositWithdraw {
-  width: calc(67% - $offsetCard * 2 / 3);
 }
 </style>

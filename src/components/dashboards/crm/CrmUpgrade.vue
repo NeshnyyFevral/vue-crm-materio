@@ -6,7 +6,7 @@
       <VMenuItem name="Delete Cards" />
     </template>
 
-    <VOffset :mb="10">
+    <VOffset :mb="16">
       <VTitle variant="heading6">
         Upgrade Your Plan
       </VTitle>
@@ -28,7 +28,7 @@
         price="5250"
       >
         <img
-          src="../../../assets/images/CRM/briefcase.png"
+          src="../../../assets/images/crm/briefcase.png"
           alt="case"
         >
       </UpgradePlan>
@@ -50,7 +50,7 @@
         desc="2566 xxxx xxxx 8908"
       >
         <img
-          src="../../../assets/images/CRM/logo-MC.png"
+          src="../../../assets/images/crm/logo-MC.png"
           alt="MC"
         >
       </CardCVC>
@@ -63,7 +63,7 @@
         desc="8990 xxxx xxxx 6852"
       >
         <img
-          src="../../../assets/images/CRM/logo-another.png"
+          src="../../../assets/images/crm/logo-another.png"
           alt="another"
         >
       </CardCVC>
@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import ArrowRight from '@/assets/icons/dashboards/CRM/arrowRight.svg';
+import ArrowRight from '@/assets/icons/dashboards/crm/arrowRight.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';

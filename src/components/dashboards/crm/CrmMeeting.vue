@@ -15,7 +15,7 @@
     <VOffset
       v-for="meeting in meetingData"
       :key="meeting.id"
-      :mb="27"
+      :mb="29"
     >
       <UserMeeting
         :color="meeting.color"
@@ -25,7 +25,7 @@
       >
         <VAvatar>
           <img
-            :src="getImageUrl(`/assets/images/CRM/meetings/${meeting.avatar}`)"
+            :src="getImageUrl(`/assets/avatars/${meeting.avatar}`)"
             :alt="`avatar-${meeting.avatar}`"
           >
         </VAvatar>
@@ -61,42 +61,42 @@ const meetingData: Meetings[] = [
     subject: 'Business',
     color: GlobalColors.PRIMARY,
     time: '21 Jul | 08:20-10:30',
-    avatar: '1.png',
+    avatar: '4.png',
   }, {
     id: getRandomId(),
     title: 'Call with hilda',
     subject: 'Meditation',
     color: GlobalColors.SUCCESS,
     time: '24 Jul | 11:30-12:00',
-    avatar: '2.png',
+    avatar: '5.png',
   }, {
     id: getRandomId(),
     title: 'Conference call',
     subject: 'Dinner',
     color: GlobalColors.ERROR,
     time: '28 Jul | 05:00-6:45',
-    avatar: '3.png',
+    avatar: '6.png',
   }, {
     id: getRandomId(),
     title: 'Meeting with Mark',
     subject: 'Meetup',
     color: GlobalColors.DEFAULT,
     time: '03 Aug | 07:00-8:30',
-    avatar: '4.png',
+    avatar: '3.png',
   }, {
     id: getRandomId(),
     title: 'Meeting in Oakland',
     subject: 'Business',
     color: GlobalColors.PRIMARY,
     time: '14 Aug | 04:15-05:30',
-    avatar: '5.png',
+    avatar: '7.png',
   }, {
     id: getRandomId(),
     title: 'Meeting with Carl',
     subject: 'Party',
     color: GlobalColors.WARNING,
     time: '05 Oct | 10:00-12:45',
-    avatar: '6.png',
+    avatar: '1.png',
   },
 ];
 </script>
