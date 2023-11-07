@@ -15,7 +15,11 @@
         <th
           v-for="(t, i) in headCells"
           :key="`${t.label}_${i}`"
-          :class="$style.th"
+          :class="[
+            $style.th,
+            t.sortable && $style.thSort,
+          ]"
+          @click="sortData(t)"
         >
           <span :title="t.label">
             {{ t.label }}
@@ -26,7 +30,7 @@
 
     <tbody>
       <tr
-        v-for="(row, i) in props.data"
+        v-for="(row, i) in formattingData"
         :key="i"
         :class="$style.item"
       >
@@ -40,14 +44,14 @@
 import type { VNode } from 'vue';
 import {
   computed,
+  markRaw,
   onMounted,
   ref,
   useSlots,
 } from 'vue';
 
-interface HeadCells {
-  label: string;
-}
+import type { HeadCells } from '@/model/components/basic/VTable';
+import { SortBy } from '@/model/components/basic/VTable';
 
 interface PropsType {
   data: any[];
@@ -56,9 +60,12 @@ interface PropsType {
   smallPaddings?: boolean;
 }
 
-const slots = useSlots();
 const props = defineProps<PropsType>();
+const slots = useSlots();
+
+const formattingData = ref<any[]>(props.data);
 const headCells = ref<HeadCells[]>([]);
+const sortBy = ref<SortBy>(SortBy.ASK);
 
 const getSlots = computed(() => {
   if (slots.default === undefined) return [];
@@ -72,8 +79,16 @@ const registerTableCell = () => {
 
     headCells.value.push({
       label: nodeProp!.label,
+      sortable: nodeProp?.sortable === '',
+      name: nodeProp!.name,
     });
   });
+};
+
+const sortData = (th: HeadCells) => {
+  if (!th.sortable) return;
+
+  formattingData.value.sort((a, b) => a[th.name].localeCompare(b[th.name]));
 };
 
 onMounted(() => {
@@ -118,6 +133,16 @@ $sizes: (
   font-weight: 600;
   text-align: start;
   padding: map-get($sizes, normal);
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
+
+  &.thSort {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-default-100);
+    }
+
+  }
 }
 
 .item {

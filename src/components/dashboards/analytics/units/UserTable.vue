@@ -9,6 +9,7 @@
       name="name"
       label="NAME"
       :row="row"
+      sortable
     >
       <VFlex :align="FlexAlign.CENTER">
         <VOffset :mr="10">

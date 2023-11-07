@@ -10,6 +10,7 @@
 interface PropsType {
   name: string;
   label: string;
+  sortable?: boolean;
   row: any;
 }
 
