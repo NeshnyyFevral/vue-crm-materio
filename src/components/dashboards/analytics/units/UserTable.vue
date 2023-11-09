@@ -14,16 +14,21 @@
       <VFlex :align="FlexAlign.CENTER">
         <VOffset :mr="10">
           <VAvatar
-            :letter="row.avatar ? 'few' : row.name"
+            v-if="row.avatar"
             :size="AvatarSize.SMALL"
             light
           >
             <img
-              v-if="row.avatar"
               :src="getImageUrl(`assets/avatars/${row.avatar}`)"
               :alt="row.avatar"
             >
           </VAvatar>
+          <VAvatar
+            v-else
+            :letter="row.name"
+            :size="AvatarSize.SMALL"
+            light
+          />
         </VOffset>
 
         <VOffset>
@@ -51,6 +56,7 @@
       name="email"
       label="EMAIL"
       :row="row"
+      sortable
     >
       <VText
         variant="body2"
@@ -102,6 +108,7 @@
     </VTableColumn>
   </VTable>
 </template>
+
 <script setup lang="ts">
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VChip from '@/components/basic/VChip.vue';

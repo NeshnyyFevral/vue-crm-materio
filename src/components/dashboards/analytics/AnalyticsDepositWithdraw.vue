@@ -1,6 +1,9 @@
 <template>
   <VCard>
-    <VFlex :align="FlexAlign.CENTER">
+    <VFlex
+      :direction-change-trigger="breakpoint"
+      :align="FlexAlign.CENTER"
+    >
       <TransactionBlock
         title="Deposit"
         :data="deposits"
@@ -22,6 +25,8 @@ import { FlexAlign } from '@/model/components/basic/VFlex';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
 import { type TransactionDepositWithdraw } from '@/model/dashboards/Transactions';
 import { getRandomId } from '@/model/tools/RandomTools';
+
+const breakpoint = 630;
 
 const deposits: TransactionDepositWithdraw[] = [{
   id: getRandomId(),
@@ -105,6 +110,10 @@ const withdrawals: TransactionDepositWithdraw[] = [{
 .deposit,
 .withdraw {
   width: 50%;
+
+  @media screen and (max-width: 630px) {
+    width: 100%;
+  }
 }
 
 .deposit {

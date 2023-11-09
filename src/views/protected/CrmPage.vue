@@ -91,7 +91,7 @@ const components = markRaw<ComponentsData[]>([
 
 <style module lang="scss">
 $heightCard: 375px;
-$offsetCard: 60px;
+$offsetCard: 20px;
 
 .root {
   display: flex;
@@ -105,21 +105,21 @@ $offsetCard: 60px;
   height: 80%;
 
   @media screen and (max-width: 1100px) {
-    width: calc(50% - 20px);
+    width: calc(50% - $offsetCard);
   }
 
   @media screen and (max-width: 550px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .transactions {
-  width: calc(50% - $offsetCard);
+  width: calc(50% - $offsetCard * 3);
   display: flex;
 
   @media screen and (max-width: 1100px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
@@ -130,82 +130,82 @@ $offsetCard: 60px;
   height: $heightCard;
 
   @media screen and (max-width: 1100px) {
-    width: calc(50% - 20px);
+    width: calc(50% - $offsetCard);
   }
 
   @media screen and (max-width: 1100px) {
-    width: calc(50% - 20px);
+    width: calc(50% - $offsetCard);
   }
 
   @media screen and (max-width: 550px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .salesOverview {
-  width: calc(50% - $offsetCard);
+  width: calc(50% - $offsetCard * 3);
   height: $heightCard;
 
   @media screen and (max-width: 1100px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .activity {
   height: $heightCard;
-  width: calc(50% + $offsetCard / 3);
+  width: calc(50% + $offsetCard);
 
   @media screen and (max-width: 1100px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .weeklySales {
   height: $heightCard;
-  width: calc(35% - $offsetCard);
+  width: calc(35% - $offsetCard * 3);
 
   @media screen and (max-width: 1100px) {
-    width: calc(60% - 20px);
+    width: calc(60% - $offsetCard);
   }
 
   @media screen and (max-width: 550px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .joinGrowthProject {
-  width: calc(15% - $offsetCard / 3);
+  width: calc(15% - $offsetCard);
   height: $heightCard;
 
   @media screen and (max-width: 1100px) {
-    width: calc(40% - 20px);
+    width: calc(40% - $offsetCard);
   }
 
   @media screen and (max-width: 550px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .upgrade,
 .plains {
-  width: calc(33.333% - 20px);
+  width: calc(33.333% - $offsetCard);
 
   @media screen and (max-width: 1100px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }
 
 .meeting {
-  width: calc(33.333% - 20px);
+  width: calc(33.333% - $offsetCard);
 
   @media screen and (max-width: 1100px) {
-    width: 100%;
+    width: calc(100% - $offsetCard);
     height: auto;
   }
 }

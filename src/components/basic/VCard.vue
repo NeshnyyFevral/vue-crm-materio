@@ -64,6 +64,8 @@ const isMenuSlot = computed(() => !!slots?.menu);
   background-color: var(--color-card);
   box-shadow: var(--shadow-card);
   border-radius: 12px;
+  overflow-x: auto;
+  overflow-y: visible;
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
     bpx-shadow var(--transition-duration) var(--transition-timing-func);

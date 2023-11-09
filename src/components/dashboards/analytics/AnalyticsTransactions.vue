@@ -68,7 +68,7 @@ import { type Transactions } from '@/model/dashboards/Transactions';
 import { getRandomId } from '@/model/tools/RandomTools';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
-const breakpoint = 500;
+const breakpoint = 625;
 const hasChange = useResizeTrigger(breakpoint);
 
 const transactions: Transactions[] = [

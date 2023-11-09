@@ -21,7 +21,7 @@ import AnalyticsDepositWithdraw from '@/components/dashboards/analytics/Analytic
 import AnalyticsJoinProfProj from '@/components/dashboards/analytics/AnalyticsJoinProfProj.vue';
 import AnalyticsJoinProfSess from '@/components/dashboards/analytics/AnalyticsJoinProfSess.vue';
 import AnalyticsPerformance from '@/components/dashboards/analytics/AnalyticsPerformance.vue';
-import AnalyticsSalesByCounries from '@/components/dashboards/analytics/AnalyticsSalesByCounries.vue';
+import AnalyticsSalesByCountries from '@/components/dashboards/analytics/AnalyticsSalesByCountries.vue';
 import AnalyticsTotalEarning from '@/components/dashboards/analytics/AnalyticsTotalEarning.vue';
 import AnalyticsTransactions from '@/components/dashboards/analytics/AnalyticsTransactions.vue';
 import AnalyticsUserTable from '@/components/dashboards/analytics/AnalyticsUserTable.vue';
@@ -68,7 +68,7 @@ const components = markRaw<ComponentsData[]>([{
   class: 'depositWithdraw',
 }, {
   id: getRandomId(),
-  component: AnalyticsSalesByCounries,
+  component: AnalyticsSalesByCountries,
   class: 'salesByCountries',
 }, {
   id: getRandomId(),
@@ -80,7 +80,7 @@ const components = markRaw<ComponentsData[]>([{
 
 <style module lang="scss">
 $heightCard: 375px;
-$offsetCard: 60px;
+$offsetCard: 20px;
 
 .root {
   display: flex;
@@ -89,23 +89,47 @@ $offsetCard: 60px;
 }
 
 .congratulations,
-.weekly,
 .performance,
 .salesByCountries {
   width: 33%;
+
+  @media screen and (max-width: 950px) {
+    width: calc(100% - $offsetCard);
+  }
 }
 
 .transactions,
 .depositWithdraw,
 .userTable {
-  width: calc(67% - $offsetCard * 2 / 3);
+  width: calc(67% - $offsetCard * 2);
+
+  @media screen and (max-width: 950px) {
+    width: calc(100% - $offsetCard);
+  }
 }
 
-.earning {
-  width: calc(33%);
+.earning,
+.weekly {
+  width: 33%;
+
+  @media screen and (max-width: 1125px) {
+    width: calc(50% - $offsetCard)
+  }
+
+  @media screen and (max-width: 760px) {
+    width: calc(100% - $offsetCard);
+  }
 }
 
 .join {
-  width: calc(34% / 2  - $offsetCard * 2 / 3);
+  width: calc(34% / 2  - $offsetCard * 2);
+
+  @media screen and (max-width: 1125px) {
+    width: calc(50% - $offsetCard);
+  }
+
+  @media screen and (max-width: 580px) {
+    width: calc(100% - $offsetCard);
+  }
 }
 </style>

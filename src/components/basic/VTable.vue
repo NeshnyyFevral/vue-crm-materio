@@ -21,17 +21,32 @@
           ]"
           @click="sortData(t)"
         >
-          <span :title="t.label">
-            {{ t.label }}
-          </span>
+          <VFlex :align="FlexAlign.CENTER">
+            <VOffset
+              :mr="3"
+              :title="t.label"
+            >
+              {{ t.label }}
+            </VOffset>
+
+            <ArrowDown
+              v-if="t.sortable"
+              :class="[
+                $style.thIcon,
+                activeSortedTh?.name === t.name && $style.thIconActive,
+                sortBy === SortBy.ASK && $style.thIconAsk,
+                sortBy === null && $style.thIconDisabled,
+              ]"
+            />
+          </VFlex>
         </th>
       </tr>
     </thead>
 
     <tbody>
       <tr
-        v-for="(row, i) in formattingData"
-        :key="i"
+        v-for="row in sortedData"
+        :key="row"
         :class="$style.item"
       >
         <slot :row="row" />
@@ -44,12 +59,15 @@
 import type { VNode } from 'vue';
 import {
   computed,
-  markRaw,
   onMounted,
   ref,
   useSlots,
 } from 'vue';
 
+import ArrowDown from '@/assets/icons/chevron-down.svg';
+import VFlex from '@/components/basic/VFlex.vue';
+import VOffset from '@/components/basic/VOffset.vue';
+import { FlexAlign } from '@/model/components/basic/VFlex';
 import type { HeadCells } from '@/model/components/basic/VTable';
 import { SortBy } from '@/model/components/basic/VTable';
 
@@ -63,9 +81,9 @@ interface PropsType {
 const props = defineProps<PropsType>();
 const slots = useSlots();
 
-const formattingData = ref<any[]>(props.data);
 const headCells = ref<HeadCells[]>([]);
-const sortBy = ref<SortBy>(SortBy.ASK);
+const sortBy = ref<SortBy | null>(SortBy.ASK);
+const activeSortedTh = ref<HeadCells | null>(null);
 
 const getSlots = computed(() => {
   if (slots.default === undefined) return [];
@@ -88,8 +106,32 @@ const registerTableCell = () => {
 const sortData = (th: HeadCells) => {
   if (!th.sortable) return;
 
-  formattingData.value.sort((a, b) => a[th.name].localeCompare(b[th.name]));
+  const sortValues: (SortBy | null)[] = [SortBy.DESC, SortBy.ASK, null];
+  const currentIndex = sortValues.findIndex((el) => el === sortBy.value);
+
+  if (activeSortedTh.value !== th) {
+    activeSortedTh.value = th;
+    [sortBy.value] = sortValues;
+  } else {
+    sortBy.value = currentIndex + 1 >= sortValues.length
+      ? sortValues[0]
+      : sortValues[currentIndex + 1];
+
+    if (sortBy.value === null) {
+      activeSortedTh.value = null;
+    }
+  }
 };
+
+const sortedData = computed(() => {
+  if (activeSortedTh.value === null || sortBy.value === null) return props.data;
+
+  const { name } = activeSortedTh.value;
+
+  return sortBy.value === SortBy.ASK
+    ? [...props.data].sort((a, b) => a[name].localeCompare(b[name]))
+    : [...props.data].sort((a, b) => b[name].localeCompare(a[name]));
+});
 
 onMounted(() => {
   registerTableCell();
@@ -134,6 +176,7 @@ $sizes: (
   text-align: start;
   padding: map-get($sizes, normal);
   transition: background-color var(--transition-duration) var(--transition-timing-func);
+  user-select: none;
 
   &.thSort {
     cursor: pointer;
@@ -141,7 +184,29 @@ $sizes: (
     &:hover {
       background-color: var(--color-default-100);
     }
+  }
 
+  & .thIcon {
+    width: 1.2rem;
+    opacity: 0;
+
+    &.thIconActive {
+      opacity: 0.7;
+
+      &.thIconAsk {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    path {
+      fill: var(--color-default-500);
+    }
+  }
+
+  &:hover {
+    .thIcon {
+      opacity: 1;
+    }
   }
 }
 

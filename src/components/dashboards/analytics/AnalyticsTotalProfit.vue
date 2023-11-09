@@ -12,7 +12,7 @@
         <LineChart
           :options="options"
           :data="data"
-          :height="300"
+          :height="hasChange ? 150 : 300"
         />
       </VOffset>
 
@@ -40,6 +40,10 @@ import LineChart from '@/components/dashboards/LineChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { VTextTextAlign } from '@/model/components/basic/VText';
 import { getRandom } from '@/model/tools/RandomTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
+
+const breakpoint = 1125;
+const hasChange = useResizeTrigger(breakpoint);
 
 const options = ref({
   responsive: true,
