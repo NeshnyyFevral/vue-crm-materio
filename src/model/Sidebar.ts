@@ -32,8 +32,8 @@ export default [
         icon: DashboardsIcon,
         list: [
           { title: 'CRM', route: { name: Routes.CRM } },
-          /* { title: 'Analytics', route: {} },
-          { title: 'eCommerce', route: {} }, */
+          { title: 'Analytics', route: { name: Routes.ANALYTICS } },
+          /* { title: 'eCommerce', route: {} }, */
         ],
       },
     ],

@@ -9,14 +9,14 @@
         >
           <VText
             variant="body2"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             Invoices have been paid to the company.
           </VText>
 
           <VFlex :align="FlexAlign.CENTER">
             <img
-              src="../../../assets/images/CRM/pdf.png"
+              src="../../../assets/images/crm/pdf.png"
               alt="pdf-file"
               :class="$style.pdf"
             >
@@ -25,7 +25,7 @@
               <VText
                 variant="caption"
                 font-weight="600"
-                :color="GlobalColorMap['500'].default"
+                :color="GlobalColorMap['400'].default"
               >
                 bookingCard.pdf
               </VText>
@@ -40,7 +40,7 @@
         >
           <VText
             variant="body2"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur deleniti doloremque dolores eveniet,
             explicabo iusto maiores nam, obcaecati odit repellat soluta sunt tenetur velit. Consectetur ea expedita

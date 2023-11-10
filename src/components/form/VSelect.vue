@@ -73,7 +73,7 @@ import {
   SelectVariant,
 } from '@/model/components/form/VSelect';
 import { TextFieldSize, TextFieldVariant } from '@/model/components/form/VTextField';
-import { initClickOutside } from '@/model/tools/ClickOutside';
+import { initClickOutside } from '@/model/tools/ClickOutsideTools';
 
 interface PropsType {
   modelValue: string | string[];

@@ -6,7 +6,7 @@ export default {
     el.style.position = 'relative';
     el.style.overflow = 'hidden';
 
-    el.onclick = function (ev: any) {
+    el.onclick = function onClick(ev: any) {
       const circle = document.createElement('div');
       const offset = this.getBoundingClientRect();
 

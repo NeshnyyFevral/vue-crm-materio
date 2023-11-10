@@ -35,6 +35,7 @@ interface PropsType {
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
+  icon: null,
   color: GlobalColors.PRIMARY,
   variant: AlertVariant.LIGHT,
 });

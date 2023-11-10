@@ -1,47 +1,59 @@
 <template>
-  <div
+  <VOffset
     :class="[
       $style.root,
       modelValue && $style.open,
       !modelValue && active && $style.active
     ]"
   >
-    <div :class="$style.header">
-      <LogoIcon :class="$style.logo" />
-      <div :class="$style.headerWrapper">
-        <h1 :class="$style.titleLogo">
-          materio
-        </h1>
-        <button
-          :class="[
-            $style.headerButton,
-            $style.menu
-          ]"
-          @click="toggle"
+    <VOffset
+      :mt="20"
+      :mb="20"
+    >
+      <VFlex :align="FlexAlign.CENTER">
+        <VOffset
+          :ml="18"
+          :mr="25"
         >
-          <CrossIcon />
-        </button>
-      </div>
-    </div>
-    <div :class="$style.container">
-      <div :class="$style.content">
-        <div
+          <LogoIcon />
+        </VOffset>
+        <VOffset :class="$style.headerWrapper">
+          <VTitle variant="heading5">
+            MATERIO
+          </VTitle>
+          <button
+            :class="$style.headerButton"
+            @click="toggle"
+          >
+            <CrossIcon />
+          </button>
+        </VOffset>
+      </VFlex>
+    </VOffset>
+    <VOffset
+      height="90%"
+      :class="$style.container"
+    >
+      <VOffset :mr="10">
+        <VOffset
           v-for="node in SidebarTree"
           :key="node.title"
         >
-          <div
+          <VOffset
             v-if="node.title"
+            :mt="15"
+            :mb="20"
             :class="[
               $style.titleWrapper,
               !modelValue && $style.titleWrapperHide,
               active && $style.titleWrapperShow
             ]"
           >
-            <span :class="$style.line" />
+            <VOffset :class="$style.line" />
             <h3 :class="$style.title">
               {{ node.title }}
             </h3>
-          </div>
+          </VOffset>
           <SidebarGroup
             v-for="item in node.group"
             :key="item.title"
@@ -52,13 +64,12 @@
             :active-list="activeList"
             :closed-items-group="closedItemsGroup"
             :active-link="activeLink"
-            @toggle="toggleList"
-            @choiceLink="choiceLink"
+            @toggle="activeList = $event"
           />
-        </div>
-      </div>
-    </div>
-  </div>
+        </VOffset>
+      </VOffset>
+    </VOffset>
+  </VOffset>
 </template>
 
 <script setup lang="ts">
@@ -66,7 +77,11 @@ import { computed, ref } from 'vue';
 
 import CrossIcon from '@/assets/icons/cross.svg';
 import LogoIcon from '@/assets/icons/sidebar/logo.svg';
+import VFlex from '@/components/basic/VFlex.vue';
+import VOffset from '@/components/basic/VOffset.vue';
+import VTitle from '@/components/basic/VTitle.vue';
 import SidebarGroup from '@/components/layout/units/sidebar/SidebarGroup.vue';
+import { FlexAlign } from '@/model/components/basic/VFlex';
 import SidebarTree from '@/model/Sidebar';
 
 interface PropsType {
@@ -86,17 +101,13 @@ const activeList = ref<string>('');
 
 const toggle = () => { emits('update:modelValue', !props.modelValue); };
 
-const choiceLink = (title: string) => { activeLink.value = title; };
-const toggleList = (title: string) => {
-  activeList.value = title;
-};
-
 const closedItemsGroup = computed(() => !props.modelValue && !props.active);
 
 </script>
 
 <style module lang="scss">
 @import "@/scss/mixins/scroll";
+$widthOpen: 260px;
 
 .root {
   position: fixed;
@@ -111,16 +122,29 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
   transition: width var(--transition-duration) var(--transition-timing-func),
     transform var(--transition-duration) var(--transition-timing-func),
     background-color var(--transition-duration) var(--transition-timing-func);
+
+  @media screen and (max-width: 1405px) {
+    overflow: visible;
+    transform: translateX(-300px);
+  }
 }
 
 .open {
-  width: 260px;
-  padding-right: 3px;
+  width: $widthOpen;
+
+  & .headerButton {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 1405px) {
+    transform: translateX(0);
+  }
 }
 
 .active {
-  width: 260px;
-  padding-right: 3px;
+  width: $widthOpen;
   box-shadow: 0 5px 6px -3px rgb(94 86 105 / 20%),
     0 3px 16px 2px rgb(94 86 105 / 12%),
     0 9px 12px 1px rgb(94 86 105 / 14%);
@@ -134,37 +158,27 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
 
 .headerWrapper {
   position: relative;
-  margin-left: 42px;
   opacity: 0;
-}
 
-.titleLogo {
-  display: block;
-  font-size: 20px;
-  color: var(--color-title);
-  text-transform: uppercase;
-}
-
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  @media screen and (max-width: 1405px) {
+    opacity: 1;
+  }
 }
 
 .headerButton {
   position: absolute;
-  top: 50%;
-  right: -85px;
   display: block;
+  top: 50%;
+  left: calc(100% + 30px);
   width: 16px;
   height: 16px;
+  border-radius: 50%;
   cursor: pointer;
   background-color: transparent;
   border: 2px solid var(--color-title);
-  border-radius: 50%;
   transition: right var(--transition-duration) var(--transition-timing-func),
     background-color var(--transition-duration) var(--transition-timing-func);
+  fill: none;
   transform: translateY(-50%);
 
   &::after {
@@ -181,42 +195,53 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
       background-color var(--transition-duration) var(--transition-timing-func);
     transform: translate3d(-50%, -50%, 0);
   }
-}
 
-.menu {
-  fill: none;
-}
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 
-.active .headerWrapper,
-.open .headerWrapper,
-.open .headerButton::after {
-  opacity: 1;
+  @media screen and (max-width: 1405px) {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    fill: var(--color-title);
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .container {
   @include scroll-style;
 
-  height: 90%;
   overflow-x: hidden;
   overflow-y: hidden;
 }
 
-.open .container,
-.active .container {
-  overflow-x: hidden;
-  overflow-y: scroll;
+.open,
+.active {
+  padding-right: 3px;
+
+  & .container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  & .headerWrapper {
+    opacity: 1;
+  }
 }
 
 .content {
   height: 100%;
   padding-right: 10px;
-  font-size: 16px;
-  color: var(--color-title);
 }
 
 .titleWrapper {
   position: relative;
-  margin: 15px 0 20px;
 }
 
 .title {
@@ -243,50 +268,24 @@ const closedItemsGroup = computed(() => !props.modelValue && !props.active);
   transform: translateY(-50%);
 }
 
-.titleWrapperHide .title {
-  opacity: 0;
-}
-
-.titleWrapperHide .line {
-  left: 15px;
-  line-height: 12px;
-}
-
-.titleWrapperShow .title {
-  opacity: 1;
-}
-
-.titleWrapperShow .line {
-  left: 0;
-}
-
-@media screen and (max-width: 1405px) {
-  .root {
-    overflow: visible;
-    transform: translateX(-300px);
+.titleWrapperHide {
+  & .title {
+    opacity: 0;
   }
 
-  .open {
-    transform: translateX(0);
+  & .line {
+    left: 15px;
+    line-height: 12px;
   }
+}
 
-  .headerWrapper {
+.titleWrapperShow {
+  & .title {
     opacity: 1;
   }
 
-  .headerButton {
-    width: 28px;
-    height: 28px;
-    border: none;
-    fill: var(--color-title);
-
-    &::after {
-      display: none;
-    }
-  }
-
-  .menu {
-    fill: var(--color-title);
+  & .line {
+    left: 0;
   }
 }
 </style>

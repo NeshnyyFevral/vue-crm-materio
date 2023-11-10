@@ -4,6 +4,7 @@ const BASE = '/vue-crm-materio';
 export const Routes = {
   /* PROTECTED PAGES */
   CRM: 'crm',
+  ANALYTICS: 'analytics',
 
   COMPONENTS: 'components',
   COMPONENTS_BUTTON: 'components/button',
@@ -53,7 +54,11 @@ export default function createRouter() {
       children: [{
         path: `${BASE}/${Routes.CRM}`,
         name: Routes.CRM,
-        component: () => import('@/views/protected/CRMPage.vue'),
+        component: () => import('@/views/protected/CrmPage.vue'),
+      }, {
+        path: `${BASE}/${Routes.ANALYTICS}`,
+        name: Routes.ANALYTICS,
+        component: () => import('@/views/protected/AnalyticsPage.vue'),
       }, {
         path: `${BASE}/${Routes.COMPONENTS}`,
         name: Routes.COMPONENTS,

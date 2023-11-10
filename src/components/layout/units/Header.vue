@@ -83,7 +83,7 @@
               </VText>
               <VText
                 variant="body2"
-                :color="GlobalColorMap['600'].default"
+                :color="GlobalColorMap['400'].default"
               >
                 Admin
               </VText>
@@ -132,10 +132,8 @@ import {
   ref,
   watch,
 } from 'vue';
-import { useRouter } from 'vue-router';
 
 import NotifyIcon from '@/assets/icons/header/notification.svg';
-import SearchIcon from '@/assets/icons/header/search.svg';
 import ChatIcon from '@/assets/icons/menu/chat.svg';
 import FAQIcon from '@/assets/icons/menu/faq.svg';
 import InboxIcon from '@/assets/icons/menu/inbox.svg';
@@ -173,10 +171,9 @@ interface EmitsType {
   (e: 'switchSidebar'): void;
 }
 
-const router = useRouter();
 const themeStore = useThemeStore();
 
-const props = defineProps<PropsType>();
+defineProps<PropsType>();
 const emits = defineEmits<EmitsType>();
 const hasUserMenuOpened = ref<boolean>(false);
 
@@ -216,6 +213,10 @@ onBeforeMount(() => {
   transition: padding var(--transition-duration) var(--transition-timing-func),
     background-color var(--transition-duration) var(--transition-timing-func),
     width var(--transition-duration) var(--transition-timing-func);
+
+  svg path {
+    fill: var(--color-default-600)
+  }
 }
 
 .left,
