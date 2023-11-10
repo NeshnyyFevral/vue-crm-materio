@@ -35,14 +35,12 @@
       :class="$style.container"
     >
       <VOffset :mr="10">
-        <VOffset
+        <div
           v-for="node in SidebarTree"
           :key="node.title"
         >
-          <VOffset
+          <div
             v-if="node.title"
-            :mt="15"
-            :mb="20"
             :class="[
               $style.titleWrapper,
               !modelValue && $style.titleWrapperHide,
@@ -53,7 +51,7 @@
             <h3 :class="$style.title">
               {{ node.title }}
             </h3>
-          </VOffset>
+          </div>
           <SidebarGroup
             v-for="item in node.group"
             :key="item.title"
@@ -66,7 +64,7 @@
             :active-link="activeLink"
             @toggle="activeList = $event"
           />
-        </VOffset>
+        </div>
       </VOffset>
     </VOffset>
   </div>
@@ -242,6 +240,7 @@ $widthOpen: 260px;
 
 .titleWrapper {
   position: relative;
+  margin: 15px 0 20px;
 }
 
 .title {
