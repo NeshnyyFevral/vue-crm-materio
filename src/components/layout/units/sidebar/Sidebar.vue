@@ -1,5 +1,5 @@
 <template>
-  <VOffset
+  <div
     :class="[
       $style.root,
       modelValue && $style.open,
@@ -17,7 +17,7 @@
         >
           <LogoIcon />
         </VOffset>
-        <VOffset :class="$style.headerWrapper">
+        <div :class="$style.headerWrapper">
           <VTitle variant="heading5">
             MATERIO
           </VTitle>
@@ -27,7 +27,7 @@
           >
             <CrossIcon />
           </button>
-        </VOffset>
+        </div>
       </VFlex>
     </VOffset>
     <VOffset
@@ -49,7 +49,7 @@
               active && $style.titleWrapperShow
             ]"
           >
-            <VOffset :class="$style.line" />
+            <div :class="$style.line" />
             <h3 :class="$style.title">
               {{ node.title }}
             </h3>
@@ -69,7 +69,7 @@
         </VOffset>
       </VOffset>
     </VOffset>
-  </VOffset>
+  </div>
 </template>
 
 <script setup lang="ts">
