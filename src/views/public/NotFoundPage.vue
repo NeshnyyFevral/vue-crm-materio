@@ -32,8 +32,6 @@
 
 <script setup lang="ts">
 import NotFoundIcon from '@/assets/icons/not-found.svg';
-import { router } from '@/main';
-import { Routes } from '@/router';
 
 const goToHome = () => {
   // router.push({ name: Routes.TERMINALS });

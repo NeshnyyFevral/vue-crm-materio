@@ -52,7 +52,6 @@ import TransactionItem from '@/components/dashboards/analytics/units/Transaction
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import type { TransactionDepositWithdraw } from '@/model/dashboards/Transactions';
-import { useResizeTrigger } from '@/model/tools/ResizeTools';
 import { getImageUrl } from '@/model/tools/UrlTools';
 
 interface PropsType {
@@ -66,9 +65,6 @@ const props = withDefaults(defineProps<PropsType>(), {
   data: () => [],
   splitter: false,
 });
-
-const breakpoint = 630;
-const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">

@@ -18,11 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  onMounted,
-  useSlots,
-} from 'vue';
+import { computed, useSlots } from 'vue';
 
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';

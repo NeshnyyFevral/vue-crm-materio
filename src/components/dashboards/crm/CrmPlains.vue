@@ -114,7 +114,6 @@ import IconStatus from '@/components/dashboards/crm/units/IconStatus.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getRandomId } from '@/model/tools/RandomTools';
-import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface Statuses {
   id: string;

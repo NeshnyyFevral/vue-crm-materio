@@ -102,7 +102,6 @@ import { VTextTextAlign } from '@/model/components/basic/VText';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
 import { formatNumber } from '@/model/tools/NumberTools';
 import { getRandomId } from '@/model/tools/RandomTools';
-import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface HoveredString {
   value: string;
@@ -156,7 +155,6 @@ const data = {
 };
 
 const breakpoint = 500;
-const hasChange = useResizeTrigger(breakpoint);
 
 const gridData = computed(() => {
   const gD: GridItem[] = [];

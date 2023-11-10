@@ -43,6 +43,7 @@ import VText from '@/components/basic/VText.vue';
 interface PropsType {
   overflowHidden?: boolean;
   disabledTopBr?: boolean;
+  overflowX?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -53,10 +54,13 @@ const slots = useSlots();
 
 const menuHasOpened = ref<boolean>(false);
 const isMenuSlot = computed(() => !!slots?.menu);
+const overflowX = computed(() => (props.overflowX ? 'auto' : 'visible'));
 </script>
 
 <style module lang="scss">
 .root {
+  --overflow-x-card: v-bind(overflowX);
+
   position: relative;
   width: 100%;
   height: 100%;
@@ -64,11 +68,10 @@ const isMenuSlot = computed(() => !!slots?.menu);
   background-color: var(--color-card);
   box-shadow: var(--shadow-card);
   border-radius: 12px;
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow-x: var(--overflow-x-card);
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
-    bpx-shadow var(--transition-duration) var(--transition-timing-func);
+    box-shadow var(--transition-duration) var(--transition-timing-func);
   animation: opp var(--transition-timing-func) var(--transition-duration);
 }
 

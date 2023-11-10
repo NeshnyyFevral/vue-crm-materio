@@ -132,7 +132,6 @@ import {
   ref,
   watch,
 } from 'vue';
-import { useRouter } from 'vue-router';
 
 import NotifyIcon from '@/assets/icons/header/notification.svg';
 import ChatIcon from '@/assets/icons/menu/chat.svg';
@@ -174,7 +173,7 @@ interface EmitsType {
 
 const themeStore = useThemeStore();
 
-const props = defineProps<PropsType>();
+defineProps<PropsType>();
 const emits = defineEmits<EmitsType>();
 const hasUserMenuOpened = ref<boolean>(false);
 

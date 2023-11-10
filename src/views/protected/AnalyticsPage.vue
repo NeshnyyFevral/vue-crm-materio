@@ -7,7 +7,10 @@
       :mt="20"
       :class="$style[component.class]"
     >
-      <component :is="component.component" />
+      <component
+        :is="component.component"
+        :overflow-x="component.class === 'userTable'"
+      />
     </VOffset>
   </div>
 </template>
