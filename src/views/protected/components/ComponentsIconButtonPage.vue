@@ -84,7 +84,8 @@
 </template>
 
 <script setup lang="ts">
-import ZoomIcon from '@/assets/icons/button/zoom.svg';
+import ZoomIcon from '@public/assets/icons/button/zoom.svg';
+
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';

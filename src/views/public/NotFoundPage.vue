@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import NotFoundIcon from '@/assets/icons/not-found.svg';
+import NotFoundIcon from '@public/assets/icons/not-found.svg';
 
 const goToHome = () => {
   // router.push({ name: Routes.TERMINALS });

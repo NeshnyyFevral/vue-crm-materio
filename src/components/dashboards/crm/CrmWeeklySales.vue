@@ -60,10 +60,10 @@
 </template>
 
 <script setup lang="ts">
+import DollarIcon from '@public/assets/icons/dashboards/dollar.svg';
+import ArrowUpIcon from '@public/assets/icons/dashboards/lightningUp.svg';
 import { ref } from 'vue';
 
-import DollarIcon from '@/assets/icons/dashboards/dollar.svg';
-import ArrowUpIcon from '@/assets/icons/dashboards/lightningUp.svg';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';

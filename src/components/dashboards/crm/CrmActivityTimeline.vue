@@ -21,7 +21,7 @@
 
         <VFlex :align="FlexAlign.CENTER">
           <img
-            src="../../../assets/images/crm/pdf.png"
+            :src="getPathImg('images/crm/pdf.png')"
             alt="pdf-file"
             :class="$style.pdf"
           >
@@ -52,7 +52,7 @@
         <VFlex :align="FlexAlign.CENTER">
           <VAvatar :size="AvatarSize.SMALL">
             <img
-              src="../../../assets/avatars/1.png"
+              :src="getPathImg('avatars/1.png')"
               alt="avatar"
             >
           </VAvatar>
@@ -101,6 +101,7 @@ import VTitle from '@/components/basic/VTitle.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AvatarSize } from '@/model/components/basic/VAvatar';
 import { FlexAlign } from '@/model/components/basic/VFlex';
+import { getPathImg } from '@/model/tools/PathTools';
 </script>
 
 <style module lang="scss">

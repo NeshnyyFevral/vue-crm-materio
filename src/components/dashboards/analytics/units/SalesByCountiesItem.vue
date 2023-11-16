@@ -71,7 +71,8 @@
 </template>
 
 <script setup lang="ts">
-import ArrowIcon from '@/assets/icons/chevron-up.svg';
+import ArrowIcon from '@public/assets/icons/chevron-up.svg';
+
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';

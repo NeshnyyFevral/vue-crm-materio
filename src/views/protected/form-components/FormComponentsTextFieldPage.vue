@@ -140,11 +140,11 @@
 </template>
 
 <script setup lang="ts">
+import PasswordCloseIcon from '@public/assets/icons/text-field/password-close.svg';
+import PasswordOpenIcon from '@public/assets/icons/text-field/password-open.svg';
+import PeopleIcon from '@public/assets/icons/text-field/people.svg';
 import { ref } from 'vue';
 
-import PasswordCloseIcon from '@/assets/icons/text-field/password-close.svg';
-import PasswordOpenIcon from '@/assets/icons/text-field/password-open.svg';
-import PeopleIcon from '@/assets/icons/text-field/people.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';

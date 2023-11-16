@@ -10,7 +10,7 @@
         :size="AvatarSize[size]"
       >
         <img
-          src="@/assets/avatars/3.png"
+          :src="getPathImg('avatars/3.png')"
           alt="1"
         >
       </VAvatar>
@@ -26,7 +26,7 @@
         :variant="AvatarVariant[variant]"
       >
         <img
-          src="@/assets/avatars/2.png"
+          :src="getPathImg('avatars/2.png')"
           alt="1"
         >
       </VAvatar>
@@ -110,14 +110,16 @@
 </template>
 
 <script setup lang="ts">
-import DiskIcon from '@/assets/icons/avatar/disk.svg';
-import FileIcon from '@/assets/icons/avatar/file.svg';
-import NotiIcon from '@/assets/icons/avatar/noti.svg';
-import RepairIcon from '@/assets/icons/avatar/repair.svg';
-import SuccessIcon from '@/assets/icons/avatar/success.svg';
+import DiskIcon from '@public/assets/icons/avatar/disk.svg';
+import FileIcon from '@public/assets/icons/avatar/file.svg';
+import NotiIcon from '@public/assets/icons/avatar/noti.svg';
+import RepairIcon from '@public/assets/icons/avatar/repair.svg';
+import SuccessIcon from '@public/assets/icons/avatar/success.svg';
+
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';
 import { GlobalColors } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
+import { getPathImg } from '@/model/tools/PathTools';
 </script>

@@ -89,8 +89,9 @@
 </template>
 
 <script setup lang="ts">
-import RemoveIcon from '@/assets/icons/button/remove.svg';
-import SendIcon from '@/assets/icons/button/send.svg';
+import RemoveIcon from '@public/assets/icons/button/remove.svg';
+import SendIcon from '@public/assets/icons/button/send.svg';
+
 import VButton from '@/components/basic/VButton.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';

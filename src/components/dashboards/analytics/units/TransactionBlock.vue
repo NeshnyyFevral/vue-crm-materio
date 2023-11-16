@@ -35,8 +35,8 @@
         :desc="item.desc"
       >
         <img
-          :src="getImageUrl(`/assets/images/analytics/deposits/${item.imgSrc}`)"
-          alt="logo"
+          :src="getPathImg(`images/analytics/deposits/${item.imgSrc}`)"
+          :alt="`avatar-${item.imgSrc}`"
         >
       </TransactionItem>
     </VOffset>
@@ -52,7 +52,7 @@ import TransactionItem from '@/components/dashboards/analytics/units/Transaction
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import type { TransactionDepositWithdraw } from '@/model/dashboards/Transactions';
-import { getImageUrl } from '@/model/tools/UrlTools';
+import { getPathImg } from '@/model/tools/PathTools';
 
 interface PropsType {
   title: string;

@@ -28,13 +28,13 @@
 </template>
 
 <script setup lang="ts">
+import MoreVertIcon from '@public/assets/icons/more-vert.svg';
 import {
   computed,
   ref,
   useSlots,
 } from 'vue';
 
-import MoreVertIcon from '@/assets/icons/more-vert.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VOffset from '@/components/basic/VOffset.vue';

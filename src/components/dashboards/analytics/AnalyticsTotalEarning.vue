@@ -56,8 +56,8 @@
         :color="ear.color"
       >
         <img
-          :src="getImageUrl(`/assets/images/analytics/${ear.imageSrc}`)"
-          alt=""
+          :src="getPathImg(`images/analytics/${ear.avatar}`)"
+          :alt="`avatar-${ear.avatar}`"
         >
       </TotalEarning>
     </VOffset>
@@ -65,7 +65,8 @@
 </template>
 
 <script setup lang="ts">
-import ArrowIcon from '@/assets/icons/triangle.svg';
+import ArrowIcon from '@public/assets/icons/triangle.svg';
+
 import VCard from '@/components/basic/VCard.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
@@ -74,8 +75,8 @@ import VTitle from '@/components/basic/VTitle.vue';
 import TotalEarning from '@/components/dashboards/analytics/units/TotalEarning.vue';
 import StatisticBase from '@/components/dashboards/StatisticBase.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { getPathImg } from '@/model/tools/PathTools';
 import { getRandomId } from '@/model/tools/RandomTools';
-import { getImageUrl } from '@/model/tools/UrlTools';
 
 interface Earning {
   id: string;
@@ -83,35 +84,34 @@ interface Earning {
   value: string;
   desc: string;
   percentage: string;
-  imageSrc: string;
+  avatar: string;
   color: GlobalColors;
 }
 
-const earningData: Earning[] = [
-  {
-    id: getRandomId(),
-    title: 'Zipcar',
-    value: '$24,895.65',
-    desc: 'Vuejs, React & HTML',
-    percentage: '75',
-    imageSrc: 'zipcar.png',
-    color: GlobalColors.PRIMARY,
-  }, {
-    id: getRandomId(),
-    title: 'Bitbank',
-    value: '$8,650.20',
-    desc: 'Sketch, Figma & XD',
-    percentage: '45',
-    imageSrc: 'bitbank.png',
-    color: GlobalColors.INFO,
-  }, {
-    id: getRandomId(),
-    title: 'Aviato',
-    value: '$1,245.80',
-    desc: 'HTML & Angular',
-    percentage: '15',
-    imageSrc: 'aviato.png',
-    color: GlobalColors.DEFAULT,
-  },
+const earningData: Earning[] = [{
+  id: getRandomId(),
+  title: 'Zipcar',
+  value: '$24,895.65',
+  desc: 'Vuejs, React & HTML',
+  percentage: '75',
+  avatar: 'zipcar.png',
+  color: GlobalColors.PRIMARY,
+}, {
+  id: getRandomId(),
+  title: 'Bitbank',
+  value: '$8,650.20',
+  desc: 'Sketch, Figma & XD',
+  percentage: '45',
+  avatar: 'bitbank.png',
+  color: GlobalColors.INFO,
+}, {
+  id: getRandomId(),
+  title: 'Aviato',
+  value: '$1,245.80',
+  desc: 'HTML & Angular',
+  percentage: '15',
+  avatar: 'aviato.png',
+  color: GlobalColors.DEFAULT,
+},
 ];
 </script>

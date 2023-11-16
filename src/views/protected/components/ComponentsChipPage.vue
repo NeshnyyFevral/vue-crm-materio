@@ -104,7 +104,8 @@
 </template>
 
 <script setup lang="ts">
-import RemoveIcon from '@/assets/icons/remove.svg';
+import RemoveIcon from '@public/assets/icons/remove.svg';
+
 import VChip from '@/components/basic/VChip.vue';
 import VPreviewComponentCard from '@/components/basic/VPreviewComponentCard.vue';
 import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue';

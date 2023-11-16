@@ -20,11 +20,11 @@
 </template>
 
 <script setup lang="ts">
+import InfoIcon from '@public/assets/icons/alert/info.svg';
+import SuccessIcon from '@public/assets/icons/alert/success.svg';
+import WarningIcon from '@public/assets/icons/alert/warning.svg';
 import { computed } from 'vue';
 
-import InfoIcon from '@/assets/icons/alert/info.svg';
-import SuccessIcon from '@/assets/icons/alert/success.svg';
-import WarningIcon from '@/assets/icons/alert/warning.svg';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AlertVariant } from '@/model/components/basic/VAlert';
 

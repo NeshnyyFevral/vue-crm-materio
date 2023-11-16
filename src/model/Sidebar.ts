@@ -1,10 +1,11 @@
-// import CardsIcon from '@/assets/icons/sidebar/cards.svg';
-import ComponentsIcon from '@/assets/icons/sidebar/components.svg';
-import DashboardsIcon from '@/assets/icons/sidebar/dashboards.svg';
-// import InvoiceIcon from '@/assets/icons/sidebar/invoice.svg';
-// import PagesIcon from '@/assets/icons/sidebar/pages.svg';
-import TypographyIcon from '@/assets/icons/sidebar/typography.svg';
-// import UserIcon from '@/assets/icons/sidebar/user.svg';
+// import CardsIcon from '@public/assets/icons/sidebar/cards.svg';
+// import UserIcon from '@public/assets/icons/sidebar/user.svg';
+import ComponentsIcon from '@public/assets/icons/sidebar/components.svg';
+import DashboardsIcon from '@public/assets/icons/sidebar/dashboards.svg';
+// import InvoiceIcon from '@public/assets/icons/sidebar/invoice.svg';
+// import PagesIcon from '@public/assets/icons/sidebar/pages.svg';
+import TypographyIcon from '@public/assets/icons/sidebar/typography.svg';
+
 import { Routes } from '@/router';
 
 export interface SidebarList {

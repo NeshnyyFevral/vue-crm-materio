@@ -60,10 +60,10 @@
 </template>
 
 <script setup lang="ts">
+import CrossIcon from '@public/assets/icons/cross.svg';
+import TxtIcon from '@public/assets/icons/file-uploader/txt.svg';
 import { ref } from 'vue';
 
-import CrossIcon from '@/assets/icons/cross.svg';
-import TxtIcon from '@/assets/icons/file-uploader/txt.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VFileUploader from '@/components/form/VFileUploader.vue';

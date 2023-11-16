@@ -28,7 +28,7 @@
         price="5250"
       >
         <img
-          src="../../../assets/images/crm/briefcase.png"
+          :src="getPathImg('images/crm/briefcase.png')"
           alt="case"
         >
       </UpgradePlan>
@@ -50,7 +50,7 @@
         desc="2566 xxxx xxxx 8908"
       >
         <img
-          src="../../../assets/images/crm/logo-MC.png"
+          :src="getPathImg('images/crm/logo-MC.png')"
           alt="MC"
         >
       </CardCVC>
@@ -63,7 +63,7 @@
         desc="8990 xxxx xxxx 6852"
       >
         <img
-          src="../../../assets/images/crm/logo-another.png"
+          :src="getPathImg('images/crm/logo-another.png')"
           alt="another"
         >
       </CardCVC>
@@ -107,9 +107,9 @@
 </template>
 
 <script setup lang="ts">
+import ArrowRight from '@public/assets/icons/dashboards/crm/arrowRight.svg';
 import { ref } from 'vue';
 
-import ArrowRight from '@/assets/icons/dashboards/crm/arrowRight.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
@@ -123,6 +123,7 @@ import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { ButtonSize } from '@/model/components/basic/VButton';
 import { FlexAlign } from '@/model/components/basic/VFlex';
+import { getPathImg } from '@/model/tools/PathTools';
 
 const creditCard1 = ref<string>('');
 const creditCard2 = ref<string>('');

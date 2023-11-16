@@ -39,13 +39,13 @@
 </template>
 
 <script setup lang="ts">
+import SuccessIcon from '@public/assets/icons/checkbox/success.svg';
 import {
   computed,
   ref,
   watchEffect,
 } from 'vue';
 
-import SuccessIcon from '@/assets/icons/checkbox/success.svg';
 import VText from '@/components/basic/VText.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { CheckboxLabelPlacement, CheckboxSize } from '@/model/components/form/VCheckbox';

@@ -38,7 +38,7 @@
       />
 
       <img
-        src="../../../assets/images/analytics/trophy.png"
+        src="/public/assets/images/analytics/trophy.png"
         alt="trophy"
         :class="$style.trImage"
       >

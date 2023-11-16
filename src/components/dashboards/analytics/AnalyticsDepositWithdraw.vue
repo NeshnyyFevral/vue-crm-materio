@@ -103,7 +103,6 @@ const withdrawals: TransactionDepositWithdraw[] = [{
   imgSrc: 'aws.png',
 },
 ];
-
 </script>
 
 <style module lang="scss">

@@ -71,10 +71,10 @@
 </template>
 
 <script setup lang="ts">
+import CrossIcon from '@public/assets/icons/cross.svg';
+import LogoIcon from '@public/assets/icons/sidebar/logo.svg';
 import { computed, ref } from 'vue';
 
-import CrossIcon from '@/assets/icons/cross.svg';
-import LogoIcon from '@/assets/icons/sidebar/logo.svg';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTitle from '@/components/basic/VTitle.vue';

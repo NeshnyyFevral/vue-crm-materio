@@ -56,6 +56,7 @@
 </template>
 
 <script setup lang="ts">
+import ArrowDown from '@public/assets/icons/chevron-down.svg';
 import type { VNode } from 'vue';
 import {
   computed,
@@ -64,7 +65,6 @@ import {
   useSlots,
 } from 'vue';
 
-import ArrowDown from '@/assets/icons/chevron-down.svg';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import { FlexAlign } from '@/model/components/basic/VFlex';

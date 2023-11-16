@@ -50,7 +50,7 @@
           >
             <VAvatar>
               <img
-                src="@/assets/avatars/1.png"
+                :src="getPathImg('avatars/1.png')"
                 alt="avatar"
               >
             </VAvatar>
@@ -68,7 +68,7 @@
             >
               <VAvatar>
                 <img
-                  src="@/assets/avatars/1.png"
+                  :src="getPathImg('avatars/1.png')"
                   alt="avatar"
                 >
               </VAvatar>
@@ -126,6 +126,14 @@
 </template>
 
 <script setup lang="ts">
+import NotifyIcon from '@public/assets/icons/header/notification.svg';
+import ChatIcon from '@public/assets/icons/menu/chat.svg';
+import FAQIcon from '@public/assets/icons/menu/faq.svg';
+import InboxIcon from '@public/assets/icons/menu/inbox.svg';
+import LogoutIcon from '@public/assets/icons/menu/logout.svg';
+import ProfileIcon from '@public/assets/icons/menu/profile.svg';
+import SettingsIcon from '@public/assets/icons/menu/settings.svg';
+import MenuIcon from '@public/assets/icons/sidebar/menu.svg';
 import {
   computed,
   onBeforeMount,
@@ -133,14 +141,6 @@ import {
   watch,
 } from 'vue';
 
-import NotifyIcon from '@/assets/icons/header/notification.svg';
-import ChatIcon from '@/assets/icons/menu/chat.svg';
-import FAQIcon from '@/assets/icons/menu/faq.svg';
-import InboxIcon from '@/assets/icons/menu/inbox.svg';
-import LogoutIcon from '@/assets/icons/menu/logout.svg';
-import ProfileIcon from '@/assets/icons/menu/profile.svg';
-import SettingsIcon from '@/assets/icons/menu/settings.svg';
-import MenuIcon from '@/assets/icons/sidebar/menu.svg';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VBadge from '@/components/basic/VBadge.vue';
 import VFlex from '@/components/basic/VFlex.vue';
@@ -159,6 +159,7 @@ import {
 } from '@/model/components/basic/VBadge';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import { IconButtonVariant } from '@/model/components/basic/VIconButton';
+import { getPathImg } from '@/model/tools/PathTools';
 import appStorage from '@/model/tools/StorageTools';
 import { useThemeStore } from '@/stores/theme';
 

@@ -30,7 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import StatisticIcon from '@/assets/icons/dashboards/statistic.svg';
+import StatisticIcon from '@public/assets/icons/dashboards/statistic.svg';
+
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import AnalyticsSessions from '@/components/dashboards/analytics/AnalyticsSessions.vue';

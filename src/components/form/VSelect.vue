@@ -53,6 +53,7 @@
 
 <script setup lang="ts">
 // todo продумать логику, если value в option будут одинаковыми
+import ArrowIcon from '@public/assets/icons/chevron-down.svg';
 import {
   computed,
   nextTick,
@@ -63,7 +64,6 @@ import {
   watchEffect,
 } from 'vue';
 
-import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import VText from '@/components/basic/VText.vue';
 import VTextField from '@/components/form/VTextField.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';

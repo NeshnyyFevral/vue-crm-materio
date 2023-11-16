@@ -37,7 +37,7 @@
     </div>
 
     <img
-      src="../../../assets/images/crm/girl.png"
+      :src="getPathImg('images/crm/girl.png')"
       alt="girl"
       :class="$style.image"
     >
@@ -52,6 +52,7 @@ import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import StatisticBase from '@/components/dashboards/StatisticBase.vue';
 import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
+import { getPathImg } from '@/model/tools/PathTools';
 </script>
 
 <style module lang="scss">

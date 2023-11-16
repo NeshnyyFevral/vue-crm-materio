@@ -51,10 +51,11 @@
 </template>
 
 <script setup lang="ts">
-import DollarIcon from '@/assets/icons/dashboards/dollar.svg';
-import SalesIcon from '@/assets/icons/dashboards/lightningUp.svg';
-import CustomersIcon from '@/assets/icons/dashboards/people.svg';
-import ProductIcon from '@/assets/icons/dashboards/product.svg';
+import DollarIcon from '@public/assets/icons/dashboards/dollar.svg';
+import SalesIcon from '@public/assets/icons/dashboards/lightningUp.svg';
+import CustomersIcon from '@public/assets/icons/dashboards/people.svg';
+import ProductIcon from '@public/assets/icons/dashboards/product.svg';
+
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';

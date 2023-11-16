@@ -16,7 +16,7 @@
 
           <VFlex :align="FlexAlign.CENTER">
             <img
-              src="../../../assets/images/crm/pdf.png"
+              :src="getPathImg('images/crm/pdf.png')"
               alt="pdf-file"
               :class="$style.pdf"
             >
@@ -62,6 +62,7 @@ import VTimeline from '@/components/basic/VTimeline.vue';
 import VTimelineItem from '@/components/basic/VTimelineItem.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { FlexAlign } from '@/model/components/basic/VFlex';
+import { getPathImg } from '@/model/tools/PathTools';
 </script>
 
 <style module lang="scss">

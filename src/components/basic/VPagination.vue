@@ -43,9 +43,9 @@
 </template>
 
 <script setup lang="ts">
+import ArrowIcon from '@public/assets/icons/chevron-down.svg';
 import { computed } from 'vue';
 
-import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import { GlobalColors } from '@/model/Colors';
 import { IconButtonSize, IconButtonVariant } from '@/model/components/basic/VIconButton';

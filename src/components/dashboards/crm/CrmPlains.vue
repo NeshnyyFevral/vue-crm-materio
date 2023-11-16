@@ -2,7 +2,7 @@
   <VOffset>
     <VOffset :class="$style.image">
       <img
-        src="../../../assets/images/crm/workstation.png"
+        :src="getPathImg('images/crm/workstation.png')"
         alt="workstation"
       >
     </VOffset>
@@ -98,12 +98,13 @@
 </template>
 
 <script setup lang="ts">
-import ClockIcon from '@/assets/icons/dashboards/crm/clock.svg';
-import PlaceIcon from '@/assets/icons/dashboards/crm/place.svg';
-import StarIcon from '@/assets/icons/dashboards/crm/star.svg';
-import SuccessIcon from '@/assets/icons/dashboards/crm/success.svg';
-import PeopleIcon from '@/assets/icons/dashboards/people.svg';
-import MoreIcon from '@/assets/icons/more.svg';
+import ClockIcon from '@public/assets/icons/dashboards/crm/clock.svg';
+import PlaceIcon from '@public/assets/icons/dashboards/crm/place.svg';
+import StarIcon from '@public/assets/icons/dashboards/crm/star.svg';
+import SuccessIcon from '@public/assets/icons/dashboards/crm/success.svg';
+import PeopleIcon from '@public/assets/icons/dashboards/people.svg';
+import MoreIcon from '@public/assets/icons/more.svg';
+
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
@@ -113,6 +114,7 @@ import CalendarItem from '@/components/dashboards/crm/units/CalendarItem.vue';
 import IconStatus from '@/components/dashboards/crm/units/IconStatus.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
+import { getPathImg } from '@/model/tools/PathTools';
 import { getRandomId } from '@/model/tools/RandomTools';
 
 interface Statuses {

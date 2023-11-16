@@ -19,8 +19,8 @@
             light
           >
             <img
-              :src="getImageUrl(`assets/avatars/${row.avatar}`)"
-              :alt="row.avatar"
+              :src="getPathImg(`avatars/${row.avatar}`)"
+              :alt="`avatar-${row.avatar}`"
             >
           </VAvatar>
           <VAvatar
@@ -122,7 +122,7 @@ import { AvatarSize } from '@/model/components/basic/VAvatar';
 import { ChipVariant } from '@/model/components/basic/VChip';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import type { Users } from '@/model/dashboards/Users';
-import { getImageUrl } from '@/model/tools/UrlTools';
+import { getPathImg } from '@/model/tools/PathTools';
 
 interface PropsType {
   data: Users[];

@@ -12,7 +12,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/1.png"
+            :src="getPathImg('avatars/1.png')"
             alt="1"
           >
         </VAvatar>
@@ -31,7 +31,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/2.png"
+            :src="getPathImg('avatars/2.png')"
             alt="1"
           >
         </VAvatar>
@@ -50,7 +50,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/3.png"
+            :src="getPathImg('avatars/3.png')"
             alt="1"
           >
         </VAvatar>
@@ -70,7 +70,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/1.png"
+            :src="getPathImg('avatars/1.png')"
             alt="1"
           >
         </VAvatar>
@@ -91,7 +91,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/1.png"
+            :src="getPathImg('avatars/1.png')"
             alt="1"
           >
         </VAvatar>
@@ -109,7 +109,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/1.png"
+            :src="getPathImg('avatars/1.png')"
             alt="1"
           >
         </VAvatar>
@@ -121,7 +121,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/1.png"
+            :src="getPathImg('avatars/1.png')"
             alt="1"
           >
         </VAvatar>
@@ -133,7 +133,7 @@
       >
         <VAvatar>
           <img
-            src="@/assets/avatars/1.png"
+            :src="getPathImg('avatars/1.png')"
             alt="1"
           >
         </VAvatar>
@@ -144,7 +144,7 @@
       <VBadge :value="badgeValue">
         <VAvatar>
           <img
-            src="@/assets/avatars/3.png"
+            :src="getPathImg('avatars/3.png')"
             alt="1"
           >
         </VAvatar>
@@ -181,6 +181,7 @@ import {
   BadgeVariant,
 } from '@/model/components/basic/VBadge';
 import { ButtonVariant } from '@/model/components/basic/VButton';
+import { getPathImg } from '@/model/tools/PathTools';
 
 const badgeValue = ref<number>(2);
 </script>

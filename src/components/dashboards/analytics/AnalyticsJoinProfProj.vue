@@ -30,7 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import ChestIcon from '@/assets/icons/dashboards/crm/chest.svg';
+import ChestIcon from '@public/assets/icons/dashboards/crm/chest.svg';
+
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import AnalyticsTotalProfit from '@/components/dashboards/analytics/AnalyticsTotalProfit.vue';

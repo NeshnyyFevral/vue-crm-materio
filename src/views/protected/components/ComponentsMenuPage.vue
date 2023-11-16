@@ -147,11 +147,11 @@
 </template>
 
 <script setup lang="ts">
+import DraftsIcon from '@public/assets/icons/menu/drafts.svg';
+import InboxIcon from '@public/assets/icons/menu/inbox.svg';
+import SendEmailIcon from '@public/assets/icons/menu/send-email.svg';
 import { ref } from 'vue';
 
-import DraftsIcon from '@/assets/icons/menu/drafts.svg';
-import InboxIcon from '@/assets/icons/menu/inbox.svg';
-import SendEmailIcon from '@/assets/icons/menu/send-email.svg';
 import VButton from '@/components/basic/VButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
 import VMenuItem from '@/components/basic/VMenuItem.vue';

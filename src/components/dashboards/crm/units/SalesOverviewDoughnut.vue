@@ -86,11 +86,11 @@
 </template>
 
 <script setup lang="ts">
+import DollarIcon from '@public/assets/icons/dashboards/dollar.svg';
 import { Chart, registerables } from 'chart.js';
 import { computed, ref } from 'vue';
 import { DoughnutChart } from 'vue-chart-3';
 
-import DollarIcon from '@/assets/icons/dashboards/dollar.svg';
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VSplitter from '@/components/basic/VSplitter.vue';

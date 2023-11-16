@@ -11,7 +11,7 @@
     <div :class="$style.dropzone">
       <img
         :class="$style.img"
-        src="../../assets/images/upload.png"
+        :src="getPathImg('images/upload.png')"
         alt="upload"
       >
 
@@ -38,6 +38,7 @@ import { useToast } from 'vue-toastification';
 import VOffset from '@/components/basic/VOffset.vue';
 import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
+import { getPathImg } from '@/model/tools/PathTools';
 
 interface PropsType {
   title?: string;

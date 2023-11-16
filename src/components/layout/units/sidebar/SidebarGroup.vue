@@ -42,9 +42,9 @@
 </template>
 
 <script setup lang="ts">
+import ArrowIcon from '@public/assets/icons/chevron-down.svg';
 import { computed, ref } from 'vue';
 
-import ArrowIcon from '@/assets/icons/chevron-down.svg';
 import SidebarItem from '@/components/layout/units/sidebar/SidebarItem.vue';
 import type { SidebarList } from '@/model/Sidebar';
 
