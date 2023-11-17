@@ -54,7 +54,7 @@ $color-default-500: c.tint($color-default, 30%);
 $color-default-400: c.tint($color-default, 50%);
 $color-default-300: c.tint($color-default, 60%);
 $color-default-200: c.tint($color-default, 70%);
-$color-default-100: c.alpha($color-default, 0.1);
+$color-default-100: c.alpha($color-default, 0.2);
 
 :root {
   --color-primary-700: #{ $color-primary-700 };

@@ -93,7 +93,10 @@
 
         <VSplitter />
 
-        <VMenuItem name="Profile">
+        <VMenuItem
+          name="Profile"
+          @click-elem="selectUserMenu"
+        >
           <ProfileIcon />
         </VMenuItem>
 
@@ -140,6 +143,7 @@ import {
   ref,
   watch,
 } from 'vue';
+import { useRouter } from 'vue-router';
 
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VBadge from '@/components/basic/VBadge.vue';
@@ -161,25 +165,34 @@ import { FlexAlign } from '@/model/components/basic/VFlex';
 import { IconButtonVariant } from '@/model/components/basic/VIconButton';
 import { getPathImg } from '@/model/tools/PathTools';
 import appStorage from '@/model/tools/StorageTools';
+import { Routes } from '@/router';
 import { useThemeStore } from '@/stores/theme';
 
 interface PropsType {
   active: boolean;
-  language?: string;
 }
 
 interface EmitsType {
   (e: 'switchSidebar'): void;
 }
 
-const themeStore = useThemeStore();
-
 defineProps<PropsType>();
+
+const themeStore = useThemeStore();
+const router = useRouter();
+
 const emits = defineEmits<EmitsType>();
 const hasUserMenuOpened = ref<boolean>(false);
 
 const themeValue = ref<boolean>(false);
 const displayedThemeValue = computed<'Dark' | 'Light'>(() => (themeValue.value ? 'Dark' : 'Light'));
+
+const selectUserMenu = (page: 'Profile') => {
+  switch (page) {
+  case 'Profile': router.push({ name: Routes.USER_PROFILE_PROFILE }); break;
+  default:
+  }
+};
 
 watch(() => themeValue.value, () => {
   appStorage.set('themeColor', themeValue.value ? 1 : 0);

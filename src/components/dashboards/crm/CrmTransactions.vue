@@ -42,8 +42,8 @@
 
 <script setup lang="ts">
 import SalesIcon from '@public/assets/icons/dashboards/lightningUp.svg';
-import CustomersIcon from '@public/assets/icons/dashboards/people.svg';
 import ProductIcon from '@public/assets/icons/dashboards/product.svg';
+import CustomersIcon from '@public/assets/icons/people.svg';
 
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';

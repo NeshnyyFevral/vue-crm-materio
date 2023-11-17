@@ -34,6 +34,12 @@ export const Routes = {
   TYPOGRAPHY_HEADERS: 'typography/headers',
   TYPOGRAPHY_TEXTS: 'typography/texts',
 
+  USER_PROFILE: 'user-profile',
+  USER_PROFILE_PROFILE: 'user-profile/profile',
+  USER_PROFILE_TEAMS: 'user-profile/teams',
+  USER_PROFILE_PROJECTS: 'user-profile/projects',
+  USER_PROFILE_CONNECTIONS: 'user-profile/connections',
+
   /* PUBLIC PAGES */
   LOGIN: 'login',
   NOT_FOUND: '404',
@@ -130,6 +136,28 @@ export default function createRouter() {
           path: `${BASE}/${Routes.TYPOGRAPHY_TEXTS}`,
           name: Routes.TYPOGRAPHY_TEXTS,
           component: () => import('@/views/protected/typography/TypographyTextsPage.vue'),
+        }],
+      }, {
+        path: `${BASE}/${Routes.USER_PROFILE}`,
+        name: Routes.USER_PROFILE,
+        component: () => import('@/views/protected/user-profile/UserProfilePage.vue'),
+        redirect: { name: Routes.USER_PROFILE_PROFILE },
+        children: [{
+          path: `${BASE}/${Routes.USER_PROFILE_PROFILE}`,
+          name: Routes.USER_PROFILE_PROFILE,
+          component: () => import('@/views/protected/user-profile/UserProfileProfilePage.vue'),
+        }, {
+          path: `${BASE}/${Routes.USER_PROFILE_TEAMS}`,
+          name: Routes.USER_PROFILE_TEAMS,
+          component: () => import('@/views/protected/user-profile/UserProfileTeamsPage.vue'),
+        }, {
+          path: `${BASE}/${Routes.USER_PROFILE_PROJECTS}`,
+          name: Routes.USER_PROFILE_PROJECTS,
+          component: () => import('@/views/protected/user-profile/UserProfileProjectsPage.vue'),
+        }, {
+          path: `${BASE}/${Routes.USER_PROFILE_CONNECTIONS}`,
+          name: Routes.USER_PROFILE_CONNECTIONS,
+          component: () => import('@/views/protected/user-profile/UserProfileConnectionsPage.vue'),
         }],
       }, {
         path: `${BASE}/${Routes.FORM_COMPONENTS}`,

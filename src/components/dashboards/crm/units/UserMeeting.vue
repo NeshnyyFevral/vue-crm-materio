@@ -20,7 +20,7 @@
 
         <VFlex :align="FlexAlign.CENTER">
           <VOffset :mr="2">
-            <CalendarIcon />
+            <CalendarIcon :class="$style.icon" />
           </VOffset>
           <VText
             variant="caption"
@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import CalendarIcon from '@public/assets/icons/dashboards/crm/calendar.svg';
+import CalendarIcon from '@public/assets/icons/calendar.svg';
 
 import VChip from '@/components/basic/VChip.vue';
 import VFlex from '@/components/basic/VFlex.vue';
@@ -69,3 +69,14 @@ const props = withDefaults(defineProps<PropsType>(), {
   time: '',
 });
 </script>
+
+<style module lang="scss">
+.icon {
+  width: 0.9rem;
+  height: 0.9rem;
+
+  path {
+    fill: var(--color-default-400);
+  }
+}
+</style>

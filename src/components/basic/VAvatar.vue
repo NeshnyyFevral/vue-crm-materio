@@ -72,6 +72,7 @@ $sizes: (
     small: 30px,
     medium: 40px,
     large: 56px,
+    extra-large: 120px,
 );
 
 .root {
