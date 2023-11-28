@@ -1,31 +1,31 @@
 <template>
   <div :class="$style.root">
     <Sidebar
-      v-model="openSidebar"
-      :active="activeSidebar"
-      @mouseenter="activeSidebar = true"
-      @mouseleave="activeSidebar = false"
+      v-model="sidebarHasOpened"
+      :active="sidebarHasActivated"
+      @mouseenter="sidebarHasActivated = true"
+      @mouseleave="sidebarHasActivated = false"
     />
     <div
-      v-if="openSidebar"
+      v-if="sidebarHasOpened"
       :class="$style.modal"
-      @click="openSidebar = false"
+      @click="sidebarHasOpened = false"
     />
     <div
       :class="[
         $style.content,
-        openSidebar && $style.openSidebar
+        sidebarHasOpened && $style.openSidebar
       ]"
-      @transitionend="scroll"
+      @transitionend="scrollEvent"
     >
       <div
-        ref="wrapper"
+        ref="wrapperRef"
         :class="$style.wrapper"
       >
         <Header
           :class="$style.header"
-          :active="active"
-          @switchSidebar="openSidebar = !openSidebar"
+          :active="headerHasActivated"
+          @switchSidebar="sidebarHasOpened = !sidebarHasOpened"
         />
         <main :class="$style.main">
           <router-view />
@@ -47,19 +47,19 @@ import Footer from '@/components/layout/units/Footer.vue';
 import Header from '@/components/layout/units/Header.vue';
 import Sidebar from '@/components/layout/units/sidebar/Sidebar.vue';
 
-const active = ref<boolean>(false);
-const openSidebar = ref<boolean>(false);
-const activeSidebar = ref<boolean>(false);
-const wrapper = ref<HTMLDivElement | null>(null);
+const headerHasActivated = ref<boolean>(false);
+const sidebarHasOpened = ref<boolean>(false);
+const sidebarHasActivated = ref<boolean>(false);
+const wrapperRef = ref<HTMLDivElement | null>(null);
 const headerWidth = ref<number>(0);
 
-const scroll = () => {
-  headerWidth.value = wrapper.value?.clientWidth || 0;
-  active.value = !!window.scrollY;
+const scrollEvent = () => {
+  headerWidth.value = wrapperRef.value?.clientWidth || 0;
+  headerHasActivated.value = !!window.scrollY;
 };
 
-onMounted(() => { window.addEventListener('scroll', scroll); });
-onUnmounted(() => { window.removeEventListener('scroll', scroll); });
+onMounted(() => { window.addEventListener('scroll', scrollEvent); });
+onUnmounted(() => { window.removeEventListener('scroll', scrollEvent); });
 </script>
 
 <style module lang="scss">
