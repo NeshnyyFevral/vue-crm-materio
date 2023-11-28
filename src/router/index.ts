@@ -5,6 +5,7 @@ export const Routes = {
   /* PROTECTED PAGES */
   CRM: 'crm',
   ANALYTICS: 'analytics',
+  ENCRYPT: 'encrypt',
 
   COMPONENTS: 'components',
   COMPONENTS_BUTTON: 'components/button',
@@ -59,6 +60,10 @@ export default function createRouter() {
         path: `${BASE}/${Routes.ANALYTICS}`,
         name: Routes.ANALYTICS,
         component: () => import('@/views/protected/AnalyticsPage.vue'),
+      }, {
+        path: `${BASE}/${Routes.ENCRYPT}`,
+        name: Routes.ENCRYPT,
+        component: () => import('@/views/protected/EncryptPage.vue'),
       }, {
         path: `${BASE}/${Routes.COMPONENTS}`,
         name: Routes.COMPONENTS,

@@ -34,7 +34,7 @@ export default [
         list: [
           { title: 'CRM', route: { name: Routes.CRM } },
           { title: 'Analytics', route: { name: Routes.ANALYTICS } },
-          /* { title: 'eCommerce', route: {} }, */
+          { title: 'Encrypt', route: { name: Routes.ENCRYPT } },
         ],
       },
     ],
