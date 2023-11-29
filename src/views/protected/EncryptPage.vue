@@ -2,7 +2,7 @@
   <VCard>
     <VOffset :mb="20">
       <VTitle :variant="'heading5'">
-        Hellman polygon encryption
+        Diffie-Hellman encryption
       </VTitle>
     </VOffset>
 
@@ -249,7 +249,7 @@ const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const sendMessage = async () => {
   isLoading.value = true;
-  await sleep(200);
+  await sleep(1000);
   keys.value = generateKeys();
 
   encryptDecrypt(keys.value.p, keys.value.g, keys.value.a, keys.value.b, keys.value.A, keys.value.B);
