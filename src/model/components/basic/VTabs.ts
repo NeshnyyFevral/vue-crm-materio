@@ -1,7 +1,3 @@
-export const enum TabsVariant {
-
-}
-
 export interface TabsData {
   id: string;
   disabled?: boolean;

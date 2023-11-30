@@ -10,3 +10,9 @@ export enum AvatarVariant {
   ROUNDED = 'rounded',
   SQUARE = 'square',
 }
+
+export interface AvatarGroup {
+  id: string;
+  src: string;
+  alt: string;
+}

@@ -7,6 +7,7 @@
       isVisibleLetter && $style.withLetter,
       light && $style.light,
       outlined && $style.hasOutlined,
+      filled && $style.filled,
     ]"
   >
     <slot />
@@ -30,6 +31,7 @@ interface PropsType {
   color?: GlobalColors;
   light?: boolean;
   outlined?: boolean;
+  filled?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -39,6 +41,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   color: GlobalColors.PRIMARY,
   light: false,
   outline: false,
+  filled: false,
 });
 
 const slots = useSlots();
@@ -79,12 +82,16 @@ $sizes: (
   --color-avatar: v-bind(avatarColor);
   --color-avatar-light: v-bind(avatarColorLight);
 
-  background-color: var(--color-avatar);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   user-select: none;
+  border: 2px solid var(--color-card);
+
+  &.filled {
+    background-color: var(--color-avatar);
+  }
 
   &.variant-cycle {
     border-radius: $border-radius;
@@ -124,7 +131,7 @@ $sizes: (
 
 .hasOutlined {
   background-color: transparent;
-  border: 1px solid var(--color-avatar);
+  border: 2px solid var(--color-avatar);
   color: var(--color-text);
 
   transition: color var(--transition-duration) var(--transition-timing-func);
@@ -141,8 +148,8 @@ $sizes: (
 
 @each $key, $size in $sizes {
   .size-#{$key} {
-    width: $size;
-    height: $size;
+    width: calc($size + 5px);
+    height: calc($size + 5px);
   }
 }
 
