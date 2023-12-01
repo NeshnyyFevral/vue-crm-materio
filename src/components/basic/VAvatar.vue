@@ -87,7 +87,6 @@ $sizes: (
   justify-content: center;
   pointer-events: none;
   user-select: none;
-  border: 2px solid var(--color-card);
 
   &.filled {
     background-color: var(--color-avatar);
@@ -123,8 +122,8 @@ $sizes: (
 
   @each $key, $size in $sizes {
     &.size-#{$key} {
-      width: $size;
-      height: $size;
+      width: calc($size + 2px);
+      height: calc($size + 2px);
     }
   }
 }
@@ -139,7 +138,7 @@ $sizes: (
 
 .light {
   background-color: var(--color-avatar-light);
-  color: var(--color-avatar);
+  color: var(--color-text);
 
   path {
     fill: var(--color-avatar);

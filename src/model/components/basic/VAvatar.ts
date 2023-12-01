@@ -15,4 +15,5 @@ export interface AvatarGroup {
   id: string;
   src: string;
   alt: string;
+  tooltip?: string;
 }
