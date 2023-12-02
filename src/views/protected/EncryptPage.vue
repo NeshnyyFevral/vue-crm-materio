@@ -298,14 +298,32 @@ const createAliceKeys = () => {
 const encrypt = () => {
   sharedSecretBob.value = powMod(keys.value.bob_B, keys.value.a, keys.value.bob_p);
   programMessages.value.push('Calculate: shared_key');
-  encryptedMessage.value = message.value.split('').map((c) => String.fromCharCode(c.charCodeAt(0) + Math.floor(sharedSecretBob.value / 10000))).join('');
+  let encryptedString = '';
+  for (const c of message.value) {
+    const charCode = c.charCodeAt(0) + sharedSecretBob.value;
+    if (charCode > 65535) {
+      encryptedString += String.fromCharCode(55349, 56600 + (charCode - 65536));
+    } else {
+      encryptedString += String.fromCharCode(charCode);
+    }
+  }
+  encryptedMessage.value = encryptedString;
   programMessages.value.push('Encrypting...');
 };
 
 const decrypt = () => {
   sharedSecretAlice.value = powMod(keys.value.alice_A, keys.value.b, keys.value.alice_p);
   programMessages.value.push('Calculate: shared_key');
-  decryptedMessage.value = encryptedMessage.value.split('').map((c) => String.fromCharCode(c.charCodeAt(0) - Math.floor(sharedSecretAlice.value / 10000))).join('');
+  let decryptedString = '';
+  for (let i = 0; i < encryptedMessage.value.length; i += 1) {
+    let charCode = encryptedMessage.value.charCodeAt(i);
+    if (charCode === 55349) {
+      charCode = 65536 + encryptedMessage.value.charCodeAt(i + 1) - 56600;
+      i += 1;
+    }
+    decryptedString += String.fromCharCode(charCode - sharedSecretAlice.value);
+  }
+  decryptedMessage.value = decryptedString;
   programMessages.value.push('Decrypting...');
 };
 </script>
