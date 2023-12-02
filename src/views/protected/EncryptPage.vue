@@ -133,6 +133,8 @@
           <VOffset>
             <VTextField
               v-model="encryptedMessage"
+              rows="10"
+              multiline
               disabled
               label="Encrypted message"
             />
@@ -300,12 +302,12 @@ const encrypt = () => {
   programMessages.value.push('Calculate: shared_key');
   let encryptedString = '';
   for (const c of message.value) {
-    const charCode = c.charCodeAt(0) + sharedSecretBob.value;
-    if (charCode > 65535) {
+    let charCode = c.charCodeAt(0) + sharedSecretBob.value;
+    while (charCode > 65535) {
       encryptedString += String.fromCharCode(55349, 56600 + (charCode - 65536));
-    } else {
-      encryptedString += String.fromCharCode(charCode);
+      charCode -= 65536;
     }
+    encryptedString += String.fromCharCode(charCode);
   }
   encryptedMessage.value = encryptedString;
   programMessages.value.push('Encrypting...');
@@ -315,13 +317,16 @@ const decrypt = () => {
   sharedSecretAlice.value = powMod(keys.value.alice_A, keys.value.b, keys.value.alice_p);
   programMessages.value.push('Calculate: shared_key');
   let decryptedString = '';
-  for (let i = 0; i < encryptedMessage.value.length; i += 1) {
+  let i = 0;
+  while (i < encryptedMessage.value.length) {
     let charCode = encryptedMessage.value.charCodeAt(i);
     if (charCode === 55349) {
       charCode = 65536 + encryptedMessage.value.charCodeAt(i + 1) - 56600;
+      i += 2;
+    } else {
+      decryptedString += String.fromCharCode(charCode - sharedSecretAlice.value);
       i += 1;
     }
-    decryptedString += String.fromCharCode(charCode - sharedSecretAlice.value);
   }
   decryptedMessage.value = decryptedString;
   programMessages.value.push('Decrypting...');
