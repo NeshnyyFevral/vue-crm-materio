@@ -28,19 +28,21 @@
     <VAvatar
       v-if="props.data.length > 4"
       :class="$style.more"
-      :letter="`+${props.data.length - 4}`"
+      :letter-strong="`+${props.data.length - 4}`"
       :size="props.size"
       :color="GlobalColors.DEFAULT"
       light
       :style="{
         'z-index': -4 + 5,
-        'left': `${4 * offset[props.size] + 5}px`,
+        'left': `${4 * offset[props.size] + 7}px`,
       }"
     />
   </VOffset>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTooltip from '@/components/basic/VTooltip.vue';
@@ -64,6 +66,10 @@ const offset = {
   [AvatarSize.LARGE]: 45,
   [AvatarSize.EXTRA_LARGE]: 90,
 };
+
+onMounted(() => {
+  console.log(`+${props.data.length - 4}`);
+});
 </script>
 
 <style module lang="scss">
@@ -77,7 +83,8 @@ const offset = {
   cursor: pointer;
   user-select: auto;
   pointer-events: auto;
-  transition: transform var(--transition-duration) var(--transition-timing-func);
+  transition: transform var(--transition-duration) var(--transition-timing-func),
+    border-color var(--transition-duration) var(--transition-timing-func);
 
   &:hover {
     z-index: 20 !important;
