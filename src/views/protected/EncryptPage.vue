@@ -46,7 +46,7 @@
         <VButton
           :loading="isLoading"
           :size="ButtonSize.SMALL"
-          :disabled="!message.length && !keys.bob_B"
+          :disabled="!keys.bob_B"
           @click="encrypt"
         >
           Encrypt
@@ -55,7 +55,7 @@
         <VButton
           :loading="isLoading"
           :size="ButtonSize.SMALL"
-          :disabled="!encryptedMessage.length && !keys.alice_A"
+          :disabled="!keys.bob_B"
           @click="decrypt"
         >
           Decrypt
