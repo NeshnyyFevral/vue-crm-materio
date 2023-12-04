@@ -8,6 +8,7 @@
       :active="activeRoute"
       :data="tabsData"
       filled
+      :direction="hasChange ? FlexDirection.COLUMN : FlexDirection.ROW"
     />
   </VFlex>
 
@@ -28,18 +29,17 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTabs from '@/components/basic/VTabs.vue';
 import UserProfileIntro from '@/components/user-profile/UserProfileIntro.vue';
+import { FlexDirection } from '@/model/components/basic/VFlex';
 import type { TabsData } from '@/model/components/basic/VTabs';
 import { getRandomId } from '@/model/tools/RandomTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 import { Routes } from '@/router';
 
 const route = useRoute();
 const activeRoute = ref<string>('');
 
-watch(() => route.name, () => {
-  if (typeof route.name === 'string') {
-    [, activeRoute.value] = route.name.split('/');
-  }
-}, { immediate: true });
+const breakpoint = 700;
+const hasChange = useResizeTrigger(breakpoint);
 
 const tabsData: TabsData[] = [{
   id: getRandomId(),
@@ -67,4 +67,10 @@ const tabsData: TabsData[] = [{
   disabled: false,
 },
 ];
+
+watch(() => route.name, () => {
+  if (typeof route.name === 'string') {
+    [, activeRoute.value] = route.name.split('/');
+  }
+}, { immediate: true });
 </script>

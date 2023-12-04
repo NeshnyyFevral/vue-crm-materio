@@ -10,10 +10,14 @@
       :mt="-30"
     >
       <VFlex
-        :align="FlexAlign.END"
+        :align="hasChanged ? FlexAlign.CENTER : FlexAlign.END"
         :justify-content="FlexJustify.SPACE_BETWEEN"
+        :direction-change-trigger="breakpoint"
       >
-        <VFlex :align="FlexAlign.END">
+        <VFlex
+          :align="hasChanged ? FlexAlign.CENTER : FlexAlign.END"
+          :direction-change-trigger="breakpoint"
+        >
           <VAvatar
             :size="AvatarSize.EXTRA_LARGE"
             :variant="AvatarVariant.ROUNDED"
@@ -25,14 +29,18 @@
             >
           </VAvatar>
 
-          <VOffset :ml="30">
+          <VOffset :ml="hasChanged ? 0 : 30">
             <VOffset :mb="10">
               <VTitle variant="heading5">
                 John Doe
               </VTitle>
             </VOffset>
-            <VFlex :align="FlexAlign.CENTER">
-              <VOffset :mr="20">
+
+            <VFlex
+              :direction-change-trigger="breakpoint"
+              :align="hasChanged ? FlexAlign.START : FlexAlign.CENTER"
+            >
+              <VOffset :mr="hasChanged ? 0 : 20">
                 <VFlex :align="FlexAlign.CENTER">
                   <VOffset :mr="5">
                     <DesignerIcon :class="$style.icon" />
@@ -47,7 +55,7 @@
                 </VFlex>
               </VOffset>
 
-              <VOffset :mr="20">
+              <VOffset :mr="hasChanged ? 0 : 20">
                 <VFlex :align="FlexAlign.CENTER">
                   <VOffset :mr="5">
                     <PlacementIcon :class="$style.icon" />
@@ -62,7 +70,7 @@
                 </VFlex>
               </VOffset>
 
-              <VOffset :mr="20">
+              <VOffset :mr="hasChanged ? 0 : 20">
                 <VFlex :align="FlexAlign.CENTER">
                   <VOffset :mr="5">
                     <CalendarIcon :class="$style.icon" />
@@ -80,7 +88,11 @@
           </VOffset>
         </VFlex>
 
-        <VOffset :mr="30">
+        <VOffset
+          :mr="hasChanged ? 0 : 30"
+          :mt="hasChanged ? 20 : 0"
+          :mb="hasChanged ? 20 : 0"
+        >
           <VButton>
             <template #iconPrepend>
               <PeopleSuccessIcon />
@@ -109,8 +121,11 @@ import { GlobalColorMap } from '@/model/Colors';
 import { AvatarSize, AvatarVariant } from '@/model/components/basic/VAvatar';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getPathImg } from '@/model/tools/PathTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 const colorSecondary = computed<string>(() => GlobalColorMap['600'].default);
+const breakpoint = 900;
+const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">
@@ -121,6 +136,10 @@ const colorSecondary = computed<string>(() => GlobalColorMap['600'].default);
   border: 1px solid var(--color-default-100);
   border-radius: 10px;
   overflow: hidden;
+
+  @media screen and (max-width: 900px) {
+    height: auto;
+  }
 }
 
 .icon {

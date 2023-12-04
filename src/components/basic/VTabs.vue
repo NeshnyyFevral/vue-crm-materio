@@ -5,11 +5,12 @@
       props.underline && $style.underline
     ]"
     :align="FlexAlign.CENTER"
+    :direction="props.direction"
   >
     <VOffset
       v-for="item in props.data"
       :key="item.id"
-      width="150px"
+      :width="props.direction === FlexDirection.COLUMN ? '100%' : '150px'"
     >
       <VTabsItem
         :route="item.route"
@@ -40,7 +41,7 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTabsItem from '@/components/basic/VTabsItem.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
-import { FlexAlign } from '@/model/components/basic/VFlex';
+import { FlexAlign, FlexDirection } from '@/model/components/basic/VFlex';
 import type { TabsData } from '@/model/components/basic/VTabs';
 
 interface PropsType {
@@ -49,6 +50,7 @@ interface PropsType {
   color?: GlobalColors;
   underline?: boolean;
   filled?: boolean;
+  direction?: FlexDirection;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -57,6 +59,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   color: GlobalColors.PRIMARY,
   underline: false,
   filled: false,
+  direction: FlexDirection.ROW,
 });
 const activeElement = ref<number>(0);
 
@@ -82,6 +85,7 @@ watch(() => props.active, () => {
   --line-offset: v-bind(offset);
 
   position: relative;
+  width: 100%;
 }
 
 .line {

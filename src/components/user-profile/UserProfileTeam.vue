@@ -41,8 +41,9 @@
     </VOffset>
 
     <VFlex
-      :align="FlexAlign.CENTER"
-      :justify-content="FlexJustify.SPACE_BETWEEN"
+      :align="hasChanged ? FlexAlign.START : FlexAlign.CENTER"
+      :justify-content="hasChanged ? FlexJustify.CENTER : FlexJustify.SPACE_BETWEEN"
+      :direction-change-trigger="breakpoint"
     >
       <VAvatarGroup
         :style="{'height': `35px`}"
@@ -54,6 +55,7 @@
           v-for="chip in props.chips"
           :key="chip.id"
           :mr="10"
+          :mt="hasChanged ? 10 : 0"
         >
           <VChip
             :variant="ChipVariant.LIGHT"
@@ -80,10 +82,10 @@ import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import type { AvatarGroup } from '@/model/components/basic/VAvatar';
-import { AvatarSize } from '@/model/components/basic/VAvatar';
 import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getPathImg } from '@/model/tools/PathTools';
+import { useResizeTrigger } from '@/model/tools/ResizeTools';
 import type { ChipsGroup } from '@/model/user-profile/Teams';
 
 interface PropsType {
@@ -95,6 +97,9 @@ interface PropsType {
 }
 
 const props = defineProps<PropsType>();
+
+const breakpoint = 400;
+const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">
