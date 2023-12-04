@@ -25,8 +25,15 @@ import VOffset from '@/components/basic/VOffset.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import UserProfileTeam from '@/components/user-profile/UserProfileTeam.vue';
 import { GlobalColors } from '@/model/Colors';
+import type { AvatarGroup } from '@/model/components/basic/VAvatar';
 import { getRandomId } from '@/model/tools/RandomTools';
 import type { Teams } from '@/model/user-profile/Teams';
+
+const generatePlugTeams = (count: number) => {
+  const group: AvatarGroup[] = [];
+  for (let i = 0; i < count; i += 1) { group.push({ id: getRandomId(), src: '', alt: '' }); }
+  return group;
+};
 
 const teamsData: Teams[] = [
   {
@@ -59,7 +66,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Julee Rossignol',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(22),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.PRIMARY, title: 'React' },
@@ -95,7 +102,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Calvin Middleton',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(17),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.SUCCESS, title: 'Vuejs' },
@@ -131,7 +138,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Alicia Littleton',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(55),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.WARNING, title: 'Sketch' },
@@ -167,7 +174,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Mary Hunter',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(35),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.INFO, title: 'Zendesk' },
@@ -202,7 +209,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Margorie Whitmire',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(19),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.PRIMARY, title: 'Twitter' },
@@ -238,7 +245,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Daniel Long',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(55),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.PRIMARY, title: 'Twitter' },
@@ -274,7 +281,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Herman Lockard',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(45),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.SUCCESS, title: 'UI/UX' },
@@ -310,7 +317,7 @@ const teamsData: Teams[] = [
         alt: '1',
         tooltip: 'Leona Miller',
       },
-      { id: getRandomId(), src: 'avatars/5.png', alt: '1' },
+      ...generatePlugTeams(50),
     ],
     chips: [
       { id: getRandomId(), color: GlobalColors.INFO, title: 'CSS' },

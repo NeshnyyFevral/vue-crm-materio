@@ -13,7 +13,7 @@
     <slot />
 
     <div v-if="isVisibleLetter">
-      {{ letterFormatting }}
+      {{ letterStrong ? letterStrong : letterFormatting }}
     </div>
   </div>
 </template>
@@ -32,12 +32,14 @@ interface PropsType {
   light?: boolean;
   outlined?: boolean;
   filled?: boolean;
+  letterStrong?: string;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   size: AvatarSize.MEDIUM,
   variant: AvatarVariant.CYCLE,
   letter: 'Noname',
+  letterStrong: '',
   color: GlobalColors.PRIMARY,
   light: false,
   outline: false,
