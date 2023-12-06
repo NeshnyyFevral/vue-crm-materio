@@ -89,7 +89,7 @@ import { useResizeTrigger } from '@/model/tools/ResizeTools';
 import type { ChipsGroup } from '@/model/user-profile/Teams';
 
 interface PropsType {
-  avatar: any;
+  avatar: string;
   title: string;
   desc: string;
   avatarGroup: AvatarGroup[];

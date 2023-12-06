@@ -41,8 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTooltip from '@/components/basic/VTooltip.vue';
@@ -66,10 +64,6 @@ const offset = {
   [AvatarSize.LARGE]: 45,
   [AvatarSize.EXTRA_LARGE]: 90,
 };
-
-onMounted(() => {
-  console.log(`+${props.data.length - 4}`);
-});
 </script>
 
 <style module lang="scss">

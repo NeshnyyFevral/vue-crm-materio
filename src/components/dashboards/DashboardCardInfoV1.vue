@@ -11,7 +11,10 @@
     </template>
 
     <VOffset :mb="15">
-      <VAvatar :color="props.color">
+      <VAvatar
+        filled
+        :color="props.color"
+      >
         <component :is="props.icon" />
       </VAvatar>
     </VOffset>

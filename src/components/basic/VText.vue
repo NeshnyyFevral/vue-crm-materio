@@ -6,9 +6,9 @@
       link && $style.link
     ]"
   >
-    <component :is="'p'">
+    <p>
       <slot />
-    </component>
+    </p>
   </div>
 </template>
 
