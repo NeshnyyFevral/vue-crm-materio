@@ -33,7 +33,7 @@
 
     <VOffset :mb="15">
       <VText
-        :color="GlobalColorMap['500'].default"
+        :color="GlobalColorMap['400'].default"
         variant="subtitle1"
       >
         {{ props.desc }}
@@ -82,18 +82,21 @@ import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import type { AvatarGroup } from '@/model/components/basic/VAvatar';
-import { ChipSize, ChipVariant } from '@/model/components/basic/VChip';
+import {
+  type Chip,
+  ChipSize,
+  ChipVariant,
+} from '@/model/components/basic/VChip';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getPathImg } from '@/model/tools/PathTools';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
-import type { ChipsGroup } from '@/model/user-profile/Teams';
 
 interface PropsType {
   avatar: string;
   title: string;
   desc: string;
   avatarGroup: AvatarGroup[];
-  chips: ChipsGroup[];
+  chips: Chip[];
 }
 
 const props = defineProps<PropsType>();

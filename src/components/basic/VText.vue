@@ -15,20 +15,20 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { type TextVariant, VTextTextAlign } from '@/model/components/basic/VText';
+import { type TextVariant, TextAlign } from '@/model/components/basic/VText';
 
 interface PropsType {
   variant: TextVariant;
   fontWeight?: '400' | '500' | '600' | '700';
   color?: string;
-  align?: VTextTextAlign;
+  align?: TextAlign;
   link?: boolean;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   fontWeight: undefined,
   color: undefined,
-  align: VTextTextAlign.START,
+  align: TextAlign.START,
   link: false,
 });
 

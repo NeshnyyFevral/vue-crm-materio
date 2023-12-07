@@ -1,28 +1,18 @@
 <template>
-  <VOffset>
-    <VOffset :mb="10">
-      <VTitle variant="heading5">
-        Teams
-      </VTitle>
-    </VOffset>
-
-    <div :class="$style.teams">
-      <UserProfileTeam
-        v-for="team in teamsData"
-        :key="team.id"
-        :chips="team.chips"
-        :avatar="team.avatar"
-        :title="team.title"
-        :avatar-group="team.avatarGroup"
-        :desc="team.desc"
-      />
-    </div>
-  </VOffset>
+  <div :class="$style.teams">
+    <UserProfileTeam
+      v-for="team in teamsData"
+      :key="team.id"
+      :chips="team.chips"
+      :avatar="team.avatar"
+      :title="team.title"
+      :avatar-group="team.avatarGroup"
+      :desc="team.desc"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-import VOffset from '@/components/basic/VOffset.vue';
-import VTitle from '@/components/basic/VTitle.vue';
 import UserProfileTeam from '@/components/user-profile/UserProfileTeam.vue';
 import { GlobalColors } from '@/model/Colors';
 import type { AvatarGroup } from '@/model/components/basic/VAvatar';

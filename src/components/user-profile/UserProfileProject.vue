@@ -36,14 +36,14 @@
                 <VText
                   variant="body2"
                   font-weight="600"
-                  :color="GlobalColorMap['500'].default"
+                  :color="GlobalColorMap['400'].default"
                 >
                   Client:
                 </VText>
               </VOffset>
               <VText
                 variant="body2"
-                :color="GlobalColorMap['500'].default"
+                :color="GlobalColorMap['400'].default"
               >
                 {{ props.client }}
               </VText>
@@ -104,7 +104,7 @@
               </VOffset>
               <VText
                 variant="subtitle1"
-                :color="GlobalColorMap['500'].default"
+                :color="GlobalColorMap['400'].default"
               >
                 {{ props.startDate }}
               </VText>
@@ -126,7 +126,7 @@
               </VOffset>
               <VText
                 variant="subtitle1"
-                :color="GlobalColorMap['500'].default"
+                :color="GlobalColorMap['400'].default"
               >
                 {{ props.deadline }}
               </VText>
@@ -139,7 +139,7 @@
     <VOffset :mb="20">
       <VText
         variant="subtitle1"
-        :color="GlobalColorMap['500'].default"
+        :color="GlobalColorMap['400'].default"
       >
         {{ props.desc }}
       </VText>
@@ -168,7 +168,7 @@
 
           <VText
             variant="subtitle1"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             {{ props.allHours }}
           </VText>
@@ -190,14 +190,14 @@
         >
           <VText
             variant="caption"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             Tasks: {{ props.taskNeed }}/{{ taskComplete }}
           </VText>
 
           <VText
             variant="caption"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             {{ perc }}% Completed
           </VText>
@@ -228,7 +228,7 @@
           </VOffset>
           <VText
             variant="body2"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             {{ props.membersCount }} members
           </VText>
@@ -241,7 +241,7 @@
 
           <VText
             variant="body2"
-            :color="GlobalColorMap['500'].default"
+            :color="GlobalColorMap['400'].default"
           >
             {{ props.comments }}
           </VText>
@@ -270,7 +270,6 @@ import type { AvatarGroup } from '@/model/components/basic/VAvatar';
 import { ChipVariant } from '@/model/components/basic/VChip';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getPathImg } from '@/model/tools/PathTools';
-import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface PropsType {
   avatar: string;
@@ -295,7 +294,6 @@ const props = defineProps<PropsType>();
 const perc = computed(() => `${Math.round((props.taskComplete / props.taskNeed) * 100)}`);
 
 const breakpoint = 365;
-const hasChanged = useResizeTrigger(breakpoint);
 </script>
 
 <style module lang="scss">

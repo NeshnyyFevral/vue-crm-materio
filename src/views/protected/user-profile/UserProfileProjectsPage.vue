@@ -1,10 +1,4 @@
 <template>
-  <VOffset>
-    <VTitle variant="heading5">
-      Projects
-    </VTitle>
-  </VOffset>
-
   <div :class="$style.projects">
     <UserProfileProject
       v-for="proj in projects"
@@ -30,8 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import VOffset from '@/components/basic/VOffset.vue';
-import VTitle from '@/components/basic/VTitle.vue';
 import UserProfileProject from '@/components/user-profile/UserProfileProject.vue';
 import { GlobalColors } from '@/model/Colors';
 import { getRandomId } from '@/model/tools/RandomTools';

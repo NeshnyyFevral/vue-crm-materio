@@ -20,7 +20,7 @@
         <VText
           font-weight="600"
           variant="body2"
-          :align="VTextTextAlign.CENTER"
+          :align="TextAlign.CENTER"
         >
           Total Growth
         </VText>
@@ -38,7 +38,7 @@ import VText from '@/components/basic/VText.vue';
 import VTitle from '@/components/basic/VTitle.vue';
 import LineChart from '@/components/dashboards/LineChart.vue';
 import { GlobalColorMap } from '@/model/Colors';
-import { VTextTextAlign } from '@/model/components/basic/VText';
+import { TextAlign } from '@/model/components/basic/VText';
 import { getRandom } from '@/model/tools/RandomTools';
 
 const options = ref({

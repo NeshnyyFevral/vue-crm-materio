@@ -48,7 +48,7 @@
                   <VText
                     variant="subtitle1"
                     font-weight="600"
-                    :color="GlobalColorMap['500'].default"
+                    :color="GlobalColorMap['400'].default"
                   >
                     UX Designer
                   </VText>
@@ -63,7 +63,7 @@
                   <VText
                     variant="subtitle1"
                     font-weight="600"
-                    :color="GlobalColorMap['500'].default"
+                    :color="GlobalColorMap['400'].default"
                   >
                     Vatican City
                   </VText>
@@ -78,7 +78,7 @@
                   <VText
                     variant="subtitle1"
                     font-weight="600"
-                    :color="GlobalColorMap['500'].default"
+                    :color="GlobalColorMap['400'].default"
                   >
                     Joined April 2021
                   </VText>
@@ -123,7 +123,7 @@ import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { getPathImg } from '@/model/tools/PathTools';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
-const colorSecondary = computed<string>(() => GlobalColorMap['600'].default);
+const colorSecondary = computed<string>(() => GlobalColorMap['500'].default);
 const breakpoint = 900;
 const hasChanged = useResizeTrigger(breakpoint);
 </script>

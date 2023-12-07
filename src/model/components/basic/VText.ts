@@ -1,4 +1,4 @@
-export const enum VTextTextAlign {
+export const enum TextAlign {
   START = 'start',
   END = 'end',
   CENTER = 'center',

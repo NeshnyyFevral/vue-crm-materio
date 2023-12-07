@@ -1,11 +1,5 @@
-import type { GlobalColors } from '@/model/Colors';
 import type { AvatarGroup } from '@/model/components/basic/VAvatar';
-
-export interface ChipsGroup {
-  id: string;
-  color: GlobalColors;
-  title: string;
-}
+import type { Chip } from '@/model/components/basic/VChip';
 
 export interface Teams {
   id: string;
@@ -13,5 +7,5 @@ export interface Teams {
   title: string;
   desc: string;
   avatarGroup: AvatarGroup[];
-  chips: ChipsGroup[];
+  chips: Chip[];
 }
