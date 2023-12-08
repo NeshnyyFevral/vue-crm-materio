@@ -11,3 +11,11 @@ export interface Connections {
   connectionsCount: string;
   connected: boolean;
 }
+
+export interface ConnectionsCompact {
+  id: string;
+  avatar: string;
+  name: string;
+  connectionsCount: string;
+  connected: boolean;
+}

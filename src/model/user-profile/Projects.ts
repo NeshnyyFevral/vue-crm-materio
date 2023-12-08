@@ -20,3 +20,14 @@ export interface Projects {
   membersCount: string;
   comments: number;
 }
+
+export interface ProjectsCompact {
+  id: string;
+  avatar: string | null;
+  title: string;
+  date: string;
+  leader: string;
+  team: AvatarGroup[];
+  progress: string;
+  actions: any;
+}

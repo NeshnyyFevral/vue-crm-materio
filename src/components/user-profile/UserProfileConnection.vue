@@ -22,7 +22,7 @@
       >
         <img
           :src="getPathImg(`${props.avatar}`)"
-          :alt="props.avatar"
+          alt="avatar"
         >
       </VAvatar>
     </VOffset>
@@ -150,9 +150,9 @@
   </VCard>
 </template>
 <script setup lang="ts">
-import AddConnectionIcon from '@public/assets/icons/addConnection.svg';
-import ConnectedIcon from '@public/assets/icons/connected.svg';
+import AddConnectionIcon from '@public/assets/icons/connectionAdd.svg';
 import MessageIcon from '@public/assets/icons/message.svg';
+import ConnectedIcon from '@public/assets/icons/people-success.svg';
 
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VButton from '@/components/basic/VButton.vue';
@@ -205,7 +205,7 @@ const props = defineProps<PropsType>();
   transform: scale(1.5);
 
   path {
-    fill: var(--color-default-400)
+    fill: var(--color-default-500);
   }
 }
 </style>
