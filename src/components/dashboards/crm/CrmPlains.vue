@@ -98,12 +98,12 @@
 </template>
 
 <script setup lang="ts">
-import ClockIcon from '@public/assets/icons/dashboards/crm/clock.svg';
-import PlaceIcon from '@public/assets/icons/dashboards/crm/place.svg';
+import ClockIcon from '@public/assets/icons/clock.svg';
 import StarIcon from '@public/assets/icons/dashboards/crm/star.svg';
 import SuccessIcon from '@public/assets/icons/dashboards/crm/success.svg';
-import PeopleIcon from '@public/assets/icons/dashboards/people.svg';
 import MoreIcon from '@public/assets/icons/more.svg';
+import PeopleIcon from '@public/assets/icons/people.svg';
+import PlaceIcon from '@public/assets/icons/place.svg';
 
 import VCard from '@/components/basic/VCard.vue';
 import VFlex from '@/components/basic/VFlex.vue';

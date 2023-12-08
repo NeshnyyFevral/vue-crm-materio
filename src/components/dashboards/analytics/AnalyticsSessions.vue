@@ -35,7 +35,7 @@
     <VOffset>
       <VText
         variant="body2"
-        :align="VTextTextAlign.CENTER"
+        :align="TextAlign.CENTER"
         font-weight="600"
       >
         Sessions
@@ -56,7 +56,7 @@ import VTitle from '@/components/basic/VTitle.vue';
 import { GlobalColors } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import { ProgressVariant } from '@/model/components/basic/VProgress';
-import { VTextTextAlign } from '@/model/components/basic/VText';
+import { TextAlign } from '@/model/components/basic/VText';
 import { getRandom, getRandomId } from '@/model/tools/RandomTools';
 
 interface Sessions {

@@ -21,14 +21,14 @@
       <div :class="$style.hovered">
         <VText
           font-weight="600"
-          :align="VTextTextAlign.CENTER"
+          :align="TextAlign.CENTER"
           variant="body2"
         >
           {{ hoveredElementIndex.value }}
         </VText>
         <VText
           variant="body2"
-          :align="VTextTextAlign.CENTER"
+          :align="TextAlign.CENTER"
         >
           {{ hoveredElementIndex.from }}
         </VText>
@@ -98,7 +98,7 @@ import VText from '@/components/basic/VText.vue';
 import StatisticIcon from '@/components/dashboards/StatisticIcon.vue';
 import { GlobalColorMap } from '@/model/Colors';
 import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
-import { VTextTextAlign } from '@/model/components/basic/VText';
+import { TextAlign } from '@/model/components/basic/VText';
 import { StatisticIconVariant } from '@/model/components/StatisticIcon';
 import { formatNumber } from '@/model/tools/NumberTools';
 import { getRandomId } from '@/model/tools/RandomTools';

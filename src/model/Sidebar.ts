@@ -1,10 +1,10 @@
 // import CardsIcon from '@public/assets/icons/sidebar/cards.svg';
-// import UserIcon from '@public/assets/icons/sidebar/user.svg';
 import ComponentsIcon from '@public/assets/icons/sidebar/components.svg';
 import DashboardsIcon from '@public/assets/icons/sidebar/dashboards.svg';
 // import InvoiceIcon from '@public/assets/icons/sidebar/invoice.svg';
 // import PagesIcon from '@public/assets/icons/sidebar/pages.svg';
 import TypographyIcon from '@public/assets/icons/sidebar/typography.svg';
+import UserIcon from '@public/assets/icons/sidebar/user.svg';
 
 import { Routes } from '@/router';
 
@@ -34,45 +34,24 @@ export default [
         list: [
           { title: 'CRM', route: { name: Routes.CRM } },
           { title: 'Analytics', route: { name: Routes.ANALYTICS } },
-          /* { title: 'eCommerce', route: {} }, */
         ],
       },
     ],
   },
-  /* {
+  {
     title: 'apps and pages',
-    group: [
-      {
-        title: 'Pages',
-        icon: PagesIcon,
-        list: [
-          { title: 'Preview', route: { } },
-          { title: 'Knowledge Base', route: {} },
-          { title: 'Account Setting', route: {} },
-          { title: 'Pricing', route: {} },
-          { title: 'FAQ', route: {} },
-        ],
-      },
-      {
-        title: 'Invoice',
-        icon: InvoiceIcon,
-        list: [
-          { title: 'List', route: {} },
-          { title: 'Edit', route: {} },
-          { title: 'Add', route: {} },
-        ],
-      },
-      {
-        title: 'User',
-        icon: UserIcon,
-        list: [
-          { title: 'User list', route: {} },
-          { title: 'User view', route: {} },
-          { title: 'Email', route: {} },
-        ],
-      },
+    group: [{
+      title: 'User profile',
+      icon: UserIcon,
+      list: [
+        { title: 'Profile', route: { name: Routes.USER_PROFILE_PROFILE } },
+        { title: 'Teams', route: { name: Routes.USER_PROFILE_TEAMS } },
+        { title: 'Projects', route: { name: Routes.USER_PROFILE_PROJECTS } },
+        { title: 'Connections', route: { name: Routes.USER_PROFILE_CONNECTIONS } },
+      ],
+    },
     ],
-  }, */
+  },
   {
     title: 'user interface',
     group: [

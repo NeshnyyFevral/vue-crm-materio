@@ -14,18 +14,21 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
+import { TextAlign } from '@/model/components/basic/VText';
 import type { TitleVariant } from '@/model/components/basic/VTitle';
 
 interface PropsType {
   variant: TitleVariant;
   color?: string;
   fontWeight?: '400' | '500' | '600' | '700';
+  align?: TextAlign;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   variant: 'heading1',
   color: undefined,
   fontWeight: undefined,
+  align: TextAlign.START,
 });
 
 const tagName = computed<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'>(() => {
@@ -42,6 +45,7 @@ const tagName = computed<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div'>(() => 
 
 const fontWeight = computed(() => props.fontWeight);
 const color = computed(() => props.color);
+const textAlign = computed(() => props.align);
 </script>
 
 <style module lang="scss">
@@ -52,6 +56,7 @@ $tags: h1, h2, h3, h4, h5, h6;
 .root {
   --text-color: v-bind(color);
   --font-weight: v-bind(fontWeight);
+  --text-align: v-bind(textAlign);
 
   color: var(--text-color);
 
@@ -65,6 +70,7 @@ $tags: h1, h2, h3, h4, h5, h6;
   @each $tag in $tags {
     & #{$tag} {
       font-weight: var(--font-weight);
+      text-align: var(--text-align);
     }
   }
 }

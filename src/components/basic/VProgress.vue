@@ -21,7 +21,7 @@ import { ProgressVariant } from '@/model/components/basic/VProgress';
 
 interface PropsType {
   percentage: string;
-  color: GlobalColors;
+  color?: GlobalColors;
   variant?: ProgressVariant;
   height?: string;
   borderRadius?: string;

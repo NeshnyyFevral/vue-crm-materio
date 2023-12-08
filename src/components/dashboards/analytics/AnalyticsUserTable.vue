@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import MaintainerIcon from '@public/assets/icons/dashboards/analytics/maintainer.svg';
 import PencilIcon from '@public/assets/icons/dashboards/pencil.svg';
-import PeopleIcon from '@public/assets/icons/dashboards/people.svg';
 import SettingsIcon from '@public/assets/icons/dashboards/settings.svg';
+import PeopleIcon from '@public/assets/icons/people.svg';
 
 import VCard from '@/components/basic/VCard.vue';
 import UserTable from '@/components/dashboards/analytics/units/UserTable.vue';

@@ -7,12 +7,13 @@
       isVisibleLetter && $style.withLetter,
       light && $style.light,
       outlined && $style.hasOutlined,
+      filled && $style.filled,
     ]"
   >
     <slot />
 
     <div v-if="isVisibleLetter">
-      {{ letterFormatting }}
+      {{ letterStrong ? letterStrong : letterFormatting }}
     </div>
   </div>
 </template>
@@ -30,15 +31,19 @@ interface PropsType {
   color?: GlobalColors;
   light?: boolean;
   outlined?: boolean;
+  filled?: boolean;
+  letterStrong?: string;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
   size: AvatarSize.MEDIUM,
   variant: AvatarVariant.CYCLE,
   letter: 'Noname',
+  letterStrong: '',
   color: GlobalColors.PRIMARY,
   light: false,
   outline: false,
+  filled: false,
 });
 
 const slots = useSlots();
@@ -72,18 +77,22 @@ $sizes: (
     small: 30px,
     medium: 40px,
     large: 56px,
+    extra-large: 120px,
 );
 
 .root {
   --color-avatar: v-bind(avatarColor);
   --color-avatar-light: v-bind(avatarColorLight);
 
-  background-color: var(--color-avatar);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
   user-select: none;
+
+  &.filled {
+    background-color: var(--color-avatar);
+  }
 
   &.variant-cycle {
     border-radius: $border-radius;
@@ -115,15 +124,15 @@ $sizes: (
 
   @each $key, $size in $sizes {
     &.size-#{$key} {
-      width: $size;
-      height: $size;
+      width: calc($size + 2px);
+      height: calc($size + 2px);
     }
   }
 }
 
 .hasOutlined {
   background-color: transparent;
-  border: 1px solid var(--color-avatar);
+  border: 2px solid var(--color-avatar);
   color: var(--color-text);
 
   transition: color var(--transition-duration) var(--transition-timing-func);
@@ -131,7 +140,7 @@ $sizes: (
 
 .light {
   background-color: var(--color-avatar-light);
-  color: var(--color-avatar);
+  color: var(--color-text);
 
   path {
     fill: var(--color-avatar);
@@ -140,8 +149,8 @@ $sizes: (
 
 @each $key, $size in $sizes {
   .size-#{$key} {
-    width: $size;
-    height: $size;
+    width: calc($size + 5px);
+    height: calc($size + 5px);
   }
 }
 

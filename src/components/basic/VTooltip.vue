@@ -10,6 +10,7 @@
     </div>
 
     <VText
+      v-if="title"
       :class="[
         $style.tooltip,
         $style[`position-${position}`]
@@ -29,7 +30,7 @@ import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { TooltipPosition } from '@/model/components/basic/VTooltip';
 
 interface PropsType {
-  title: string;
+  title: string | undefined;
   color?: GlobalColors;
   position?: TooltipPosition;
 }
@@ -119,7 +120,7 @@ $bottom: 'bottom', // $key
       &,
       &-start,
       &-end {
-        #{$opp-offset}: calc(100% + 5px);
+        #{$opp-offset}: calc(100% + 10px);
         transform-origin: $transform-origin;
 
         .target:hover + & {

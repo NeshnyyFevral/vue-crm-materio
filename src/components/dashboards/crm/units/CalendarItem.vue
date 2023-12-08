@@ -9,7 +9,7 @@
       <VText
         variant="subtitle1"
         font-weight="600"
-        :align="VTextTextAlign.CENTER"
+        :align="TextAlign.CENTER"
       >
         {{ cMonth }}
       </VText>
@@ -19,7 +19,7 @@
       <VTitle
         variant="heading6"
         font-weight="700"
-        :align="VTextTextAlign.CENTER"
+        :align="TextAlign.CENTER"
       >
         {{ cDate }}
       </VTitle>
@@ -40,7 +40,7 @@ import {
   FlexDirection,
   FlexJustify,
 } from '@/model/components/basic/VFlex';
-import { VTextTextAlign } from '@/model/components/basic/VText';
+import { TextAlign } from '@/model/components/basic/VText';
 
 interface PropsType {
   month?: string;

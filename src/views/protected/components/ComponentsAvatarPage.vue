@@ -44,6 +44,7 @@
         :key="variant"
         :variant="AvatarVariant[variant]"
         letter="Jhon Snow"
+        filled
       />
     </VPreviewComponentCard>
 
@@ -58,7 +59,10 @@
         <FileIcon />
       </VAvatar>
 
-      <VAvatar :color="GlobalColors.SUCCESS">
+      <VAvatar
+        filled
+        :color="GlobalColors.SUCCESS"
+      >
         <RepairIcon />
       </VAvatar>
 
@@ -74,11 +78,14 @@
       title="Avatar light style"
       desc="Use prop «light» to lighten the background."
     >
-      <VAvatar>
+      <VAvatar filled>
         <NotiIcon />
       </VAvatar>
 
-      <VAvatar :color="GlobalColors.SUCCESS">
+      <VAvatar
+        filled
+        :color="GlobalColors.SUCCESS"
+      >
         <DiskIcon />
       </VAvatar>
 
