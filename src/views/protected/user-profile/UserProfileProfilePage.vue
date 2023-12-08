@@ -30,7 +30,6 @@
 
           <VOffset
             :ml="20"
-            :mt="20"
             :class="$style.teams"
           >
             <UserProfileTeams />
@@ -83,11 +82,17 @@ $offsetCard: 20px;
 
 .connections,
 .teams {
-    width: calc(50% - $offsetCard / 2);
+  width: calc(50% - $offsetCard / 2);
 
   @media screen and (max-width: 715px) {
     width: 100%;
     margin-left: 0;
+  }
+}
+
+.teams {
+  @media screen and (max-width: 715px) {
+    margin-top: 20px;
   }
 }
 </style>

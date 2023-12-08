@@ -16,16 +16,22 @@
         <VFlex :align="FlexAlign.CENTER">
           <VOffset :mr="10">
             <VAvatar
+              v-if="row.avatar"
+              :size="AvatarSize.SMALL"
               light
-              :letter="row.title"
-              :color="GlobalColors.SUCCESS"
             >
               <img
-                v-if="row.avatar"
                 :src="getPathImg(`images/user-profile/teams/${row.avatar}`)"
-                alt="avatar"
+                :alt="`avatar-${row.avatar}`"
               >
             </VAvatar>
+            <VAvatar
+              v-else
+              :letter="row.title"
+              :size="AvatarSize.SMALL"
+              :color="GlobalColors.SUCCESS"
+              light
+            />
           </VOffset>
 
           <VOffset>
@@ -151,6 +157,7 @@ import VTable from '@/components/basic/VTable.vue';
 import VTableColumn from '@/components/basic/VTableColumn.vue';
 import VText from '@/components/basic/VText.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
+import { AvatarSize } from '@/model/components/basic/VAvatar';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import { MenuPosition } from '@/model/components/basic/VMenu';
 import { getPathImg } from '@/model/tools/PathTools';
