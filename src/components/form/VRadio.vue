@@ -41,7 +41,6 @@ import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { RadioLabelPlacement, RadioSize } from '@/model/components/form/VRadio';
 
 interface PropsType {
-  modelValue: string;
   value: string;
   name: string;
 
@@ -53,10 +52,7 @@ interface PropsType {
   disabled?: boolean;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: string): void;
-}
-
+const modelValue = defineModel<string>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   color: GlobalColors.PRIMARY,
   size: RadioSize.NORMAL,
@@ -65,15 +61,14 @@ const props = withDefaults(defineProps<PropsType>(), {
   label: '',
   disabled: false,
 });
-const emits = defineEmits<EmitsType>();
 
 const radioValue = ref<string>('');
 
 const radioColor = computed(() => GlobalColorMap['700'][props.color]);
-const hasChecked = computed(() => props.value === props.modelValue);
+const hasChecked = computed(() => props.value === modelValue.value);
 
 const changeHandler = async (e: InputEvent) => {
-  emits('update:modelValue', (e.target as HTMLInputElement).value);
+  modelValue.value = (e.target as HTMLInputElement).value;
 };
 </script>
 

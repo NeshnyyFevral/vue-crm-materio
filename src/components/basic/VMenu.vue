@@ -6,7 +6,7 @@
       $style[`position-${props.position}`],
       modelValue && $style.hasOpened
     ]"
-    @click="clickHandler"
+    @click="modelValue = !modelValue"
   >
     <slot name="body" />
 
@@ -28,32 +28,21 @@ import { MenuPosition } from '@/model/components/basic/VMenu';
 import { initClickOutside } from '@/model/tools/ClickOutsideTools';
 
 interface PropsType {
-  modelValue: boolean;
-
   position?: MenuPosition;
   width?: number;
 }
-
-interface EmitsType {
-  (e: 'update:modelValue', value: boolean): void;
-}
-
+const modelValue = defineModel<boolean>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   position: MenuPosition.BOTTOM_RIGHT,
   width: undefined,
 });
-const emits = defineEmits<EmitsType>();
 
 const navRef = ref<HTMLDivElement | null>(null);
 
 const menuWidth = computed(() => (props.width ? `${props.width}px` : 'auto'));
 
-const clickHandler = async () => {
-  emits('update:modelValue', !props.modelValue);
-};
-
 const clickOutside = () => {
-  emits('update:modelValue', false);
+  modelValue.value = false;
 };
 
 onMounted(() => {

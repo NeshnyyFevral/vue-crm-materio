@@ -51,24 +51,19 @@ import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { CheckboxLabelPlacement, CheckboxSize } from '@/model/components/form/VCheckbox';
 
 interface PropsType {
-  modelValue: boolean;
   color?: GlobalColors;
   size?: CheckboxSize;
   disabled?: boolean;
   labelPlace?: CheckboxLabelPlacement,
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: boolean): void;
-}
-
+const modelValue = defineModel<boolean>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   color: GlobalColors.PRIMARY,
   size: CheckboxSize.NORMAL,
   labelPlace: CheckboxLabelPlacement.RIGHT,
   disabled: false,
 });
-const emits = defineEmits<EmitsType>();
 
 const checkboxValue = ref<boolean>(false);
 const hasFocused = ref<boolean>(false);
@@ -76,11 +71,11 @@ const hasFocused = ref<boolean>(false);
 const checkboxColor = computed(() => GlobalColorMap['700'][props.color]);
 
 const changeHandler = (e: InputEvent) => {
-  emits('update:modelValue', (e.target as HTMLInputElement).checked);
+  modelValue.value = (e.target as HTMLInputElement).checked;
 };
 
 watchEffect(() => {
-  checkboxValue.value = props.modelValue;
+  checkboxValue.value = modelValue.value;
 });
 </script>
 

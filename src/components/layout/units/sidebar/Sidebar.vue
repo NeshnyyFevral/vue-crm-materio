@@ -23,7 +23,7 @@
           </VTitle>
           <button
             :class="$style.headerButton"
-            @click="toggle"
+            @click="modelValue = !modelValue"
           >
             <CrossIcon />
           </button>
@@ -83,24 +83,16 @@ import { FlexAlign } from '@/model/components/basic/VFlex';
 import SidebarTree from '@/model/Sidebar';
 
 interface PropsType {
-  modelValue: boolean;
   active: boolean;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: boolean): void;
-}
-
+const modelValue = defineModel<boolean>({ required: true });
 const props = defineProps<PropsType>();
-const emits = defineEmits<EmitsType>();
 
 const activeLink = ref<string>('');
 const activeList = ref<string>('');
 
-const toggle = () => { emits('update:modelValue', !props.modelValue); };
-
-const closedItemsGroup = computed(() => !props.modelValue && !props.active);
-
+const closedItemsGroup = computed(() => !modelValue.value && !props.active);
 </script>
 
 <style module lang="scss">

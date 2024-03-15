@@ -46,24 +46,19 @@ import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { SwitchLabelPlacement, SwitchSize } from '@/model/components/form/VSwitch';
 
 interface PropsType {
-  modelValue: boolean;
   color?: GlobalColors;
   size?: SwitchSize;
   disabled?: boolean;
   labelPlace?: SwitchLabelPlacement,
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: boolean): void;
-}
-
+const modelValue = defineModel<boolean>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   color: GlobalColors.PRIMARY,
   size: SwitchSize.NORMAL,
   labelPlace: SwitchLabelPlacement.RIGHT,
   disabled: false,
 });
-const emits = defineEmits<EmitsType>();
 
 const switchValue = ref<boolean>(false);
 const hasFocused = ref<boolean>(false);
@@ -72,11 +67,11 @@ const switchColor = computed(() => GlobalColorMap['700'][props.color]);
 const switchColorLight = computed(() => GlobalColorMap['200'][props.color]);
 
 const changeHandler = (e: InputEvent) => {
-  emits('update:modelValue', (e.target as HTMLInputElement).checked);
+  modelValue.value = (e.target as HTMLInputElement).checked;
 };
 
 watchEffect(() => {
-  switchValue.value = props.modelValue;
+  switchValue.value = modelValue.value;
 });
 </script>
 

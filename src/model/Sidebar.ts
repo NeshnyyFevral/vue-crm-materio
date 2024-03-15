@@ -80,6 +80,7 @@ export default [
           { title: 'Table', route: { name: Routes.COMPONENTS_TABLE } },
           { title: 'Timeline', route: { name: Routes.COMPONENTS_TIMELINE } },
           { title: 'Tooltip', route: { name: Routes.COMPONENTS_TOOLTIP } },
+          { title: 'Skeleton', route: { name: Routes.COMPONENTS_SKELETON } },
         ],
       },
       {

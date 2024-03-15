@@ -30,22 +30,16 @@ import { ref, watch } from 'vue';
 import { DialogSize } from '@/model/components/basic/VDialog';
 
 interface PropsType {
-  modelValue: boolean;
   size?: DialogSize;
   fullscreen?: boolean;
   persistent?: boolean;
 }
-
-interface EmitsType {
-  (e: 'update:modelValue', value: boolean): void;
-}
-
+const modelValue = defineModel<boolean>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   size: DialogSize.MEDIUM,
   fullscreen: false,
   persistent: false,
 });
-const emits = defineEmits<EmitsType>();
 
 const calcScrollWidth = () => window.innerWidth - document.documentElement.clientWidth;
 const persistentCancel = ref<boolean>(false);
@@ -53,14 +47,14 @@ const close = () => {
   if (props.persistent) {
     persistentCancel.value = true;
   } else {
-    emits('update:modelValue', false);
+    modelValue.value = false;
   }
 };
 
-watch(() => props.modelValue, () => {
+watch(() => modelValue.value, () => {
   const scrollWidth = calcScrollWidth();
 
-  if (props.modelValue) {
+  if (modelValue.value) {
     document.body.style.overflow = 'hidden';
     if (document.body.offsetWidth > 1270) { document.body.style.marginRight = `${scrollWidth}px`; }
   } else {

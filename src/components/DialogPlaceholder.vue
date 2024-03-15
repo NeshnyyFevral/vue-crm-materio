@@ -13,7 +13,7 @@
         :class="$style.button"
         :variant="ButtonVariant.TEXT"
         :size="ButtonSize.SMALL"
-        @click="emits('update:modelValue', false)"
+        @click="modelValue = false"
       >
         close
       </VButton>
@@ -21,7 +21,7 @@
         :class="$style.button"
         :variant="ButtonVariant.TEXT"
         :size="ButtonSize.SMALL"
-        @click="emits('update:modelValue', false)"
+        @click="modelValue = false"
       >
         submit
       </VButton>
@@ -34,15 +34,11 @@ import VButton from '@/components/basic/VButton.vue';
 import { ButtonSize, ButtonVariant } from '@/model/components/basic/VButton';
 
 interface PropsType {
-  modelValue: boolean;
   title?: string;
   desc?: string;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: boolean): void;
-}
-
+const modelValue = defineModel<boolean>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   title: 'Lorem ipsum dolor sit amet',
   desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
@@ -50,7 +46,6 @@ const props = withDefaults(defineProps<PropsType>(), {
       + ' fuga illum itaque laboriosam magni, mollitia necessitatibus'
       + ' nisi nostrum nulla placeat recusandae repellendus sapiente veniam voluptatem!',
 });
-const emits = defineEmits<EmitsType>();
 </script>
 
 <style module lang="scss">
