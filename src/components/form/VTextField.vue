@@ -97,8 +97,6 @@ import {
 } from '@/model/components/form/VTextField';
 
 interface PropsType {
-  modelValue: string;
-
   label?: string;
   placeholder?: string;
   helpText?: string;
@@ -117,10 +115,7 @@ interface PropsType {
   maxWidth?: boolean;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: string): void;
-}
-
+const modelValue = defineModel<string>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   label: '',
 
@@ -140,7 +135,6 @@ const props = withDefaults(defineProps<PropsType>(), {
   multiline: false,
   maxWidth: false,
 });
-const emits = defineEmits<EmitsType>();
 const slots = useSlots();
 
 const inputRef = ref<HTMLInputElement | null>(null);
@@ -158,9 +152,9 @@ const hasExistPrefix = computed(() => !!slots.prefix);
 const hasExistSuffix = computed(() => !!slots.suffix);
 
 const inputHandler = async (e: Event) => {
-  emits('update:modelValue', (e.target as HTMLInputElement).value);
+  modelValue.value = (e.target as HTMLInputElement).value;
   await nextTick();
-  inputValue.value = props.modelValue;
+  inputValue.value = modelValue.value;
 };
 
 const clickLabel = () => {
@@ -179,7 +173,7 @@ onMounted(() => {
 });
 
 watchEffect(() => {
-  inputValue.value = props.modelValue;
+  inputValue.value = modelValue.value;
 });
 </script>
 

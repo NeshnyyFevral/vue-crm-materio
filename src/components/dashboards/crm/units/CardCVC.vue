@@ -63,17 +63,12 @@ import { TextFieldVariant } from '@/model/components/form/VTextField';
 import { useResizeTrigger } from '@/model/tools/ResizeTools';
 
 interface PropsType {
-  modelValue: string;
   title?: string;
   desc?: string;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', v: string): void;
-}
-
+const modelValue = defineModel<string>({ required: true });
 const props = defineProps<PropsType>();
-const emits = defineEmits<EmitsType>();
 
 const CVC = ref<string>('');
 
@@ -84,7 +79,7 @@ const inputHandler = (e: string): void => {
 };
 
 watch(() => CVC.value, () => {
-  emits('update:modelValue', CVC.value);
+  modelValue.value = CVC.value;
 });
 
 const breakpoint = 370;

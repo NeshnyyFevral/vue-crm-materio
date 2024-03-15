@@ -76,7 +76,6 @@ import { TextFieldSize, TextFieldVariant } from '@/model/components/form/VTextFi
 import { initClickOutside } from '@/model/tools/ClickOutsideTools';
 
 interface PropsType {
-  modelValue: string | string[];
   options: SelectOptions<any>[];
 
   variant?: TextFieldVariant;
@@ -94,10 +93,7 @@ interface PropsType {
   multiply?: boolean;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: string | string[]): void;
-}
-
+const modelValue = defineModel<string | string[]>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   variant: SelectVariant.OUTLINED,
   color: GlobalColors.PRIMARY,
@@ -111,7 +107,6 @@ const props = withDefaults(defineProps<PropsType>(), {
   error: false,
   required: false,
 });
-const emits = defineEmits<EmitsType>();
 
 const rootRef = ref<HTMLDivElement | null>(null);
 const optionsRef = ref<HTMLDivElement | null>(null);
@@ -129,11 +124,11 @@ const selectHandler = (opt: SelectOptions<any>, e: MouseEvent) => {
   if (props.multiply) {
     if (opt.name === '') {
       selectValue.value = '';
-      emits('update:modelValue', []);
+      modelValue.value = [];
       return;
     }
 
-    let optionsValues: string[] = props.modelValue as string[];
+    let optionsValues: string[] = modelValue.value as string[];
 
     if (optionsValues.includes(opt.value)) {
       optionsValues = optionsValues.filter((el) => el !== opt.value);
@@ -141,11 +136,11 @@ const selectHandler = (opt: SelectOptions<any>, e: MouseEvent) => {
       optionsValues.push(opt.value);
     }
 
-    emits('update:modelValue', optionsValues);
+    modelValue.value = optionsValues;
     e.stopPropagation();
   } else {
     selectValue.value = opt.name;
-    emits('update:modelValue', opt.value);
+    modelValue.value = opt.value;
   }
 };
 
@@ -163,7 +158,7 @@ onBeforeUnmount(() => {
 
 watchEffect(() => {
   if (props.multiply) {
-    const selectedOptions: string[] = props.modelValue as string[];
+    const selectedOptions: string[] = modelValue.value as string[];
     const selectedNames: string[] = [];
 
     selectedOptions.forEach((selected: string) => {
@@ -173,7 +168,7 @@ watchEffect(() => {
 
     selectValue.value = selectedNames.join(', ');
   } else {
-    selectValue.value = props.options.find((el: SelectOptions<any>) => el.value === props.modelValue)?.name || '';
+    selectValue.value = props.options.find((el: SelectOptions<any>) => el.value === modelValue.value)?.name || '';
   }
 });
 

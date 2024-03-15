@@ -52,7 +52,6 @@ import { IconButtonSize, IconButtonVariant } from '@/model/components/basic/VIco
 import { PaginationSize, PaginationVariant } from '@/model/components/basic/VPagination';
 
 interface PropsType {
-  modelValue: number;
   count: number;
 
   color?: GlobalColors;
@@ -63,10 +62,7 @@ interface PropsType {
   rounded?: boolean;
 }
 
-interface EmitsType {
-  (e: 'update:modelValue', value: number): void;
-}
-
+const modelValue = defineModel<number>({ required: true });
 const props = withDefaults(defineProps<PropsType>(), {
   count: 1,
 
@@ -77,21 +73,20 @@ const props = withDefaults(defineProps<PropsType>(), {
   disabled: false,
   rounded: false,
 });
-const emits = defineEmits<EmitsType>();
 
 const items = computed<Array<number | string>>(() => {
   const VISIBLE_COUNT = 3;
 
   if (VISIBLE_COUNT + 5 < props.count) {
-    if (props.modelValue <= VISIBLE_COUNT) {
+    if (modelValue.value <= VISIBLE_COUNT) {
       return [1, 2, 3, 4, 5, '...', props.count];
     }
 
-    if (props.modelValue > VISIBLE_COUNT && props.modelValue + VISIBLE_COUNT <= props.count) {
-      return [1, '...', props.modelValue - 1, props.modelValue, props.modelValue + 1, '...', props.count];
+    if (modelValue.value > VISIBLE_COUNT && modelValue.value + VISIBLE_COUNT <= props.count) {
+      return [1, '...', modelValue.value - 1, modelValue.value, modelValue.value + 1, '...', props.count];
     }
 
-    if (props.modelValue + VISIBLE_COUNT > props.count) {
+    if (modelValue.value + VISIBLE_COUNT > props.count) {
       return [1, '...', props.count - 4, props.count - 3, props.count - 2, props.count - 1, props.count];
     }
   }
@@ -101,11 +96,11 @@ const items = computed<Array<number | string>>(() => {
 
 const changePage = (type: 'decrease' | 'increase' | 'target', target?: number | string) => {
   switch (type) {
-  case 'decrease': emits('update:modelValue', props.modelValue - 1); break;
-  case 'increase': emits('update:modelValue', props.modelValue + 1); break;
+  case 'decrease': modelValue.value -= 1; break;
+  case 'increase': modelValue.value += 1; break;
   case 'target':
     if (target && typeof target === 'number') {
-      emits('update:modelValue', target);
+      modelValue.value = target;
     } break;
   default: break;
   }
