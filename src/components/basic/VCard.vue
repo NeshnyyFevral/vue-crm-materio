@@ -69,6 +69,7 @@ const overflowX = computed(() => (props.overflowX ? 'auto' : 'visible'));
   box-shadow: var(--shadow-card);
   border-radius: 12px;
   overflow-x: var(--overflow-x-card);
+  overflow-y: visible;
 
   transition: background-color var(--transition-duration) var(--transition-timing-func),
     box-shadow var(--transition-duration) var(--transition-timing-func);

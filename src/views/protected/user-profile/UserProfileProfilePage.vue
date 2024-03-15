@@ -80,8 +80,7 @@ $offsetCard: 20px;
   }
 }
 
-.connections,
-.teams {
+.connections {
   width: calc(50% - $offsetCard / 2);
 
   @media screen and (max-width: 715px) {
@@ -91,7 +90,11 @@ $offsetCard: 20px;
 }
 
 .teams {
+  width: calc(50% - $offsetCard / 2);
+
   @media screen and (max-width: 715px) {
+    width: 100%;
+    margin-left: 0;
     margin-top: 20px;
   }
 }

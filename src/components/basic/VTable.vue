@@ -21,7 +21,10 @@
           ]"
           @click="sortData(t)"
         >
-          <VFlex :align="FlexAlign.CENTER">
+          <VFlex
+            :align="FlexAlign.CENTER"
+            :justify-content="i !== 0 && props.withKey ? FlexJustify.END : FlexJustify.START"
+          >
             <VOffset
               :mr="3"
               :title="t.label"
@@ -67,7 +70,7 @@ import {
 
 import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
-import { FlexAlign } from '@/model/components/basic/VFlex';
+import { FlexAlign, FlexJustify } from '@/model/components/basic/VFlex';
 import type { HeadCells } from '@/model/components/basic/VTable';
 import { SortBy } from '@/model/components/basic/VTable';
 
@@ -142,8 +145,8 @@ onMounted(() => {
 @import '@/scss/mixins/typography';
 
 $sizes: (
-  small: 5px,
-  normal: 15px,
+    small: 5px,
+    normal: 15px,
 );
 
 .table {

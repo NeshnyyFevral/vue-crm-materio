@@ -1,33 +1,43 @@
 <template>
   <VCard overflow-x>
-    <VTable
-      v-slot="{ row }"
+    <VOffset :mb="25">
+      <VOffset :mb="5">
+        <VTitle variant="heading5">
+          Profile table
+        </VTitle>
+      </VOffset>
+
+      <VText variant="caption">
+        Description
+      </VText>
+
+      <VText variant="caption">
+        This table contains information about teams, including the team's name, leader, team members, and status.
+      </VText>
+    </VOffset>
+
+    <VDynamicTable
       :data="projectsData"
       max-width
-      small-paddings
       :class="$style.table"
+      :head="heads"
     >
-      <VTableColumn
-        name="title"
-        label="NAME"
-        :row="row"
-        sortable
-      >
+      <template #title="{ title, avatar, date }">
         <VFlex :align="FlexAlign.CENTER">
           <VOffset :mr="10">
             <VAvatar
-              v-if="row.avatar"
+              v-if="avatar"
               :size="AvatarSize.SMALL"
               light
             >
               <img
-                :src="getPathImg(`images/user-profile/teams/${row.avatar}`)"
-                :alt="`avatar-${row.avatar}`"
+                :src="getPathImg(`images/user-profile/teams/${avatar}`)"
+                :alt="`avatar-${avatar}`"
               >
             </VAvatar>
             <VAvatar
               v-else
-              :letter="row.title"
+              :letter="title"
               :size="AvatarSize.SMALL"
               :color="GlobalColors.SUCCESS"
               light
@@ -39,53 +49,39 @@
               variant="body1"
               font-weight="600"
             >
-              {{ row.title }}
+              {{ title }}
             </VText>
 
             <VText
               :color="GlobalColorMap['400'].default"
               variant="caption"
             >
-              {{ row.date }}
+              {{ date }}
             </VText>
           </VOffset>
         </VFlex>
-      </VTableColumn>
+      </template>
 
-      <VTableColumn
-        name="leader"
-        label="LEADER"
-        :row="row"
-        sortable
-      >
+      <template #leader="{ leader }">
         <VText
           variant="body1"
           :color="GlobalColorMap['400'].default"
         >
-          {{ row.leader }}
+          {{ leader }}
         </VText>
-      </VTableColumn>
+      </template>
 
-      <VTableColumn
-        name="team"
-        label="TEAM"
-        :row="row"
-      >
+      <template #team="{ team }">
         <VOffset
           height="30px"
           :width="`${18 * 4}px`"
           :mt="-10"
         >
-          <VAvatarGroup :data="row.team" />
+          <VAvatarGroup :data="team" />
         </VOffset>
-      </VTableColumn>
+      </template>
 
-      <VTableColumn
-        name="progress"
-        label="STATUS"
-        :row="row"
-        sortable
-      >
+      <template #progress="{ progress }">
         <VFlex :align="FlexAlign.CENTER">
           <VOffset
             width="100%"
@@ -93,7 +89,7 @@
           >
             <VProgress
               border-radius="5"
-              :percentage="row.progress"
+              :percentage="progress"
               width="75%"
             />
           </VOffset>
@@ -102,20 +98,16 @@
             variant="body2"
             :color="GlobalColorMap['400'].default"
           >
-            {{ row.progress }}%
+            {{ progress }}%
           </VText>
         </VFlex>
-      </VTableColumn>
+      </template>
 
-      <VTableColumn
-        name="actions"
-        label="ACTIONS"
-        :row="row"
-        :style="{'textAlign': 'center'}"
-      >
+      <template #actions="{ id, actions }">
         <VMenu
-          v-model="row.actions"
+          :model-value="actions"
           :position="MenuPosition.TOP_RIGHT"
+          @update:model-value="updateAction(id, $event)"
         >
           <template #body>
             <VIconButton>
@@ -135,10 +127,11 @@
             </VText>
           </VMenuItem>
         </VMenu>
-      </VTableColumn>
-    </VTable>
+      </template>
+    </VDynamicTable>
   </VCard>
 </template>
+
 <script setup lang="ts">
 import MoreVertIcon from '@public/assets/icons/more-vert.svg';
 import { ref } from 'vue';
@@ -146,6 +139,7 @@ import { ref } from 'vue';
 import VAvatar from '@/components/basic/VAvatar.vue';
 import VAvatarGroup from '@/components/basic/VAvatarGroup.vue';
 import VCard from '@/components/basic/VCard.vue';
+import VDynamicTable from '@/components/basic/VDynamicTable.vue';
 import VFlex from '@/components/basic/VFlex.vue';
 import VIconButton from '@/components/basic/VIconButton.vue';
 import VMenu from '@/components/basic/VMenu.vue';
@@ -153,16 +147,39 @@ import VMenuItem from '@/components/basic/VMenuItem.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VProgress from '@/components/basic/VProgress.vue';
 import VSplitter from '@/components/basic/VSplitter.vue';
-import VTable from '@/components/basic/VTable.vue';
-import VTableColumn from '@/components/basic/VTableColumn.vue';
 import VText from '@/components/basic/VText.vue';
+import VTitle from '@/components/basic/VTitle.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
 import { AvatarSize } from '@/model/components/basic/VAvatar';
+import type { ITableHead } from '@/model/components/basic/VDynamicTable';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import { MenuPosition } from '@/model/components/basic/VMenu';
+import { TextAlign } from '@/model/components/basic/VText';
 import { getPathImg } from '@/model/tools/PathTools';
 import { getRandomId } from '@/model/tools/RandomTools';
 import type { ProjectsCompact } from '@/model/user-profile/Projects';
+
+const heads: ITableHead[] = [{
+  label: 'NAME',
+  name: 'title',
+  sort: true,
+}, {
+  label: 'LEADER',
+  name: 'leader',
+  sort: true,
+}, {
+  label: 'TEAM',
+  name: 'team',
+  sort: true,
+}, {
+  label: 'STATUS',
+  name: 'progress',
+}, {
+  label: 'ACTIONS',
+  name: 'actions',
+  align: TextAlign.CENTER,
+},
+];
 
 const projectsData = ref<ProjectsCompact[]>([
   {
@@ -262,9 +279,17 @@ const projectsData = ref<ProjectsCompact[]>([
     actions: false,
   },
 ]);
+
+const updateAction = (id: string, action: boolean) => {
+  const listItem = projectsData.value.find((el) => el.id === id);
+
+  if (listItem) {
+    listItem.actions = action;
+  }
+};
 </script>
 
-<style module lnag="scss">
+<style module lang="scss">
 .table {
   min-width: 800px;
 }
