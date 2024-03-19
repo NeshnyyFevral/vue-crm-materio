@@ -100,14 +100,6 @@
           <ProfileIcon />
         </VMenuItem>
 
-        <VMenuItem name="Inbox">
-          <InboxIcon />
-        </VMenuItem>
-
-        <VMenuItem name="Chat">
-          <ChatIcon />
-        </VMenuItem>
-
         <VSplitter />
 
         <VMenuItem name="Settings">
