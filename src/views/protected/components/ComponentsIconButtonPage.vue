@@ -5,9 +5,9 @@
       desc="Use variant={'filled' | 'transparent' | 'light'} prop with <VIconButton> component for different varianted buttons."
     >
       <VIconButton
-        v-for="variant in Object.keys(IconButtonVariant)"
+        v-for="variant in Object.values(IconButtonVariant)"
         :key="variant"
-        :variant="IconButtonVariant[variant]"
+        :variant="variant"
       >
         <ZoomIcon />
       </VIconButton>
@@ -18,9 +18,9 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VIconButton> component for different colored buttons."
     >
       <VIconButton
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
       >
         <ZoomIcon />
       </VIconButton>
@@ -31,9 +31,9 @@
       desc="Use size={'small' | 'medium' | 'large'} prop with <VIconButton> component for different sized buttons."
     >
       <VIconButton
-        v-for="size in Object.keys(IconButtonSize)"
+        v-for="size in Object.values(IconButtonSize)"
         :key="size"
-        :size="IconButtonSize[size]"
+        :size="size"
       >
         <ZoomIcon />
       </VIconButton>
@@ -44,9 +44,9 @@
       desc="Use «rounded» prop with <VIconButton> component."
     >
       <VIconButton
-        v-for="variant in Object.keys(IconButtonVariant)"
+        v-for="variant in Object.values(IconButtonVariant)"
         :key="variant"
-        :variant="IconButtonVariant[variant]"
+        :variant="variant"
         rounded
       >
         <ZoomIcon />
@@ -60,9 +60,9 @@
     >
       <div :class="$style.flex">
         <VIconButton
-          v-for="variant in Object.keys(IconButtonVariant)"
+          v-for="variant in Object.values(IconButtonVariant)"
           :key="variant"
-          :variant="IconButtonVariant[variant]"
+          :variant="variant"
           :color="GlobalColors.PRIMARY"
         >
           <ZoomIcon />
@@ -70,9 +70,9 @@
       </div>
       <div :class="$style.flex">
         <VIconButton
-          v-for="variant in Object.keys(IconButtonVariant)"
+          v-for="variant in Object.values(IconButtonVariant)"
           :key="variant"
-          :variant="IconButtonVariant[variant]"
+          :variant="variant"
           :color="GlobalColors.PRIMARY"
           disabled
         >

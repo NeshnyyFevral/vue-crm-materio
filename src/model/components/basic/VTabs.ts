@@ -4,4 +4,5 @@ export interface TabsData {
   icon?: any;
   route: string;
   name: string;
+  title?: string
 }

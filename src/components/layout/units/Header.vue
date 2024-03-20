@@ -95,18 +95,24 @@
 
         <VMenuItem
           name="Profile"
-          @click-elem="selectUserMenu"
+          @click-elem="selectUserMenu($event as UserMenuEnum)"
         >
           <ProfileIcon />
         </VMenuItem>
 
         <VSplitter />
 
-        <VMenuItem name="Settings">
+        <VMenuItem
+          name="Pricing"
+          @click-elem="selectUserMenu($event as UserMenuEnum)"
+        >
           <SettingsIcon />
         </VMenuItem>
 
-        <VMenuItem name="FAQ">
+        <VMenuItem
+          name="FAQ"
+          @click-elem="selectUserMenu($event as UserMenuEnum)"
+        >
           <FAQIcon />
         </VMenuItem>
 
@@ -122,9 +128,7 @@
 
 <script setup lang="ts">
 import NotifyIcon from '@public/assets/icons/header/notification.svg';
-import ChatIcon from '@public/assets/icons/menu/chat.svg';
 import FAQIcon from '@public/assets/icons/menu/faq.svg';
-import InboxIcon from '@public/assets/icons/menu/inbox.svg';
 import LogoutIcon from '@public/assets/icons/menu/logout.svg';
 import ProfileIcon from '@public/assets/icons/menu/profile.svg';
 import SettingsIcon from '@public/assets/icons/menu/settings.svg';
@@ -168,6 +172,12 @@ interface EmitsType {
   (e: 'switchSidebar'): void;
 }
 
+const enum UserMenuEnum {
+  PROFILE = 'Profile',
+  PRICING = 'Pricing',
+  FAQ = 'FAQ',
+}
+
 defineProps<PropsType>();
 
 const themeStore = useThemeStore();
@@ -179,9 +189,11 @@ const hasUserMenuOpened = ref<boolean>(false);
 const themeValue = ref<boolean>(false);
 const displayedThemeValue = computed<'Dark' | 'Light'>(() => (themeValue.value ? 'Dark' : 'Light'));
 
-const selectUserMenu = (page: 'Profile') => {
+const selectUserMenu = (page: UserMenuEnum) => {
   switch (page) {
-  case 'Profile': router.push({ name: Routes.USER_PROFILE_PROFILE }); break;
+  case UserMenuEnum.PROFILE: router.push({ name: Routes.USER_PROFILE_PROFILE }); break;
+  case UserMenuEnum.PRICING: router.push({ name: Routes.OTHER_PRICING }); break;
+  case UserMenuEnum.FAQ: router.push({ name: Routes.OTHER_FAQ }); break;
   default:
   }
 };

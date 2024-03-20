@@ -46,13 +46,13 @@
       desc="Use variant={'standard' | 'outlined'}"
     >
       <VTextField
-        v-for="variant in Object.keys(TextFieldVariant)"
+        v-for="variant in Object.values(TextFieldVariant)"
         :key="variant"
         v-model="variantTextareaValue"
         multiline
         max-width
-        :label="TextFieldVariant[variant]"
-        :variant="TextFieldVariant[variant]"
+        :label="variant"
+        :variant="variant"
         rows="3"
       />
     </VPreviewComponentCard>

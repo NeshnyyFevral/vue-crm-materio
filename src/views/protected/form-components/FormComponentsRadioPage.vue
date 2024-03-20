@@ -5,13 +5,13 @@
       desc="se color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VRadio> component for different colored inputs."
     >
       <VRadio
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         v-model="colorRadioValue"
-        :value="GlobalColors[color]"
+        :value="color"
         name="color"
-        :label="GlobalColors[color]"
-        :color="GlobalColors[color]"
+        :label="color"
+        :color="color"
       />
     </VPreviewComponentCard>
 
@@ -20,13 +20,13 @@
       desc="Use size={'small' | 'normal'} prop with <VRadio> component for different sized inputs."
     >
       <VRadio
-        v-for="size in Object.keys(RadioSize)"
+        v-for="size in Object.values(RadioSize)"
         :key="size"
         v-model="sizeRadioValue"
-        :value="RadioSize[size]"
+        :value="size"
         name="size"
-        :label="RadioSize[size]"
-        :size="RadioSize[size]"
+        :label="size"
+        :size="size"
       />
     </VPreviewComponentCard>
 
@@ -35,13 +35,13 @@
       desc="Use label-place={'left' | 'right' | 'top' | 'bottom'} prop with <VRadio> component for different label placement."
     >
       <VRadio
-        v-for="place in Object.keys(RadioLabelPlacement)"
+        v-for="place in Object.values(RadioLabelPlacement)"
         :key="place"
         v-model="labelPlacementRadioValue"
-        :value="RadioLabelPlacement[place]"
+        :value="place"
         name="labelPlacement"
-        :label="RadioLabelPlacement[place]"
-        :label-place="RadioLabelPlacement[place]"
+        :label="place"
+        :label-place="place"
       />
     </VPreviewComponentCard>
 

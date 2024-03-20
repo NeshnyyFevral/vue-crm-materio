@@ -1,4 +1,4 @@
-export const enum SkeletonVariant {
+export enum SkeletonVariant {
   CIRCLE = 'circle',
   PARAGRAPH = 'paragraph',
   FIELD = 'field',

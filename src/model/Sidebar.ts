@@ -1,8 +1,8 @@
-// import CardsIcon from '@public/assets/icons/sidebar/cards.svg';
+import CardsIcon from '@public/assets/icons/sidebar/cards.svg';
 import ComponentsIcon from '@public/assets/icons/sidebar/components.svg';
 import DashboardsIcon from '@public/assets/icons/sidebar/dashboards.svg';
 // import InvoiceIcon from '@public/assets/icons/sidebar/invoice.svg';
-// import PagesIcon from '@public/assets/icons/sidebar/pages.svg';
+import PagesIcon from '@public/assets/icons/sidebar/pages.svg';
 import TypographyIcon from '@public/assets/icons/sidebar/typography.svg';
 import UserIcon from '@public/assets/icons/sidebar/user.svg';
 
@@ -48,6 +48,13 @@ export default [
         { title: 'Teams', route: { name: Routes.USER_PROFILE_TEAMS } },
         { title: 'Projects', route: { name: Routes.USER_PROFILE_PROJECTS } },
         { title: 'Connections', route: { name: Routes.USER_PROFILE_CONNECTIONS } },
+      ],
+    }, {
+      title: 'Other',
+      icon: CardsIcon,
+      list: [
+        { title: 'Pricing', route: { name: Routes.OTHER_PRICING } },
+        { title: 'FAQ', route: { name: Routes.OTHER_FAQ } },
       ],
     },
     ],

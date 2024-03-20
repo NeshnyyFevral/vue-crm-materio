@@ -9,9 +9,12 @@
     <div
       :class="$style.visible"
     >
-      <VTitle variant="heading6">
+      <VText
+        font-weight="500"
+        variant="subtitle1"
+      >
         {{ props.title }}
-      </VTitle>
+      </VText>
 
       <div :class="$style.icon">
         <div />
@@ -21,7 +24,9 @@
 
     <div :class="$style.desc">
       <div ref="desc">
-        <slot />
+        <VText variant="caption">
+          <slot />
+        </VText>
       </div>
     </div>
   </div>
@@ -34,7 +39,7 @@ import {
   watch,
 } from 'vue';
 
-import VTitle from '@/components/basic/VTitle.vue';
+import VText from '@/components/basic/VText.vue';
 
 interface PropsType {
   name?: string;
@@ -79,11 +84,16 @@ watch(() => props.name, () => {
   padding: 10px 25px;
   background-color: var(--color-card);
   width: 100%;
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
-  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
 
-  transition: background-color var(--transition-duration) var(--transition-timing-func);
+  transition: background-color var(--transition-duration) var(--transition-timing-func),
+    margin var(--transition-duration) var(--transition-timing-func);
+
+  &.open {
+    margin: 10px 0;
+  }
 }
 
 .desc {

@@ -12,7 +12,7 @@
       </div>
     </VOffset>
     <VFlex :direction="!props.reverse ? FlexDirection.COLUMN : FlexDirection.COLUMN_REVERSE">
-      <VOffset :mb="5">
+      <VOffset :mb="3">
         <VText
           :color="GlobalColorMap['400'].default"
           variant="caption"
@@ -21,7 +21,7 @@
         </VText>
       </VOffset>
       <VTitle
-        font-weight="600"
+        font-weight="500"
         variant="heading6"
       >
         {{ props.value }}

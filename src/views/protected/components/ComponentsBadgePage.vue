@@ -5,10 +5,10 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VBadge> component for different colored badge."
     >
       <VBadge
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         :value="4"
-        :color="GlobalColors[color]"
+        :color="color"
       >
         <VAvatar>
           <img
@@ -24,10 +24,10 @@
       desc="Use size={'small' | 'normal} prop with <VBadge> component for different sized badge."
     >
       <VBadge
-        v-for="size in Object.keys(BadgeSize)"
+        v-for="size in Object.values(BadgeSize)"
         :key="size"
         :value="3"
-        :size="BadgeSize[size]"
+        :size="size"
       >
         <VAvatar>
           <img
@@ -43,10 +43,10 @@
       desc="Use position={'right-top' | 'right-bottom' | 'left-bottom' | 'left-top'} prop with <VBadge> component   for different positioned badge."
     >
       <VBadge
-        v-for="position in Object.keys(BadgePosition)"
+        v-for="position in Object.values(BadgePosition)"
         :key="position"
         :value="1"
-        :position="BadgePosition[position]"
+        :position="position"
       >
         <VAvatar>
           <img
@@ -62,10 +62,10 @@
       desc="Use variant={'light'} to reverse the colors of the badge."
     >
       <VBadge
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         :value="4"
-        :color="GlobalColors[color]"
+        :color="color"
         :variant="BadgeVariant.LIGHT"
       >
         <VAvatar>
@@ -82,10 +82,10 @@
       desc="Use variant={'dot'} to remove badge text."
     >
       <VBadge
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         :value="4"
-        :color="GlobalColors[color]"
+        :color="color"
         :variant="BadgeVariant.DOT"
         :size="BadgeSize.SMALL"
       >

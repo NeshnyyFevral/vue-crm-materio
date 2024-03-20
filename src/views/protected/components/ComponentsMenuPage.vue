@@ -113,19 +113,19 @@
       desc="Use position={'top-right' | 'top-left' | 'bottom-left' | 'bottom-right'} prop with <VMenu> component for different positioned menu."
     >
       <div
-        v-for="pos in Object.keys(MenuPosition)"
+        v-for="pos in Object.values(MenuPosition)"
         :key="pos"
       >
         <VMenu
-          v-model="hasPositionOpened[MenuPosition[pos]]"
-          :position="MenuPosition[pos]"
+          v-model="hasPositionOpened[pos]"
+          :position="pos"
         >
           <template #body>
             <VButton
               :variant="ButtonVariant.OUTLINED"
               max-width
             >
-              {{ MenuPosition[pos] }}
+              {{ pos }}
             </VButton>
           </template>
           <VMenuItem

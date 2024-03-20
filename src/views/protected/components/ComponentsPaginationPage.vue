@@ -6,10 +6,10 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VPagination> component for different colored buttons."
     >
       <VPagination
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         v-model="colorPage"
-        :color="GlobalColors[color]"
+        :color="color"
         :count="10"
       />
     </VPreviewComponentCard>
@@ -20,10 +20,10 @@
       desc="Use size={'small' | 'medium' | 'large'} prop with <VPagination> component for different sized buttons."
     >
       <VPagination
-        v-for="size in Object.keys(PaginationSize)"
+        v-for="size in Object.values(PaginationSize)"
         :key="size"
         v-model="sizePage"
-        :size="PaginationSize[size]"
+        :size="size"
         :count="10"
       />
     </VPreviewComponentCard>
@@ -34,10 +34,10 @@
       desc="Use variant={'filled' | 'transparent' | 'light'} prop with <VPagination> component for different varianted buttons."
     >
       <VPagination
-        v-for="variant in Object.keys(PaginationVariant)"
+        v-for="variant in Object.values(PaginationVariant)"
         :key="variant"
         v-model="variantPage"
-        :variant="PaginationVariant[variant]"
+        :variant="variant"
         :count="10"
       />
     </VPreviewComponentCard>
@@ -48,10 +48,10 @@
       desc="Use «rounded» prop with <VPagination> component."
     >
       <VPagination
-        v-for="variant in Object.keys(PaginationVariant)"
+        v-for="variant in Object.values(PaginationVariant)"
         :key="variant"
         v-model="roundedPage"
-        :variant="PaginationVariant[variant]"
+        :variant="variant"
         :count="15"
         rounded
       />

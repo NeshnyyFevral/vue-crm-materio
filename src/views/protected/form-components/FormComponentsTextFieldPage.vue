@@ -5,11 +5,11 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VTextField> component for different colored inputs."
     >
       <VTextField
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         v-model="inputColorValue"
-        :label="GlobalColors[color]"
-        :color="GlobalColors[color]"
+        :label="color"
+        :color="color"
       />
     </VPreviewComponentCard>
 
@@ -18,28 +18,28 @@
       desc="Use {disabled | readonly}=true."
     >
       <VTextField
-        v-for="variant in Object.keys(TextFieldVariant)"
+        v-for="variant in Object.values(TextFieldVariant)"
         :key="variant"
         v-model="inputDisabledValue"
-        :variant="TextFieldVariant[variant]"
-        :label="TextFieldVariant[variant]"
+        :variant="variant"
+        :label="variant"
       />
 
       <VTextField
-        v-for="variant in Object.keys(TextFieldVariant)"
+        v-for="variant in Object.values(TextFieldVariant)"
         :key="variant"
         v-model="inputDisabledValue"
-        :variant="TextFieldVariant[variant]"
-        :label="`${TextFieldVariant[variant]} + disabled`"
+        :variant="variant"
+        :label="`${variant} + disabled`"
         disabled
       />
 
       <VTextField
-        v-for="variant in Object.keys(TextFieldVariant)"
+        v-for="variant in Object.values(TextFieldVariant)"
         :key="variant"
         v-model="inputDisabledValue"
-        :variant="TextFieldVariant[variant]"
-        :label="`${TextFieldVariant[variant]} + readonly`"
+        :variant="variant"
+        :label="`${variant} + readonly`"
         readonly
       />
     </VPreviewComponentCard>
@@ -49,11 +49,11 @@
       desc="Use variant={'outlined' | 'standard'}"
     >
       <VTextField
-        v-for="variant in Object.keys(TextFieldVariant)"
+        v-for="variant in Object.values(TextFieldVariant)"
         :key="variant"
         v-model="inputVariantValue"
-        :variant="TextFieldVariant[variant]"
-        :label="TextFieldVariant[variant]"
+        :variant="variant"
+        :label="variant"
       />
     </VPreviewComponentCard>
 
@@ -62,11 +62,11 @@
       desc="Use size={'small' | 'normal'}"
     >
       <VTextField
-        v-for="size in Object.keys(TextFieldSize)"
+        v-for="size in Object.values(TextFieldSize)"
         :key="size"
         v-model="inputSizeValue"
-        :size="TextFieldSize[size]"
-        :label="TextFieldSize[size]"
+        :size="size"
+        :label="size"
       />
     </VPreviewComponentCard>
 
@@ -75,11 +75,11 @@
       desc="Use type={'text' | 'password' | 'number' | 'search'}"
     >
       <VTextField
-        v-for="type in Object.keys(TextFieldType)"
+        v-for="type in Object.values(TextFieldType)"
         :key="type"
         v-model="inputTypeValue"
-        :label="TextFieldType[type]"
-        :type="TextFieldType[type]"
+        :label="type"
+        :type="type"
       />
     </VPreviewComponentCard>
 
