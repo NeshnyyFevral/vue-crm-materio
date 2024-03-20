@@ -5,11 +5,11 @@
       desc="Button sizes provided from the «ButtonSize» model."
     >
       <VButton
-        v-for="size in Object.keys(ButtonSize)"
+        v-for="size in Object.values(ButtonSize)"
         :key="size"
-        :size="ButtonSize[size]"
+        :size="size"
       >
-        {{ ButtonSize[size] }}
+        {{ size }}
       </VButton>
     </VPreviewComponentCard>
 
@@ -27,12 +27,12 @@
       desc="Button colors provided from «GlobalColors» model."
     >
       <VButton
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
         :size="ButtonSize.SMALL"
       >
-        {{ GlobalColors[color] }}
+        {{ color }}
       </VButton>
     </VPreviewComponentCard>
 
@@ -41,11 +41,11 @@
       desc="Button variants provided from «ButtonVariant» model."
     >
       <VButton
-        v-for="variant in Object.keys(ButtonVariant)"
+        v-for="variant in Object.values(ButtonVariant)"
         :key="variant"
-        :variant="ButtonVariant[variant]"
+        :variant="variant"
       >
-        {{ ButtonVariant[variant] }}
+        {{ variant }}
       </VButton>
     </VPreviewComponentCard>
 
@@ -77,12 +77,12 @@
       desc="Use «loading» prop for circular animation."
     >
       <VButton
-        v-for="variant in Object.keys(ButtonVariant)"
+        v-for="variant in Object.values(ButtonVariant)"
         :key="variant"
         loading
-        :variant="ButtonVariant[variant]"
+        :variant="variant"
       >
-        {{ ButtonVariant[variant] }}
+        {{ variant }}
       </VButton>
     </VPreviewComponentCard>
   </VPreviewComponentPage>

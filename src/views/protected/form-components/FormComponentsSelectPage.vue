@@ -106,7 +106,7 @@ import VPreviewComponentPage from '@/components/basic/VPreviewComponentPage.vue'
 import VSelect from '@/components/form/VSelect.vue';
 import type { GlobalColors } from '@/model/Colors';
 import { PreviewDirection } from '@/model/components/basic/VPreviewComponentCard';
-import { type SelectOptions } from '@/model/components/form/VSelect';
+import type { SelectOptions } from '@/model/components/form/VSelect';
 import type { TextFieldVariant } from '@/model/components/form/VTextField';
 
 const unclicableSelectValue = ref<string>('');

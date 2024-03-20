@@ -5,11 +5,11 @@
       desc="Chip sizes provided from the «ChipSize» model."
     >
       <VChip
-        v-for="size in Object.keys(ChipSize)"
+        v-for="size in Object.values(ChipSize)"
         :key="size"
-        :size="ChipSize[size]"
+        :size="size"
       >
-        {{ ChipSize[size] }}
+        {{ size }}
       </VChip>
     </VPreviewComponentCard>
 
@@ -18,11 +18,11 @@
       desc="Chip variants provided from the «ChipVariant» model."
     >
       <VChip
-        v-for="variant in Object.keys(ChipVariant)"
+        v-for="variant in Object.values(ChipVariant)"
         :key="variant"
-        :variant="ChipVariant[variant]"
+        :variant="variant"
       >
-        {{ ChipVariant[variant] }}
+        {{ variant }}
       </VChip>
     </VPreviewComponentCard>
 
@@ -31,11 +31,11 @@
       desc="Chip colors provided from the «GlobalColors» model."
     >
       <VChip
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
       >
-        {{ GlobalColors[color] }}
+        {{ color }}
       </VChip>
     </VPreviewComponentCard>
 
@@ -44,12 +44,12 @@
       desc="Сhips that show something that can be clicked on."
     >
       <VChip
-        v-for="variant in Object.keys(ChipVariant)"
+        v-for="variant in Object.values(ChipVariant)"
         :key="variant"
-        :variant="ChipVariant[variant]"
+        :variant="variant"
         clickable
       >
-        {{ ChipVariant[variant] }}
+        {{ variant }}
       </VChip>
     </VPreviewComponentCard>
 
@@ -79,12 +79,12 @@
       desc="Use a prop rectangle to remove the rounded corners."
     >
       <VChip
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
         rectangle
       >
-        {{ GlobalColors[color] }}
+        {{ color }}
       </VChip>
     </VPreviewComponentCard>
 
@@ -93,11 +93,11 @@
       desc="Use a prop rectangle to remove the rounded corners."
     >
       <VChip
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
       >
-        {{ GlobalColors[color] }}
+        {{ color }}
       </VChip>
     </VPreviewComponentCard>
   </VPreviewComponentPage>

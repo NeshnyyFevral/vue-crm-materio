@@ -5,12 +5,12 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VSwitch> component for different colored inputs."
     >
       <VSwitch
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         v-model="switchColorValue"
-        :color="GlobalColors[color]"
+        :color="color"
       >
-        {{ GlobalColors[color] }}
+        {{ color }}
       </VSwitch>
     </VPreviewComponentCard>
 
@@ -19,12 +19,12 @@
       desc="Use size={'small' | 'normal'} prop with <VSwitch> component for different sized inputs."
     >
       <VSwitch
-        v-for="size in Object.keys(SwitchSize)"
+        v-for="size in Object.values(SwitchSize)"
         :key="size"
         v-model="switchSizeValue"
-        :size="SwitchSize[size]"
+        :size="size"
       >
-        {{ SwitchSize[size] }}
+        {{ size }}
       </VSwitch>
     </VPreviewComponentCard>
 
@@ -33,12 +33,12 @@
       desc="Use label-place={'left' | 'right' | 'top' | 'bottom'} prop with <VCheckbox> component for different label placement."
     >
       <VSwitch
-        v-for="place in Object.keys(SwitchLabelPlacement)"
+        v-for="place in Object.values(SwitchLabelPlacement)"
         :key="place"
         v-model="switchLabelPlaceValue"
-        :label-place="SwitchLabelPlacement[place]"
+        :label-place="place"
       >
-        {{ SwitchLabelPlacement[place] }}
+        {{ place }}
       </VSwitch>
     </VPreviewComponentCard>
 

@@ -5,9 +5,9 @@
       desc="Avatar sizes provided by «AvatarSize» model."
     >
       <VAvatar
-        v-for="size in Object.keys(AvatarSize)"
+        v-for="size in Object.values(AvatarSize)"
         :key="size"
-        :size="AvatarSize[size]"
+        :size="size"
       >
         <img
           :src="getPathImg('avatars/3.png')"
@@ -21,9 +21,9 @@
       desc="Avatar variants provided by «AvatarVariant» model."
     >
       <VAvatar
-        v-for="variant in Object.keys(AvatarVariant)"
+        v-for="variant in Object.values(AvatarVariant)"
         :key="variant"
-        :variant="AvatarVariant[variant]"
+        :variant="variant"
       >
         <img
           :src="getPathImg('avatars/2.png')"
@@ -40,9 +40,9 @@
         taken and displayed with a capital letter."
     >
       <VAvatar
-        v-for="variant in Object.keys(AvatarVariant)"
+        v-for="variant in Object.values(AvatarVariant)"
         :key="variant"
-        :variant="AvatarVariant[variant]"
+        :variant="variant"
         letter="Jhon Snow"
         filled
       />
@@ -106,9 +106,9 @@
       desc="Use prop «outline» to transparent the background and add border."
     >
       <VAvatar
-        v-for="variant in Object.keys(AvatarVariant)"
+        v-for="variant in Object.values(AvatarVariant)"
         :key="variant"
-        :variant="AvatarVariant[variant]"
+        :variant="variant"
         letter="Jhon Snow"
         outlined
       />

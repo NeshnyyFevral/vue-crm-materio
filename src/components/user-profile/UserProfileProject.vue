@@ -192,7 +192,7 @@
             variant="caption"
             :color="GlobalColorMap['400'].default"
           >
-            Tasks: {{ props.taskNeed }}/{{ taskComplete }}
+            Tasks: {{ taskComplete }}/{{ props.taskNeed }}
           </VText>
 
           <VText

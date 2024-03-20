@@ -5,12 +5,12 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VCheckbox> component for different colored inputs."
     >
       <VCheckbox
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
         v-model="checkboxColorValue"
-        :color="GlobalColors[color]"
+        :color="color"
       >
-        {{ GlobalColors[color] }}
+        {{ color }}
       </VCheckbox>
     </VPreviewComponentCard>
 
@@ -19,12 +19,12 @@
       desc="Use size={'small' | 'normal'} prop with <VCheckbox> component for different sized inputs."
     >
       <VCheckbox
-        v-for="size in Object.keys(CheckboxSize)"
+        v-for="size in Object.values(CheckboxSize)"
         :key="size"
         v-model="checkboxSizeValue"
-        :size="CheckboxSize[size]"
+        :size="size"
       >
-        {{ CheckboxSize[size] }}
+        {{ size }}
       </VCheckbox>
     </VPreviewComponentCard>
 
@@ -33,12 +33,12 @@
       desc="Use label-place={'left' | 'right' | 'top' | 'bottom'} prop with <VCheckbox> component for different label placement."
     >
       <VCheckbox
-        v-for="place in Object.keys(CheckboxLabelPlacement)"
+        v-for="place in Object.values(CheckboxLabelPlacement)"
         :key="place"
         v-model="checkboxLabelPlaceValue"
-        :label-place="CheckboxLabelPlacement[place]"
+        :label-place="place"
       >
-        {{ CheckboxLabelPlacement[place] }}
+        {{ place }}
       </VCheckbox>
     </VPreviewComponentCard>
 

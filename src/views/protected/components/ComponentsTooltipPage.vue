@@ -5,18 +5,18 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VTooltip> component for different colored tooltips"
     >
       <VTooltip
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
-        :title="GlobalColors[color]"
+        :color="color"
+        :title="color"
         :position="TooltipPosition.BOTTOM"
       >
         <VButton
           :variant="ButtonVariant.OUTLINED"
           :size="ButtonSize.SMALL"
-          :color="GlobalColors[color]"
+          :color="color"
         >
-          {{ GlobalColors[color] }}
+          {{ color }}
         </VButton>
       </VTooltip>
     </VPreviewComponentCard>

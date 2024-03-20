@@ -5,11 +5,11 @@
       desc="Use color={'error' | 'warning' | 'info' | 'success' | 'default' | 'primary'} prop with <VAlert> component for different colored alerts."
     >
       <VAlert
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
       >
-        This is an {{ GlobalColors[color] }} alert — check it out!
+        This is an {{ color }} alert — check it out!
       </VAlert>
     </VPreviewComponentCard>
 
@@ -18,12 +18,12 @@
       desc="Use variant='outlined' prop with <VAlert> component for outlined alerts."
     >
       <VAlert
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
         :variant="AlertVariant.OUTLINED"
       >
-        This is an {{ GlobalColors[color] }} alert — check it out!
+        This is an {{ color }} alert — check it out!
       </VAlert>
     </VPreviewComponentCard>
 
@@ -32,12 +32,12 @@
       desc="Use variant='filled' prop with <VAlert> component for filled alerts."
     >
       <VAlert
-        v-for="color in Object.keys(GlobalColors)"
+        v-for="color in Object.values(GlobalColors)"
         :key="color"
-        :color="GlobalColors[color]"
+        :color="color"
         :variant="AlertVariant.FILLED"
       >
-        This is an {{ GlobalColors[color] }} alert — check it out!
+        This is an {{ color }} alert — check it out!
       </VAlert>
     </VPreviewComponentCard>
 

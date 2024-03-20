@@ -19,6 +19,8 @@
         :icon="item.icon"
         :filled="props.filled"
         :color="props.color"
+        :justify-content="props.justifyContent"
+        :title="item.title ?? item.name"
         @click-by-item="changeActiveElement"
       />
     </VOffset>
@@ -41,7 +43,11 @@ import VFlex from '@/components/basic/VFlex.vue';
 import VOffset from '@/components/basic/VOffset.vue';
 import VTabsItem from '@/components/basic/VTabsItem.vue';
 import { GlobalColorMap, GlobalColors } from '@/model/Colors';
-import { FlexAlign, FlexDirection } from '@/model/components/basic/VFlex';
+import {
+  FlexAlign,
+  FlexDirection,
+  FlexJustify,
+} from '@/model/components/basic/VFlex';
 import type { TabsData } from '@/model/components/basic/VTabs';
 
 interface PropsType {
@@ -51,6 +57,7 @@ interface PropsType {
   underline?: boolean;
   filled?: boolean;
   direction?: FlexDirection;
+  justifyContent?: FlexJustify;
 }
 
 const props = withDefaults(defineProps<PropsType>(), {
@@ -60,6 +67,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   underline: false,
   filled: false,
   direction: FlexDirection.ROW,
+  justifyContent: FlexJustify.CENTER,
 });
 const activeElement = ref<number>(0);
 

@@ -41,6 +41,15 @@ export const Routes = {
   USER_PROFILE_PROJECTS: 'user-profile/projects',
   USER_PROFILE_CONNECTIONS: 'user-profile/connections',
 
+  OTHER_PRICING: 'pricing',
+
+  OTHER_FAQ: 'faq',
+  OTHER_FAQ_DELIVERY: 'faq/delivery',
+  OTHER_FAQ_ORDERS: 'faq/orders',
+  OTHER_FAQ_PAYMENT: 'faq/payment',
+  OTHER_FAQ_RETURN: 'faq/return',
+  OTHER_FAQ_SERVICES: 'faq/services',
+
   /* PUBLIC PAGES */
   LOGIN: 'login',
   NOT_FOUND: '404',
@@ -61,11 +70,41 @@ export default function createRouter() {
       children: [{
         path: `${BASE}/${Routes.CRM}`,
         name: Routes.CRM,
-        component: () => import('@/views/protected/CrmPage.vue'),
+        component: () => import('@/views/protected/dashboards/CrmPage.vue'),
       }, {
         path: `${BASE}/${Routes.ANALYTICS}`,
         name: Routes.ANALYTICS,
-        component: () => import('@/views/protected/AnalyticsPage.vue'),
+        component: () => import('@/views/protected/dashboards/AnalyticsPage.vue'),
+      }, {
+        path: `${BASE}/${Routes.OTHER_PRICING}`,
+        name: Routes.OTHER_PRICING,
+        component: () => import('@/views/protected/other/OtherPricingPage.vue'),
+      }, {
+        path: `${BASE}/${Routes.OTHER_FAQ}`,
+        name: Routes.OTHER_FAQ,
+        component: () => import('@/views/protected/other/faq/OtherFAQPage.vue'),
+        redirect: { name: Routes.OTHER_FAQ_PAYMENT },
+        children: [{
+          path: `${BASE}/${Routes.OTHER_FAQ_PAYMENT}`,
+          name: Routes.OTHER_FAQ_PAYMENT,
+          component: () => import('@/views/protected/other/faq/OtherFAQPayment.vue'),
+        }, {
+          path: `${BASE}/${Routes.OTHER_FAQ_DELIVERY}`,
+          name: Routes.OTHER_FAQ_DELIVERY,
+          component: () => import('@/views/protected/other/faq/OtherFAQDelivery.vue'),
+        }, {
+          path: `${BASE}/${Routes.OTHER_FAQ_RETURN}`,
+          name: Routes.OTHER_FAQ_RETURN,
+          component: () => import('@/views/protected/other/faq/OtherFAQReturn.vue'),
+        }, {
+          path: `${BASE}/${Routes.OTHER_FAQ_ORDERS}`,
+          name: Routes.OTHER_FAQ_ORDERS,
+          component: () => import('@/views/protected/other/faq/OtherFAQOrders.vue'),
+        }, {
+          path: `${BASE}/${Routes.OTHER_FAQ_SERVICES}`,
+          name: Routes.OTHER_FAQ_SERVICES,
+          component: () => import('@/views/protected/other/faq/OtherFAQServices.vue'),
+        }],
       }, {
         path: `${BASE}/${Routes.COMPONENTS}`,
         name: Routes.COMPONENTS,

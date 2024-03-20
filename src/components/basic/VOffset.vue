@@ -13,6 +13,7 @@ interface PropsType {
   mr?: number | 'auto';
   mb?: number | 'auto';
   maxWidth?: string;
+  minWidth?: string;
   width?: string;
   height?: string;
   minHeight?: string;
@@ -25,6 +26,7 @@ const props = withDefaults(defineProps<PropsType>(), {
   mr: 0,
   mb: 0,
   maxWidth: undefined,
+  minWidth: undefined,
   width: undefined,
   height: undefined,
   minHeight: undefined,
@@ -36,6 +38,7 @@ const MR = computed(() => (props.mr === 'auto' ? props.mr : `${props.mr}px`));
 const MT = computed(() => (props.mt === 'auto' ? props.mt : `${props.mt}px`));
 const MB = computed(() => (props.mb === 'auto' ? props.mb : `${props.mb}px`));
 const maxWidth = computed(() => props.maxWidth);
+const minWidth = computed(() => props.minWidth);
 const width = computed(() => props.width);
 const height = computed(() => props.height);
 const minHeight = computed(() => props.minHeight);
@@ -49,6 +52,7 @@ const maxHeight = computed(() => props.maxHeight);
   --margin-top: v-bind(MT);
   --margin-bottom: v-bind(MB);
   --max-width: v-bind(maxWidth);
+  --min-width: v-bind(minWidth);
   --width: v-bind(width);
   --height: v-bind(height);
   --min-height: v-bind(minHeight);
@@ -61,6 +65,7 @@ const maxHeight = computed(() => props.maxHeight);
     var(--margin-bottom)
     var(--margin-left);
   max-width: var(--max-width);
+  min-width: var(--min-width);
   width: var(--width);
   height: var(--height);
   min-height: var(--min-height);
