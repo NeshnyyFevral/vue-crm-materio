@@ -6,9 +6,7 @@
     ]"
     @click="isOpen = !isOpen"
   >
-    <div
-      :class="$style.visible"
-    >
+    <div :class="$style.visible">
       <VText
         font-weight="500"
         variant="subtitle1"

@@ -72,5 +72,6 @@ const modelValue = defineModel<string>({ required: true });
 .textfield {
   background-color: var(--color-card);
   border-radius: 7px;
+  transition: background-color var(--transition-duration) var(--transition-timing-func);
 }
 </style>

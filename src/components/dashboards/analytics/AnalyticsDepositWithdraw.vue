@@ -23,7 +23,7 @@ import VFlex from '@/components/basic/VFlex.vue';
 import TransactionBlock from '@/components/dashboards/analytics/units/TransactionBlock.vue';
 import { FlexAlign } from '@/model/components/basic/VFlex';
 import { StatisticBasicType } from '@/model/components/StatisticBasic';
-import { type TransactionDepositWithdraw } from '@/model/dashboards/Transactions';
+import type { TransactionDepositWithdraw } from '@/model/dashboards/Transactions';
 import { getRandomId } from '@/model/tools/RandomTools';
 
 const breakpoint = 630;
