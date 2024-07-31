@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import { SkeletonVariant } from '@/model/components/basic/VSkeleton';
+import type { SkeletonVariant } from '@/model/components/basic/VSkeleton';
 
 interface PropsType {
   variant?: SkeletonVariant;
